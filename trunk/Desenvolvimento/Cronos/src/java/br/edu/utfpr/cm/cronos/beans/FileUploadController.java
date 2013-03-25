@@ -5,21 +5,20 @@
 package br.edu.utfpr.cm.cronos.beans;
 
 import javax.faces.application.FacesMessage;  
-import javax.faces.context.FacesContext;  
-  
-import org.primefaces.model.UploadedFile;  
+import javax.faces.context.FacesContext;
+
   
 public class FileUploadController {  
   
-    private UploadedFile file;  
-  
-    public UploadedFile getFile() {  
-        return file;  
-    }  
-  
-    public void setFile(UploadedFile file) {  
-        this.file = file;  
-    }  
+//    private UploadedFile file;  
+//  
+//    public UploadedFile getFile() {  
+//        return file;  
+//    }  
+//  
+//    public void setFile(UploadedFile file) {  
+//        this.file = file;  
+//    }  
   
     public void upload() {  
         if(file != null) {  
