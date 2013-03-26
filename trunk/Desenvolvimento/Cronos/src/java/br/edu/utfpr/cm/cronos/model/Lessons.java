@@ -15,7 +15,7 @@ public class Lessons {
     private String id;
     private Subjects subject;
     private Classes _class;
-    private Periods period;
+    private Period period;
     private Teachers teacher;
     private List<ClassRooms> classrooms;
     private Groups group;
@@ -45,11 +45,11 @@ public class Lessons {
         this._class = _class;
     }
 
-    public Periods getPeriod() {
+    public Period getPeriod() {
         return period;
     }
 
-    public void setPeriod(Periods period) {
+    public void setPeriod(Period period) {
         this.period = period;
     }
 

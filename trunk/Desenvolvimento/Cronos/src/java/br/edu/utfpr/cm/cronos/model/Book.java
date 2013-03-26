@@ -15,7 +15,7 @@ public class Book {
     private int id;
     private ClassRooms classroom;
     private User requestor;
-    private Periods period;
+    private Period period;
     private Calendar startdate;
     private Calendar endDate;
     private BookStatus status;
@@ -45,11 +45,11 @@ public class Book {
         this.requestor = requestor;
     }
 
-    public Periods getPeriod() {
+    public Period getPeriod() {
         return period;
     }
 
-    public void setPeriod(Periods period) {
+    public void setPeriod(Period period) {
         this.period = period;
     }
 

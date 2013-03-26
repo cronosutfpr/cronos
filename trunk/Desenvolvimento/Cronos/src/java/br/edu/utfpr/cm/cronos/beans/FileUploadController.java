@@ -9,7 +9,7 @@ import javax.faces.context.FacesContext;
 
   
 public class FileUploadController {  
-  
+//  
 //    private UploadedFile file;  
 //  
 //    public UploadedFile getFile() {  
@@ -19,11 +19,11 @@ public class FileUploadController {
 //    public void setFile(UploadedFile file) {  
 //        this.file = file;  
 //    }  
-  
-    public void upload() {  
-        if(file != null) {  
-            FacesMessage msg = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");  
-            FacesContext.getCurrentInstance().addMessage(null, msg);  
-        }  
-    }  
+//  
+//    public void upload() {  
+//        if(file != null) {  
+//            FacesMessage msg = new FacesMessage("Succesful", file.getFileName() + " is uploaded.");  
+//            FacesContext.getCurrentInstance().addMessage(null, msg);  
+//        }  
+//    }  
 } 
