@@ -1,0 +1,1233 @@
+<?xml version="1.0" encoding="windows-1252"?>
+<timetable ascttversion="2013.6.2" importtype="database" options="export:idprefix:%CHRID,import:idprefix:%TEMPID,groupstype1,decimalseparatordot,lessonsincludeclasseswithoutstudents,handlestudentsafterlessons" defaultexport="1" displayname="aSc Timetables 2012 XML" displaycountries="">
+   <periods options="canadd,export:silent" columns="period,name,short,starttime,endtime">
+      <period name="1M" short="1M" period="1" starttime="7:30" endtime="8:20"/>
+      <period name="2M" short="2M" period="2" starttime="8:20" endtime="9:10"/>
+      <period name="3M" short="3M" period="3" starttime="9:10" endtime="10:00"/>
+      <period name="4M" short="4M" period="4" starttime="10:20" endtime="11:10"/>
+      <period name="5M" short="5M" period="5" starttime="11:10" endtime="12:00"/>
+      <period name="1T" short="1T" period="6" starttime="13:00" endtime="13:50"/>
+      <period name="2T" short="2T" period="7" starttime="13:50" endtime="14:40"/>
+      <period name="3T" short="3T" period="8" starttime="14:40" endtime="15:30"/>
+      <period name="4T" short="4T" period="9" starttime="15:50" endtime="16:40"/>
+      <period name="5T" short="5T" period="10" starttime="16:40" endtime="17:30"/>
+      <period name="6T" short="6T" period="11" starttime="17:30" endtime="18:20"/>
+      <period name="1N" short="1N" period="12" starttime="18:40" endtime="19:30"/>
+      <period name="g" short="2N" period="13" starttime="19:30" endtime="20:20"/>
+      <period name="3N" short="3N" period="14" starttime="20:20" endtime="21:10"/>
+      <period name="4N" short="4N" period="15" starttime="21:20" endtime="22:10"/>
+      <period name="5N" short="5N" period="16" starttime="22:10" endtime="23:00"/>
+   </periods>
+   <daysdefs options="canadd,export:silent" columns="id,days,name,short">
+      <daysdef id="5121EB01A6E92BE3" name="Qualquer dia" short="X" days="100000,010000,001000,000100,000010,000001"/>
+      <daysdef id="D9AD52E3CF20888D" name="Cada dia" short="E" days="111111"/>
+      <daysdef id="2C3EF495AF309B7D" name="Segunda" short="Seg" days="100000"/>
+      <daysdef id="B4CDD84EC2887F70" name="Terça" short="Ter" days="010000"/>
+      <daysdef id="CF75C7271A96E936" name="Quarta" short="Qua" days="001000"/>
+      <daysdef id="0D2A26BD58ACBC45" name="Quinta" short="Qui" days="000100"/>
+      <daysdef id="58AC2D0A204A6A28" name="Sexta" short="Sex" days="000010"/>
+      <daysdef id="538FC16222BFC3C8" name="Sábado" short="Sáb" days="000001"/>
+   </daysdefs>
+   <weeksdefs options="canadd,export:silent" columns="id,weeks,name,short">
+      <weeksdef id="0A4FC28AE1F06EB4" name="Todas as semanas" short="Todas" weeks="1"/>
+   </weeksdefs>
+   <termsdefs options="canadd,export:silent" columns="id,terms,name,short">
+      <termsdef id="9F8B3186839FC4AA" name="Todo o ano" short="ANO" terms="1"/>
+   </termsdefs>
+   <subjects options="canadd,export:silent" columns="id,name,short">
+      <subject id="C6093B2075190B90" name="" short=""/>
+      <subject id="FC4A7F04B80C8037" name="A_Análise de Alimentos" short="AL33S "/>
+      <subject id="8825D3B1FE482ECE" name="A_Análise De Ciclo De Vida De Produtos E Rotulagem Ambiental" short="AC36A"/>
+      <subject id="B67A04E2769C1DE6" name="A_Análise Sensorial" short="AL33N"/>
+      <subject id="74F08B35D5AA78E1" name="A_BIOQUÍMICA APLICADA" short="BQ34A"/>
+      <subject id="0E209C502FB6CD2D" name="A_Bioquimica Geral" short="BG32A"/>
+      <subject id="C18B40759625EB78" name="A_BIOTECNOLOGIA" short="BT35A"/>
+      <subject id="68070E5B954395D8" name="A_Calculo" short="MA31S"/>
+      <subject id="CA32AE4932FC6FF5" name="A_COMUNICAÇÃO LINGUISTICA" short="CE31H"/>
+      <subject id="17BECF0FF8E39730" name="A_CONTROLE DA QUALIDADE" short="CT34A"/>
+      <subject id="059D6C6382936C98" name="A_CONTROLE E SEGURANÇA ALIMENTAR" short="SA34A"/>
+      <subject id="1A7C26CDDE305BB4" name="A_Desenho Industrial" short="DI33A"/>
+      <subject id="BE31610B007E59ED" name="A_DESENVOLVIMENTO DE NOVOS PRODUTOS" short="DV36A "/>
+      <subject id="5C95C7D5EAC06316" name="A_EMBALAGENS" short="EM35A"/>
+      <subject id="18758B2975348CB5" name="A_Estatística" short="MA31T"/>
+      <subject id="A8188E70B61E4E6E" name="A_Estatística Aplicada" short="MA32T"/>
+      <subject id="6B859F0518A5E415" name="A_Física Aplicada" short="FS31H"/>
+      <subject id="A32AAD9A95B824FE" name="A_Fisico_Quimica" short="FQ32A"/>
+      <subject id="8C02C59A8F7F69E4" name="A_GERENCIAMENTO INDUSTRIAL" short="GI34A"/>
+      <subject id="FB361148BEA5BBCD" name="A_GESTÃO AMBIENTAL" short="GA34A"/>
+      <subject id="57F9C5D3919ED995" name="A_Gestão da Qualidade" short="GT34A"/>
+      <subject id="F41506E740FD40C0" name="A_Higiene Industrial" short="HI33A"/>
+      <subject id="5662B912BFAD554A" name="A_Informática" short="IN31F"/>
+      <subject id="83B80A2E81E70278" name="A_MANEJO E PÓS-COLHEITA DE GRÃOS" short="MP36A "/>
+      <subject id="16F1ADE93CE3498C" name="A_MARKETING E COMERCIALIZAÇÃO" short="MK34A"/>
+      <subject id="30FBAFFB266BB762" name="A_Metodologia Científica" short="MC32A"/>
+      <subject id="BF5D206A57D65AB6" name="A_MÉTODOS DE CONSERVAÇÃO DE ALIMENTOS" short="CA35A"/>
+      <subject id="DC3C77D9124D94A4" name="A_Métodos Instrumentais em Análise de Alimentos" short="AL33J"/>
+      <subject id="C9197176A552BD8D" name="A_Microbiologia" short="MI32A"/>
+      <subject id="15336E2E3170965F" name="A_Microbiologia em Alimentos" short="AL33M"/>
+      <subject id="515BF1B75261D595" name="A_Microscopia" short="AL33P"/>
+      <subject id="C66BAFE273B63465" name="A_Moagem" short="MG35M"/>
+      <subject id="E236C9977439A71F" name="A_Nutrição" short="NT32A"/>
+      <subject id="98F8E14D75F89473" name="A_OPERAÇÕES UNITÁRIAS NA INDUSTRIA DE ALIMENTOS" short="OP34A"/>
+      <subject id="391C5FAFACD9A108" name="A_PROCESSOS INDUSTRIAIS" short="PI35A"/>
+      <subject id="FD3A435C638DC8D9" name="A_Química Analítica" short="QA32A"/>
+      <subject id="1C662F7286B29E8A" name="A_Química Geral e Inorgânica" short="QM31H"/>
+      <subject id="724BB36FD0C296F8" name="A_Química Orgânica I" short="QM31J"/>
+      <subject id="1A7BEC36A0B91A7C" name="A_Química Organica II" short="QO32A"/>
+      <subject id="C09B376B7C34F1D2" name="A_TECNOLOGIA DE AMIDO E DERIVADOS E FARINHAS" short="TA36A "/>
+      <subject id="841047FFDEFC877A" name="A_TECNOLOGIA DE BEBIDAS" short="BB36A "/>
+      <subject id="1B654F8A9F8CF052" name="A_TECNOLOGIA DE CANA-DE-AÇÚCAR" short="CA36A "/>
+      <subject id="AB08D6FAF5762AC2" name="A_TECNOLOGIA DE CARNES E DERIVADOS" short="CD36A "/>
+      <subject id="5459E31EC562B526" name="A_TECNOLOGIA DE FRUTAS E HORTALIÇAS" short="TF35A"/>
+      <subject id="8570351CF4D9DF80" name="A_TECNOLOGIA DE LEITES E DERIVADOS" short="LD35A"/>
+      <subject id="D67C9808DF1808A0" name="A_TECNOLOGIA DE ÓLEOS, GORDURAS E MARGARINAS" short="OG36A "/>
+      <subject id="F352226CCCCB58B8" name="D_Administração" short="CV36B"/>
+      <subject id="CF62F44293058D29" name="D_ANÁLISE DINÂMICA DE ESTRUTURAS" short="AD38O "/>
+      <subject id="6CEEA0910D942FB0" name="D_ANALISE EXPERIMENTAL" short="AE38O "/>
+      <subject id="58EE256A6D8F0517" name="D_AUTOMAÇÃO INDUSTRIAL" short="AU38O "/>
+      <subject id="6C251D0ED4A868C8" name="D_AVALIAÇÕES E PERICIAS" short="AP38O "/>
+      <subject id="C1F42765001A77A9" name="D_Calculo Diferencial e Integral 1" short="CD3X1"/>
+      <subject id="AE68E6C1F756F84E" name="D_Calculo Diferencial e Integral 2" short="CD3X2"/>
+      <subject id="7224663DF760C68C" name="D_Calculo Diferencial e Integral 3" short="CD3X3"/>
+      <subject id="F4CE8166C169FFD0" name="D_Calculo Numérico" short="CN3XB"/>
+      <subject id="846D84AE0233C188" name="D_Ciências do Ambiente" short="CA3XA"/>
+      <subject id="CFEB8AFAC9B16F6B" name="D_Ciências dos Materiais para Engenharia Civil" short="CV32B"/>
+      <subject id="38702974FF2D8359" name="D_Ciências Humanas" short="D8888"/>
+      <subject id="5C634D4BF516C757" name="D_Comunicação Linguistica" short="CV31A"/>
+      <subject id="C4E46FEF3F7253FC" name="D_Concreto Armado1" short="CV37C "/>
+      <subject id="43A9120E8D3B43CF" name="D_Concreto Armado 2" short="CV38D"/>
+      <subject id="DE61A68C9EA0504B" name="D_CONCRETO ARMADO 2" short="CV38D "/>
+      <subject id="657880AFB7F79674" name="D_CONCRETO PROTENDIDO" short="CP38O "/>
+      <subject id="7251B7BD73684898" name="D_CONFORTO AMBIENTAL" short="CA38O "/>
+      <subject id="5487F75F955B8E6D" name="D_Construções em Madeira" short="CV37D "/>
+      <subject id="74EB54BC12CDBF0A" name="D_Construções Metálicas" short="CV38E"/>
+      <subject id="D1F47DF482838136" name="D_CONSTRUÇÕES METÁLICAS" short="CV38E "/>
+      <subject id="8D96AF2B251BC1E3" name="D_CONTROLE ESTATISTICO DO PROCESSO" short="EP38O "/>
+      <subject id="A005FDAC5CD93C50" name="D_Economia" short="EC3XA "/>
+      <subject id="4C5096A8041CF44B" name="D_ENGENHARIA DO PRODUTO" short="EN38O "/>
+      <subject id="CFED9974F95E27E2" name="D_ENGENHARIA ECONOMICA" short="CV38F "/>
+      <subject id="060D63D1A267457F" name="D_Engenharia Econômica" short="CV38F"/>
+      <subject id="73CF2D375400E825" name="D_Equações Diferenciais e Ordinárias " short="ED3XB"/>
+      <subject id="24E3FE1CB611054B" name="D_Especificações e Orçamentos" short="CV38C"/>
+      <subject id="FE09378EF6552B81" name="D_ESPECIFICAÇÕES E ORÇAMENTOS" short="CV38C "/>
+      <subject id="0AE58424C31E8E7A" name="D_Estruturas de Fundações" short="CV39C"/>
+      <subject id="F0EB04687482DE89" name="D_Etica, Profissão e Cidadania" short="EP3XA "/>
+      <subject id="DF7BE0D17DEDCC7C" name="D_Ética, profissão e cidadania" short="EPXA"/>
+      <subject id="C660CEE93410FB16" name="D_Expressão Gráfica" short="EG3X1"/>
+      <subject id="E6ED0228C06E96D1" name="D_Física 1" short="FS3X1"/>
+      <subject id="7690057001585889" name="D_Física 2" short="FS3XB"/>
+      <subject id="B0C9EA4F9832BB4D" name="D_Física 3" short="FS3X3"/>
+      <subject id="39555231C06A17F7" name="D_Fundações" short="CV36D"/>
+      <subject id="967EBD71B2594F42" name="D_Fundamentos de Engenharia de Segurança do Trabalho" short="ST3XA "/>
+      <subject id="0AF7EE5DF92C6F6B" name="D_Fundamentos de Programação" short="CV32A"/>
+      <subject id="46A678219460256E" name="D_Geologia Aplicada a Engenharia Civil" short="CV34D"/>
+      <subject id="C950934A5E695EB2" name="D_Geometria Analítica e Álgebra Linear " short="GA3X1"/>
+      <subject id="347D47C54E27C66B" name="D_Gerenciamento de Obras" short="CV39B"/>
+      <subject id="AD903EF817BD6957" name="D_GESTAO AMBIENTAL" short="CV38A "/>
+      <subject id="7DC38CED30874C4F" name="D_Gestão Ambiental" short="CV38A"/>
+      <subject id="BA1A808CFD4CCDAC" name="D_GESTÃO DA QUALIDADE" short="GQ38O "/>
+      <subject id="EF8847571F7A4EC1" name="D_Gestao de Projetos de Edificios" short="CV39A "/>
+      <subject id="542B8462B11DA16C" name="D_Gestão de Projetos de Edifícios" short="CV39A"/>
+      <subject id="51DFFB2C86C0BB5D" name="D_Hidráulica" short="CV36C"/>
+      <subject id="A4719CDE66D0CE4D" name="D_Hidrologia Aplicada" short="HA3XA "/>
+      <subject id="027163BE738FD69A" name="D_IMPERMEABILIZAÇÃO" short="IM38O "/>
+      <subject id="1BBCE3535E84DFD7" name="D_Instalações Elétricas Prediais" short="CV36A"/>
+      <subject id="AB5FE69A9F6EA190" name="D_Instalações Hidrossanitárias Prediais" short="CV37B "/>
+      <subject id="9C444E31ED966D59" name="D_INSTALAÇÕES PREDIAIS COMPLEMENTARES" short="IP38O "/>
+      <subject id="8EDB3C6DDFF2073C" name="D_Introdução a Engenharia" short="IE3X1"/>
+      <subject id="B7A7255254544FB2" name="D_Libras" short="11111"/>
+      <subject id="B3D6C3E670B03F8D" name="D_Linguagem, Cultura e Sociedade" short="11111"/>
+      <subject id="F75BDAE8154E1B2B" name="D_Logística e Gerência de Materiais " short="CV36G"/>
+      <subject id="DD8AFCDB9360944B" name="D_MARKETING" short="MK38O "/>
+      <subject id="69F8CA2AFD38EF8F" name="D_Materiais de Construção Civil A" short="CV33A"/>
+      <subject id="48553F1AF1204706" name="D_Materiais de Construção Civil B" short="CV34E"/>
+      <subject id="3FFAF2DBB90450F5" name="D_Mecânica dos Fluidos e Transferência de Calor e Massa" short="CV35A"/>
+      <subject id="237248AEF967B6A2" name="D_Mecânica dos Solos" short="CV35B"/>
+      <subject id="282B151C58825B9B" name="D_Mecânica Geral 1" short="MG3XB"/>
+      <subject id="7ABD3AF74D91E744" name="D_Mecânica Geral 2" short="MG3XD"/>
+      <subject id="034C1EB060E9CB37" name="D_Metodologia de Pesquisa" short="MP3X1"/>
+      <subject id="C6A27D6D02153D6D" name="D_METODOS DOS ELEMENTOS FINITOS" short="EF38O "/>
+      <subject id="2590CA1D2FF5855A" name="D_Optativa A" short="Optativa A"/>
+      <subject id="120318080C775E32" name="D_Optativa B" short="Optativa B"/>
+      <subject id="0B982A6FD417DC79" name="D_Optativa C" short="Optativa C"/>
+      <subject id="8BCBABD50AA40DBD" name="D_Patologia e Recuperação das Construções" short="CV39D"/>
+      <subject id="1552FE895A413DF5" name="D_PESQUISA OPERACIONAL" short="PO38O "/>
+      <subject id="84CAB068FCB78010" name="D_PLANEJAMENTO ESTRATEGICO" short="PL38O "/>
+      <subject id="ABF4F64F802F46A1" name="D_PONTES" short="PT38O "/>
+      <subject id="BDE0F504DCF39F16" name="D_Probabilidade e Estatística" short="PB3XB"/>
+      <subject id="B13462332B77EAD9" name="D_PROJETO DE CONSTRUÇOES METALICAS" short="CM38O "/>
+      <subject id="16D51894C95EB676" name="D_PROJETO DE ESTRUTURAS DE CONCRETO ARMADO" short="PJ38O "/>
+      <subject id="BE5EE3058B556ACD" name="D_Projeto de Pavimentação" short="CV36H"/>
+      <subject id="069DBC9F24702984" name="D_PROJETO ESTRUTURAL AUXILIADO POR COMPUTADOR" short="PE38O "/>
+      <subject id="4E026A75E13EA53D" name="D_Projeto Geométrico de Estradas" short="CV35F"/>
+      <subject id="04C87DAA5588724F" name="D_Projetos de Edificios" short="CV32C"/>
+      <subject id="6D49A04D9FE3FEF5" name="D_Qualidade na Construção Civil" short="CV37E "/>
+      <subject id="F9BD629ECB2956E1" name="D_Relações Humanas" short="RH32O"/>
+      <subject id="F163165F930D60CF" name="D_Resistência dos Materiais 1" short="CV34C"/>
+      <subject id="D4E26C32D3B0C67C" name="D_Resistência dos Materiais 2" short="CV35C"/>
+      <subject id="3D678ED61E2C5323" name="D_Saneamento" short="CV37A  "/>
+      <subject id="4669CC633AFC4238" name="D_SISTEMAS DE GESTÃO DA PRODUÇÃO" short="SG38O "/>
+      <subject id="F48BC1E52E9DAE84" name="D_SISTEMAS HIDRAULICOS URBANOS" short="CV38B "/>
+      <subject id="F3722F46E5E25BAD" name="D_Sistemas Hidráulicos Urbanos" short="CV38B"/>
+      <subject id="00DF001311287DA9" name="D_TCC 1" short="TCC 1"/>
+      <subject id="DF1E1B2DBC8C50BA" name="D_TCC 2" short="TCC 2"/>
+      <subject id="B003F9EFF117AECE" name="D_Tecnologia da Construção de Civil 1" short="CV35E"/>
+      <subject id="83C9297AE81F5AA4" name="D_Tecnologia da Construção de Civil 2" short="CV36F"/>
+      <subject id="153434394630E300" name="D_TECNOLOGIA DA PRÉ-FABRICAÇÃO" short="PF38O "/>
+      <subject id="136C2CC229091C5C" name="D_Teoria das Estruturas 1" short="CV35D"/>
+      <subject id="9A69155655196F06" name="D_Teoria das Estruturas 2" short="CV36E"/>
+      <subject id="27A73AE37A67540F" name="D_TOPICOS ESPECIAIS EM ESTRUTURAS DE MADEIRA" short="EM38O "/>
+      <subject id="06341890DA664B5C" name="D_Topografia" short="CV33B"/>
+      <subject id="50E7B48101698ADC" name="D_Trabalho de Conclusão de Curso" short="TCC1 "/>
+      <subject id="D75042934F875E61" name="D_Transportes" short="CV34F"/>
+      <subject id="6EEFAB63073846A0" name="E_Algoritimos" short="AG31A"/>
+      <subject id="42B8DAEDFE5FF275" name="E_Análise e Projeto Orientado a Objetos" short="AP32A"/>
+      <subject id="B554C1DEBC4BD56A" name="E_Banco de Dados I" short="BD32A"/>
+      <subject id="1DD9E48206C76210" name="E_BANCO DE DADOS II" short="BD33A"/>
+      <subject id="157C1C6BE38AE4B6" name="E_COMÉRCIO ELETRÔNICO" short="CO36A  "/>
+      <subject id="F8FB723F242E4A63" name="E_Comunicação Linguistica" short="CL31A"/>
+      <subject id="F978DC16BD909D62" name="E_Construção de Páginas Web 1" short="CP31A"/>
+      <subject id="3450202E22552FBD" name="E_CONSTRUÇÃO DE PÁGINAS WEB II" short="CP33A"/>
+      <subject id="9CD142D16CB0BC63" name="E_CONSTRUÇÃO DE PÁGINAS WEB III" short="CP34A"/>
+      <subject id="776FDA3BB196E78E" name="E_EMPREENDEDORISMO" short="EP35A"/>
+      <subject id="E336594D21C44B2D" name="E_ENGENHARIA DE SOFTWARE I" short="EN33A"/>
+      <subject id="E3B8CB76E5458F9D" name="E_ENGENHARIA DE SOFTWARE II" short="EN34A"/>
+      <subject id="BE5762E12A2BBAC8" name="E_ESTAGIO SUPERVISIONADO" short="SI33A"/>
+      <subject id="26DC015B5FA7CEB7" name="E_ESTATÍSTICA" short="MA34B "/>
+      <subject id="796E273654B75A5E" name="E_Estrutura de Dados" short="ED32A"/>
+      <subject id="A8C10270A34CF3B7" name="E_FILOSOFIA DA CIÊNCIA E TECNOLOGIA" short="CT36A "/>
+      <subject id="11462513EDC8805E" name="E_Fundamentos Matemáticos" short="FM31A"/>
+      <subject id="8E75D592BD7387AD" name="E_GERÊNCIA E CONFIGURAÇÃO DE SERVIÇOS DE INTERNET" short="SI36A "/>
+      <subject id="F6F6740CF2CF9B9B" name="E_GESTÃO DE PROJETOS" short="PJ34A"/>
+      <subject id="B4CCA6CF948B4672" name="E_Inglês Instrumental" short="II32A"/>
+      <subject id="3D578A88A7C32A65" name="E_INTERAÇÃO HOMEM-COMPUTADOR" short="HC34A "/>
+      <subject id="A5DCAD2BF23EB70C" name="E_Linguagem de Programação I" short="LP32A"/>
+      <subject id="906C228D6053FA7C" name="E_LINGUAGEM DE PROGRAMAÇÃO II" short="LP33A"/>
+      <subject id="27C12A1820E46354" name="E_LINGUAGEM DE PROGRAMAÇÃO III" short="LP34A"/>
+      <subject id="7A574FF31613EEFD" name="E_LINGUAGEM DE PROGRAMAÇÃO IV" short="LP35A"/>
+      <subject id="E2DC7296608F7BA3" name="E_Lógica Digital" short="LD31A"/>
+      <subject id="6B67564F73C75F95" name="E_METODOLOGIA DA PESQUISA CIENTÍFICA" short="ME34A "/>
+      <subject id="293D891215830A6C" name="E_Organização de Empresas" short="OE31A"/>
+      <subject id="20418DD4095F36B5" name="E_Organização e Arquitetura de Computadores" short="OA32A"/>
+      <subject id="92DD74C4C74B19A9" name="E_PROGRAMAÇÃO PARA DISPOSITIVOS MÓVEIS E SEM FIO" short="DM35A"/>
+      <subject id="FB5E976811A6A650" name="E_PROJETO DE REDES DE COMPUTADORES" short="RC36A "/>
+      <subject id="5F24AAC541227887" name="E_PROJETO INTEGRADOR I" short="PI33A"/>
+      <subject id="EEC8B65EAC0B2BAF" name="E_PROJETO INTEGRADOR II" short="PI35N"/>
+      <subject id="574D54D8E1873F9E" name="E_REDES DE COMPUTADORES" short="RC33A"/>
+      <subject id="41DC46113A9D0A56" name="E_REDES DE COMPUTADORES" short="RC34A"/>
+      <subject id="CA6BADF362F46701" name="E_SEGURANÇA E AUDITORIA DE SISTEMAS" short="SS36A "/>
+      <subject id="8841E0B604B011D9" name="E_SISTEMAS DE INFORMAÇÃO" short="ST36A "/>
+      <subject id="F0C67F303A2C25C7" name="E_SISTEMAS DISTRIBUÍDOS" short="SD35A"/>
+      <subject id="794DE71262438271" name="E_SISTEMAS OPERACIONAIS" short="SO33A"/>
+      <subject id="692D12DDAE2C32A1" name="E_TÓPICOS ESPECIAIS EM TECNOLOGIA I" short="TE35A"/>
+      <subject id="F1B3F696C1441693" name="E_TÓPICOS ESPECIAIS EM TECNOLOGIA II" short="TE36AII "/>
+      <subject id="444A1C71B673A23B" name="E_TRABALHO DE CONCLUSÃO DE CURSO I" short="TC35A"/>
+      <subject id="ACCF3F1500EF2EE2" name="E_TRABALHO DE CONCLUSÃO DE CURSO II" short="TC36A "/>
+      <subject id="355EA6F729468B8D" name="E_WEBSERVICES E XMI" short="WX35A"/>
+      <subject id="72B2EF61F6FB71B8" name="EJ_Organizacao e Arquitetura de Computadores" short="EeAdC"/>
+      <subject id="C736F31872CBE715" name="F_Administração Financeira" short="EA37E "/>
+      <subject id="882F768441234C8D" name="F_ANÁLISE DE CICLO DE VIDA DO PRODUTO E ROTULAGEM AMBIENTAL" short="AC38O "/>
+      <subject id="00B45B35DF7DA876" name="F_ARBORIZAÇÃO URBANA" short="AR38O "/>
+      <subject id="836FD6CFDB3DCCDE" name="F_AUDITORIA AMBIENTAL" short="EA38F "/>
+      <subject id="2A1DBC13113B01A2" name="F_Avaliação de Impactos Ambientais" short="EA37A  "/>
+      <subject id="29CF27ECDEA58FF8" name="F_BIODEGRADAÇÃO, FITORREMEDIAÇÃO E BIOTECNOLÓGICOS" short="BF38O "/>
+      <subject id="92A25A8D46B71590" name="F_BIODIVERSIDADE" short="EA36B"/>
+      <subject id="053E417E04A2F885" name="F_BIOESTATÍSTICA" short="EA36D"/>
+      <subject id="6DC364214F1E852C" name="F_BIOLOGIA GERAL" short="EA33D"/>
+      <subject id="B7A1810D617D44DC" name="F_Bioprocessos e Biotecnologia Aplicada" short="EA39B "/>
+      <subject id="F86A26521EDE8351" name="F_Cálculo Diferencial e Integral" short="EA31A"/>
+      <subject id="5BD1FF598C61967B" name="F_Cálculo Diferencial e Integral II" short="EA32A"/>
+      <subject id="FA3B26727A83DD17" name="F_CÁLCULO NUMÉRICO" short="EA34D"/>
+      <subject id="62BC4915C4DF69BD" name="F_CARTOGRAFIA" short="EA34A"/>
+      <subject id="26D73ED0F12F7965" name="F_Computação 1" short="EA31B"/>
+      <subject id="11E656194BDF5E8F" name="F_Comunicação Oral e Escrita" short="EA31C"/>
+      <subject id="A982EF86F04AA348" name="F_CONTROLE BIOLÓGICO DE PLANTAS INVASORAS" short="CB38O "/>
+      <subject id="D558300682CB4CB2" name="F_Conversão, Conservação de Energia e Eficiêcia Energética" short="EA37C "/>
+      <subject id="3DDD52A9CD46D958" name="F_DESENHO TÉCNICO" short="EA33A"/>
+      <subject id="F43592ABCDD0C170" name="F_Ecologia Básica" short="EA31D"/>
+      <subject id="EE524217F77E1517" name="F_ECOLOGIA DE MACRÓFITAS AQUÁTICAS" short="MA38O "/>
+      <subject id="091D6BE1C8460B04" name="F_ECOLOGIA DE POLINIZAÇÃO" short="EC38O "/>
+      <subject id="788B0297EE119A6A" name="F_ECOLOGIA VEGETAL" short="EA35D "/>
+      <subject id="082E8A0843FAD4DA" name="F_ECONOMIA" short="EA36E"/>
+      <subject id="70B3ACAB8E76617F" name="F_Ecossistemas" short="EA32D"/>
+      <subject id="2310B48BEB8660D3" name="F_ENZIMAS COMO AGENTES BIOTECNOLÓGICOS" short="AB38O  "/>
+      <subject id="B510EE58F4A13581" name="F_ESTRATÉGIAS DE EDUCAÇÃO AMBIENTAL" short="EA38O "/>
+      <subject id="7F34B2A19CF91E81" name="F_Ética, Profissão e Cidadania" short="EA39A "/>
+      <subject id="C3454E5D6E867470" name="F_FENÔMENOS DE TRANSPORTE" short="EA33F"/>
+      <subject id="6EAC8CDE107B19C9" name="F_Física I" short="EA32C"/>
+      <subject id="BA2A0F01C2F94EF4" name="F_FÍSICA II" short="EA33C"/>
+      <subject id="9B3B16FB61697A3E" name="F_FÍSICA III" short="EA34C"/>
+      <subject id="B30ACE3ACD4807DB" name="F_FONTES DE ENERGIA" short="EA38C "/>
+      <subject id="6D4D44B3068EA1DB" name="F_FUNDAMENTOS DE ENGENHARIA DE SEGURANÇA DO TRABALHO" short="EA38D "/>
+      <subject id="03C0399EABE506E5" name="F_Geologia e Pedologia" short="EA32E"/>
+      <subject id="765CA4B87ED06291" name="F_GEOMORFOLOGIA" short="EA34E"/>
+      <subject id="4A21D44375D80E67" name="F_GEOPROCESSAMENTO" short="EA35A  "/>
+      <subject id="71D41E6EDC3A66F5" name="F_GERENCIAMENTO E TRATAMENTO DE ÁGUA" short="EA38E "/>
+      <subject id="1869D63BB4C1F4AF" name="F_Gerenciamento e Tratamento de Efluentes" short="EA39C "/>
+      <subject id="959F566728564392" name="F_Gerenciamento e Tratamento de Emissões Atmosféricas" short="EA37G "/>
+      <subject id="D962B71C43E109D6" name="F_GERENCIAMENTO E TRATAMENTO DE RESÍDUOS SÓLIDOS" short="EA38B "/>
+      <subject id="BD402D5DF74535CB" name="F_Gestão de Qualidade" short="EA37H "/>
+      <subject id="F77A123D8E1F988E" name="F_GESTÃO EMPRESARIAL" short="EA36A"/>
+      <subject id="871D1584CF095A46" name="F_HIDRÁULICA" short="EA36H"/>
+      <subject id="0FABF93DE2613E39" name="F_Hidrologia Aplicada" short="EA32G"/>
+      <subject id="5B29FF8AA9DEEC1C" name="F_Humanidades I" short="EA32B"/>
+      <subject id="462F4E84DE15771F" name="F_Introdução a Engenharia" short="EA31E"/>
+      <subject id="CAC2BD930CECDDD0" name="F_INTRODUÇÃO A PROCESSOS F_INDUSTRIAIS" short="EA36F"/>
+      <subject id="1004370F3F76C33C" name="F_LEGISLAÇÃO AMBIENTAL" short="EA35G "/>
+      <subject id="E33967FDDAE295BE" name="F_LICENCIAMENTO AMBIENTAL" short="LA38O "/>
+      <subject id="3DB8F98AB9092492" name="F_LIMNOLOGIA" short="LM38O "/>
+      <subject id="7E82A8B631AA25B3" name="F_MANEJO DE BACIAS HIDROGRAFICAS" short="MB38O "/>
+      <subject id="EBA2E06CA0C8B914" name="F_MANEJO DE FAUNA" short="MF38O "/>
+      <subject id="07A66EF91C3A45E2" name="F_Manejo de Recursos Naturais" short="EA37B "/>
+      <subject id="1942DC12333EC302" name="F_MARKETING" short="MK38O "/>
+      <subject id="1328C26C72054C76" name="F_Matemática 1" short="EA31F"/>
+      <subject id="2832A238A897E19E" name="F_Matemática II" short="EA32F"/>
+      <subject id="767E39E50BD7082B" name="F_MECÂNICA I" short="EA33H"/>
+      <subject id="06213D2C4CC0C9E3" name="F_MECÂNICA II" short="EA34H"/>
+      <subject id="E99C92FF8D442F90" name="F_METODOLOGIA DE PESQUISA" short="EA33E"/>
+      <subject id="E13E46C05508397E" name="F_Microbiologia Ambiental" short="EA37D "/>
+      <subject id="3C39C6A1ACBA7986" name="F_PERÍCIA AMBIENTAL" short="PR38O "/>
+      <subject id="E1C0B8EA18897DEE" name="F_PRINCÍPIOS DE ELETROTÉCNICA" short="EA36C"/>
+      <subject id="BC5FD47D726F21D1" name="F_PROBABILIDADE E ESTATÍSTICA" short="EA35C "/>
+      <subject id="211117DDD7F03202" name="F_PROJETO DE SISTEMAS DE TRATAMENTO DE ÁGUA E ESGOTO" short="ST38O "/>
+      <subject id="CE6ED1B70BC38CC4" name="F_Química" short="EA31G"/>
+      <subject id="FF9BA0E0AA2FD17D" name="F_QUÍMICA AMBIENTAL" short="QA38O "/>
+      <subject id="7C17513B9D3209DC" name="F_QUIMICA ANALÍTICA QUANTITATIVA" short="EA34G"/>
+      <subject id="D2289CED616F6362" name="F_QUÍMICA ORGÂNICA E BIOQUMICA" short="EA33G"/>
+      <subject id="9E180FBA814FA326" name="F_RECUPERAÇÃO DE ÁREAS DEGRADADAS" short="EA38A "/>
+      <subject id="9D4B06A51BEB4298" name="F_RESISTÊNCIA DOS MATERIAIS" short="EA35F "/>
+      <subject id="7CCEFB431B95F542" name="F_REÚSO DA ÁGUA" short="RA38O "/>
+      <subject id="8F1D41AE0CAA9AF3" name="F_SENSORIAMENTO REMOTO" short="SR38O "/>
+      <subject id="EC0A6960091AC775" name="F_Sistema de Gestão Ambiental" short="EA37F "/>
+      <subject id="E3B01D20D0FED163" name="F_TOPOGRAFIA" short="EA35B "/>
+      <subject id="84B9ED714B346F1F" name="F_Trabalho de Conclusão de Curso I" short="TC39A "/>
+      <subject id="4C353FC41B7A5E09" name="F_USO E CONSERVAÇÃO DO SOLO" short="EA36G"/>
+      <subject id="97AEC1E7CDD89335" name="F_ZOOLOGIA APLICADA" short="EA35E "/>
+      <subject id="3E4FC0861A5EF50A" name="G_ANÁLISE DE ALIMENTOS 1" short="EL34C "/>
+      <subject id="C0FDDBAEE4882E4E" name="G_ANÁLISE DE ALIMENTOS 2" short="EL35D"/>
+      <subject id="509D631F3A5168BE" name="G_Análise Sensorial" short="EL36D "/>
+      <subject id="53AF3322CEC04021" name="G_BIOLOGIA CELULAR" short="EL33F"/>
+      <subject id="7B4F85F088AFB9A2" name="G_BIOQUÍMICA GERAL" short="EL33E"/>
+      <subject id="394D1F193CBBC9D7" name="G_Cálculo Diferencial e Integral 1" short="EL31A"/>
+      <subject id="65E92BA8283C85E5" name="G_Cálculo Diferencial e Integral 2" short="EL32I"/>
+      <subject id="93A177147914254E" name="G_Cálculo Diferencial e Integral 3" short="EL33J"/>
+      <subject id="6C3557F47FF76ACE" name="G_CÁLCULO NUMÉRICO" short="EL34A  "/>
+      <subject id="FBD8DF64D5E0A53E" name="G_Ciências do Ambiente" short="EL32F"/>
+      <subject id="679EDA4D310E9025" name="G_Computação I" short="EL31F"/>
+      <subject id="4C0F2DF5E7797F62" name="G_Desenho Técnico" short="EL31G"/>
+      <subject id="142C55D43799CAF3" name="G_Desenvolvimento de Novos Produtos" short="EL38C "/>
+      <subject id="0BD6534810EB832E" name="G_EMBALAGENS" short="EL37D "/>
+      <subject id="0AE77F7C5B1ADE19" name="G_Engenharia Bioquímica" short="EL38A "/>
+      <subject id="289EFF891EA447CC" name="G_ENGENHARIA ECONÔMICA" short="EL37A  "/>
+      <subject id="EFC0683309A77D9C" name="G_ESTATÍSTICA APLICADA" short="EL35G"/>
+      <subject id="7266835BD390B6E0" name="G_FENÔMENOS DE TRANSPORTE 1" short="EL34B "/>
+      <subject id="020A0ACC2979F150" name="G_FENÔMENOS DE TRANSPORTE 2" short="EL35C"/>
+      <subject id="E584DC7654FDDE44" name="G_Filosofia da Ciência e da Tecnologia" short="FC32O"/>
+      <subject id="DD2A90371CE1E833" name="G_Física 1" short="EL31C"/>
+      <subject id="DDAD0260E0632CA3" name="G_Física 2" short="EL32C"/>
+      <subject id="9EFE5AFA512CA557" name="G_Física 3" short="EL33C"/>
+      <subject id="D227F954A7C2457C" name="G_Físico-Química" short="EL32G"/>
+      <subject id="1DA5FFA16F3FF360" name="G_Fundamentos da Ética" short="FE32O"/>
+      <subject id="152E34C894C92EE3" name="G_FUNDAMENTOS DA REFRIGERAÇÃO INDUSTRIAL" short="EL37E "/>
+      <subject id="AD4902E8B029B518" name="G_FUNDAMENTOS DE ENGENHARIA DE ALIMENTOS" short="EL33H"/>
+      <subject id="3C8423D1C3840213" name="G_Fundamentos de Engenharia de Segurança do Trabalho" short="EL38F "/>
+      <subject id="190B81FA203718B7" name="G_FUNDAMENTOS DE NUTRIÇÃO" short="EL34F "/>
+      <subject id="64898846E7B4C69A" name="G_Gestão da Produção" short="EL36E "/>
+      <subject id="5C2B3C07AF78D088" name="G_Gestão Tecnológica" short="GT32O"/>
+      <subject id="3FAA91DAF01C3634" name="G_HIGIENE INDUSTRIAL" short="EL35H"/>
+      <subject id="374CC9C4CCDFB8DB" name="G_História da Técnica e da Tecnologia" short="HT32O"/>
+      <subject id="DE962B1DA1BFC140" name="G_História do Pensamento Econômico" short="HP32O"/>
+      <subject id="2A13AD41543DF66C" name="G_Instalações e Sistemas Industriais" short="EL36F "/>
+      <subject id="69B0CA0A56398F31" name="G_Instrumentação Industrial" short="EL38E "/>
+      <subject id="2C49AEB942C09D6D" name="G_Introdução à Engenharia de Alimentos" short="EL31H"/>
+      <subject id="46ED196885AF8E79" name="G_Liderança e Gerenciamento" short="LG32O"/>
+      <subject id="3E92CD294D939868" name="G_Matemática 1" short="EL31B"/>
+      <subject id="C722350B75EAF513" name="G_Matemática 2" short="EL32B"/>
+      <subject id="AA9906B5A14EE208" name="G_MATÉRIAS PRIMAS AGROPECUÁRIAS" short="EL35B"/>
+      <subject id="1A31C4BE045CD3BB" name="G_MECÃNICA GERAL 1" short="EL33I"/>
+      <subject id="0C773E62F238BE4C" name="G_MECÃNICA GERAL 2" short="EL34I "/>
+      <subject id="0419FA75E3FBB9AB" name="G_Metodologia de Pesquisa" short="EL31D"/>
+      <subject id="4F9B7C999699EED6" name="G_MICROBIOLOGIA DE ALIMENTOS" short="EL35F"/>
+      <subject id="535AC7086AAD9185" name="G_MICROBIOLOGIA GERAL" short="EL34E "/>
+      <subject id="5590C88059303886" name="G_OPERAÇÕES UNITÁRIAS 1" short="EL35A"/>
+      <subject id="A1124AA40BCE6DB2" name="G_OPERAÇÕES UNITÁRIAS 2" short="EL36B "/>
+      <subject id="30B14DEB4C982F6A" name="G_PRINCÍPIO DA RESISTÊNCIA DOS MATERIAIS" short="EL35E"/>
+      <subject id="E04D20E537CCBED7" name="G_Princípios da Eletrotécnica" short="EL34G"/>
+      <subject id="F37E9AAD0BE9EED8" name="G_PROBABILIDADE E ESTATÍSTICA" short="EL33B"/>
+      <subject id="1B1EED7AC5D96859" name="G_Química Analítica" short="EL32H"/>
+      <subject id="6698F3C78D37163C" name="G_QUÍMICA DE ALIMENTOS" short="EL34H "/>
+      <subject id="F63C7B37E32050AC" name="G_Química Geral e Inorgânica" short="EL31E"/>
+      <subject id="ACFE8E6C574A1DBE" name="G_Química Orgânica" short="EL32E"/>
+      <subject id="1C974C74BA580F71" name="G_Química Orgânica" short="EL32E"/>
+      <subject id="A522B456E28F6C1C" name="G_QUÍMICA ORGÂNICA" short="EL32E"/>
+      <subject id="7F239CC2538DB9A1" name="G_Relações Humanas" short="RH32O"/>
+      <subject id="81622058F0C80EA2" name="G_SEGURANÇA ALIMENTAR" short="EL37F "/>
+      <subject id="E9144ED439A4C48C" name="G_SISTEMAS DE GESTÃO AMBIENTAL" short="EL37G "/>
+      <subject id="BCDE1B50C8567717" name="G_Sistemas de Qualidade" short="EL38B "/>
+      <subject id="1D88C3DB4190003E" name="G_Sociologia e Política Brasil" short="SP32O"/>
+      <subject id="35FC34DD566E207C" name="G_TECNOLOGIA DE CARNES, DERIVADOS E PESCADOS" short="EL37C "/>
+      <subject id="490084E92B51DE1D" name="G_Tecnologia de Cereais, Raízes e Tubérculos" short="EL36A  "/>
+      <subject id="D8A40C59813B188C" name="G_Tecnologia de Fermentações" short="EL36G "/>
+      <subject id="6133743BA9927537" name="G_Tecnologia de Frutas e Hortaliças" short="EL36C "/>
+      <subject id="0B9CA591BB59918D" name="G_TECNOLOGIA DE LEITES E DERIVADOS" short="EL37B "/>
+      <subject id="20008CD495E8287B" name="G_TECNOLOGIA DE ÓLEOS, GORDURAS E MARGARINAS" short="EL37H "/>
+      <subject id="8FE491B7B8C62A0E" name="G_Tecnologia e Sociedade" short="TS32O"/>
+      <subject id="1F8794FEF9AFEBC6" name="G_TERMODINÃMICA" short="EL33G"/>
+      <subject id="F3B8645C82F95886" name="G_Toxicologia de Alimentos" short="EL38G "/>
+      <subject id="B9040CC81B1E522A" name="G_Tratamentos de Águas e Efluentes" short="EL38D "/>
+      <subject id="3C9B64A51EF51C36" name="Gerenciamento E Tratamento De Águas" short="GT35A"/>
+      <subject id="AF6637BE59E1F263" name="Gestão Administrativa E Marketing Ambiental" short="GM36A"/>
+      <subject id="7FE7291A8A8EE175" name="Gestão De Saúde Ocupacional E Segurança" short="GS36A"/>
+      <subject id="E298E79D9E184C66" name="Inglês I" short="ING1"/>
+      <subject id="0E0CA8AB87BA2A45" name="Inglês II" short="ING2"/>
+      <subject id="96978C649AF20E37" name="Inglês III" short="ING3"/>
+      <subject id="F981D1362481B00D" name="Inglês IV" short="ING4"/>
+      <subject id="807EB9CA509202B7" name="Inglês V" short="ING5"/>
+      <subject id="418E8DE7130FADD5" name="L_Arquitetura e Organização de Computadores" short="LT34E "/>
+      <subject id="A16F87522F05A7C0" name="L_Atividades Complementares" short="AT31A  "/>
+      <subject id="27640906D25B74C2" name="L_CALCULO DIFERENCIAL E INTEGRAL 3" short="CD3X3  "/>
+      <subject id="84EADD256F890D6C" name="L_Cálculo Diferencial e Integral 1" short="CD3X1"/>
+      <subject id="148E6495C57247DC" name="L_Cálculo Diferencial e Integral 2" short="CD3X2 "/>
+      <subject id="3B934CE84E6C17C9" name="L_Calculo Numerico" short="CN3XA "/>
+      <subject id="E8A777D573775BA7" name="L_Circuitos Elétricos" short="LT34C "/>
+      <subject id="400225A3AF1425BA" name="L_Comunicação Oral e Escrita" short="CL3X1"/>
+      <subject id="D320D2EAD40B2E08" name="L_Desenho Elétrico" short="LT31B"/>
+      <subject id="E661B89733FB9F4E" name="L_ELETROMAGNETISMO" short="LT33C "/>
+      <subject id="4B1A3B1727B0AF17" name="L_EQUAÇÕES DIFERENCIAIS E ORDINÁRIAS" short="ED3XA "/>
+      <subject id="57D4BB15648FC89E" name="L_ESTRUTURA DE DADOS1" short="LT33B "/>
+      <subject id="020023A7649C085C" name="L_Fenomenos de Transporte 1" short="FT3XA "/>
+      <subject id="A9358CB1BF319590" name="L_FISICA 4" short="FS3X4 "/>
+      <subject id="7189FA03C22D74A4" name="L_Física 1" short="FS3X1"/>
+      <subject id="BD08005089AB2287" name="L_Física 2" short="FS3XB "/>
+      <subject id="E4A8531E439A9C09" name="L_Física 3" short="FS3X3 "/>
+      <subject id="7B602113D9E89916" name="L_Fundamentos de Programação 1" short="LT31A"/>
+      <subject id="03EF88F6023FF5C1" name="L_Fundamentos de Programação 2" short="LT32A "/>
+      <subject id="9393106658293031" name="L_Geometria Analítica e Álgebra Linear" short="GA3X1"/>
+      <subject id="BF024D4B2CAB9557" name="L_Introdução à Engenharia" short="IE3X1"/>
+      <subject id="1C31FE2017D0D884" name="L_Materiais e Dispositivos" short="LT34B "/>
+      <subject id="1AA959D4BD8F098C" name="L_Mecanica Geral 1" short="MG3XA "/>
+      <subject id="4EA5D4BB8294CFC8" name="L_Metodologia de Pesquisa" short="MP3XA "/>
+      <subject id="9FDDEC6888A64798" name="L_Métodos de Matemática Aplicada" short="LT34A "/>
+      <subject id="82694B26D0495F11" name="L_Metrologia Elétrica" short="LT34D "/>
+      <subject id="76CEB83E68958984" name="L_PRINCIPIOS DE CIRCUITOS ELETRICOS" short="LT33A "/>
+      <subject id="550DDE755985A8AF" name="L_PROBABILIDADE E ESTATÍTICA" short="PB3XA "/>
+      <subject id="10E1E42D5D6C0E00" name="L_Qualidade de Vida e Saúde" short="QV32O"/>
+      <subject id="40EB4E607070BA58" name="L_Química" short="QM3XA "/>
+      <subject id="B3932896BCA63CF5" name="Matemática aplicada II" short="MA32G"/>
+      <subject id="8183F647564BE723" name="Materiais Poliméricos" short="MP33A"/>
+      <subject id="13E98539965E6840" name="METAIS" short="MT36D"/>
+      <subject id="42D9970D9D28046C" name="Monitoria" short="Monitoria"/>
+      <subject id="4A1A1A5FB11A7958" name="Patologias das Construção" short="PC36C"/>
+      <subject id="18611E355378053F" name="Projeto Social" short="Projeto Social"/>
+      <subject id="2FA09A9F82A43684" name="Q_A química e o mundo do trabalho" short="QMCM30N"/>
+      <subject id="719950BDC4454446" name="Q_ATIVIDADES COMPLEMENTARES" short="ATVC32A "/>
+      <subject id="EDA3D61F1DCE42AD" name="Q_CALCULO DIFERENCIAL E INTEGRAL 2" short="CALC3XN2 "/>
+      <subject id="711F78ADF724CC73" name="Q_Cálculo Diferencial e Integral I" short="CALC30N1"/>
+      <subject id="0CFE519C17C3F45C" name="Q_Comunicação linguística" short="CMCE30N"/>
+      <subject id="1028A8783ECC9DEC" name="Q_Filosofia geral" short="FILG31Q"/>
+      <subject id="1EAB00AD29197817" name="Q_FÍSICA 1" short="FSCA3XN1 "/>
+      <subject id="BA2E97AD91974BA7" name="Q_Geometria analítica e álgebra linear" short="GEOA30N1"/>
+      <subject id="84C3E32B5AB4C98F" name="Q_HISTÓRIA DA EDUCAÇÃO" short="HSTE32Q "/>
+      <subject id="77EC33C12DBF492D" name="Q_Libras" short="LBRS31Q"/>
+      <subject id="D6831695FCF6A34C" name="Q_libras 2" short="LBRS32Q "/>
+      <subject id="B6DE33FA5A2D4802" name="Q_METODOLOGIA DE PESQUISA" short="MTPE32Q "/>
+      <subject id="3103DC9866C1A0F2" name="Q_QUÍMICA ANALÍTICA 1" short="QMCA3XN1 "/>
+      <subject id="B1E8C50AE8C56173" name="Q_Química Geral" short="QMCG30N"/>
+      <subject id="A6CAF6FFB721B687" name="Q_QUÍMICA INORGÂNICA 1" short="QMCI3XN1 "/>
+      <subject id="0645B379F8B72A56" name="Q_SEGURANÇA QUÍMICA" short="SQMC3XN "/>
+      <subject id="CDBB77139E365416" name="Química Tecnológica II" short="QT32I"/>
+      <subject id="C30C7414F9529B42" name="TC_Argamassas" short="AG34B"/>
+      <subject id="BE12AD588B667718" name="TC_Concreto Armado" short="CA34A"/>
+      <subject id="F4FFBBEFE7D6C845" name="TC_Desenho II" short="DE32J"/>
+      <subject id="5A7211925BE8556C" name="TC_Desenho III" short="DE33M"/>
+      <subject id="2527CC557882F2DF" name="TC_Eletricidade Básica" short="EB34A"/>
+      <subject id="D47712803F99AEF5" name="TC_Gerenciamento de Obras" short="GR35C"/>
+      <subject id="8698848DFFE3A6A3" name="TC_Materiais Cerâmicos" short="MC33C"/>
+      <subject id="31D700E990EAC6E7" name="TC_Metais" short="MT36D"/>
+      <subject id="D0762D600416782E" name="TC_Orçamentos" short="OR35b"/>
+      <subject id="29E3A4D02BD89BAC" name="TC_Sistemas Elétricos" short="SL35E"/>
+      <subject id="1C53A5C9807B2117" name="TC_Sistemas Prediais Hidrossanitários" short="IH35D"/>
+      <subject id="A5B8546462546CB6" name="TC_Tópicos Especiais em Mateirais de Contrução" short="TE36E"/>
+      <subject id="5BF0DC1F9F49468C" name="TC_Vidros" short="CC37C"/>
+      <subject id="1155591F49541AD6" name="TG_Auditoria Ambiental" short=""/>
+      <subject id="C8070759F4D44DBC" name="TG_Ecologia Quantitativa" short="EQ34A"/>
+      <subject id="DED54E99C58C1828" name="TG_Microbiologia" short="AM33M"/>
+      <subject id="41BF2026A14975F1" name="TG_PROJETO TECNOLÓGICO" short="PT36A"/>
+      <subject id="1731618C94AE341A" name="TI_ADMINSITRAÇÃO DE REDES II" short="AD24A0"/>
+      <subject id="89CD487D529A170F" name="TI_Algorítmos" short="AL21A0"/>
+      <subject id="A9E5B0AE5507547D" name="TI_Artes" short="AR21A0"/>
+      <subject id="EF272A2A879139E9" name="TI_BANCO DE DADOS I" short="BD23A0"/>
+      <subject id="7ECA2D71C87AFBA0" name="TI_BANCO DE DADOS II" short="BD24A0"/>
+      <subject id="E74F501512F68847" name="TI_Biologia" short="BI21A0"/>
+      <subject id="59E73705D0C26B3C" name="TI_Biologia II" short="BI22A0"/>
+      <subject id="C26BD580063E7F29" name="TI_BIOLOGIA III" short="BI23A0"/>
+      <subject id="792E6CDD8F67C4F4" name="TI_DESENVOLVIMENTO WEB I" short="DW23A0"/>
+      <subject id="A0CF43D45E56B72D" name="TI_DESENVOLVIMENTO WEB II" short="DW24A0"/>
+      <subject id="ACD5F938945F30D1" name="TI_Educação Física" short="EF21A0"/>
+      <subject id="6AAC2BFB361ADBA9" name="TI_Educação Física II" short="EF22A0"/>
+      <subject id="F33B0FB44972BF9B" name="TI_EDUCAÇÃO FÍSICA III" short="EF24A0"/>
+      <subject id="1EAED0C233149D7A" name="TI_EMPREENDEDORISMO" short="EM24A0"/>
+      <subject id="9BDA8141029FA4C9" name="TI_ENGENHARIA DE SOFTWARE" short="SF23A0"/>
+      <subject id="884ABC74E4BCACB6" name="TI_ESTÁGIO" short="EG24A0"/>
+      <subject id="76FB8AD50B071463" name="TI_Filosofia" short="ES22C0"/>
+      <subject id="36B7079335E9FC6F" name="TI_Física" short="FS21A0"/>
+      <subject id="E438F5BC9F9DCD4C" name="TI_Física II" short="FS22A0"/>
+      <subject id="73D87D2CF56707BB" name="TI_FISICA III" short="FS23A0"/>
+      <subject id="47A230E1018E2C49" name="TI_Geografia I" short="ES22A0"/>
+      <subject id="BA3E17D1BF7A0F3E" name="TI_GEOGRAFIA II" short="ES23A0"/>
+      <subject id="BAC005D26DFBDAF6" name="TI_História" short="ES22B0"/>
+      <subject id="7554DC26EA05AED5" name="TI_HISTÓRIA II" short="ES23B0"/>
+      <subject id="B754F934F6DDBD48" name="TI_Informática" short="IN21A0"/>
+      <subject id="AB286DFECBE13922" name="TI_Instalação e Manutenção de Computadores" short="IM21A0"/>
+      <subject id="4D4B28EDF1E82D5B" name="TI_INSTALAÇÃO E MANUTENÇÃO DE COMPUTADORES II" short="IM24A0"/>
+      <subject id="39BB6421D4053548" name="TI_Língua Estrangeira Moderna" short="LI21A0"/>
+      <subject id="7F9E8C9CDA96F85B" name="TI_LINGUA ESTRANGEIRA MODERNA (INGLES) III" short="LI23A0"/>
+      <subject id="E81F2B170FF30C49" name="TI_Língua Estrangeira Moderna II (Inglês)" short="LI22A0"/>
+      <subject id="339D3163D770BA2C" name="TI_Língua Portuguesa e Literatura Brasileira" short="CE21A0"/>
+      <subject id="5B3D8431916033AD" name="TI_Lingua Portuguesa e Literatura Brasileira II" short="CE22A0"/>
+      <subject id="C3C2A6D4DBDBC054" name="TI_LÍNGUA PORTUGUESA E LITERATURA BRASILEIRA III" short="CE23A0"/>
+      <subject id="1658CCAFD10B4BFC" name="TI_LINGUA PORTUGUESA E LITERATURA BRASILEIRA IV" short="CE24A0"/>
+      <subject id="ADAE5863A69B2D8C" name="TI_Linguagem de Programação" short="LP21A0"/>
+      <subject id="03BBA4156AB88710" name="TI_Linguagem de Programação II" short="LP22A0"/>
+      <subject id="935EA75CABA248C9" name="TI_LINGUAGEM DE PROGRAMAÇÃO III" short="LP23A0"/>
+      <subject id="FF21266E1BAFAC68" name="TI_LINGUAGEM DE PROGRAMAÇÃO IV" short="LP24A0"/>
+      <subject id="51B6C81FFBDFBF58" name="TI_Matemática" short="MA21A0"/>
+      <subject id="DA42300224171C02" name="TI_Matemática I" short="MA22A0"/>
+      <subject id="05B5F1100DB8F9E1" name="TI_MATEMÁTICA II" short="MA23A0"/>
+      <subject id="9559788063A23451" name="TI_MATEMÁTICA III" short="MA24A0"/>
+      <subject id="879A6DFC3C5EA62A" name="TI_Química" short="QM21A0"/>
+      <subject id="173DF56C9247E09A" name="TI_Química II" short="QM22A0"/>
+      <subject id="7FC293E6C7C3F488" name="TI_QUIMICA III" short="QM23A0"/>
+      <subject id="36852B4450ED3A52" name="TI_REDES DE COMPUTADORES" short="RC24A0"/>
+      <subject id="BCA5C123C211E3E2" name="TI_SISTEMAS DIGITAIS" short="SI24A0"/>
+      <subject id="252AE3C70C8D7089" name="TI_Sistemas Operacionais I" short="SO22A0"/>
+      <subject id="2FC41A3E437F0B47" name="TI_SISTEMAS OPERACIONAIS II" short="SO24A0"/>
+      <subject id="9844B8B878DB1F35" name="TI_SOCIOLOGIA" short="ES24D0"/>
+      <subject id="5C94F11AB87DD8BA" name="Toefl" short="Toefl"/>
+   </subjects>
+   <teachers options="canadd,export:silent" columns="id,name,short,gender,color,email,mobile">
+      <teacher id="F6D557FC938D143B" name="A_11111 COAMB" short="COAMB" gender="M" color="#003300" email="" mobile=""/>
+      <teacher id="139BB264A08C9937" name="A_11111 COECI 1" short="COECI 1" gender="M" color="#FFFFFF" email="" mobile=""/>
+      <teacher id="4D4D096EB635040B" name="A_11111 COINF" short="COINF" gender="M" color="#CC00CC" email="" mobile=""/>
+      <teacher id="B2222B362D7F7706" name="A_11111 Novo Alim 2" short="Alim 2" gender="M" color="#993300" email="" mobile=""/>
+      <teacher id="B7ADD47966C468FD" name="A_11111 Novo Alimentos 1" short="Alimentos 1" gender="M" color="#00CC00" email="" mobile=""/>
+      <teacher id="A3CFF10E8BF59CC2" name="A_11111 Novo COELE 1" short="COELE 1" gender="M" color="#990099" email="" mobile=""/>
+      <teacher id="9BC3D3F5F29115BE" name="A_11111 Novo COELE 2" short="COELE 2" gender="M" color="#FFCC66" email="" mobile=""/>
+      <teacher id="571E011CF28C04D2" name="A_11111 Novo COELE 3" short="COELE 3" gender="M" color="#6600FF" email="" mobile=""/>
+      <teacher id="26F78E0BC5CE86D0" name="A_11111 Novo COELE 5" short="COELE 5" gender="M" color="#FFC000" email="" mobile=""/>
+      <teacher id="592CFAACE1E7A64B" name="A_11111 Novo COINT 1" short="COINT 1" gender="M" color="#669999" email="" mobile=""/>
+      <teacher id="49D69EA39D82D8A9" name="A_11111 Novo COLIQ 1 Paula" short="COLIQ 1" gender="M" color="#FF9900" email="" mobile=""/>
+      <teacher id="55CD0F63EF5D8E66" name="A_11111 Novo Quimica Didática" short="Didática" gender="M" color="#00CC00" email="" mobile=""/>
+      <teacher id="0A37B71A44315A20" name="Adalberto Luiz Rodrigues De Oliveira" short="Adalberto" gender="F" color="#FF0000" email="" mobile=""/>
+      <teacher id="99DABA61851B1BD8" name="Adilandri Mércio Lobeiro" short="Adilandri" gender="M" color="#FFFF66" email="" mobile=""/>
+      <teacher id="059D3972F5287F77" name="Adriana Aparecida Droval" short="Adriana Droval" gender="F" color="#669900" email="" mobile=""/>
+      <teacher id="511ABB96A7A6B4A2" name="Adria- attribute5 : intna Da Silva Fontes" short="Adriana Fontes" gender="F" color="#009933" email="" mobile=""/>
+      <teacher id="A12FCDF1EE735DCE" name="Adriano Romero" short="Adriano" gender="M" color="#FF5050" email="" mobile=""/>
+      <teacher id="5FD83FA1C629F403" name="Adriele Rodrigues dos Santos" short="Adriele" gender="F" color="#800080" email="" mobile=""/>
+      <teacher id="1AF827E6946A51D5" name="Ailey Aparecida Coelho Tanamati" short="Ailey" gender="F" color="#DDFF97" email="" mobile=""/>
+      <teacher id="AA9BAF56EA538C45" name="Alberto Cavalcanti Vitorio" short="Alberto" gender="M" color="#FFCC66" email="" mobile=""/>
+      <teacher id="332A930FFDAB7037" name="Alessandro Kraemer" short="Alessandro" gender="M" color="#634263" email="" mobile=""/>
+      <teacher id="16A564BA292F5D2C" name="Alex Sandro De Medeiros" short="Alex" gender="M" color="#66FF66" email="" mobile=""/>
+      <teacher id="B0D8318F7BB8433F" name="Alexandre Santa Barbara Azevedo" short="Alexandre" gender="M" color="#C0C000" email="" mobile=""/>
+      <teacher id="8246CC5DB92A4534" name="Alexandro" short="Alexandro" gender="M" color="#0066CC" email="" mobile=""/>
+      <teacher id="B9DC2BB2954E1C77" name="Ana Paula" short="Ana Paula" gender="F" color="#663300" email="" mobile=""/>
+      <teacher id="479083AE2705B904" name="André Luis Schwerz" short="André Luis" gender="M" color="#FF8000" email="" mobile=""/>
+      <teacher id="D73386F567EF7ABC" name="Andre Luiz Satoshi Kawamoto" short="André" gender="M" color="#FFFFCC" email="" mobile=""/>
+      <teacher id="5C3701B62D014BDF" name="Andréa Kominek" short="Andréa K." gender="F" color="#FFCCFF" email="" mobile=""/>
+      <teacher id="B188F5F0389D296D" name="Angela Maria Gozzo" short="Angela Maria" gender="F" color="#9900FF" email="" mobile=""/>
+      <teacher id="0287634396CF3D34" name="Angela Mognon" short="Angela" gender="F" color="#FFFF00" email="" mobile=""/>
+      <teacher id="922AEAB3ECB877A4" name="Artur Jose Dos Santos Pires" short="Artur" gender="M" color="#FFFFCC" email="" mobile=""/>
+      <teacher id="FAAF892E22348B92" name="Augusto Tanamati" short="Augusto" gender="M" color="#FF6666" email="" mobile=""/>
+      <teacher id="6D4B701EE0206E87" name="Charles Windson Isidoro Haminiuk" short="Charles" gender="M" color="#66FF66" email="" mobile=""/>
+      <teacher id="2E2B248B5062CFAA" name="Claudete Cargnin" short="Claudete" gender="F" color="#14C030" email="" mobile=""/>
+      <teacher id="6248551356015319" name="Cristiane Kreutz" short="Cristiane" gender="F" color="#FF00FF" email="" mobile=""/>
+      <teacher id="112B125B6A4FE740" name="Darlene Lopes Do Amaral Oliveira" short="Darlene" gender="F" color="#FFCCFF" email="" mobile=""/>
+      <teacher id="F4A9E40595F3D435" name="Davi Antunes De Oliveira" short="Davi" gender="F" color="#FFFF66" email="" mobile=""/>
+      <teacher id="84496B75EBBD0EA5" name="Debora Cristina De Souza" short="Debora" gender="F" color="#008000" email="" mobile=""/>
+      <teacher id="1B01396B820B0BB3" name="Denize Ricardi" short="Denize" gender="F" color="#FFCC66" email="" mobile=""/>
+      <teacher id="12A6ED2C49EF15A1" name="Devanir Pereira Dos Santos Canovas" short="Devanir" gender="F" color="#00CCFF" email="" mobile=""/>
+      <teacher id="D6B9BB7EEBF88FCB" name="Diogo Heron Macowski" short="Diogo" gender="M" color="#FF6666" email="" mobile=""/>
+      <teacher id="FBEC6B932B872C7B" name="Douglas Fukunaga Surco" short="Douglas" gender="F" color="#FFCC66" email="" mobile=""/>
+      <teacher id="9BE6C322E15365A8" name="Ednei" short="Ednei" gender="M" color="#CCCCFF" email="" mobile=""/>
+      <teacher id="D70D752733EE9C15" name="Edson Hirata" short="Edson" gender="M" color="#FF9966" email="" mobile=""/>
+      <teacher id="CEB3AD1110D21EBC" name="Elizabete Satsuki Sekine" short="Elizabete" gender="M" color="#C014FF" email="" mobile=""/>
+      <teacher id="3734CFB45B2DAB62" name="Elton Celton de Oliveira" short="Elton" gender="M" color="#CC3399" email="" mobile=""/>
+      <teacher id="85F8326F487D303E" name="Emilio Gonzalez" short="Emilio" gender="M" color="#FFC000" email="" mobile=""/>
+      <teacher id="C2FE7E34951D7D2F" name="Erika Patricia D. O." short="Erika" gender="F" color="#999999" email="" mobile=""/>
+      <teacher id="468700A87D948964" name="Estela" short="Estela" gender="F" color="#993399" email="" mobile=""/>
+      <teacher id="159735B68946F1F6" name="Eudes José Arantes" short="Eudes" gender="M" color="#14C000" email="" mobile=""/>
+      <teacher id="9C98A273CA76BD58" name="Evandro Bona" short="Evandro Bona" gender="M" color="#333399" email="" mobile=""/>
+      <teacher id="943E5634925AC746" name="Evandro Luis Volpato" short="Evandro" gender="F" color="#33CC33" email="" mobile=""/>
+      <teacher id="4B7E5769B4E66010" name="Fabiana Goia Rosa De Oliveira" short="Fabiana" gender="F" color="#66FFFF" email="" mobile=""/>
+      <teacher id="4DB458E1A3690711" name="Fábio Duran" short="Fábio" gender="M" color="#00FFCC" email="" mobile=""/>
+      <teacher id="623EEC16AD94F672" name="Fernanda" short="Fernanda" gender="F" color="#00C0C8" email="" mobile=""/>
+      <teacher id="31332A8BCF0CF406" name="Fernando Cezar Goncalves Manso" short="Fernando Cezar" gender="M" color="#FF8080" email="" mobile=""/>
+      <teacher id="C0D6B1FC24F62E75" name="Fernando Hermes Passig" short="Fernando" gender="M" color="#80FF80" email="" mobile=""/>
+      <teacher id="949BE1871BFDDA4A" name="Flavia Aparecida Reitz" short="Flávia" gender="F" color="#8000FF" email="" mobile=""/>
+      <teacher id="1B98CA1B480E2CF5" name="Frank Helbert Borsato" short="Frank" gender="M" color="#C0FFFF" email="" mobile=""/>
+      <teacher id="53BF52F77FD6E190" name="Gabriel" short="Gabriel" gender="M" color="#006699" email="" mobile=""/>
+      <teacher id="133E7DDC0FF236E3" name="Gilson Júnior Schiavon" short="Gilson" gender="M" color="#33CCFF" email="" mobile=""/>
+      <teacher id="D19322C8750F262A" name="Helton Rogerio Mazzer" short="Helton" gender="F" color="#DDFF97" email="" mobile=""/>
+      <teacher id="1D14A4EC27AD5B55" name="Hércules Alves de Oliveira Junior" short="Hércules" gender="M" color="#996633" email="" mobile=""/>
+      <teacher id="ACB82C5C7D9695C5" name="Heron Oliveira dos Santos Lima" short="Heron" gender="M" color="#00FF00" email="" mobile=""/>
+      <teacher id="EEB7C541756F2B81" name="Igor Fabio Steinmacher" short="Igor F." gender="M" color="#80C014" email="" mobile=""/>
+      <teacher id="3D73AC25777E2914" name="Igor Scaliante Wiese" short="Igor" gender="M" color="#80C0FF" email="" mobile=""/>
+      <teacher id="709C422DA414D7C9" name="Ivanilton Polato" short="Ivanilton" gender="M" color="#CC6600" email="" mobile=""/>
+      <teacher id="9C10033B8DB6B5A8" name="Jorge Candido" short="Jorge" gender="M" color="#669900" email="" mobile=""/>
+      <teacher id="A867FE11443606F5" name="Jorge Luís Nunes de Goes" short="Jorge Góes" gender="M" color="#AA2244" email="" mobile=""/>
+      <teacher id="1F827B4CA383F33A" name="Jose Hilario Delconte Ferreira" short="Hilário" gender="M" color="#00FFFF" email="" mobile=""/>
+      <teacher id="4AF63C5A8D25D119" name="Jose Hilton Bernardino De Araujo" short="Hilton" gender="M" color="#FF0000" email="" mobile=""/>
+      <teacher id="56805B6A8027F397" name="Julio Cesar Estrella" short="Estrella" gender="M" color="#FFC030" email="" mobile=""/>
+      <teacher id="729713515C14C351" name="Júnio Rene Toledo Fagundes" short="Júnio" gender="M" color="#00FF99" email="" mobile=""/>
+      <teacher id="BE15199E23927135" name="Karina Querne de Carvalho" short="Karina" gender="F" color="#FF00FF" email="" mobile=""/>
+      <teacher id="B5BACD5EEB767B23" name="Karla Andréia de Melo" short="Karla" gender="F" color="#00C0C8" email="" mobile=""/>
+      <teacher id="4C56706650E3BF2D" name="Karla Silva" short="Karla Silva" gender="F" color="#666666" email="" mobile=""/>
+      <teacher id="A7FC4703D93265B5" name="Leandro Lago da Silva" short="Lago" gender="M" color="#0033CC" email="" mobile=""/>
+      <teacher id="1B10AF0C204D9DFD" name="Leandro Waidemam" short="Leandro" gender="M" color="#07B872" email="" mobile=""/>
+      <teacher id="AAB3B25361375FB5" name="Leila Larisa Medeiros Marques" short="Leila" gender="M" color="#00C0FF" email="" mobile=""/>
+      <teacher id="F973150E4E66E491" name="Lívia Bracht" short="Lívia" gender="F" color="#9966FF" email="" mobile=""/>
+      <teacher id="F1194CF82B4A6737" name="Luciano Fleischfresser" short="Luciano" gender="M" color="#CCE6FF" email="" mobile=""/>
+      <teacher id="D4941EA256CE542C" name="Lúcio Geronimo Valentin" short="Lúcio" gender="M" color="#6060C0" email="" mobile=""/>
+      <teacher id="BEB73544B5F8158F" name="Luiz Arthur Feitosa" short="Luiz Arthur" gender="M" color="#C0C000" email="" mobile=""/>
+      <teacher id="3D14BD1C8C2A681A" name="Luiz Becher" short="Becher" gender="F" color="#66FF66" email="" mobile=""/>
+      <teacher id="E34A02AD161F48E3" name="Luiz Ledo Mota Melo Junior" short="Luiz" gender="M" color="#99FF99" email="" mobile=""/>
+      <teacher id="34BAF506690DEAC0" name="Magda Cardoso Mantovani" short="Magda" gender="F" color="#C0FFFF" email="" mobile=""/>
+      <teacher id="9764B0E68A7A0D6A" name="Magon" short="Magon" gender="M" color="#00FF80" email="" mobile=""/>
+      <teacher id="BEFDBE31CFEF8D1B" name="Manuel Salvador Vicente Plata Oviedo" short="Manuel" gender="M" color="#FFFFFF" email="" mobile=""/>
+      <teacher id="4E9D45A225B8C78A" name="Marcelo Galeazzi Caxambu" short="Marcelo" gender="M" color="#808040" email="" mobile=""/>
+      <teacher id="7A148286FA7B2CB1" name="Marcelo Guelbert" short="Guelbert" gender="F" color="#FFFFCC" email="" mobile=""/>
+      <teacher id="64660E1214B9091C" name="Marcelo Rodrigo Carreira" short="Marcelo Carreira" gender="F" color="#6666FF" email="" mobile=""/>
+      <teacher id="5C0BC1D2DC9D130A" name="Marcia Aparecida de Oliveira" short="Marcia Oliveira" gender="F" color="#808000" email="" mobile=""/>
+      <teacher id="A78943F68F1B4835" name="Marcia Regina Ferreira Geraldo Perdoncinia" short="Marcia R." gender="F" color="#0000CC" email="" mobile=""/>
+      <teacher id="FA9DDBFB47AC184D" name="Marcos Antonio Piza" short="Marcos" gender="F" color="#993333" email="" mobile=""/>
+      <teacher id="A285707C05737712" name="Marcos Silvano Orita Almeida" short="Silvano" gender="M" color="#00C0FF" email="" mobile=""/>
+      <teacher id="A307E2A5C8F4BB80" name="Maria Cleide Baldo" short="Maria Cleide" gender="F" color="#009933" email="" mobile=""/>
+      <teacher id="EE85E8F290726964" name="Maria Cristina Rodrigues Halmeman" short="Cristina" gender="F" color="#CC99FF" email="" mobile=""/>
+      <teacher id="E6279CB358367353" name="Maria Eloiza Fiorese Prates" short="Maria Eloiza" gender="F" color="#CCFFFF" email="" mobile=""/>
+      <teacher id="20D94CA179213463" name="Maria Josiane Sereia" short="Maria Josiane" gender="M" color="#0000FF" email="" mobile=""/>
+      <teacher id="D06B9599FD71A86A" name="Maristela Denise Moreseo Mezzomo" short="Maristela" gender="F" color="#60FFC0" email="" mobile=""/>
+      <teacher id="C48A86DE9B4F329D" name="Marli Aparecida Pedro" short="Marli" gender="F" color="#FF6666" email="" mobile=""/>
+      <teacher id="23913C1A1625A71D" name="Mauricio Cesar Menon" short="Mauricio" gender="F" color="#33CC33" email="" mobile=""/>
+      <teacher id="5B6178E7FC529F61" name="Michel" short="Michel" gender="M" color="#66FF66" email="" mobile=""/>
+      <teacher id="6F0EBE3DC8A3DC48" name="Michele Carvalho de Barros" short="Michele mat" gender="F" color="#33CCFF" email="" mobile=""/>
+      <teacher id="0D78697FCBC59B9C" name="Miguel Angel Aparicio Rodriguez" short="Miguel" gender="M" color="#14C0C0" email="" mobile=""/>
+      <teacher id="F0F3BF530C490148" name="Mirela Vanin dos Santos Lima" short="Mirela " gender="F" color="#DDFF97" email="" mobile=""/>
+      <teacher id="AC09FF7F21D52828" name="Narci Nogueira Da Silva" short="Narci" gender="F" color="#99FF66" email="" mobile=""/>
+      <teacher id="B66849A1DE777D89" name="Nelson Consolin" short="Nelson" gender="M" color="#0080FF" email="" mobile=""/>
+      <teacher id="2F7C779037A265B9" name="Nilson Bueno Kominek" short="Nilson" gender="M" color="#0066CC" email="" mobile=""/>
+      <teacher id="5AF0389E21444397" name="Odinei Hess Gonçalves" short="Odinei" gender="M" color="#CC9900" email="" mobile=""/>
+      <teacher id="82910F94F03335D1" name="Oscar Rodrigues dos Santos" short="Oscar" gender="M" color="#CCCCFF" email="" mobile=""/>
+      <teacher id="6A5436505F69A98D" name="Patrícia Valderama" short="Patrícia" gender="F" color="#33CCCC" email="" mobile=""/>
+      <teacher id="DCD939B365096898" name="Paula Cristina de Souza" short="Paula" gender="F" color="#1414C0" email="" mobile=""/>
+      <teacher id="6FF7E6FA8A0070E5" name="Paulo Agenor Alves Bueno" short="Paulo Agenor" gender="M" color="#663300" email="" mobile=""/>
+      <teacher id="FF96EA41CACA329E" name="Paulo Roberto Francioli" short="Paulo Roberto" gender="M" color="#3333FF" email="" mobile=""/>
+      <teacher id="2B0EAB4FB48C107C" name="Priscila Amara Patricio de Melo" short="Priscila" gender="F" color="#FF0066" email="" mobile=""/>
+      <teacher id="BAB1AE96F575D234" name="Radames Juliano Halmeman" short="Radames" gender="M" color="#FFFF00" email="" mobile=""/>
+      <teacher id="F55F5E8516409346" name="Rafael Liberato Roberto" short="Rafael" gender="M" color="#00FFC0" email="" mobile=""/>
+      <teacher id="87433479885DF598" name="Rafaeli" short="Rafaeli" gender="F" color="#3399FF" email="" mobile=""/>
+      <teacher id="5DE4812860BC1FEC" name="Raquel De Oliveira Bueno" short="Raquel" gender="F" color="#FFFF80" email="" mobile=""/>
+      <teacher id="ED880898B6A55A5B" name="Regiane da Silva Gonzalez" short="Regiane" gender="F" color="#3333CC" email="" mobile=""/>
+      <teacher id="5BDD615AE2C0D836" name="Reginaldo Ré" short="Reginaldo" gender="M" color="#CCFFFF" email="" mobile=""/>
+      <teacher id="EB80E8CB38AA12A5" name="Renata Hernandez Barros Fuchs" short="Renata" gender="F" color="#FFFF66" email="" mobile=""/>
+      <teacher id="291E447C0BC64513" name="Ricardo Bernardi" short="Ricardo B." gender="M" color="#336600" email="" mobile=""/>
+      <teacher id="3B72B48000861476" name="Ricardo Menotti" short="Ricardo M." gender="F" color="#0014C0" email="" mobile=""/>
+      <teacher id="2DFEF3D9F3E3ECD0" name="Roberto Widerski" short="Widerski" gender="F" color="#00CCFF" email="" mobile=""/>
+      <teacher id="C17DCFBB44956996" name="Rodrigo" short="Rodrigo" gender="M" color="#993366" email="" mobile=""/>
+      <teacher id="7069EB0B56D79DD4" name="Rodrigo Campiolo" short="Rodrigo" gender="M" color="#993300" email="" mobile=""/>
+      <teacher id="8FC9E78449A9950E" name="Rodrigo Hubner" short="Rodrigo H" gender="M" color="#FF9933" email="" mobile=""/>
+      <teacher id="BD9DF72134ADAE88" name="Rogério Aparecido Gonçalves" short="Rogério" gender="M" color="#FFC030" email="" mobile=""/>
+      <teacher id="0FA51B4BA133314B" name="Ronaldo" short="Ronaldo" gender="M" color="#FF0000" email="" mobile=""/>
+      <teacher id="74600A55A8D77B9B" name="Roseli Constantino" short="Roseli" gender="F" color="#FFC0C0" email="" mobile=""/>
+      <teacher id="6C06423F85BAFE41" name="Sandra Elis Aleixo" short="Sandra" gender="F" color="#6014C0" email="" mobile=""/>
+      <teacher id="4F8113E9B13EEB35" name="Sara Coelho da Silva" short="Sara" gender="F" color="#FF0000" email="" mobile=""/>
+      <teacher id="970590ECCAE5A8B8" name="Sérgio Henrique Fernandes" short="Sérgio Henrique" gender="M" color="#339933" email="" mobile=""/>
+      <teacher id="0A1F28B5C9E96CE3" name="Sergio Roberto Oberhauser Quintanilha Braga" short="Sergio Braga" gender="F" color="#FFFFFF" email="" mobile=""/>
+      <teacher id="BBCA464224C19CF0" name="Silvana" short="Silvana" gender="F" color="#FFCCCC" email="" mobile=""/>
+      <teacher id="39EEB3792A802425" name="Sonia Barbosa De Lima" short="Sonia" gender="F" color="#00FF00" email="" mobile=""/>
+      <teacher id="318C6739F2242E13" name="Tanatiana Ferreira Guelbert" short="Tanatiana" gender="F" color="#993333" email="" mobile=""/>
+      <teacher id="F50177CE54EBC3BB" name="Thelma Pretel Brandao Vecchi" short="Thelma" gender="F" color="#99FF66" email="" mobile=""/>
+      <teacher id="FB3A6377E2EB666A" name="Thiago" short="Thiago" gender="F" color="#993300" email="" mobile=""/>
+      <teacher id="ECA72B8F1CCFCDAA" name="Valdomiro Lubachevski Kurta" short="Valdomiro" gender="F" color="#808080" email="" mobile=""/>
+      <teacher id="9A69438584B5C704" name="Vanessa Medeiros Corneli" short="Vanessa" gender="F" color="#008080" email="" mobile=""/>
+      <teacher id="01AAD9EB856BFAF8" name="Vera Lucia Barradas Moreira" short="Vera" gender="F" color="#FFFF00" email="" mobile=""/>
+      <teacher id="4625FA3FCD87992B" name="Viviane Colucci" short="Viviane" gender="F" color="#3333CC" email="" mobile=""/>
+      <teacher id="0B8100FB9D271F69" name="Wellington Jose Corrêa" short="Wellington" gender="M" color="#00FF00" email="" mobile=""/>
+      <teacher id="7406239EE7A2AC10" name="Wladimir Sérgio Braga" short="Wladimir" gender="M" color="#00FF00" email="" mobile=""/>
+   </teachers>
+   <classrooms options="canadd,export:silent" columns="id,name,short,capacity">
+      <classroom id="4DDC060C46BEC0D0" name="C001 - Lab. de Veg., Higiene e Operações Unitarias" short="C001" capacity="22"/>
+      <classroom id="ACE2BB47C195354F" name="C002 - Laboratório de Carnes, leite e bromatologia" short="C002" capacity="22"/>
+      <classroom id="A0B230119678B129" name="C003 - Laboratório de Química Orgânica/Bioquímica" short="C003 " capacity="22"/>
+      <classroom id="F34855EC8BA83CD1" name="C005 - Laboratório de Microscopia" short="C005" capacity="22"/>
+      <classroom id="5BC9788FD603C977" name="C101 - Laboratório de Ecossistemas" short="C101" capacity="22"/>
+      <classroom id="A5A8A93B6F7B2420" name="C102 - Laboratório de Zoologia" short="C102" capacity="22"/>
+      <classroom id="CEE7D1AA5770F0DB" name="C103 - Laboratório de Panificação" short="C103" capacity="*"/>
+      <classroom id="39BE0495B45EA0D8" name="C104 - Laboratório de Saneamento" short="C104" capacity="22"/>
+      <classroom id="C24CE84EC7B684CB" name="C105 - Laboratório de química analítica" short="C105" capacity="22"/>
+      <classroom id="2AD20AF212321171" name="E004 - Laboratório de resíduos sólidos" short="E004" capacity="*"/>
+      <classroom id="7D63ACA3F2422461" name="E005 - Herbário" short="E005" capacity="*"/>
+      <classroom id="F60C32941C141013" name="E006 - Laboratório de Geoprocessamento" short="E006" capacity="45"/>
+      <classroom id="3D1F29621D250C6D" name="F001 - Laboratório de Hidráulica" short="F001 " capacity="*"/>
+      <classroom id="BA4B5E0A01AF8C74" name="F002 - Laboratório de ensaios tecnológicos" short="F002" capacity="*"/>
+      <classroom id="BAC94C0AB011582B" name="F003 - Laboratório de solos" short="F003" capacity="*"/>
+      <classroom id="2484227CE6E1FA59" name="F004 - Laboratório de Fenômenos de Transportes e Hidráulica" short="F004" capacity="22"/>
+      <classroom id="A4B0797065B14CAB" name="F005 - Laboratório de física" short="F005 " capacity="22"/>
+      <classroom id="0D359C13B02CD952" name="F006 - Laboratório de instalações elétricas" short="F006" capacity="22"/>
+      <classroom id="03BEC6FC20B4B701" name="F108 - Sala de Desenho" short="F108" capacity="45"/>
+      <classroom id="7FD183046E18BC45" name="E100 - Laboratório de Informática" short="E100" capacity="60"/>
+      <classroom id="8053F52E319A00B5" name="E101 - Laboratório de Informática" short="E101" capacity="*"/>
+      <classroom id="541D24B928C1AC8B" name="E102 - Laboratório de Informática" short="E102" capacity="20"/>
+      <classroom id="2EBC404C82A7506E" name="E103 - Laboratório de Hardware" short="E103" capacity="40"/>
+      <classroom id="2F3E2E4D31291C26" name="E104 - Laboratório de Informática" short="E104" capacity="20"/>
+      <classroom id="146C8F4587AE6BAB" name="E105 - Laboratório de Informática" short="E105" capacity="25"/>
+      <classroom id="73B5071ED0AC691E" name="E007 - Laboratório de Informática" short="E007" capacity="*"/>
+      <classroom id="99AF395048F974F9" name="D101 - Sala teórica" short="D101" capacity="*"/>
+      <classroom id="EEB27695857DACC4" name="D102 - Sala teórica" short="D102" capacity="*"/>
+      <classroom id="7461795E7B548E66" name="D103 - Sala teórica" short="D103" capacity="*"/>
+      <classroom id="BA97B95DAB0104AE" name="D104 - Sala teórica" short="D104" capacity="*"/>
+      <classroom id="07347B14390B9AAC" name="D105 - Sala teórica" short="D105" capacity="*"/>
+      <classroom id="FED22ED500AFA49A" name="D106 - Sala teórica" short="D106" capacity="*"/>
+      <classroom id="6756CD4F362BB889" name="D107 - Sala teórica" short="D107" capacity="*"/>
+      <classroom id="B9ECF32A2B5B4431" name="D108 - Sala teórica" short="D108" capacity="*"/>
+      <classroom id="ECC2C902D78B53A1" name="E001 - Sala teórica" short="E001" capacity="45"/>
+      <classroom id="1C15A43D2620ECFA" name="E002 - Sala teórica" short="E002" capacity="45"/>
+      <classroom id="EABBA93559900BEB" name="E003 - Sala teórica" short="E003" capacity="45"/>
+      <classroom id="BCD8B78B5593A7CD" name="F101 - Sala teórica" short="F101" capacity="48"/>
+      <classroom id="B0AC2C552A9723A7" name="F102 - Sala teórica" short="F102" capacity="45"/>
+      <classroom id="033E52301FA6AF4F" name="F103 - Sala teórica" short="F103" capacity="45"/>
+      <classroom id="81E572AE28BA84A0" name="F105 - Sala teórica" short="F105" capacity="25"/>
+      <classroom id="EDA7F1BF98C7E83F" name="F106 - Sala teórica" short="F106" capacity="25"/>
+      <classroom id="314999CDD68B6BC8" name="F109 - Sala teórica" short="F109" capacity="35"/>
+      <classroom id="AE7DCE75BB55EBCF" name="F110 - Sala teórica" short="F110" capacity="25"/>
+      <classroom id="47A97E839F28A75B" name="B102 - Sala teórica" short="B102" capacity="*"/>
+      <classroom id="7CA8C29771E458F7" name="B103 - Sala teórica" short="B103" capacity="*"/>
+      <classroom id="FF797F8EAF2427CE" name="B104 - Sala teórica" short="B104" capacity="*"/>
+      <classroom id="50C35C679EB3B6D9" name="B105 - Sala teórica" short="B105" capacity="*"/>
+      <classroom id="B50F9F53582FFB46" name="B106 - Sala teórica" short="B106" capacity="*"/>
+      <classroom id="9A3E2E413EA38932" name="B107 - Sala teórica" short="B107" capacity="*"/>
+      <classroom id="6BC374D36A223BF6" name="F104 - Sala teorica" short="F104" capacity="15"/>
+      <classroom id="562D1462E34374E5" name="F107 - Sala teórica" short="F107" capacity="15"/>
+      <classroom id="6E354B33E618D3DB" name="H105 - Canteiro de obras _ Sala Teórica" short="H105" capacity="22"/>
+      <classroom id="2E2F8B1D4F4F1810" name="B004 - Laboratório" short="B004" capacity="*"/>
+      <classroom id="BEA5D27A049A365F" name="B001 - Laboratório de Informática" short="B001" capacity="*"/>
+      <classroom id="22B7C1CAF24D1768" name="B007 - Laboratório COELE" short="B007" capacity="22"/>
+   </classrooms>
+   <grades options="canadd,export:silent" columns="grade,name,short">
+      <grade name="Grau 1" short="G 1" grade="1"/>
+      <grade name="Grau 2" short="G 2" grade="2"/>
+      <grade name="Grau 3" short="G 3" grade="3"/>
+      <grade name="Grau 4" short="G 4" grade="4"/>
+      <grade name="Grau 5" short="G 5" grade="5"/>
+      <grade name="Grau 6" short="G 6" grade="6"/>
+      <grade name="Grau 7" short="G 7" grade="7"/>
+      <grade name="Grau 8" short="G 8" grade="8"/>
+      <grade name="Grau 9" short="G 9" grade="9"/>
+      <grade name="Grau 10" short="G 10" grade="10"/>
+      <grade name="Grau 11" short="G 11" grade="11"/>
+      <grade name="Grau 12" short="G 12" grade="12"/>
+      <grade name="Grau 13" short="G 13" grade="13"/>
+      <grade name="Grau 14" short="G 14" grade="14"/>
+      <grade name="Grau 15" short="G 15" grade="15"/>
+      <grade name="Grau 16" short="G 16" grade="16"/>
+      <grade name="Grau 17" short="G 17" grade="17"/>
+      <grade name="Grau 18" short="G 18" grade="18"/>
+      <grade name="Grau 19" short="G 19" grade="19"/>
+      <grade name="Grau 20" short="G 20" grade="20"/>
+   </grades>
+   <classes options="canadd,export:silent" columns="id,name,short,classroomids,teacherid,grade">
+      <class id="AE038678F71BECE2" name="Engenharia Eletrônica 1 - Integral" short="IL1A" teacherid="" classroomids="" grade=""/>
+      <class id="168824F32C9800CF" name="Engenharia Eletrônica 2 - Integral" short="IL2A" teacherid="" classroomids="" grade=""/>
+      <class id="13FAE859D97CB4C6" name="Engenharia Eletrônica 3 - Integral" short="IL3A" teacherid="" classroomids="" grade=""/>
+      <class id="A7C499B194A7B4A9" name="Engenharia Eletrônica 4 - Integral" short="IL4A" teacherid="" classroomids="" grade=""/>
+      <class id="97EB3807C1BB5A19" name="Engenharia Civil 1 - Integral" short="ID1A" teacherid="" classroomids="" grade=""/>
+      <class id="006FD681F7376E08" name="Engenharia Civil 2 - Integral" short="ID2A" teacherid="" classroomids="" grade=""/>
+      <class id="90135DF24D20A877" name="Engenharia Civil 3 - Integral" short="ID3A" teacherid="" classroomids="" grade=""/>
+      <class id="738E2F9C78A4956B" name="Engenharia Civil 4 - Integral" short="ID4A" teacherid="" classroomids="" grade=""/>
+      <class id="47575F276FCC4141" name="Engenharia Civil 5 - Integral" short="ID5A" teacherid="" classroomids="" grade=""/>
+      <class id="99E900D94FDC5431" name="Engenharia Civil 6 - Integral" short="ID6A" teacherid="" classroomids="" grade=""/>
+      <class id="227468BB7813B0DC" name="Engenharia Civil 7 - Integral" short="ID7A" teacherid="" classroomids="" grade=""/>
+      <class id="6EAE89B8C13D6332" name="Engenharia Civil 8 - Integral" short="ID8A" teacherid="" classroomids="" grade=""/>
+      <class id="2BB98EF10552CE34" name="Engenharia Civil 9 - Integral" short="ID9A" teacherid="" classroomids="" grade=""/>
+      <class id="F49ABC20131A1D73" name="Engenharia Civil - Optativas" short="IDO" teacherid="" classroomids="" grade=""/>
+      <class id="1A16A0A554D73382" name="Engenharia Ambiental 1 - Integral" short="IF1A" teacherid="" classroomids="" grade=""/>
+      <class id="7AD4B72A0E57EDB1" name="Engenharia Ambiental 2 - Integral" short="IF2A" teacherid="" classroomids="" grade=""/>
+      <class id="035F9AE3218FD1A3" name="Engenharia Ambiental 3 - Integral" short="IF3A" teacherid="" classroomids="" grade=""/>
+      <class id="55F1C0BE169F5D4C" name="Engenharia Ambiental 4 - Integral" short="IF4A" teacherid="" classroomids="" grade=""/>
+      <class id="DE8128A03EF6B9F7" name="Engenharia Ambiental 5 - Integral" short="IF5A" teacherid="" classroomids="" grade=""/>
+      <class id="215CA409D58B1310" name="Engenharia Ambiental 6 - Integral" short="IF6A" teacherid="" classroomids="" grade=""/>
+      <class id="04D7F9DD160E78BC" name="Engenharia Ambiental 7 - Integral" short="IF7A" teacherid="" classroomids="" grade=""/>
+      <class id="F4E56E715923CA40" name="Engenharia Ambiental 8 - Integral" short="IF8A" teacherid="" classroomids="" grade=""/>
+      <class id="9FC23FA9D1679CDA" name="Engenharia Ambiental 9 - Integral" short="IF9A" teacherid="" classroomids="" grade=""/>
+      <class id="63B10FBD92A16D15" name="Engenharia Ambiental - Optativas" short="IFO" teacherid="" classroomids="" grade=""/>
+      <class id="2564B145B76B8D30" name="Engenharia de Alimentos 1 - Integral" short="IG1A" teacherid="" classroomids="" grade=""/>
+      <class id="DFFD879A3395610F" name="Engenharia de Alimentos 2 - Integral" short="IG2A" teacherid="" classroomids="" grade=""/>
+      <class id="EF45996C8F4FB1AC" name="Engenharia de Alimentos 3 - Integral" short="IG3A" teacherid="" classroomids="" grade=""/>
+      <class id="61E20486623B0D58" name="Engenharia de Alimentos 4 - Integral" short="IG4A" teacherid="" classroomids="" grade=""/>
+      <class id="D4F66C8EA95645A1" name="Engenharia de Alimentos 5 - Integral" short="IG5A" teacherid="" classroomids="" grade=""/>
+      <class id="5D81D470D18DA24C" name="Engenharia de Alimentos 6 - Integral" short="IG6A" teacherid="" classroomids="" grade=""/>
+      <class id="1A797E6B8F5620BC" name="Engenharia de Alimentos 7 - Integral" short="IG7A" teacherid="" classroomids="" grade=""/>
+      <class id="9753F210D3AD3E75" name="Engenharia de Alimentos 8 - Integral" short="IG8A" teacherid="" classroomids="" grade=""/>
+      <class id="C69422852B4F0778" name="Engenharia Eletrônica 1 - Integral - DP" short="IL1E" teacherid="" classroomids="" grade=""/>
+      <class id="4C5ECFE3AC9A9450" name="Núcleo Comum Engenharias - DP" short="DPNC" teacherid="" classroomids="" grade=""/>
+      <class id="5EFDAF41B12CD0AC" name="Engenharia de Alimentos 1 - Integral - DP" short="IG1E" teacherid="" classroomids="" grade=""/>
+      <class id="F2D4151EB78EE45E" name="Engenharia Ambiental 1 - Integral - DP" short="IF1E" teacherid="" classroomids="" grade=""/>
+      <class id="4E44C47B5FE23EE7" name="Humanidades" short="Humanidades" teacherid="" classroomids="" grade=""/>
+      <class id="9165AB1E0D9E70E9" name="T. Gerenciamento Ambiental 4 - Noite - DP" short="NB4E" teacherid="" classroomids="" grade=""/>
+      <class id="F9EACDC15819FD90" name="T. Gerenciamento Ambiental 5 - Noite - DP" short="NB5E" teacherid="" classroomids="39BE0495B45EA0D8" grade=""/>
+      <class id="FF61A77E574F02D0" name="T. Gerenciamento Ambiental 6 - Noite- DP" short="NB6E" teacherid="" classroomids="" grade=""/>
+      <class id="4ADF29A209CD37FC" name="T. Alimentos 1 - Noite" short="NA1A" teacherid="" classroomids="" grade=""/>
+      <class id="6B6BE10AAB2A4C70" name="T. Alimentos 2 - Noite" short="NA2A" teacherid="" classroomids="" grade=""/>
+      <class id="CCC3A68E3872E445" name="T. Alimentos 3 - Noite" short="NA3A" teacherid="" classroomids="" grade=""/>
+      <class id="3548C93182EE70EB" name="T. Alimentos 4 - Noite" short="NA4A" teacherid="" classroomids="" grade=""/>
+      <class id="C4EC50A1D8D7AB5B" name="T. Alimentos 5 - Noite" short="NA5A" teacherid="" classroomids="" grade=""/>
+      <class id="106A56EEA055593E" name="T. Alimentos 6 - Noite" short="NA6A" teacherid="" classroomids="" grade=""/>
+      <class id="78EAF568D5B16D2D" name="T. em Materiais de Construção 1 - Noite - DP" short="NC1E" teacherid="" classroomids="" grade=""/>
+      <class id="83842BE00CA307EA" name="T. em Materiais de Construção 2 - Noite - DP" short="NC2E" teacherid="" classroomids="" grade=""/>
+      <class id="43402CC74C8568AE" name="T. em Materiais de Construção 3 - Noite - DP" short="NC3E" teacherid="" classroomids="" grade=""/>
+      <class id="DD7275738A0ED609" name="T. em Materiais de Construção 4 - Noite - DP" short="NC4E" teacherid="" classroomids="" grade=""/>
+      <class id="CC7292AA5218E9A1" name="T. Materiais para Edificações 5 - Noite DP" short="NC5E" teacherid="" classroomids="" grade=""/>
+      <class id="A03BC23549409576" name="T. Materiais para Edificações 6 - Noite - DP" short="NC6E" teacherid="" classroomids="" grade=""/>
+      <class id="C0DED701F624ADF7" name="Tecnologia Em Construção Civil 7 - Noite - DP" short="NC7E" teacherid="" classroomids="" grade=""/>
+      <class id="8ACB3796B755D8E8" name="T. Sistemas para Internet 1 - Noite" short="NE1A" teacherid="332A930FFDAB7037" classroomids="" grade=""/>
+      <class id="65EC412ABFBD4882" name="T. Sistemas para Internet 2 - Noite" short="NE2A" teacherid="332A930FFDAB7037" classroomids="" grade=""/>
+      <class id="CA0A6A7E855E1AFB" name="T. Sistemas para Internet 1 - Noite - DP" short="NE1E" teacherid="" classroomids="" grade=""/>
+      <class id="C244546ECA3CD84B" name="T. Sistemas para Internet 3 - Noite" short="NE3A" teacherid="332A930FFDAB7037" classroomids="" grade=""/>
+      <class id="14D5F620AA4CEB3B" name="T. Sistemas para Internet 4 - Noite" short="NE4A" teacherid="332A930FFDAB7037" classroomids="" grade=""/>
+      <class id="D8E0C4734C166565" name="T. Sistemas para Internet 5 - Noite" short="NE5A" teacherid="" classroomids="" grade=""/>
+      <class id="96BA730CD8F29784" name="T. Sistemas para Internet 6 - Noite" short="NE6A" teacherid="" classroomids="" grade=""/>
+      <class id="4C82D12F7D94B642" name="Licenciatura em Química 1 - Noite" short="NQ1A" teacherid="" classroomids="" grade=""/>
+      <class id="3E750BE03E732410" name="Licenciatura em Química 2 - Noite" short="NQ2A" teacherid="" classroomids="" grade=""/>
+      <class id="09CEDB15200DCFCD" name="Tecnico Integrado em Informatica 1 - Manha" short="M31A" teacherid="" classroomids="" grade=""/>
+      <class id="925A42F748452C78" name="Tecnico Integrado em Informática 1 - Manha - DP" short="M31E" teacherid="" classroomids="" grade=""/>
+      <class id="E4EC68D23D54B81F" name="Tecnico Integrado em Informatica 1 - Tarde" short="T31A" teacherid="" classroomids="" grade=""/>
+      <class id="6D7BD0B465AC14CA" name="Tecnico Integrado em Informatica 1 - Tarde - DP" short="T31E" teacherid="" classroomids="" grade=""/>
+      <class id="C011726645DC27BB" name="Tecnico Integrado em Informatica 2 - Manha" short="M32A" teacherid="" classroomids="" grade=""/>
+      <class id="7FC4EF24707F0FC6" name="Tecnico Integrado em Informatica 2 - Tarde" short="T32A" teacherid="" classroomids="" grade=""/>
+      <class id="5EF90BA8F75FB2C7" name="Tecnico Integrado em Informatica 3 - Manha" short="M33A" teacherid="" classroomids="" grade=""/>
+      <class id="AA7B11F5BEFD60AA" name="Tecnico Integrado em Informatica 3 - Tarde" short="T33A" teacherid="" classroomids="" grade=""/>
+      <class id="DF80C9F8AF33FD92" name="Tecnico Integrado em Informatica 3 - Tarde - dp" short="T33E" teacherid="" classroomids="" grade=""/>
+      <class id="7E404180B6050C7F" name="Tecnico Integrado em Informatica 4 - Manha" short="M34A" teacherid="" classroomids="" grade=""/>
+      <class id="F0DCAC9A88F0682C" name="Tecnico Integrado em Informatica 4 - Tarde" short="T34A" teacherid="" classroomids="" grade=""/>
+      <class id="F15A9A9B375233E3" name="CALEM 1 - Noite" short="NE1" teacherid="" classroomids="" grade=""/>
+      <class id="8C06D57B13E32ADF" name="CALEM 2 - Noite" short="NE2" teacherid="" classroomids="" grade=""/>
+      <class id="2C231F1AFE143A79" name="CALEM 3 - Noite" short="NE3" teacherid="" classroomids="" grade=""/>
+      <class id="9BBA240765764A24" name="CALEM 4 - Noite" short="NE4" teacherid="" classroomids="" grade=""/>
+      <class id="4AF9147DF761321A" name="Curso de Formação Pedagógica" short="COFOP" teacherid="" classroomids="" grade=""/>
+      <class id="8742E28323E4F1DD" name="Curso de Especialização em Gerenciamento Ambiental" short="Esp. Gerenc. Ambiental" teacherid="" classroomids="" grade=""/>
+      <class id="FA613B9DA5521942" name="Curso de Especialização em Gerenciamento de Obras Civis" short="Esp. Vigilância Sanitária" teacherid="" classroomids="" grade=""/>
+      <class id="5786A6DD9721508D" name="Reserva Monitoria" short="Monitoria" teacherid="" classroomids="" grade=""/>
+      <class id="EEDC32916CB1321C" name="Projeto Social" short="Projeto Social" teacherid="" classroomids="" grade=""/>
+      <class id="A9EE72BD821D58FB" name="Especialização em Matemática" short="Especialização em Matemática" teacherid="" classroomids="" grade=""/>
+      <class id="21F258FD311097FE" name="Reserva" short="Reserva" teacherid="" classroomids="" grade=""/>
+      <class id="3DD270AE447E1DFC" name="Especialização EJA 1" short="EJA 1" teacherid="" classroomids="" grade=""/>
+      <class id="4962FAABDEF83C99" name="Especialização EJA 1" short="EJA 2" teacherid="" classroomids="" grade=""/>
+   </classes>
+   <groups options="canadd,export:silent" columns="id,classid,name,entireclass,divisiontag,studentcount,studentids">
+      <group id="7AB41BCD256C8BA3" name="Turma completa" classid="AE038678F71BECE2" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="77895F0024E79A8E" name="IL1A" classid="AE038678F71BECE2" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="CBFC4AAD8DFEEAB3" name="IL1B" classid="AE038678F71BECE2" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="778069445F42FD26" name="Turma completa" classid="168824F32C9800CF" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="5AFAB6C575C77163" name="IL2A" classid="168824F32C9800CF" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BDE57FC014568BF0" name="IL2B" classid="168824F32C9800CF" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A7B7ECD58BACFA8D" name="Turma completa" classid="13FAE859D97CB4C6" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="BAD63F3FF914AE5F" name="IL3A" classid="13FAE859D97CB4C6" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="C107AFD43D33C88E" name="IL3B" classid="13FAE859D97CB4C6" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BF6BAE31B58AA243" name="Alunos" classid="13FAE859D97CB4C6" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="46A1D3D897D401DA" name="Alunas" classid="13FAE859D97CB4C6" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E3412064D8953E3A" name="Turma completa" classid="A7C499B194A7B4A9" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="16F45EC472A7C1CC" name="Grupo 1" classid="A7C499B194A7B4A9" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="561DDD880201AD28" name="Grupo 2" classid="A7C499B194A7B4A9" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="80D0A2495AFF501F" name="Alunos" classid="A7C499B194A7B4A9" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="FB07BCE214BDA75D" name="Alunas" classid="A7C499B194A7B4A9" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9AE38B8248EFC5F2" name="Turma completa" classid="97EB3807C1BB5A19" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="5EBACE8094733311" name="ID1A" classid="97EB3807C1BB5A19" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E74A3662BCCA8FBB" name="ID1B" classid="97EB3807C1BB5A19" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="1CC88C978C94EAF3" name="Turma completa" classid="006FD681F7376E08" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="ACF6B558332742C7" name="ID2A" classid="006FD681F7376E08" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="80BFE4E32A4EEE9C" name="ID2B" classid="006FD681F7376E08" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="85492B11C1F0FEE1" name="Turma completa" classid="90135DF24D20A877" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="6B298472A370278D" name="ID3A" classid="90135DF24D20A877" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BDBBAA4D987FB334" name="ID3B" classid="90135DF24D20A877" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F7E912027FFCE1D6" name="Turma completa" classid="738E2F9C78A4956B" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="F7E3691D1BBD974E" name="ID4A" classid="738E2F9C78A4956B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="EBB2DDE6F0A11328" name="ID4B" classid="738E2F9C78A4956B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D1936A48E4995E1A" name="IF4A" classid="738E2F9C78A4956B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="1092CE8A746E57ED" name="IF4B" classid="738E2F9C78A4956B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="6B188A6967A26167" name="Turma completa" classid="47575F276FCC4141" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="D39DAD0CB21DEE0D" name="ID6A" classid="47575F276FCC4141" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DDBF18755EFF2A7C" name="ID6B" classid="47575F276FCC4141" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="58B00DBCB98FC186" name="Turma completa" classid="99E900D94FDC5431" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="E480D20D0798F529" name="ID6A" classid="99E900D94FDC5431" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0FF0931AF11AD308" name="ID6B" classid="99E900D94FDC5431" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="2314FFEAD114EBE4" name="Turma completa" classid="227468BB7813B0DC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="E68A107F33DC818D" name="Grupo 1" classid="227468BB7813B0DC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="762D97EF89C5BBFC" name="Grupo 2" classid="227468BB7813B0DC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="2CEBAB23FDCF890E" name="Alunos" classid="227468BB7813B0DC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9570CDC7484B15B4" name="Alunas" classid="227468BB7813B0DC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="0287082B291F60F1" name="Turma completa" classid="6EAE89B8C13D6332" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="8E5C81363F754A7D" name="Grupo 1" classid="6EAE89B8C13D6332" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="682E60B3929486C3" name="Grupo 2" classid="6EAE89B8C13D6332" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="65F99A9D88E0505E" name="Alunos" classid="6EAE89B8C13D6332" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2A89731CC9F354D3" name="Alunas" classid="6EAE89B8C13D6332" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2A93E90F5B49EFA7" name="Turma completa" classid="2BB98EF10552CE34" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="1695753249AA4DD1" name="Grupo 1" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="639F2CFE4416D74B" name="Grupo 2" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BDA0E32B19B74324" name="Alunos" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="C981A0D5989AA83D" name="Alunas" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="BF481B3BC389EAF3" name="NC5EA" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="3" studentcount=""/>
+      <group id="D04A151018CB1E37" name="NC5EB" classid="2BB98EF10552CE34" studentids="" entireclass="0" divisiontag="3" studentcount=""/>
+      <group id="67CD46D5105D0BE9" name="Turma completa" classid="F49ABC20131A1D73" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="5910B17021777035" name="Grupo 1" classid="F49ABC20131A1D73" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="5B726EF39943FCC0" name="Grupo 2" classid="F49ABC20131A1D73" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="43D3AE27D5D4B241" name="Alunos" classid="F49ABC20131A1D73" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="AAD57E6F6EE27638" name="Alunas" classid="F49ABC20131A1D73" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="B78320CA7E8C1587" name="Turma completa" classid="1A16A0A554D73382" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="11A55A582E89E62F" name="IF1A" classid="1A16A0A554D73382" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="2C4CC5077198D73C" name="IF1B" classid="1A16A0A554D73382" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="030127174609C369" name="Turma completa" classid="7AD4B72A0E57EDB1" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="94D16381A714EB2B" name="IF2A" classid="7AD4B72A0E57EDB1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="076D4A726500CE1F" name="IF2B" classid="7AD4B72A0E57EDB1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="03C6457F3D1A50A8" name="IF3A" classid="7AD4B72A0E57EDB1" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="C22273EF421A6DA0" name="IF3B" classid="7AD4B72A0E57EDB1" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="037F1517F46B8F21" name="Turma completa" classid="035F9AE3218FD1A3" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="F1D2EA01DE02070E" name="IF3A" classid="035F9AE3218FD1A3" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="47E435B3A23F6093" name="IF3B" classid="035F9AE3218FD1A3" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="FE6B2D990C206178" name="Turma completa" classid="55F1C0BE169F5D4C" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="FDDF1289E43FD281" name="IF4A" classid="55F1C0BE169F5D4C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="495C94AD96BE07AC" name="IF4B" classid="55F1C0BE169F5D4C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="247198D516249A69" name="IG4A" classid="55F1C0BE169F5D4C" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9F232D8E2D1EFE5C" name="IG4B" classid="55F1C0BE169F5D4C" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="0DBAC617D37FC080" name="Turma completa" classid="DE8128A03EF6B9F7" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="A0C7530AF0EE65E5" name="IF5A" classid="DE8128A03EF6B9F7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DB7502F911B926F6" name="IF5B" classid="DE8128A03EF6B9F7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="26B690C49215C611" name="Turma completa" classid="215CA409D58B1310" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="CC225C7BC1FFC959" name="IF6A" classid="215CA409D58B1310" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="AF9DB24F02832F06" name="IF6B" classid="215CA409D58B1310" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D67FF492635DE747" name="Turma completa" classid="04D7F9DD160E78BC" studentids="" entireclass="1" divisiontag="0" studentcount=period""/>
+      <group id="B9FB4A65A3E14CF2" name="IF7A" classid="04D7F9DD160E78BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="23194817A7279078" name="IF7B" classid="04D7F9DD160E78BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0AC198AEAB0B928C" name="Turma completa" classid="F4E56E715923CA40" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="A1354B4E53841F78" name="Grupo 1" classid="F4E56E715923CA40" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="20F798080DFF2366" name="Grupo 2" classid="F4E56E715923CA40" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="8439EAD1E48E9974" name="Alunos" classid="F4E56E715923CA40" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="88B61B95017A184E" name="Alunas" classid="F4E56E715923CA40" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E6261BE5DB20226F" name="Turma completa" classid="9FC23FA9D1679CDA" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="1777CC62F58CFF6B" name="Grupo 1" classid="9FC23FA9D1679CDA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="407B3B4E5662C179" name="Grupo 2" classid="9FC23FA9D1679CDA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9DD25C31A464450F" name="Alunos" classid="9FC23FA9D1679CDA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="AD8603F33DFA95CC" name="Alunas" classid="9FC23FA9D1679CDA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="C840CFC452318D4A" name="Turma completa" classid="63B10FBD92A16D15" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="A0ECD47AEE9992A7" name="Grupo 1" classid="63B10FBD92A16D15" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="070090E000761953" name="Grupo 2" classid="63B10FBD92A16D15" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BD7C3022D56A1F77" name="Alunos" classid="63B10FBD92A16D15" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="5837F2B2BACAF6E4" name="Alunas" classid="63B10FBD92A16D15" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="CBC783C38904F865" name="Turma completa" classid="2564B145B76B8D30" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="79DDB2ABC9B95C0A" name="IG1A" classid="2564B145B76B8D30" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="6468A3E422AF26C3" name="IG1B" classid="2564B145B76B8D30" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0EE73DD11846B036" name="Turma completa" classid="DFFD879A3395610F" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="07CE581FFE9CD3C5" name="IG2A" classid="DFFD879A3395610F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="084C4620ACFE9F7D" name="IG2B" classid="DFFD879A3395610F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A205EB183D3DB884" name="Turma completa" classid="EF45996C8F4FB1AC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="4BF27257FFE19BBE" name="IG3A" classid="EF45996C8F4FB1AC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="29D2EA597F79169A" name="IG3B" classid="EF45996C8F4FB1AC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3D9F80CCFCEFA14F" name="Turma completa" classid="61E20486623B0D58" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="616840B2B3008723" name="IG4A" classid="61E20486623B0D58" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D47CA8BAFA1BBF6B" name="IG4B" classid="61E20486623B0D58" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A743660FCA6738F4" name="Turma completa" classid="D4F66C8EA95645A1" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="CD7ED6B5FBDC550B" name="IG4A" classid="D4F66C8EA95645A1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="90EFE74A5E83EAB3" name="IG4B" classid="D4F66C8EA95645A1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="FDD9F8D78E13D9F5" name="Turma completa" classid="5D81D470D18DA24C" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="FE5C6B0151951E65" name="IG6A" classid="5D81D470D18DA24C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="8DFF6E48927EE01C" name="IG6B" classid="5D81D470D18DA24C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="825B90AE9F719299" name="Turma completa" classid="1A797E6B8F5620BC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="84B7F47D2777F04A" name="Grupo 1" classid="1A797E6B8F5620BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="C6AB6C41E6C6E54A" name="Grupo 2" classid="1A797E6B8F5620BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="CD4B7B8ACD839DBB" name="Alunos" classid="1A797E6B8F5620BC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="60F51C7685C0FC00" name="Alunas" classid="1A797E6B8F5620BC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="B9A1195ED32136C7" name="Turma completa" classid="9753F210D3AD3E75" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="810FE3828D5F7881" name="Grupo 1" classid="9753F210D3AD3E75" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0C0C638415AC1ED1" name="Grupo 2" classid="9753F210D3AD3E75" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DBFCA078AE006D2E" name="Alunos" classid="9753F210D3AD3E75" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="B64169556B481451" name="Alunas" classid="9753F210D3AD3E75" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="7F2866C39884C189" name="Turma completa" classid="C69422852B4F0778" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="FFBAC1EB3BC12BED" name="Grupo 1" classid="C69422852B4F0778" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="98C60732A661EF8E" name="Grupo 2" classid="C69422852B4F0778" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E83D47EFB24A5F25" name="Alunos" classid="C69422852B4F0778" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2FA44CA431A573FA" name="Alunas" classid="C69422852B4F0778" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="036429FC7E4BD9E1" name="Turma completa" classid="4C5ECFE3AC9A9450" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="D1D9ABC42ADFD32D" name="DP1EA" classid="4C5ECFE3AC9A9450" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3A5ACE67753B5FD3" name="DP1EB" classid="4C5ECFE3AC9A9450" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="C36D378450E90253" name="Turma completa" classid="5EFDAF41B12CD0AC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="1DE72ABA48FCDF46" name="IG1EA" classid="5EFDAF41B12CD0AC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A6720E735C34C339" name="IG1EB" classid="5EFDAF41B12CD0AC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D8C68C8EC8CDE8CA" name="IG1A" classid="5EFDAF41B12CD0AC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="332C70D304B48AED" name="IG1B" classid="5EFDAF41B12CD0AC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4B966039B1872059" name="Turma completa" classid="F2D4151EB78EE45E" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="24A6A11AD793FDB6" name="IF1EA" classid="F2D4151EB78EE45E" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9923D2071E871DDF" name="IF1EB" classid="F2D4151EB78EE45E" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D6D8423A836DDA1E" name="IF1A" classid="F2D4151EB78EE45E" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="AEA5280EBA5EDD18" name="IF1B" classid="F2D4151EB78EE45E" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="EBD6AADE2397A79E" name="Turma completa" classid="4E44C47B5FE23EE7" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="9519B015DB08A543" name="Grupo 1" classid="4E44C47B5FE23EE7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="7312079DA18365F6" name="Grupo 2" classid="4E44C47B5FE23EE7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3C075619599C400A" name="Alunos" classid="4E44C47B5FE23EE7" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="42A765624058F87B" name="Alunas" classid="4E44C47B5FE23EE7" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4888358284A20AF2" name="Turma completa" classid="9165AB1E0D9E70E9" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="49E533E5D37E0F5C" name="MB4A" classid="9165AB1E0D9E70E9" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="418AE7A69B62194A" name="MB4B" classid="9165AB1E0D9E70E9" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D82B38C9C58BCCA9" name="Turma completa" classid="F9EACDC15819FD90" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="FB7D8AD32E6496CB" name="A" classid="F9EACDC15819FD90" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="840C6E8C41BC7ABE" name="B" classid="F9EACDC15819FD90" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="23A93F168D097A8D" name="Turma completa" classid="FF61A77E574F02D0" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="9173BA8C296F06DE" name="A" classid="FF61A77E574F02D0" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="1A029E453CC6EAD1" name="B" classid="FF61A77E574F02D0" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="4BCE6B0E12B49F90" name="Turma completa" classid="4ADF29A209CD37FC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="0ABE1C8128F53762" name="NA1A" classid="4ADF29A209CD37FC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="733F3F247350C408" name="NA1B" classid="4ADF29A209CD37FC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="B44F8DB15D102C37" name="Turma completa" classid="6B6BE10AAB2A4C70" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="E5DB2615313CA6FC" name="NA2A" classid="6B6BE10AAB2A4C70" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="4E6048B87BB833A3" name="NA2B" classid="6B6BE10AAB2A4C70" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DBEFE07F16FFA5B9" name="Turma completa" classid="CCC3A68E3872E445" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="460280A2587BB64A" name="NA3A" classid="CCC3A68E3872E445" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="2981D675991F1BF6" name="NA3B" classid="CCC3A68E3872E445" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9543D15DF42D06DD" name="Alunos" classid="CCC3A68E3872E445" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4FD8A7B27036DABB" name="Alunas" classid="CCC3A68E3872E445" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="276DE6CBDE7D539C" name="Turma completa" classid="3548C93182EE70EB" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="27FCA4A8C9A59FF7" name="Grupo 1" classid="3548C93182EE70EB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="39C3D51825F6CF3B" name="Grupo 2" classid="3548C93182EE70EB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="D24396C8627DCB75" name="Alunos" classid="3548C93182EE70EB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="655DBFE672555B09" name="Alunas" classid="3548C93182EE70EB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="D9E8C0B199045E02" name="Turma completa" classid="C4EC50A1D8D7AB5B" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="1FF2963AEE5F2EE8" name="Grupo 1" classid="C4EC50A1D8D7AB5B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A88179F401B712DB" name="Grupo 2" classid="C4EC50A1D8D7AB5B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="665C30DFB892366A" name="Alunos" classid="C4EC50A1D8D7AB5B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="CEDCCF59EDEE4A58" name="Alunas" classid="C4EC50A1D8D7AB5B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F14ECEF2B6617817" name="Turma completa" classid="106A56EEA055593E" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="8F6FF3ACABCA7DED" name="Grupo 1" classid="106A56EEA055593E" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="463206E11FF44AFF" name="Grupo 2" classid="106A56EEA055593E" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="46B4790AE3758F6F" name="Alunos" classid="106A56EEA055593E" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="0148CB364A7FEA95" name="Alunas" classid="106A56EEA055593E" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="606E34A5CA786E7D" name="Turma completa" classid="78EAF568D5B16D2D" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C9A769ECCEFBEA89" name="Grupo 1" classid="78EAF568D5B16D2D" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="322C08670477FE77" name="Grupo 2" classid="78EAF568D5B16D2D" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9AB12B0A4EF38B1D" name="Alunos" classid="78EAF568D5B16D2D" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="A54EE5AA9B049E93" name="Alunas" classid="78EAF568D5B16D2D" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="34336430C1801A51" name="Turma completa" classid="83842BE00CA307EA" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="0DCF8424D060B282" name="Grupo 1" classid="83842BE00CA307EA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="C8645A794C6A8660" name="Grupo 2" classid="83842BE00CA307EA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="B2B961DB51C8EA13" name="Alunos" classid="83842BE00CA307EA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="B337D405152A2E83" name="Alunas" classid="83842BE00CA307EA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="75859820A743119E" name="Turma completa" classid="43402CC74C8568AE" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="38FAA8B50A0AA746" name="Grupo 1" classid="43402CC74C8568AE" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="33DDB8E3F780882D" name="Grupo 2" classid="43402CC74C8568AE" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="7F5BBF30BEFE3610" name="Alunos" classid="43402CC74C8568AE" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E7DC5DAAF45A49FE" name="Alunas" classid="43402CC74C8568AE" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="1EC255691A95E50B" name="Turma completa" classid="DD7275738A0ED609" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C959D1DFD3C2772D" name="Grupo 1" classid="DD7275738A0ED609" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="351C50F143CFDACB" name="Grupo 2" classid="DD7275738A0ED609" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="EFB12745BFD9AEAA" name="Alunos" classid="DD7275738A0ED609" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="78408F27E8310B54" name="Alunas" classid="DD7275738A0ED609" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="A751BD4B42ED41B6" name="Turma completa" classid="CC7292AA5218E9A1" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="78C27D2896B2D70C" name="NC5EA" classid="CC7292AA5218E9A1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3356CF53FDBD3233" name="NC5EB" classid="CC7292AA5218E9A1" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="272A441DD2C0AE0D" name="Alunos" classid="CC7292AA5218E9A1" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="11B9B97F40D5F17F" name="Alunas" classid="CC7292AA5218E9A1" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F9E3E32637FCCD5E" name="Turma completa" classid="A03BC23549409576" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="485DF9875179E6C9" name="Grupo 1" classid="A03BC23549409576" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="77139B2C75CD1458" name="Grupo 2" classid="A03BC23549409576" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="6EB5D316529096FF" name="Alunos" classid="A03BC23549409576" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F740B6CF65C87AF1" name="Alunas" classid="A03BC23549409576" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="923C8BD4B594290D" name="Turma completa" classid="C0DED701F624ADF7" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="BEB0040C338C703D" name="Grupo 1" classid="C0DED701F624ADF7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A0B72CDBC7462B1C" name="Grupo 2" classid="C0DED701F624ADF7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="31A8DD8916DA8E1E" name="Alunos" classid="C0DED701F624ADF7" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F0748534384BE7C6" name="Alunas" classid="C0DED701F624ADF7" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4F232D32EFEA1BAB" name="Turma completa" classid="8ACB3796B755D8E8" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="35FD0EBE263AB180" name="Grupo 1" classid="8ACB3796B755D8E8" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="390A5A98A58A102B" name="Grupo 2" classid="8ACB3796B755D8E8" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="300E5F5A99663C73" name="Alunos" classid="8ACB3796B755D8E8" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2AF1F3B29BDB9612" name="Alunas" classid="8ACB3796B755D8E8" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="7673F9FF637943F5" name="Turma completa" classid="65EC412ABFBD4882" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="0612FD46A44305AD" name="Grupo 1" classid="65EC412ABFBD4882" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="318ABE548E04E38C" name="Grupo 2" classid="65EC412ABFBD4882" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BA15A20DA13CC77E" name="Alunos" classid="65EC412ABFBD4882" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4CFA85EC1CD7D8E6" name="Alunas" classid="65EC412ABFBD4882" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="816FAEDA799FFE6B" name="Turma completa" classid="CA0A6A7E855E1AFB" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="E9F04D54AEFC1258" name="Grupo 1" classid="CA0A6A7E855E1AFB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E4D7E1ACB1916BF7" name="Grupo 2" classid="CA0A6A7E855E1AFB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3051E7F978EF19DB" name="Alunos" classid="CA0A6A7E855E1AFB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="6281802C2F7E3EFF" name="Alunas" classid="CA0A6A7E855E1AFB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="3BFA1EF9CFE273C8" name="Turma completa" classid="C244546ECA3CD84B" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="AB93612B47EFDE32" name="Grupo 1" classid="C244546ECA3CD84B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="6259F888D13923FC" name="Grupo 2" classid="C244546ECA3CD84B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F578A5CFF6302C4A" name="Alunos" classid="C244546ECA3CD84B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E00397084F25F704" name="Alunas" classid="C244546ECA3CD84B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F6493D471056552A" name="Turma completa" classid="14D5F620AA4CEB3B" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="EA18B210E539D104" name="Grupo 1" classid="14D5F620AA4CEB3B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="158C731ECEDBAEE2" name="Grupo 2" classid="14D5F620AA4CEB3B" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="48B6117925714F07" name="Alunos" classid="14D5F620AA4CEB3B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9775743412A0D3E3" name="Alunas" classid="14D5F620AA4CEB3B" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4B2C753579E92812" name="Turma completa" classid="D8E0C4734C166565" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="B3B197D8C464B4B8" name="Grupo 1" classid="D8E0C4734C166565" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="FF2F9E258BE2629B" name="Grupo 2" classid="D8E0C4734C166565" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9D98C53E7A04A938" name="Alunos" classid="D8E0C4734C166565" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="610DD5D2DCCC3EE0" name="Alunas" classid="D8E0C4734C166565" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="B49E7E296263FD9B" name="Turma completa" classid="96BA730CD8F29784" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C3E71424D31DC6EF" name="Grupo 1" classid="96BA730CD8F29784" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BB8CC7E59B01D0DE" name="Grupo 2" classid="96BA730CD8F29784" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9589B0510BE01E62" name="Alunos" classid="96BA730CD8F29784" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="014C2F627BED8201" name="Alunas" classid="96BA730CD8F29784" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="5CFBBE039A1FCD54" name="Turma completa" classid="4C82D12F7D94B642" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="1F215AA6A8EB7808" name="Grupo 1" classid="4C82D12F7D94B642" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="73B98076DF933BF5" name="Grupo 2" classid="4C82D12F7D94B642" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F6FFBBA5AA3984CD" name="Alunos" classid="4C82D12F7D94B642" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="788DE35D34BEF25A" name="Alunas" classid="4C82D12F7D94B642" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9A4E2A7E579563F5" name="Turma completa" classid="3E750BE03E732410" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="0841EE31496709E4" name="Grupo 1" classid="3E750BE03E732410" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="8E3A6B4B26EFBCC1" name="Grupo 2" classid="3E750BE03E732410" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E2149C8278F08B7C" name="Alunos" classid="3E750BE03E732410" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2EDDA5D973808B01" name="Alunas" classid="3E750BE03E732410" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="89D4331872B74740" name="Turma completa" classid="09CEDB15200DCFCD" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="5BE86E9B93E00E3C" name="M31A" classid="09CEDB15200DCFCD" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="56D4871CAB94E093" name="M31B" classid="09CEDB15200DCFCD" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="2F6A6834F9674F46" name="M32A" classid="09CEDB15200DCFCD" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="1A916E2103CEAC6B" name="M32B" classid="09CEDB15200DCFCD" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="1977BA88C8A081B0" name="Turma completa" classid="925A42F748452C78" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="3C55B2C28EFA634E" name="M31EA" classid="925A42F748452C78" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="5CDE6A2B303777C1" name="M31EB" classid="925A42F748452C78" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="AB58C7C0DA9BAFB2" name="M31A" classid="925A42F748452C78" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="901F209E4E316701" name="M31B" classid="925A42F748452C78" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="078255C105C392FE" name="Turma completa" classid="E4EC68D23D54B81F" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="AF700BDD10478AB1" name="T31A" classid="E4EC68D23D54B81F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="83393B68076F3687" name="T31B" classid="E4EC68D23D54B81F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F5D52258C55B197C" name="M31A" classid="E4EC68D23D54B81F" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="5E5A44FC0FD6A621" name="M31B" classid="E4EC68D23D54B81F" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="DB4B854BFCEB3ED4" name="Turma completa" classid="6D7BD0B465AC14CA" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C6DF679F5A5232C8" name="Grupo 1" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="397BD2B92D3D8E75" name="Grupo 2" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="48C3E48B88F7DF12" name="Alunos" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9B5A0A667E276AB9" name="Alunas" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="92CDD0D0790F2976" name="T31A" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="3" studentcount=""/>
+      <group id="935042FA3C906DE6" name="T31B" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="3" studentcount=""/>
+      <group id="47814C7E3C888C72" name="M31A" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="4" studentcount=""/>
+      <group id="9D92983000C5E5F8" name="M31B" classid="6D7BD0B465AC14CA" studentids="" entireclass="0" divisiontag="4" studentcount=""/>
+      <group id="D1633DE7DDA7B77A" name="Turma completa" classid="C011726645DC27BB" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="23E0EE1F913F4EAC" name="M32A" classid="C011726645DC27BB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="023DE7389A261EDC" name="M32B" classid="C011726645DC27BB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="59F221A0F0FF9B6D" name="Turma completa" classid="7FC4EF24707F0FC6" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="74D9CE29581201D1" name="T32A" classid="7FC4EF24707F0FC6" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="755840531B734640" name="T32B" classid="7FC4EF24707F0FC6" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DE8A2F1FD1F4D3BD" name="M32A" classid="7FC4EF24707F0FC6" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="470F51C31C706063" name="M32B" classid="7FC4EF24707F0FC6" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="17C45463929B4644" name="Turma completa" classid="5EF90BA8F75FB2C7" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="2FED16A7977D1A1F" name="M33A" classid="5EF90BA8F75FB2C7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="B87BFA60AAD4FE12" name="M33B" classid="5EF90BA8F75FB2C7" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="1846C68D561C8AB3" name="Turma completa" classid="AA7B11F5BEFD60AA" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="19D8440D4D3D0E9F" name="T33A" classid="AA7B11F5BEFD60AA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="1A5AB63710BE530E" name="T33B" classid="AA7B11F5BEFD60AA" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="8BF269F2064136F6" name="M33A" classid="AA7B11F5BEFD60AA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E7CFC2469C98F4D4" name="M33B" classid="AA7B11F5BEFD60AA" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="59E25FFA2D1D0F5F" name="Turma completa" classid="DF80C9F8AF33FD92" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="71284EC8F03BB5B7" name="Grupo 1" classid="DF80C9F8AF33FD92" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BBFF05FB802D45C6" name="Grupo 2" classid="DF80C9F8AF33FD92" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F79BD7F5A1DD471E" name="Alunos" classid="DF80C9F8AF33FD92" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="0A824BF5B1B31D34" name="Alunas" classid="DF80C9F8AF33FD92" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="A0D5AA4669746EA7" name="Turma completa" classid="7E404180B6050C7F" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="3AE6E9769D1BEECA" name="M34A" classid="7E404180B6050C7F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F57B3BA2042649F1" name="M34B" classid="7E404180B6050C7F" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F3674BF849848197" name="Turma completa" classid="F0DCAC9A88F0682C" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C9406B2CFB2DF5C7" name="Grupo 1" classid="F0DCAC9A88F0682C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3BE0D646CE395174" name="Grupo 2" classid="F0DCAC9A88F0682C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E1D3A807BEFE45AB" name="Turma completa" classid="F15A9A9B375233E3" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="9CC51AB409955377" name="Grupo 1" classid="F15A9A9B375233E3" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0F6101A4C781366C" name="Grupo 2" classid="F15A9A9B375233E3" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="7B2380B6378E9A0B" name="Alunos" classid="F15A9A9B375233E3" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="BD23199B2F672FC6" name="Alunas" classid="F15A9A9B375233E3" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4A58CAAB0979D252" name="Turma completa" classid="8C06D57B13E32ADF" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="4CC6A10B85506A36" name="Grupo 1" classid="8C06D57B13E32ADF" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="B547C3AECFABF6DD" name="Grupo 2" classid="8C06D57B13E32ADF" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="07D96560AFBC09CC" name="Alunos" classid="8C06D57B13E32ADF" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="FBACDA2A84BF85A6" name="Alunas" classid="8C06D57B13E32ADF" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="1C50D682A25AEF72" name="Turma completa" classid="2C231F1AFE143A79" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="00414B193CB6F7CF" name="Grupo 1" classid="2C231F1AFE143A79" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="3BA5A7A593145537" name="Grupo 2" classid="2C231F1AFE143A79" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="E8C8503CC66C1566" name="Alunos" classid="2C231F1AFE143A79" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="76A870E8DDD49E89" name="Alunas" classid="2C231F1AFE143A79" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="BE0C49CE4A192CBA" name="Turma completa" classid="9BBA240765764A24" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="09FB6EDE6B4F7D4F" name="Grupo 1" classid="9BBA240765764A24" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="F0DB3AAE6E529494" name="Grupo 2" classid="9BBA240765764A24" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="0444D3EF7882A25F" name="Alunos" classid="9BBA240765764A24" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="0619D1EDC82F1203" name="Alunas" classid="9BBA240765764A24" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="573458CB630EAFEA" name="Turma completa" classid="4AF9147DF761321A" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="A340A98FCE0EADCF" name="Grupo 1" classid="4AF9147DF761321A" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="6492865253D79F3B" name="Grupo 2" classid="4AF9147DF761321A" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="8C32D9200DC718BD" name="Alunos" classid="4AF9147DF761321A" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="D7B0DF6CD544C6A0" name="Alunas" classid="4AF9147DF761321A" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4DE49525A39AC90C" name="Turma completa" classid="8742E28323E4F1DD" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="4EDA0C8C2AF2B9D9" name="Grupo 1" classid="8742E28323E4F1DD" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="BA9C8B9D9B001D78" name="Grupo 2" classid="8742E28323E4F1DD" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="753161F21709F157" name="Alunos" classid="8742E28323E4F1DD" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="FDBCC9D43F414E01" name="Alunas" classid="8742E28323E4F1DD" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="675466DD2B2E010F" name="Turma completa" classid="FA613B9DA5521942" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="CFD50557608A14FE" name="Grupo 1" classid="FA613B9DA5521942" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="269D8575F1330131" name="Grupo 2" classid="FA613B9DA5521942" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="AF2CED58198A5DDB" name="Alunos" classid="FA613B9DA5521942" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="92A8432B5A0DC387" name="Alunas" classid="FA613B9DA5521942" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="02410133BD1BB53B" name="Turma completa" classid="5786A6DD9721508D" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="F61475FD921F3115" name="Grupo 1" classid="5786A6DD9721508D" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="5335E13D83CE6860" name="Grupo 2" classid="5786A6DD9721508D" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="DBC5491FAC25C50A" name="Alunos" classid="5786A6DD9721508D" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="8B28A6E7428896E8" name="Alunas" classid="5786A6DD9721508D" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="08C68E1D71389E6B" name="Turma completa" classid="EEDC32916CB1321C" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="71472C97A694B25A" name="Grupo 1" classid="EEDC32916CB1321C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="4BE6482B007A563C" name="Grupo 2" classid="EEDC32916CB1321C" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="4FA99299D4ADF8EC" name="Alunos" classid="EEDC32916CB1321C" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="9B2798E69C2BA6D0" name="Alunas" classid="EEDC32916CB1321C" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="60F11E35C41BC475" name="Turma completa" classid="A9EE72BD821D58FB" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="AC6F24828B997259" name="Grupo 1" classid="A9EE72BD821D58FB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="A4155C6C687CF4FF" name="Grupo 2" classid="A9EE72BD821D58FB" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="CF8899513D1F5A26" name="Alunos" classid="A9EE72BD821D58FB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="F014CC90C97CF5E2" name="Alunas" classid="A9EE72BD821D58FB" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="E4E7D9BC9B4812B1" name="Turma completa" classid="21F258FD311097FE" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="C6480A62A15ABAD3" name="Grupo 1" classid="21F258FD311097FE" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="84C034A552D892D9" name="Grupo 2" classid="21F258FD311097FE" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="6C354911ECC632F1" name="Alunos" classid="21F258FD311097FE" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="DA0704C87525EFD9" name="Alunas" classid="21F258FD311097FE" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="4321447A0F3E6971" name="Turma completa" classid="3DD270AE447E1DFC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="5673CCF9CF9971C0" name="Grupo 1" classid="3DD270AE447E1DFC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="C60260292D7C057F" name="Grupo 2" classid="3DD270AE447E1DFC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="959FC872CDFB91FA" name="Alunos" classid="3DD270AE447E1DFC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="2777D6DD4334E9E5" name="Alunas" classid="3DD270AE447E1DFC" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="6CE8CCE0DB28A2B4" name="Turma completa" classid="4962FAABDEF83C99" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
+      <group id="6ADA6694A44202AF" name="Grupo 1" classid="4962FAABDEF83C99" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="9310A3EEFFBB5716" name="Grupo 2" classid="4962FAABDEF83C99" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
+      <group id="4F174A4AA190D758" name="Alunos" classid="4962FAABDEF83C99" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+      <group id="64A3FF88C93E9732" name="Alunas" classid="4962FAABDEF83C99" studentids="" entireclass="0" divisiontag="2" studentcount=""/>
+   </groups>
+   <students options="canadd,export:silent" columns="id,classid,name,email,mobile"/>
+   <studentsubjects options="canadd,export:silent" columns="studentid,subjectid,seminargroup,importance,alternatefor"/>
+   <lessons options="canadd,export:silent" columns="id,subjectid,classids,groupids,teacherids,classroomids,periodspercard,periodsperweek,daysdefid,weeksdefid,termsdefid,seminargroup,capacity">
+      <lesson id="B6BE655DB4718784" classids="EF45996C8F4FB1AC" subjectid="1F8794FEF9AFEBC6" periodspercard="2" periodsperweek="4.0" teacherids="5AF0389E21444397" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="A205EB183D3DB884" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="1F438800FEED142A" classids="65EC412ABFBD4882" subjectid="20418DD4095F36B5" periodspercard="3" periodsperweek="3.0" teacherids="BD9DF72134ADAE88" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="7673F9FF637943F5" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="FDA5EE032D065ABE" classids="EEDC32916CB1321C" subjectid="18611E355378053F" periodspercard="5" periodsperweek="5.0" teacherids="" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="08C68E1D71389E6B" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="21B55E617AE3AC0F" classids="90135DF24D20A877" subjectid="034C1EB060E9CB37" periodspercard="2" periodsperweek="2.0" teacherids="EE85E8F290726964" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="85492B11C1F0FEE1" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="22334C62294577C7" classids="97EB3807C1BB5A19" subjectid="8EDB3C6DDFF2073C" periodspercard="2" periodsperweek="2.0" teacherids="ECA72B8F1CCFCDAA" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="9AE38B8248EFC5F2" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="43B9F09AFBBFEEE4" classids="DFFD879A3395610F" subjectid="D227F954A7C2457C" periodspercard="2" periodsperweek="2.0" teacherids="9C98A273CA76BD58" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="0EE73DD11846B036" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="D9B241EF4366F7E5" classids="5EF90BA8F75FB2C7" subjectid="7FC293E6C7C3F488" periodspercard="1" periodsperweek="1.0" teacherids="31332A8BCF0CF406" classroomids="C24CE84EC7B684CB,F34855EC8BA83CD1" groupids="B87BFA60AAD4FE12" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="706A940DEEB46DAB" classids="5EF90BA8F75FB2C7" subjectid="7FC293E6C7C3F488" periodspercard="1" periodsperweek="1.0" teacherids="31332A8BCF0CF406" classroomids="C24CE84EC7B684CB,F34855EC8BA83CD1" groupids="2FED16A7977D1A1F" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="43AFC38C82612BA4" classids="14D5F620AA4CEB3B" subjectid="F6F6740CF2CF9B9B" periodspercard="3" periodsperweek="3.0" teacherids="EEB7C541756F2B81" classroomids="541D24B928C1AC8B,146C8F4587AE6BAB,8053F52E319A00B5,7FD183046E18BC45,2F3E2E4D31291C26" groupids="F6493D471056552A" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+      <lesson id="C511CE4EED85937E" classids="2564B145B76B8D30" subjectid="F63C7B37E32050AC" periodspercard="3" periodsperweek="3.0" teacherids="1AF827E6946A51D5" classroomids="99AF395048F974F9,EEB27695857DACC4,7461795E7B548E66,BA97B95DAB0104AE,07347B14390B9AAC,FED22ED500AFA49A,6756CD4F362BB889,B9ECF32A2B5B4431,ECC2C902D78B53A1,1C15A43D2620ECFA,EABBA93559900BEB,BCD8B78B5593A7CD,B0AC2C552A9723A7,033E52301FA6AF4F,81E572AE28BA84A0,EDA7F1BF98C7E83F,314999CDD68B6BC8,AE7DCE75BB55EBCF,47A97E839F28A75B,7CA8C29771E458F7,FF797F8EAF2427CE,50C35C679EB3B6D9,B50F9F53582FFB46,9A3E2E413EA38932" groupids="CBC783C38904F865" capacity="*" seminargroup="" termsdefid="9F8B3186839FC4AA" weeksdefid="0A4FC28AE1F06EB4" daysdefid="5121EB01A6E92BE3"/>
+   </lessons>
+   <cards options="canadd,export:silent" columns="lessonid,period,days,weeks,terms,classroomids">
+      <card lessonid="B6BE655DB4718784" classroomids="6756CD4F362BB889" period="4" weeks="1" terms="1" days="001000"/>
+      <card lessonid="B6BE655DB4718784" classroomids="6756CD4F362BB889" period="5" weeks="1" terms="1" days="001000"/>
+      <card lessonid="B6BE655DB4718784" classroomids="6756CD4F362BB889" period="4" weeks="1" terms="1" days="000010"/>
+      <card lessonid="B6BE655DB4718784" classroomids="6756CD4F362BB889" period="5" weeks="1" terms="1" days="000010"/>
+      <card lessonid="1F438800FEED142A" classroomids="7CA8C29771E458F7" period="12" weeks="1" terms="1" days="010000"/>
+      <card lessonid="1F438800FEED142A" classroomids="7CA8C29771E458F7" period="13" weeks="1" terms="1" days="010000"/>
+      <card lessonid="1F438800FEED142A" classroomids="7CA8C29771E458F7" period="14" weeks="1" terms="1" days="010000"/>
+      <card lessonid="FDA5EE032D065ABE" classroomids="" period="1" weeks="1" terms="1" days="000001"/>
+      <card lessonid="FDA5EE032D065ABE" classroomids="" period="2" weeks="1" terms="1" days="000001"/> 	
+      <card lessonid="FDA5EE032D065ABE" classroomids="" period="3" weeks="1" terms="1" days="000001"/>
+   </cards>
+</timetable>
