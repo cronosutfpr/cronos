@@ -8,7 +8,7 @@ package br.edu.utfpr.cm.cronos.model;
  *
  * @author junior
  */
-public class Classes {
+public class Classe {
 
     private String id;
     private String name;

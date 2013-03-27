@@ -4,18 +4,27 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-/**
- *
- * @author junior
- */
-public class Teachers {
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
+
+@XmlRootElement(name = "teacher")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Teacher {
 
     private String id;
+    @XmlAttribute(name = "name")
     private String name;
-    private char gender;
+    @XmlAttribute(name = "gender")
+    private String gender;
+    @XmlAttribute(name = "_short")
     private String _short;
+    @XmlAttribute(name = "color")
     private String color;
+    @XmlAttribute(name="email")
     private String email;
+    @XmlAttribute(name = "mobile")
     private String mobile;
 
     public String getId() {
@@ -34,11 +43,11 @@ public class Teachers {
         this.name = name;
     }
 
-    public char getGender() {
+    public String getGender() {
         return gender;
     }
 
-    public void setGender(char gender) {
+    public void setGender(String gender) {
         this.gender = gender;
     }
 

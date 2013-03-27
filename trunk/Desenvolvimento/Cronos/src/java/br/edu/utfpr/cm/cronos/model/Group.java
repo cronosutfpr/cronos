@@ -8,12 +8,12 @@ package br.edu.utfpr.cm.cronos.model;
  *
  * @author junior
  */
-public class Groups {
+public class Group {
     private String id;
 	 
 	private String name;
 	 
-	private Classes _class;
+	private Classe _class;
 
     public String getId() {
         return id;
@@ -31,11 +31,11 @@ public class Groups {
         this.name = name;
     }
 
-    public Classes _getClass() {
+    public Classe _getClass() {
         return _class;
     }
 
-    public void setClass(Classes _class) {
+    public void setClass(Classe _class) {
         this._class = _class;
     }
         

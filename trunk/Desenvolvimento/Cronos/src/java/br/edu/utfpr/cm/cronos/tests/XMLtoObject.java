@@ -1,10 +1,14 @@
+package br.edu.utfpr.cm.cronos.tests;
+
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package br.edu.utfpr.cm.cronos.tests;
 
+
+import br.edu.utfpr.cm.cronos.readerXML.Periods;
 import br.edu.utfpr.cm.cronos.model.Period;
+import br.edu.utfpr.cm.cronos.readerXML.Periods;
 import java.io.File;
 import java.io.StringReader;
 import javax.xml.bind.JAXBContext;

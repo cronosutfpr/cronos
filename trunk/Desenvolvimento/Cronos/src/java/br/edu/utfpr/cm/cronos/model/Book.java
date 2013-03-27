@@ -13,7 +13,7 @@ import java.util.Calendar;
 public class Book {
 
     private int id;
-    private ClassRooms classroom;
+    private ClassRoom classroom;
     private User requestor;
     private Period period;
     private Calendar startdate;
@@ -29,11 +29,11 @@ public class Book {
         this.id = id;
     }
 
-    public ClassRooms getClassroom() {
+    public ClassRoom getClassroom() {
         return classroom;
     }
 
-    public void setClassroom(ClassRooms classroom) {
+    public void setClassroom(ClassRoom classroom) {
         this.classroom = classroom;
     }
 

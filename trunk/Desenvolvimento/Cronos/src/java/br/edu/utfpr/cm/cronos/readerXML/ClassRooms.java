@@ -4,28 +4,26 @@
  */
 package br.edu.utfpr.cm.cronos.readerXML;
 
-import br.edu.utfpr.cm.cronos.model.Period;
+import br.edu.utfpr.cm.cronos.model.ClassRoom;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlElementWrapper;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlType;
 
-
-@XmlRootElement(name = "periods")
+@XmlRootElement(name = "classrooms")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Periods {
-    @XmlElement(name="period")
-    private List<Period> periods;
+public class ClassRooms {
 
-    public List<Period> getPeriods() {
-        return periods;
+    @XmlElement(name = "classroom")
+    private List<ClassRoom> classrooms;
+
+    public List<ClassRoom> getClassrooms() {
+        return classrooms;
     }
 
-    public void setPeriods(List<Period> periods) {
-        this.periods = periods;
+    public void setClassrooms(List<ClassRoom> classrooms) {
+        this.classrooms = classrooms;
     }
     
     

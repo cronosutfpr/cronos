@@ -10,15 +10,15 @@ import java.util.List;
  *
  * @author junior
  */
-public class Lessons {
+public class Lesson {
 
     private String id;
-    private Subjects subject;
-    private Classes _class;
+    private Subject subject;
+    private Classe _class;
     private Period period;
-    private Teachers teacher;
-    private List<ClassRooms> classrooms;
-    private Groups group;
+    private Teacher teacher;
+    private List<ClassRoom> classrooms;
+    private Group group;
 
     public String getId() {
         return id;
@@ -28,20 +28,20 @@ public class Lessons {
         this.id = id;
     }
 
-    public Subjects getSubject() {
+    public Subject getSubject() {
         return subject;
     }
 
-    public void setSubject(Subjects subject) {
+    public void setSubject(Subject subject) {
         this.subject = subject;
     }
 
    
-    public Classes get_Class() {
+    public Classe get_Class() {
         return _class;
     }
 
-    public void setClass(Classes _class) {
+    public void setClass(Classe _class) {
         this._class = _class;
     }
 
@@ -53,27 +53,27 @@ public class Lessons {
         this.period = period;
     }
 
-    public Teachers getTeacher() {
+    public Teacher getTeacher() {
         return teacher;
     }
 
-    public void setTeacher(Teachers teacher) {
+    public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
 
-    public List<ClassRooms> getClassrooms() {
+    public List<ClassRoom> getClassrooms() {
         return classrooms;
     }
 
-    public void setClassrooms(List<ClassRooms> classrooms) {
+    public void setClassrooms(List<ClassRoom> classrooms) {
         this.classrooms = classrooms;
     }
 
-    public Groups getGroup() {
+    public Group getGroup() {
         return group;
     }
 
-    public void setGroup(Groups group) {
+    public void setGroup(Group group) {
         this.group = group;
     }
     
