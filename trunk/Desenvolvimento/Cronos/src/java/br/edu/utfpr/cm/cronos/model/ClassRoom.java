@@ -4,13 +4,19 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-/**
- *
- * @author junior
- */
-public class ClassRoom {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    private String id;
+@Entity
+public class ClassRoom implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String idxml;
     private String name;
     private String _short;
     private int capacity;
@@ -20,12 +26,21 @@ public class ClassRoom {
     private boolean bookable;
     private boolean status;
 
-    public String getId() {
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdxml() {
+        return idxml;
+    }
+
+    public void setIdxml(String idxml) {
+        this.idxml = idxml;
     }
 
     public String getName() {
@@ -91,5 +106,4 @@ public class ClassRoom {
     public void setStatus(boolean status) {
         this.status = status;
     }
-    
 }

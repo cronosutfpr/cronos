@@ -4,11 +4,11 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-/**
- *
- * @author junior
- */
-public enum Type {
+import java.io.Serializable;
+import javax.persistence.Entity;
+
+@Entity
+public enum Type implements Serializable{
     ;
     public static final String SALA_TEORICA = "SALA_TEORICA";
     public static final String LABORATORIO = "LABORATORIO";

@@ -4,28 +4,44 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
+import java.io.Serializable;
 import java.util.Calendar;
+import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-/**
- *
- * @author junior
- */
-public class Book {
+@Entity
+public class Book implements Serializable {
 
-    private int id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    @OneToMany(fetch = FetchType.EAGER)
     private ClassRoom classroom;
+    @OneToMany(fetch = FetchType.EAGER)
     private User requestor;
-    private Period period;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private List<Period> periods;
+    @Temporal(TemporalType.DATE)
     private Calendar startdate;
+    @Temporal(TemporalType.DATE)
     private Calendar endDate;
+    @OneToMany(fetch= FetchType.EAGER)
     private BookStatus status;
     private String note;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -45,12 +61,12 @@ public class Book {
         this.requestor = requestor;
     }
 
-    public Period getPeriod() {
-        return period;
+    public List<Period> getPeriods() {
+        return periods;
     }
 
-    public void setPeriod(Period period) {
-        this.period = period;
+    public void setPeriods(List<Period> periods) {
+        this.periods = periods;
     }
 
     public Calendar getStartdate() {

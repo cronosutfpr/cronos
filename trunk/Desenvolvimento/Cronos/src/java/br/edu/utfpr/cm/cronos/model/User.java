@@ -4,21 +4,26 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-/**
- *
- * @author junior
- */
-public class User {
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    private int id;
+@Entity
+public class User implements Serializable{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
     private String login;
     private TypeUser type;
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -37,5 +42,4 @@ public class User {
     public void setType(TypeUser type) {
         this.type = type;
     }
-    
 }

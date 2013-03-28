@@ -4,23 +4,36 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-/**
- *
- * @author junior
- */
-public class Group {
-    private String id;
-	 
-	private String name;
-	 
-	private Classe _class;
+import java.io.Serializable;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
-    public String getId() {
+@Entity
+public class Group implements Serializable {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String idxml;
+    private String name;
+    private Classe classe;
+
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdxml() {
+        return idxml;
+    }
+
+    public void setIdxml(String idxml) {
+        this.idxml = idxml;
     }
 
     public String getName() {
@@ -31,12 +44,11 @@ public class Group {
         this.name = name;
     }
 
-    public Classe _getClass() {
-        return _class;
+    public Classe getClasse() {
+        return classe;
     }
 
-    public void setClass(Classe _class) {
-        this._class = _class;
+    public void setClasse(Classe classe) {
+        this.classe = classe;
     }
-        
 }

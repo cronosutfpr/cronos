@@ -4,28 +4,46 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
+import java.io.Serializable;
 import java.util.List;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
-/**
- *
- * @author junior
- */
-public class Lesson {
+@Entity
+public class Lesson implements Serializable {
 
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String idxml;
+    @ManyToOne(fetch = FetchType.EAGER)
     private Subject subject;
-    private Classe _class;
-    private Period period;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Classe classe;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private List<Period> periods;
+    @ManyToOne(fetch = FetchType.EAGER)
     private Teacher teacher;
     private List<ClassRoom> classrooms;
-    private Group group;
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getIdxml() {
+        return idxml;
+    }
+
+    public void setIdxml(String idxml) {
+        this.idxml = idxml;
     }
 
     public Subject getSubject() {
@@ -36,21 +54,20 @@ public class Lesson {
         this.subject = subject;
     }
 
-   
-    public Classe get_Class() {
-        return _class;
+    public Classe getClasse() {
+        return classe;
     }
 
-    public void setClass(Classe _class) {
-        this._class = _class;
+    public void setClasse(Classe classe) {
+        this.classe = classe;
     }
 
-    public Period getPeriod() {
-        return period;
+    public List<Period> getPeriods() {
+        return periods;
     }
 
-    public void setPeriod(Period period) {
-        this.period = period;
+    public void setPeriods(List<Period> periods) {
+        this.periods = periods;
     }
 
     public Teacher getTeacher() {
@@ -68,13 +85,4 @@ public class Lesson {
     public void setClassrooms(List<ClassRoom> classrooms) {
         this.classrooms = classrooms;
     }
-
-    public Group getGroup() {
-        return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
-    }
-    
 }
