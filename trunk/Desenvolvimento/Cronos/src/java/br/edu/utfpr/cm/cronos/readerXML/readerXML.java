@@ -4,6 +4,8 @@
  */
 package br.edu.utfpr.cm.cronos.readerXML;
 
+import br.edu.utfpr.cm.cronos.model.Period;
+import br.edu.utfpr.cm.cronos.model.Subject;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import java.io.File;
 import javax.xml.bind.JAXBContext;
@@ -20,12 +22,12 @@ public class readerXML {
        Timetable timetables =  (Timetable) unmarshal(Timetable.class, new String("/home/junior/Desktop/projeto.xml"));
 
 
-//        for (Period p : timetables.getPeriods().getPeriods()) {
-//            System.out.println("Nome do periodo: "+p.getShort());
-//        }
-//        for (Subject s :timetables.getSubjects().getSubjects()) {
-//            System.out.println("Materia: "+s.getName());
-//        }
+        for (Period p : timetables.getPeriods().getPeriods()) {
+            System.out.println("Nome do periodo: "+p.getShort());
+        }
+        for (Subject s :timetables.getSubjects().getSubjects()) {
+            System.out.println("Materia: "+s.getName());
+        }
         for (Teacher t : timetables.getTeachers().getTeachers()) {
             System.out.println("Professor: "+t.getName());
         }
