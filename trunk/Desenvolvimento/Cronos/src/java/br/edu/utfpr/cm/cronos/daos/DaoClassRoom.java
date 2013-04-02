@@ -4,10 +4,17 @@
  */
 package br.edu.utfpr.cm.cronos.daos;
 
+import br.edu.utfpr.cm.cronos.model.ClassRoom;
+
 /**
  *
  * @author Erick
  */
-public class DaoClassRoom {
+public class DaoClassRoom extends DaoGenerics<ClassRoom> {
+
+    public DaoClassRoom() {
+        super.alvo = ClassRoom.class;
+    }
+
     
 }

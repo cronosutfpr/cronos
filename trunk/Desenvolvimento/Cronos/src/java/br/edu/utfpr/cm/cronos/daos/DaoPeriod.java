@@ -4,10 +4,17 @@
  */
 package br.edu.utfpr.cm.cronos.daos;
 
+import br.edu.utfpr.cm.cronos.model.Period;
+
 /**
  *
  * @author Erick
  */
-public class DaoPeriod {
+public class DaoPeriod extends DaoGenerics<Period> {
+
+    public DaoPeriod() {
+        super.alvo = Period.class;
+    }
+
     
 }
