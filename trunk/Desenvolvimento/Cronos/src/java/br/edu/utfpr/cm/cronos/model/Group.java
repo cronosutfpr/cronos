@@ -6,9 +6,11 @@ package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Group implements Serializable {
@@ -18,6 +20,7 @@ public class Group implements Serializable {
     private Long id;
     private String idxml;
     private String name;
+    @ManyToOne(fetch= FetchType.EAGER)
     private Classe classe;
 
     public Long getId() {

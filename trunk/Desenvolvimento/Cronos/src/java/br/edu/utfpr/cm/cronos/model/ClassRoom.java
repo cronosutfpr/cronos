@@ -6,9 +6,11 @@ package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class ClassRoom implements Serializable{
@@ -20,8 +22,10 @@ public class ClassRoom implements Serializable{
     private String name;
     private String _short;
     private int capacity;
+    @ManyToOne(fetch= FetchType.EAGER)
     private Type type;
     private String building;
+    @ManyToOne(fetch= FetchType.EAGER)
     private User owner;
     private boolean bookable;
     private boolean status;

@@ -4,11 +4,8 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-import java.io.Serializable;
-import javax.persistence.Entity;
 
-@Entity
-public enum Type implements Serializable{
+public enum Type {
     ;
     public static final String SALA_TEORICA = "SALA_TEORICA";
     public static final String LABORATORIO = "LABORATORIO";

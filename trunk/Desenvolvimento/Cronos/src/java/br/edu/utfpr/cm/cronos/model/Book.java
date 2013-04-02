@@ -12,7 +12,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -23,17 +23,17 @@ public class Book implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private ClassRoom classroom;
-    @OneToMany(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User requestor;
-    @ManyToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER)
     private List<Period> periods;
     @Temporal(TemporalType.DATE)
     private Calendar startdate;
     @Temporal(TemporalType.DATE)
     private Calendar endDate;
-    @OneToMany(fetch= FetchType.EAGER)
+    @ManyToOne(fetch= FetchType.EAGER)
     private BookStatus status;
     private String note;
 
