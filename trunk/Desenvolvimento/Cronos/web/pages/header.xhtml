@@ -1,0 +1,22 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <div id="cabecalho">
+        <div>
+            <h1 class="site_title"><a href="./">Navegação</a></h1>
+            <h2 class="site_gestor">Cronos UTFPR - Gerenciador de Reserva de Salas</h2>
+        </div>
+    </div>
+    <div id="bar_navegacao">
+        <div class="user">
+            <p>administrador </p>
+            <a class="logout_user" href="#" title="Logout">Sair</a> </div>
+        <div class="breadcrumbs_container">
+            <div class="breadcrumbs"><a href="./">Administração</a>
+                <div class="breadcrumb_divider"></div>
+                <h:link value="Inicial" outcome="index.xhtml" >
+                    <f:param name="page" value="pages/home.xhtml" />
+                </h:link> </div>
+        </div>
+    </div>
+</ui:composition>

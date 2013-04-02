@@ -1,0 +1,33 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <div id="sidebar" class="column">
+        <h3>Salas</h3>
+        <ul class="toggle">
+            <li class="icn_new_article"><a href="#">Listar Salas</a></li>
+            <li class="icn_new_article"><a href="#">Reservar Salas</a></li>
+            <li class="icn_new_article">
+                <h:link value="Reservar Salas" outcome="index.xhtml" >
+                    <f:param name="page" value="pages/reserva.xhtml" />
+                </h:link>
+            </li>
+        </ul>
+        <h3>Disciplinas</h3>
+        <ul class="toggle">
+            <li class="icn_new_article"><a href="#">Adicionar Disciplina</a></li>
+            <li class="icn_new_article"><a href="#">Listar Disciplinas</a></li>
+            <li class="icn_categories"><a href="#">Editar Disciplina</a></li>
+        </ul>
+        <h3>Professores</h3>
+        <ul class="toggle">
+            <li class="icn_new_article"><a href="#">Listar Professores</a></li>
+            <li class="icn_categories"><a href="#">Adicionar Professores</a></li>
+        </ul>
+        <h3>Reservas</h3>
+        <ul class="toggle">
+            <li class="icn_photo"><a href="#">Nova Reserva </a></li>
+            <li class="icn_audio"><a href="#">Lista de reservas</a></li>
+            <li class="icn_video"><a href="#">Minhas Reservas</a></li>
+        </ul>
+    </div>
+</ui:composition>
