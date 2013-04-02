@@ -21,7 +21,6 @@ public class readerXML {
         
        Timetable timetables =  (Timetable) unmarshal(Timetable.class, new String("/home/junior/Desktop/projeto.xml"));
 
-
         for (Period p : timetables.getPeriods().getPeriods()) {
             System.out.println("Nome do periodo: "+p.getShort());
         }
