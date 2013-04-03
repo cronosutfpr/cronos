@@ -30,7 +30,7 @@ public class Lesson implements Serializable {
     private List<Period> periods;
     @OneToOne(fetch = FetchType.EAGER)
     private Teacher teacher;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToOne(fetch = FetchType.EAGER)
     private List<ClassRoom> classrooms;
 
     public Long getId() {
