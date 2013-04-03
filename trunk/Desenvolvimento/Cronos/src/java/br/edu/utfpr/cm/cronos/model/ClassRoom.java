@@ -22,7 +22,6 @@ public class ClassRoom implements Serializable{
     private String name;
     private String _short;
     private int capacity;
-    @ManyToOne(fetch= FetchType.EAGER)
     private Type type;
     private String building;
     @ManyToOne(fetch= FetchType.EAGER)

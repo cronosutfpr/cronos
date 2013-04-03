@@ -5,7 +5,16 @@
 package br.edu.utfpr.cm.cronos.conexao;
 
 
+import br.edu.utfpr.cm.cronos.model.Book;
+import br.edu.utfpr.cm.cronos.model.ClassRoom;
+import br.edu.utfpr.cm.cronos.model.Classe;
+import br.edu.utfpr.cm.cronos.model.Group;
+import br.edu.utfpr.cm.cronos.model.Lesson;
+import br.edu.utfpr.cm.cronos.model.Period;
 import br.edu.utfpr.cm.cronos.model.Subject;
+import br.edu.utfpr.cm.cronos.model.Teacher;
+import br.edu.utfpr.cm.cronos.model.TypeUser;
+import br.edu.utfpr.cm.cronos.model.User;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
@@ -43,6 +52,15 @@ public class HibernateConfiguration {
             cfg.setProperty("hibernate.connection.autocommit", "true");
 
             cfg.addAnnotatedClass(Subject.class);
+            cfg.addAnnotatedClass(Book.class);
+            cfg.addAnnotatedClass(ClassRoom.class);
+            cfg.addAnnotatedClass(Classe.class);
+            cfg.addAnnotatedClass(Group.class);
+            cfg.addAnnotatedClass(Lesson.class);
+            cfg.addAnnotatedClass(Period.class);
+            cfg.addAnnotatedClass(Teacher.class);
+            cfg.addAnnotatedClass(TypeUser.class);
+            cfg.addAnnotatedClass(User.class);
 
 
             sessionFactory = cfg.buildSessionFactory();

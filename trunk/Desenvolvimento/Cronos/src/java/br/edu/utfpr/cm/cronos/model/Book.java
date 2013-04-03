@@ -33,7 +33,6 @@ public class Book implements Serializable {
     private Calendar startdate;
     @Temporal(TemporalType.DATE)
     private Calendar endDate;
-    @ManyToOne(fetch= FetchType.EAGER)
     private BookStatus status;
     private String note;
 

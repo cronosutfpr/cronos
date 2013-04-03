@@ -11,8 +11,8 @@ package br.edu.utfpr.cm.cronos.conexao;
 public class Teste {
     
     public static void main(String[] args) {
-        HibernateConfiguration.setBase("root");
-        HibernateConfiguration.setHost("192.168.1.8:3306");
+        HibernateConfiguration.setBase("aula");
+        HibernateConfiguration.setHost("127.0.0.1:3306");
         HibernateConfiguration.setPass("root");
         HibernateConfiguration.setUser("root");
         HibernateConfiguration.criarSchema();
