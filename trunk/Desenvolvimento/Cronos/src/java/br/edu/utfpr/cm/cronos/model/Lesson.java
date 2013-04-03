@@ -26,11 +26,11 @@ public class Lesson implements Serializable {
     private Subject subject;
     @OneToOne(fetch = FetchType.EAGER)
     private Classe classe;
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<Period> periods;
     @OneToOne(fetch = FetchType.EAGER)
     private Teacher teacher;
-    @OneToOne(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.LAZY)
     private List<ClassRoom> classrooms;
 
     public Long getId() {
@@ -65,13 +65,13 @@ public class Lesson implements Serializable {
         this.classe = classe;
     }
 
-    public List<Period> getPeriods() {
-        return periods;
-    }
-
-    public void setPeriods(List<Period> periods) {
-        this.periods = periods;
-    }
+//    public List<Period> getPeriods() {
+//        return periods;
+//    }
+//
+//    public void setPeriods(List<Period> periods) {
+//        this.periods = periods;
+//    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -80,12 +80,12 @@ public class Lesson implements Serializable {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
-    public List<ClassRoom> getClassrooms() {
-        return classrooms;
-    }
-
-    public void setClassrooms(List<ClassRoom> classrooms) {
-        this.classrooms = classrooms;
-    }
+//
+//    public List<ClassRoom> getClassrooms() {
+//        return classrooms;
+//    }
+//
+//    public void setClassrooms(List<ClassRoom> classrooms) {
+//        this.classrooms = classrooms;
+//    }
 }
