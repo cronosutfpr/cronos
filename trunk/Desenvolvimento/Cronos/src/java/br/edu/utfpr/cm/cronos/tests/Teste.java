@@ -15,7 +15,7 @@ public class Teste {
     public static void main(String[] args) {
         HibernateConfiguration.setBase("aula");
         HibernateConfiguration.setHost("127.0.0.1:3306");
-        HibernateConfiguration.setPass("root");
+        HibernateConfiguration.setPass("aluno");
         HibernateConfiguration.setUser("root");
         HibernateConfiguration.criarSchema();
     }
