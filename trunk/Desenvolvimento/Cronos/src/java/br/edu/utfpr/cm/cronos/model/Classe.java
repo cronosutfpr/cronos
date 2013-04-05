@@ -9,16 +9,26 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-public class Classe implements Serializable{
+@XmlRootElement(name = "class")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class Classe implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @XmlAttribute(name = "id")
     private String idxml;
+    @XmlAttribute(name = "name")
     private String name;
+    @XmlAttribute(name = "short")
     private String _short;
+    @XmlAttribute(name = "teacherid")
     private String teacherid;
     private String grade;
 
@@ -37,7 +47,6 @@ public class Classe implements Serializable{
     public void setIdxml(String idxml) {
         this.idxml = idxml;
     }
-
 
     public String getName() {
         return name;
@@ -70,5 +79,4 @@ public class Classe implements Serializable{
     public void setGrade(String grade) {
         this.grade = grade;
     }
-    
 }

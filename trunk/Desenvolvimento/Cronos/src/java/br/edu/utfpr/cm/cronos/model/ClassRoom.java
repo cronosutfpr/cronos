@@ -11,24 +11,32 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlAccessType;
+import javax.xml.bind.annotation.XmlAccessorType;
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
-public class ClassRoom implements Serializable{
+@XmlRootElement(name = "classroom")
+@XmlAccessorType(XmlAccessType.FIELD)
+public class ClassRoom implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @XmlAttribute(name = "id")
     private String idxml;
+    @XmlAttribute(name = "nome")
     private String name;
+    @XmlAttribute(name = "short")
     private String _short;
+    @XmlAttribute(name = "capacity")
     private int capacity;
     private Type type;
     private String building;
-    @ManyToOne(fetch= FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
     private User owner;
     private boolean bookable;
-    private boolean status;
-
 
     public Long getId() {
         return id;
@@ -102,11 +110,4 @@ public class ClassRoom implements Serializable{
         this.bookable = bookable;
     }
 
-    public boolean isStatus() {
-        return status;
-    }
-
-    public void setStatus(boolean status) {
-        this.status = status;
-    }
 }

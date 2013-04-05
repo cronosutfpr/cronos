@@ -13,14 +13,16 @@ import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
+
 @Entity
 @XmlRootElement(name = "teacher")
 @XmlAccessorType(XmlAccessType.FIELD)
-public class Teacher implements Serializable{
-    
+public class Teacher implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @XmlAttribute(name = "id")
     private String idxml;
     @XmlAttribute(name = "name")
     private String name;
@@ -30,7 +32,7 @@ public class Teacher implements Serializable{
     private String _short;
     @XmlAttribute(name = "color")
     private String color;
-    @XmlAttribute(name="email")
+    @XmlAttribute(name = "email")
     private String email;
     @XmlAttribute(name = "mobile")
     private String mobile;
@@ -51,7 +53,6 @@ public class Teacher implements Serializable{
         this.idxml = idxml;
     }
 
-  
     public String getName() {
         return name;
     }
