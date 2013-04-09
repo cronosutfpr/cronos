@@ -3,7 +3,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <p:panel id="panel" header="Cadastro de Professores" toggleable="true" closable="true" style="margin:10px;">  
+        <p:panel id="panel" header="Cadastro de Professores" toggleable="false" closable="false" style="margin:10px;">  
             <h:panelGrid columns="3" cellpadding="5">  
                 <h:outputLabel for="siape" value="Siape: *" />  
                 <p:inputText id="siape" value="" required="true" label="Siape">  
@@ -12,7 +12,7 @@
                 <p:message for="siape" /> 
             </h:panelGrid> 
 
-            <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+            <h:panelGrid style="margin-left: 57px;" columns="2" cellpadding="5">
                 <p:commandButton value="Cadastrar" update="panel"/>
             </h:panelGrid>
         </p:panel> 
