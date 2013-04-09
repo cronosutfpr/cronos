@@ -1,4 +1,4 @@
-html, div, map, dt, isindex, form, header, aside, section, section, article, footer {
+html, div{
 	display: block;
 }
 html, body {
@@ -8,7 +8,7 @@ html, body {
 	font-family: "Helvetica Neue", Helvetica, Arial, Verdana, sans-serif;
 	background: #F8F8F8;
 	font-size: 12px;
-	min-width:780px;
+	min-width:880px;
 }
 .clear {
 	clear: both;
