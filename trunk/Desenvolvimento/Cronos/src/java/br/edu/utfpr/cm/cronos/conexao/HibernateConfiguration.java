@@ -4,7 +4,6 @@
  */
 package br.edu.utfpr.cm.cronos.conexao;
 
-
 import br.edu.utfpr.cm.cronos.model.Book;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
 import br.edu.utfpr.cm.cronos.model.Classe;
@@ -35,10 +34,10 @@ public class HibernateConfiguration {
 
     private static AnnotationConfiguration cfg;
     private static SessionFactory sessionFactory;
-    private static String user;
-    private static String pass;
-    private static String base;
-    private static String host;
+    private static String user = "root";
+    private static String pass = "123456";
+    private static String base = "cronos";
+    private static String host = "localhost";
 
     public static Session openConnect() {
         if (cfg == null) {

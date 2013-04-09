@@ -26,12 +26,12 @@ public class ClassRoom implements Serializable {
     private Long id;
     @XmlAttribute(name = "id")
     private String idxml;
-    @XmlAttribute(name = "nome")
+    @XmlAttribute(name = "name")
     private String name;
     @XmlAttribute(name = "short")
     private String _short;
     @XmlAttribute(name = "capacity")
-    private int capacity;
+    private String capacity;
     private Type type;
     private String building;
     @ManyToOne(fetch = FetchType.EAGER)
@@ -70,11 +70,11 @@ public class ClassRoom implements Serializable {
         this._short = _short;
     }
 
-    public int getCapacity() {
+    public String getCapacity() {
         return capacity;
     }
 
-    public void setCapacity(int capacity) {
+    public void setCapacity(String capacity) {
         this.capacity = capacity;
     }
 

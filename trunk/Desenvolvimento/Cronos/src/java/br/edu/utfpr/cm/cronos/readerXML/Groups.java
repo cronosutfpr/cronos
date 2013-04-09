@@ -4,7 +4,6 @@
  */
 package br.edu.utfpr.cm.cronos.readerXML;
 
-import br.edu.utfpr.cm.cronos.model.Classe;
 import br.edu.utfpr.cm.cronos.model.Group;
 import java.util.List;
 import javax.xml.bind.annotation.XmlAccessType;

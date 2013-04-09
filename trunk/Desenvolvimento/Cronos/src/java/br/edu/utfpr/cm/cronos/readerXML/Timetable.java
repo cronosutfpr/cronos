@@ -17,6 +17,14 @@ public class Timetable {
     private Periods periods;
     @XmlElement(name = "subjects")
     private Subjects subjects;
+    @XmlElement(name = "lessons")
+    private Lessons lessons;
+    @XmlElement(name = "classes")
+    private Classes classes;
+    @XmlElement(name = "classrooms")
+    private ClassRooms classRooms;
+    @XmlElement(name = "groups")
+    private Groups groups;
     @XmlElement(name = "teachers")
     private Teachers teachers;
 
@@ -43,4 +51,37 @@ public class Timetable {
     public void setTeachers(Teachers teachers) {
         this.teachers = teachers;
     }
+
+    public Lessons getLessons() {
+        return lessons;
+    }
+
+    public void setLessons(Lessons lessons) {
+        this.lessons = lessons;
+    }
+
+    public Classes getClasses() {
+        return classes;
+    }
+
+    public void setClasses(Classes classes) {
+        this.classes = classes;
+    }
+
+    public ClassRooms getClassRooms() {
+        return classRooms;
+    }
+
+    public void setClassRooms(ClassRooms classRooms) {
+        this.classRooms = classRooms;
+    }
+
+    public Groups getGroups() {
+        return groups;
+    }
+
+    public void setGroups(Groups groups) {
+        this.groups = groups;
+    }
+    
 }

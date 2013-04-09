@@ -22,16 +22,15 @@ public class Period implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String idxml;
-    @XmlAttribute(name = "name", required = true)
+    @XmlAttribute(name = "name")
     private String name;
-    @XmlAttribute(name = "short", required = true)
+    @XmlAttribute(name = "short")
     private String _short;
-    @XmlAttribute(name = "period", required = true)
+    @XmlAttribute(name = "period")
     private int period;
-    @XmlAttribute(name = "starttime", required = true)
+    @XmlAttribute(name = "starttime")
     private String starttime;
-    @XmlAttribute(name = "endtime", required = true)
+    @XmlAttribute(name = "endtime")
     private String endtime;
 
     public Long getId() {
@@ -40,14 +39,6 @@ public class Period implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getIdxml() {
-        return idxml;
-    }
-
-    public void setIdxml(String idxml) {
-        this.idxml = idxml;
     }
 
     public String getName() {

@@ -4,35 +4,36 @@
  */
 package br.edu.utfpr.cm.cronos.readerXML;
 
+import br.edu.utfpr.cm.cronos.conexao.HibernateConfiguration;
+import br.edu.utfpr.cm.cronos.controller.ControllerDatabase;
+import br.edu.utfpr.cm.cronos.model.Group;
 import br.edu.utfpr.cm.cronos.model.Period;
 import br.edu.utfpr.cm.cronos.model.Subject;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import java.io.File;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
 import javax.xml.bind.Unmarshaller;
+import org.hibernate.Hibernate;
 
 /**
  *
  * @author junior
  */
-public class readerXML {
-    public static void main(String[] args) {
-        
-       Timetable timetables =  (Timetable) unmarshal(Timetable.class, new String("/home/junior/Desktop/projeto.xml"));
+public class ReaderXML {
 
-        for (Period p : timetables.getPeriods().getPeriods()) {
-            System.out.println("Nome do periodo: "+p.getShort());
+    public static void importXML(String path) {
+        Timetable timetables = (Timetable) unmarshal(Timetable.class, path);
+        try {
+            ControllerDatabase.saveAll(timetables);
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
-        for (Subject s :timetables.getSubjects().getSubjects()) {
-            System.out.println("Materia: "+s.getName());
-        }
-        for (Teacher t : timetables.getTeachers().getTeachers()) {
-            System.out.println("Professor: "+t.getName());
-        }
-    
     }
-        public static Object unmarshal(Class clazz, String path) {
+
+    public static Object unmarshal(Class clazz, String path) {
         JAXBContext context = null;
         try {
             context = JAXBContext.newInstance(clazz);

@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
 import javax.xml.bind.annotation.XmlRootElement;
 
-@Entity
+@Entity(name="Groups")
 @XmlRootElement(name = "group")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Group implements Serializable {
@@ -28,6 +28,8 @@ public class Group implements Serializable {
     private String idxml;
     @XmlAttribute(name = "name")
     private String name;
+    @XmlAttribute(name = "classid")
+    private String classid;
     @ManyToOne(fetch = FetchType.EAGER)
     private Classe classe;
 
@@ -62,4 +64,13 @@ public class Group implements Serializable {
     public void setClasse(Classe classe) {
         this.classe = classe;
     }
+
+    public String getClassid() {
+        return classid;
+    }
+
+    public void setClassid(String classid) {
+        this.classid = classid;
+    }
+    
 }
