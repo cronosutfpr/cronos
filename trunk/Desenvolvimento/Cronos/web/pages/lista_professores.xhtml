@@ -1,0 +1,60 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <div id="principal">
+        <h:form id="form">  
+
+            <p:dataTable var="car" value="#{tableBean.cars}" rowKey="#{car.model}" paginator="true" rows="10"  
+                         selection="#{tableBean.selectedCar}" selectionMode="single" filteredValue="#{tableBean.filteredCars}" id="carsTable">  
+
+                <p:ajax event="rowSelect" update=":form:display" oncomplete="carDialog.show()" />  
+
+                <f:facet name="header">  
+                    Lista de Professores  
+                </f:facet>  
+
+                <p:column headerText="Model" sortBy="#{car.model}" filterBy="#{car.model}" id="model">  
+                    #{car.model}  
+                </p:column>  
+
+                <p:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}" id="year">  
+                    #{car.year}  
+                </p:column>  
+
+                <p:column headerText="Manufacturer" sortBy="#{car.manufacturer}" filterBy="#{car.manufacturer}" id="manufacturer">  
+                    #{car.manufacturer}  
+                </p:column>  
+
+                <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}" id="color">  
+                    #{car.color}"  
+                </p:column>  
+
+            </p:dataTable>  
+
+            <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"  
+                      width="200" showEffect="explode" hideEffect="explode">  
+
+                <h:panelGrid id="display" columns="2" cellpadding="4">  
+
+                    <f:facet name="header">  
+                        <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
+                    </f:facet>  
+
+                    <h:outputText value="Model:" />  
+                    <h:outputText value="#{tableBean.selectedCar.model}" id="model"/>  
+
+                    <h:outputText value="Year:" />  
+                    <h:outputText value="#{tableBean.selectedCar.year}" id="year"/>  
+
+                    <h:outputText value="Manufacturer:" />  
+                    <h:outputText value="#{tableBean.selectedCar.manufacturer}" id="manufacturer"/>  
+
+                    <h:outputText value="Color:" />  
+                    <h:outputText value="#{tableBean.selectedCar.color}" id="color"/>  
+                </h:panelGrid>  
+            </p:dialog>  
+
+        </h:form>
+    </div>
+</ui:composition>

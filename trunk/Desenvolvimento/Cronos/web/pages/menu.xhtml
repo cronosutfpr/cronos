@@ -25,7 +25,10 @@
         </ul>
         <h3>Professores</h3>
         <ul class="toggle">
-            <li class="icn_new_article"><a href="#">Listar Professores</a></li>
+            <li class="icn_new_article">
+                <h:link value="Listar Professores" outcome="index.xhtml" >
+                    <f:param name="page" value="pages/lista_professores.xhtml" />
+                </h:link></li>
             <li class="icn_categories"><a href="#">Adicionar Professores</a></li>
         </ul>
         <h3>Reservas</h3>
