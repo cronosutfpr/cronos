@@ -5,3 +5,4 @@
 *.war
 *.ear
 /trunk/Desenvolvimento/Cronos/build/
+/trunk/Desenvolvimento/Cronos/dist/
