@@ -1,5 +1,26 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        Aqui vai ser a reserva da coisa
+        <p:panel id="panel_reserva" header="Cadastro de Reservas" closable="true">  
+            <h:panelGrid columns="3" cellpadding="4">  
+                <h:outputLabel for="id" value="Id: "/>  
+                <p:inputText id="id" value=""/> 
+                <p:message for="id" />
+
+                <h:outputLabel for="classroom" value="Sala de Aula: "/>  
+                <p:inputText id="classroom" value="" />
+                <p:commandButton update="classroom" id="selecionarSala" value="Pesquisar" 
+                                 icon="../resources/images/icn_search" title="Selecionar sala de aula"/>  
+                <p:message for="classroom" />
+                
+                <h:outputLabel for="datainicial" value="Data Inicial:"/>  
+                <p:calendar value="#{calendarBean.date1}" id="cal" showButtonPanel="true"/>  
+                
+            <p:calendar id="cal" value="#{calendarBean.date1}" navigator="true" display="inline"/> 
+            </h:panelGrid>
+            
+        </p:panel> 
     </div>
 </ui:composition>
