@@ -5,6 +5,7 @@
 package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -17,6 +18,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @XmlRootElement(name = "teacher")
 @XmlAccessorType(XmlAccessType.FIELD)
+@ManagedBean
 public class Teacher implements Serializable {
 
     @Id

@@ -4,8 +4,6 @@
  */
 package br.edu.utfpr.cm.cronos.daos;
 
-
-
 import br.edu.utfpr.cm.cronos.conexao.TransactionManager;
 import br.edu.utfpr.cm.cronos.interfaces.Dao;
 import java.util.List;
@@ -18,11 +16,11 @@ import org.hibernate.Session;
  */
 public class DaoGenerics<T> implements Dao<T> {
 
-    protected Session session =  TransactionManager.getCurrentSession();  
+    protected Session session = TransactionManager.getCurrentSession();
     protected Class alvo;
 
     @Override
-    public void persistir(T o) {       
+    public void persistir(T o) {
         session.saveOrUpdate(o);
         session.flush();
     }
@@ -37,7 +35,7 @@ public class DaoGenerics<T> implements Dao<T> {
     public T obterPorId(int id) {
         T objeto = null;
         if (id > 0) {
-            Query select = session.createQuery("From "+alvo.getSimpleName()+" where id = " + id);
+            Query select = session.createQuery("From " + alvo.getSimpleName() + " where id = " + id);
             objeto = (T) select.uniqueResult();
         }
         return objeto;
@@ -47,9 +45,16 @@ public class DaoGenerics<T> implements Dao<T> {
     public List<T> listar(String filtro) {
         List<T> lista = null;
         if (filtro != null) {
-            Query query = session.createQuery("FROM "+alvo.getSimpleName()+" WHERE nome LIKE '%"+filtro+"%'");
+            Query query = session.createQuery("FROM " + alvo.getSimpleName() + " WHERE nome LIKE '%" + filtro + "%'");
             lista = query.list();
         }
+        return lista;
+    }
+
+    public List<T> listar() {
+        List<T> lista = null;
+        Query query = session.createQuery("FROM " + alvo.getSimpleName());
+        lista = query.list();
         return lista;
     }
 }

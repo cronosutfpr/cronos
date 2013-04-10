@@ -5,34 +5,30 @@
     <div id="principal">
         <h:form id="form">  
 
-            <p:dataTable var="car" value="#{tableBean.cars}" rowKey="#{car.model}" paginator="true" rows="10"  
-                         selection="#{tableBean.selectedCar}" selectionMode="single" filteredValue="#{tableBean.filteredCars}" id="carsTable">  
+            <p:dataTable var="teacher" value="#{ListarProfessores.listaProfessores}" rowKey="#{Teacher.name}" paginator="true" rows="10"  
+                          selectionMode="single"  id="carsTable">  
 
-                <p:ajax event="rowSelect" update=":form:display" oncomplete="carDialog.show()" />  
+                <p:ajax event="rowSelect" update=":form:display" oncomplete="teacherDialog.show()" />  
 
                 <f:facet name="header">  
                     Lista de Professores  
-                </f:facet>  
+                </f:facet>                  
 
-                <p:column headerText="Model" sortBy="#{car.model}" filterBy="#{car.model}" id="model">  
-                    #{car.model}  
+                <p:column headerText="Nome" sortBy="#{teacher.name}" filterBy="#{teacher.name}" id="year">  
+                    #{teacher.name}  
                 </p:column>  
 
-                <p:column headerText="Year" sortBy="#{car.year}" filterBy="#{car.year}" id="year">  
-                    #{car.year}  
+                <p:column headerText="Email" sortBy="#{teacher.email}" filterBy="#{teacher.email}" id="manufacturer">  
+                    #{teacher.email}  
                 </p:column>  
 
-                <p:column headerText="Manufacturer" sortBy="#{car.manufacturer}" filterBy="#{car.manufacturer}" id="manufacturer">  
-                    #{car.manufacturer}  
-                </p:column>  
-
-                <p:column headerText="Color" sortBy="#{car.color}" filterBy="#{car.color}" id="color">  
-                    #{car.color}"  
+                <p:column headerText="Sexo" sortBy="#{teacher.gender}" filterBy="#{teacher.gender}" id="color">  
+                    #{teacher.gender}"  
                 </p:column>  
 
             </p:dataTable>  
 
-            <p:dialog header="Car Detail" widgetVar="carDialog" resizable="false"  
+            <p:dialog header="Detalhes do Professor" widgetVar="teacherDialog" resizable="false"  
                       width="200" showEffect="explode" hideEffect="explode">  
 
                 <h:panelGrid id="display" columns="2" cellpadding="4">  
