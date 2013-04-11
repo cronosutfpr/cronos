@@ -53,7 +53,7 @@
                 <p:selectBooleanCheckbox value="" />   
             </h:panelGrid> 
             <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                <p:commandButton value="Cadastrar" outcome="#{classRoomBean.addClassRoom}" update="panel"/>
+                <p:commandButton value="Cadastrar" actionListener="#{classRoomBean.addClassRoom}" update="panel"/>
             </h:panelGrid>
         </p:panel> 
     </div>
