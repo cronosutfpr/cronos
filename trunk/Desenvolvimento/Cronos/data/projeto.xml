@@ -374,7 +374,7 @@
       <subject id="8FE491B7B8C62A0E" name="G_Tecnologia e Sociedade" short="TS32O"/>
       <subject id="1F8794FEF9AFEBC6" name="G_TERMODINÃMICA" short="EL33G"/>
       <subject id="F3B8645C82F95886" name="G_Toxicologia de Alimentos" short="EL38G "/>
-      <subject id="B9040CC81B1E522A" name="G_Tratamentos de Águas e Efluentes" short="EL38D "/>
+      <subject id="B9040CC81B1E522A" name="G_Tratamentos de Águas e Efluentes" short="EL38D "/>NULL
       <subject id="3C9B64A51EF51C36" name="Gerenciamento E Tratamento De Águas" short="GT35A"/>
       <subject id="AF6637BE59E1F263" name="Gestão Administrativa E Marketing Ambiental" short="GM36A"/>
       <subject id="7FE7291A8A8EE175" name="Gestão De Saúde Ocupacional E Segurança" short="GS36A"/>
@@ -903,7 +903,7 @@
       <group id="26B690C49215C611" name="Turma completa" classid="215CA409D58B1310" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
       <group id="CC225C7BC1FFC959" name="IF6A" classid="215CA409D58B1310" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
       <group id="AF9DB24F02832F06" name="IF6B" classid="215CA409D58B1310" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
-      <group id="D67FF492635DE747" name="Turma completa" classid="04D7F9DD160E78BC" studentids="" entireclass="1" divisiontag="0" studentcount=period""/>
+      <group id="D67FF492635DE747" name="Turma completa" classid="04D7F9DD160E78BC" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
       <group id="B9FB4A65A3E14CF2" name="IF7A" classid="04D7F9DD160E78BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
       <group id="23194817A7279078" name="IF7B" classid="04D7F9DD160E78BC" studentids="" entireclass="0" divisiontag="1" studentcount=""/>
       <group id="0AC198AEAB0B928C" name="Turma completa" classid="F4E56E715923CA40" studentids="" entireclass="1" divisiontag="0" studentcount=""/>
