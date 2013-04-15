@@ -14,6 +14,6 @@ public class TestReaderXML {
 
     public static void main(String[] args) {
         HibernateConfiguration.criarSchema();
-        ReaderXML.importXML("/home/junior/Desktop/projeto.xml");
+        ReaderXML.importXML("C:\\Users\\Willyan.PROSOLUS\\Documents\\GitHub\\cronos\\trunk\\Desenvolvimento\\Cronos\\data\\projeto.xml");
     }
 }

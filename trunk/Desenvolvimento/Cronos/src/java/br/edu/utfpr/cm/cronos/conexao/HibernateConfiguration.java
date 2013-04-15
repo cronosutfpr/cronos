@@ -35,7 +35,7 @@ public class HibernateConfiguration {
     private static AnnotationConfiguration cfg;
     private static SessionFactory sessionFactory;
     private static String user = "root";
-    private static String pass = "123456";
+    private static String pass = "";
     private static String base = "cronos";
     private static String host = "localhost";
 

@@ -11,5 +11,6 @@
     <string name="user">Usuário</string>
     <string name="password">Senha</string>
     <string name="sign_in">Entrar</string>
+    <string name="title_activity_lista_salas">ListaSalasActivity</string>
 
 </resources>
