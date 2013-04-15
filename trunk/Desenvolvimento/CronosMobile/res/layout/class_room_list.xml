@@ -10,28 +10,24 @@
 
     <LinearLayout
         android:id="@+id/linearLayout1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_alignLeft="@+id/listView1"
-        android:layout_alignParentTop="true"
+        android:layout_below="@+id/btBack"
         android:orientation="vertical" >
 
         <ListView
             android:id="@+id/listView1"
-            android:layout_width="277dp"
-            android:layout_height="379dp"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentTop="true" >
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" >
         </ListView>
 
     </LinearLayout>
 
     <Button
         android:id="@+id/btBack"
-        android:layout_width="280dp"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1"
         android:text="Voltar" />
 
 </RelativeLayout>

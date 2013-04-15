@@ -36,17 +36,7 @@ public class ListarSalas extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            /* TODO output your page here. You may use following sample code. */
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet ListarSalas</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet ListarSalas at " + request.getContextPath() + "</h1>");
-            doGet(request, response);
-            out.println("</body>");
-            out.println("</html>");
+            out.println("{ \"ClassRoom\" : [ { \"name\": \"E100 - Laboratório de Informática\", \"_short\": E100  }, { \"name\": \"E103 - Laboratório de Hardware\", \"_short\": E103 }, { \"name\": \"D102 - Sala teórica\", \"_short\": D102 } ] }");
         } finally {            
             out.close();
         }
