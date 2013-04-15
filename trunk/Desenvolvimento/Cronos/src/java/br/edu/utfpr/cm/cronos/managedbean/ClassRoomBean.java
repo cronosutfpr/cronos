@@ -5,9 +5,11 @@
 package br.edu.utfpr.cm.cronos.managedbean;
 
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
-import br.edu.utfpr.cm.cronos.util.JSFUtil;
+import java.awt.event.ActionEvent;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -22,7 +24,10 @@ public class ClassRoomBean {
     public ClassRoomBean() {
     }
     
-    public void addClassRoom(){
-       JSFUtil.addSuccessMessage("Ocorrência Adicionada", "Adicionada");
+    public void addClassRoom(ActionEvent actionEvent){
+       FacesContext context = FacesContext.getCurrentInstance();  
+          
+        context.addMessage(null, new FacesMessage("Successful", "Hello"));  
+        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));  
     }
 }

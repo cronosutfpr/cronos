@@ -1,9 +1,11 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
                 xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core">
-    <div id="principal">
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <div id="principal">        
         <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
+            <p:growl id="growl" showDetail="true" sticky="true" />
             <h:panelGrid columns="3" cellpadding="5">  
                 <h:outputLabel for="name" value="Nome: *" />  
                 <p:inputText id="name" value="" required="true" label="Nome">  
@@ -53,7 +55,7 @@
                 <p:selectBooleanCheckbox value="" />   
             </h:panelGrid> 
             <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                <p:commandButton value="Cadastrar" actionListener="#{classRoomBean.addClassRoom}" update="panel"/>
+                <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl"/>
             </h:panelGrid>
         </p:panel> 
     </div>
