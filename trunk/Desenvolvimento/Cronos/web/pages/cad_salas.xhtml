@@ -1,62 +1,58 @@
-<?xml version='1.0' encoding='UTF-8' ?> 
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:p="http://primefaces.org/ui">
-    <div id="principal">        
-        <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
-            <p:growl id="growl" showDetail="true" sticky="true" />
-            <h:panelGrid columns="3" cellpadding="5">  
-                <h:outputLabel for="name" value="Nome: *" />  
-                <p:inputText id="name" value="" required="true" label="Nome">  
-                    <f:validateLength minimum="2" />  
-                </p:inputText>  
-                <p:message for="name" /> 
+    <div id="principal"> 
+        <h:form id="form">  
+            <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
+                <p:growl id="growl" showDetail="true" sticky="true" />
+                <h:panelGrid columns="3" cellpadding="5">  
+                    <h:outputLabel for="name" value="Nome: *" />  
+                    <p:inputText id="name" value="" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
 
-                <h:outputLabel for="short" value="Abreviação: *" />  
-                <p:inputText id="short" value="" required="true" label="Abreviacao"/>  
-                <p:message for="short" />
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
 
-                <h:outputLabel for="capacity" value="Capacidade: " />  
-                <p:inputText id="capacity" value="" required="true" label="Capacidade"/>  
-                <p:message for="capacity" />
+                    <h:outputLabel for="capacity" value="Capacidade: " />  
+                    <p:inputText id="capacity" value="" required="true" label="Capacidade"/>  
+                    <p:message for="capacity" />
 
-                <h:outputLabel for="building" value="Predio: " />  
-                <p:inputText id="building" value="" required="true" label="Predio"/>  
-                <p:message for="building" />
+                    <h:outputLabel for="building" value="Predio: " />  
+                    <p:inputText id="building" value="" required="true" label="Predio"/>  
+                    <p:message for="building" />
 
-                <h:outputLabel value="Tipo: " for="type" />  
-                <p:autoComplete id="type" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
-                    <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}" />  
-                </p:autoComplete>
-                <p:message for="type" />
+                    <h:outputLabel value="Tipo: " for="type" />  
+                    <p:autoComplete id="type" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
+                        <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}" />  
+                    </p:autoComplete>
+                    <p:message for="type" />
 
-                <h:outputLabel value="Dono: " for="owner" />  
-                <p:autoComplete id="owner" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
-                    <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}"/>  
-                </p:autoComplete>
-                <p:message for="owner" />
+                    <h:outputLabel value="Dono: " for="owner" />  
+                    <p:autoComplete id="owner" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
+                        <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}"/>  
+                    </p:autoComplete>
+                    <p:message for="owner" />
 
+                    <h:outputText value="Status: " />  
+                    <p:selectOneMenu value="#{buttonBean.number}">  
+                        <f:selectItem itemLabel="Selecione" itemValue="" />  
+                        <f:selectItem itemLabel="Disponível" itemValue="1" />  
+                        <f:selectItem itemLabel="Indisponível" itemValue="2" />  
+                    </p:selectOneMenu>  
 
-
-                <h:outputText value="Status: " />  
-                <p:selectOneMenu value="#{buttonBean.number}">  
-                    <f:selectItem itemLabel="Selecione" itemValue="" />  
-                    <f:selectItem itemLabel="Disponível" itemValue="1" />  
-                    <f:selectItem itemLabel="Indisponível" itemValue="2" />  
-                </p:selectOneMenu>  
-
-
-
-
-            </h:panelGrid> 
-            <h:panelGrid columns="2" cellpadding="5">  
-                <h:outputText value="Reservável? "/>  
-                <p:selectBooleanCheckbox value="" />   
-            </h:panelGrid> 
-            <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl"/>
-            </h:panelGrid>
-        </p:panel> 
+                </h:panelGrid> 
+                <h:panelGrid columns="2" cellpadding="5">  
+                    <h:outputText value="Reservável? "/>  
+                    <p:selectBooleanCheckbox value="" />   
+                </h:panelGrid> 
+                <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl" ajax="true"/>
+                </h:panelGrid>
+            </p:panel> 
+        </h:form>
     </div>
 </ui:composition>
