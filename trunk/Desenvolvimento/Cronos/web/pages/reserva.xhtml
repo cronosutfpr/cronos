@@ -1,23 +1,39 @@
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
-                xmlns:p="http://primefaces.org/ui"
-                xmlns:h="http://java.sun.com/jsf/html"
-                xmlns:f="http://java.sun.com/jsf/core">
-    <div id="principal">
-        <p:panel id="panel_reserva" header="Cadastro de Reservas" closable="true">  
-           
-            <h:panelGrid columns="3" cellpadding="4">  
-                <h:outputLabel for="id" value="Id: "/>  
-                <p:inputText id="id" value=""/> 
-                <p:message for="id" />
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+    </h:head>
+    <h:body><div id="principal">
+            <h:form>
+                <p:panel id="panel_reserva" header="Cadastro de Reservas" closable="true">  
+                    <h:panelGrid columns="3" cellpadding="4">  
 
-                <h:outputLabel for="classroom" value="Sala de Aula: "/>  
-                <p:inputText id="classroom" value="" />
-                <p:commandButton update="classroom" id="selecionarSala" value="Pesquisar" 
-                                 icon="../resources/images/icn_search" title="Selecionar sala de aula"/>  
-                <p:message for="classroom" />
+                        <h:outputLabel for="id" value="Id: "/>  
 
-            </h:panelGrid>
-            
-        </p:panel> 
-    </div>
-</ui:composition>
+                        <p:inputText id="id" value=""/> 
+                        <p:message for="id" />
+                        <h:outputLabel id="startDate" value="Data inicial: "/>  
+                        <p:calendar locale="pt" showButtonPanel="true" navigator="true" id="ptCal"/>
+                        <p:message for="startDate" />
+
+
+                        <h:outputText id="endDate" value="Data final:" />
+                        <p:calendar locale="pt" showButtonPanel="true" navigator="true" id="ptCal2"/>
+                        <p:message for="endDate" />
+
+                        <!--                <h:outputLabel for="classroom" value="Sala de Aula: "/>  
+                                        <p:inputText id="classroom" value="" />
+                                        <p:commandButton update="classroom" id="selecionarSala" value="Pesquisar" 
+                                                         icon="../resources/images/icn_search" title="Selecionar sala de aula"/>  
+                                        <p:message for="classroom" />-->
+
+                    </h:panelGrid>
+
+                </p:panel> 
+            </h:form>
+        </div>
+    </h:body>
+</html>
