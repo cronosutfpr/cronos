@@ -37,20 +37,23 @@
 
                     <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
-                <p:dataTable id="classes" var="classe" value="#{tableClasse.classes}">  
+                <p:dataTable id="classes" var="classe" value="#{tableClasse.classes}" paginator="true" rows="30">  
                     <p:column headerText="Nome">  
-                        <h:outputText value="#{car.model}" />  
+                        <h:outputText value="#{classe.name}" />  
                     </p:column>  
 
                     <p:column headerText="Abreviatura">  
-                        <h:outputText value="#{car.year}" />  
+                        <h:outputText value="#{classe.short}" />  
                     </p:column>  
 
                     <p:column headerText="Capacidade">  
                         <h:outputText value="#{car.manufacturer}" />  
                     </p:column>  
 
-                    <p:column headerText="Color">  
+                    <p:column headerText="Tipo">  
+                        <h:outputText value="#{car.color}" />  
+                    </p:column>  
+                         <p:column headerText="Reservável">  
                         <h:outputText value="#{car.color}" />  
                     </p:column>  
                 </p:dataTable> 
