@@ -4,8 +4,8 @@
                 xmlns:p="http://primefaces.org/ui">
     <div id="principal"> 
         <h:form id="form">  
+            <p:growl id="growl" showDetail="true" sticky="true" />
             <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
-                <p:growl id="growl" showDetail="true" sticky="true" />
                 <h:panelGrid columns="3" cellpadding="5">  
                     <h:outputLabel for="name" value="Nome: *" />  
                     <p:inputText id="name" value="" required="true" label="Nome">  
