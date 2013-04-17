@@ -4,54 +4,30 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
-        <h:form id="form">  
+        <h:form>  
+            <p:dataTable var="teacher" value="#{listarProfessores.professores}" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
 
-            <p:dataTable var="teacher" value="#{ListarProfessoresServlet.listaProfessores}" rowKey="#{Teacher.name}" paginator="true" rows="10"  
-                          selectionMode="single"  id="carsTable">  
+              
 
-                <p:ajax event="rowSelect" update=":form:display" oncomplete="teacherDialog.show()" />  
-
-                <f:facet name="header">  
-                    Lista de Professores  
-                </f:facet>                  
-
-                <p:column headerText="Nome" sortBy="#{Teacher.name}" filterBy="#{Teacher.name}" id="year">  
-                    #{Teacher.name}  
+                <p:column headerText="id">  
+                    <h:outputText value="#{teacher.id}" />  
                 </p:column>  
 
-                <p:column headerText="Email" sortBy="#{Teacher.email}" filterBy="#{Teacher.email}" id="manufacturer">  
-                    #{Teacher.email}  
+                <p:column headerText="Nome">  
+                    <h:outputText value="#{teacher.name}" />  
                 </p:column>  
 
-                <p:column headerText="Sexo" sortBy="#{Teacher.gender}" filterBy="#{Teacher.gender}" id="color">  
-                    #{Teacher.gender}"  
+                <p:column headerText="Sexo">  
+                    <h:outputText value="#{teacher.gender}" />  
                 </p:column>  
 
-            </p:dataTable>  
+                <p:column headerText="Color">  
+                    <h:outputText value="#{teacher.color}" />  
+                </p:column>  
+            </p:dataTable> 
 
-            <p:dialog header="Detalhes do Professor" widgetVar="teacherDialog" resizable="false"  
-                      width="200" showEffect="explode" hideEffect="explode">  
+           
 
-                <h:panelGrid id="display" columns="2" cellpadding="4">  
-
-                    <f:facet name="header">  
-                        <p:graphicImage value="/images/cars/#{tableBean.selectedCar.manufacturer}.jpg"/>  
-                    </f:facet>  
-
-                    <h:outputText value="Model:" />  
-                    <h:outputText value="#{tableBean.selectedCar.model}" id="model"/>  
-
-                    <h:outputText value="Year:" />  
-                    <h:outputText value="#{tableBean.selectedCar.year}" id="year"/>  
-
-                    <h:outputText value="Manufacturer:" />  
-                    <h:outputText value="#{tableBean.selectedCar.manufacturer}" id="manufacturer"/>  
-
-                    <h:outputText value="Color:" />  
-                    <h:outputText value="#{tableBean.selectedCar.color}" id="color"/>  
-                </h:panelGrid>  
-            </p:dialog>  
-
-        </h:form>
+        </h:form> 
     </div>
 </ui:composition>
