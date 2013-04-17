@@ -8,7 +8,7 @@
 
                 <h:panelGrid columns="14"  cellpadding="2">  
                     <h:outputLabel for="classe" value="Descrição:"/>
-                    <p:inputText id="classe" size="40" value=""/> 
+                    <p:inputText id="classe" size="35" value=""/> 
                     <p:message for="classe" />
 
                     <h:outputLabel for="type" value="Tipo:"/>
@@ -28,17 +28,32 @@
                     <h:outputLabel for="capacity" value="Capacidade:"/>
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
-                </h:panelGrid>
-                <h:panelGrid columns="3"  cellpadding="2"> 
                     <h:outputLabel for="bookable" value="Reservável:"/>
                     <p:selectOneMenu id="bookable" value="">  
                         <f:selectItem itemLabel="Reservável" itemValue="" />  
                         <f:selectItems value="Não reservável" />  
                     </p:selectOneMenu>
                     <p:message for="bookable" />
+
+                    <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
+                <p:dataTable id="classes" var="classe" value="#{tableClasse.classes}">  
+                    <p:column headerText="Nome">  
+                        <h:outputText value="#{car.model}" />  
+                    </p:column>  
 
+                    <p:column headerText="Abreviatura">  
+                        <h:outputText value="#{car.year}" />  
+                    </p:column>  
 
+                    <p:column headerText="Capacidade">  
+                        <h:outputText value="#{car.manufacturer}" />  
+                    </p:column>  
+
+                    <p:column headerText="Color">  
+                        <h:outputText value="#{car.color}" />  
+                    </p:column>  
+                </p:dataTable> 
             </p:panel> 
         </h:form>
     </div>
