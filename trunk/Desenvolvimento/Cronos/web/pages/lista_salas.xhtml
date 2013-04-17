@@ -28,33 +28,33 @@
                     <h:outputLabel for="capacity" value="Capacidade:"/>
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
+                    
                     <h:outputLabel for="bookable" value="Reservável:"/>
                     <p:selectOneMenu id="bookable" value="">  
                         <f:selectItem itemLabel="Reservável" itemValue="" />  
                         <f:selectItems value="Não reservável" />  
                     </p:selectOneMenu>
                     <p:message for="bookable" />
-
                     <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
-                <p:dataTable id="classes" var="classe" value="#{tableClasse.classes}" paginator="true" rows="30">  
+                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRooms}">  
                     <p:column headerText="Nome">  
-                        <h:outputText value="#{classe.name}" />  
+                        <h:outputText value="#{classRoom.name}" />  
                     </p:column>  
 
                     <p:column headerText="Abreviatura">  
-                        <h:outputText value="#{classe.short}" />  
+                        <h:outputText value="#{classRoom.short}" />  
                     </p:column>  
 
                     <p:column headerText="Capacidade">  
-                        <h:outputText value="#{car.manufacturer}" />  
+                        <h:outputText value="#{classRoom.capacity}" />  
                     </p:column>  
 
                     <p:column headerText="Tipo">  
-                        <h:outputText value="#{car.color}" />  
+                        <h:outputText value="#{classRoom.type}" />  
                     </p:column>  
                          <p:column headerText="Reservável">  
-                        <h:outputText value="#{car.color}" />  
+                        <h:outputText value="#{classRoom.bookable}" />  
                     </p:column>  
                 </p:dataTable> 
             </p:panel> 
