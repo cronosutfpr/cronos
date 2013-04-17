@@ -5,7 +5,6 @@
 package br.edu.utfpr.cm.cronos.managedbean;
 
 import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
-import br.edu.utfpr.cm.cronos.daos.DaoClasse;
 import br.edu.utfpr.cm.cronos.daos.DaoGenerics;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
 import java.util.ArrayList;
@@ -22,6 +21,7 @@ import javax.faces.bean.SessionScoped;
 public class TableClassRoom {
 
     private List<ClassRoom> classRooms;
+    private ClassRoom selectedClassRoom;
 
     public TableClassRoom() {
         classRooms = new ArrayList<ClassRoom>();
@@ -36,4 +36,14 @@ public class TableClassRoom {
     public List<ClassRoom> getClassRooms() {
         return classRooms;
     }
+
+    public ClassRoom getSelectedClassRoom() {
+        return selectedClassRoom;
+    }
+
+    public void setSelectedClassRoom(ClassRoom selectedClassRoom) {
+        this.selectedClassRoom = selectedClassRoom;
+    }
+    
+    
 }

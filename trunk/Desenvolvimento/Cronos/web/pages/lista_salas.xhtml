@@ -37,7 +37,7 @@
                     <p:message for="bookable" />
                     <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
-                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRooms}">  
+                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
                     <p:column headerText="Nome">  
                         <h:outputText value="#{classRoom.name}" />  
                     </p:column>  
