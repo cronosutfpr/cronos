@@ -3,7 +3,7 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <h:form> 
+        <h:form id="form_reserva"> 
             <p:panel id="panel_reserva" header="Listagem de Salas" closable="true"> 
 
                 <h:panelGrid columns="14"  cellpadding="2">  
@@ -28,7 +28,7 @@
                     <h:outputLabel for="capacity" value="Capacidade:"/>
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
-                    
+
                     <h:outputLabel for="bookable" value="Reservável:"/>
                     <p:selectOneMenu id="bookable" value="">  
                         <f:selectItem itemLabel="Reservável" itemValue="" />  
@@ -37,7 +37,19 @@
                     <p:message for="bookable" />
                     <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
-                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
+
+                <p:growl id="growl" showDetail="true"/>  
+
+                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRoomDataModel}" paginator="true" rows="15" paginatorPosition="bottom" rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
+
+                    <p:ajax event="onRowSelect"   
+                            update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
+                    <p:ajax event="onRowUnselect" update=":form_reserva:growl"/>  
+
+
+                    <p:column headerText="Id">  
+                        <h:outputText value="#{classRoom.id}" />  
+                    </p:column>  
                     <p:column headerText="Nome">  
                         <h:outputText value="#{classRoom.name}" />  
                     </p:column>  
@@ -53,11 +65,24 @@
                     <p:column headerText="Tipo">  
                         <h:outputText value="#{classRoom.type}" />  
                     </p:column>  
-                         <p:column headerText="Reservável">  
+                    <p:column headerText="Reservável">  
                         <h:outputText value="#{classRoom.bookable}" />  
                     </p:column>  
                 </p:dataTable> 
             </p:panel> 
+
+            <p:dialog id="dialog" header="Detalhes da Sala" widgetVar="classRoomDialog" resizable="false"  
+                      showEffect="fade" hideEffect="explode">  
+
+                <h:panelGrid id="display" columns="2" cellpadding="4">  
+
+                    <h:outputText value="Name:" />  
+                    <h:outputText value="#{tableClassRoom.selectedClassRoom.name}" />  
+
+                </h:panelGrid>  
+            </p:dialog>  
+
+
         </h:form>
     </div>
 </ui:composition>
