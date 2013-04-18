@@ -42,9 +42,9 @@
 
                 <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRoomDataModel}" paginator="true" rows="15" paginatorPosition="bottom" rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
 
-                    <p:ajax event="onRowSelect"   
+                    <p:ajax event="rowSelect"   listener="#{tableClassRoom.onRowSelect}"
                             update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
-                    <p:ajax event="onRowUnselect" update=":form_reserva:growl"/>  
+                    <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
 
 
                     <p:column headerText="Id">  
