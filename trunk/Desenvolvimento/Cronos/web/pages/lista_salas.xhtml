@@ -4,7 +4,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
         <h:form id="form_reserva"> 
-            <p:panel id="panel_reserva" header="Listagem de Salas" closable="true"> 
+            <p:panel id="panel_reserva" header="Listagem de Salas"> 
 
                 <h:panelGrid columns="14"  cellpadding="2">  
                     <h:outputLabel for="classe" value="Descrição:"/>
@@ -22,7 +22,7 @@
                     <p:message for="type" />
 
                     <h:outputLabel for="short" value="Abreviatura:"/>
-                    <p:inputText id="short" size="10" value=""/> 
+                    <p:inputText id="short" size="5" value=""/> 
                     <p:message for="short" />
 
                     <h:outputLabel for="capacity" value="Capacidade:"/>
@@ -40,12 +40,12 @@
 
                 <p:growl id="growl" showDetail="true"/>  
 
-                <p:dataTable id="classRoom" var="classRoom" value="#{tableClassRoom.classRoomDataModel}" paginator="true" rows="15" paginatorPosition="bottom" rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
+                <p:dataTable id="table_classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom"
+                             rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
 
-                    <p:ajax event="rowSelect"   listener="#{tableClassRoom.onRowSelect}"
+                    <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
                             update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
                     <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
-
 
                     <p:column headerText="Id">  
                         <h:outputText value="#{classRoom.id}" />  

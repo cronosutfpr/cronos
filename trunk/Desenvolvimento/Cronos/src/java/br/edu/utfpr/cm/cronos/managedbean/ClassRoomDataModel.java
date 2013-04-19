@@ -5,7 +5,6 @@
 package br.edu.utfpr.cm.cronos.managedbean;
 
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
-import java.io.Serializable;
 import java.util.List;
 import javax.faces.model.ListDataModel;
 import org.primefaces.model.SelectableDataModel;
@@ -25,8 +24,6 @@ public class ClassRoomDataModel extends ListDataModel<ClassRoom> implements Sele
         //In a real app, a more efficient way like a query by rowKey should be implemented to deal with huge data  
 
         List<ClassRoom> classRooms = (List<ClassRoom>) getWrappedData();
-
-        System.out.println("KKKKKKKKKKKKKKKKKKKKKKK"+ rowKey);
         for (ClassRoom classRoom : classRooms) {
             if (String.valueOf(classRoom.getId()).equals(rowKey)) {
                 return classRoom;

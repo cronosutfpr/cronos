@@ -5,6 +5,7 @@
 package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
+import javax.faces.bean.ManagedBean;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
