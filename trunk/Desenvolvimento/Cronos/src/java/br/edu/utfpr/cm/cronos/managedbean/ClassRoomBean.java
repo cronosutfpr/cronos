@@ -19,17 +19,25 @@ import javax.faces.event.ActionEvent;
 @ManagedBean(name = "classRoomBean")
 @SessionScoped
 public class ClassRoomBean {
-
+    
     ClassRoom classroom;
 
     public ClassRoomBean() {
     }
+    
+    public ClassRoom getClassroom() {
+        return classroom;
+    }
 
-    public void addClassRoom(ActionEvent actionEvent) {
+    public void setClassroom(ClassRoom classroom) {
+        this.classroom = classroom;
+    }
+
+    public void addClassRoom() {
         System.out.println("estou aqui");
-        FacesContext context = FacesContext.getCurrentInstance();
-
-        context.addMessage(null, new FacesMessage("Successful", "Hello"));
-        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+//        FacesContext context = FacesContext.getCurrentInstance();
+//
+//        context.addMessage(null, new FacesMessage("Successful", "Hello"));
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
 }

@@ -37,6 +37,7 @@ public class ClassRoom implements Serializable {
     private String building;
     @ManyToOne(fetch = FetchType.EAGER)
     private User owner;
+    private String status;
     private boolean bookable;
 
     public Long getId() {
@@ -102,6 +103,14 @@ public class ClassRoom implements Serializable {
     public void setOwner(User owner) {
         this.owner = owner;
     }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }  
 
     public boolean isBookable() {
         return bookable;

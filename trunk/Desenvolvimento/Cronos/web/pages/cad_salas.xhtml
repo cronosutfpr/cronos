@@ -4,8 +4,7 @@
                 xmlns:p="http://primefaces.org/ui">
     <div id="principal"> 
         <h:form id="form">  
-            <p:messages id="growl" showDetail="true" />
-            <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
+            <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;"> 
                 <h:panelGrid columns="3" cellpadding="5">  
                     <h:outputLabel for="name" value="Nome: *" />  
                     <p:inputText id="name" value="" required="true" label="Nome">  
@@ -32,13 +31,20 @@
                     <p:message for="type" />
 
                     <h:outputLabel value="Dono: " for="owner" />  
-                    <p:autoComplete id="owner" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
-                        <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}"/>  
+                    <p:autoComplete value="#{autoCompleteBean.selectedPlayer2}" id="customPojo" completeMethod="#{autoCompleteBean.completePlayer}"  
+                                    var="p" itemLabel="#{p.name}" itemValue="#{p}" converter="player" forceSelection="true">  
+                        <p:column>  
+                            <p:graphicImage value="/images/barca/#{p.photo}" width="40" height="50"/>  
+                        </p:column>  
+
+                        <p:column>  
+                            #{p.name} - #{p.number}  
+                        </p:column>  
                     </p:autoComplete>
                     <p:message for="owner" />
 
                     <h:outputText value="Status: " />  
-                    <p:selectOneMenu value="#{buttonBean.number}">  
+                    <p:selectOneMenu value="#{classRoomBean.classroom.status}">  
                         <f:selectItem itemLabel="Selecione" itemValue="" />  
                         <f:selectItem itemLabel="Disponível" itemValue="1" />  
                         <f:selectItem itemLabel="Indisponível" itemValue="2" />  
@@ -50,7 +56,7 @@
                     <p:selectBooleanCheckbox value="" />   
                 </h:panelGrid> 
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl" immediate="true"/>
+                    <p:commandButton value="Cadastrar" action="#{classRoomBean.addClassRoom}" />
                 </h:panelGrid>
             </p:panel> 
         </h:form>
