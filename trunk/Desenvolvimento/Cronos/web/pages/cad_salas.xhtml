@@ -4,7 +4,7 @@
                 xmlns:p="http://primefaces.org/ui">
     <div id="principal"> 
         <h:form id="form">  
-            <p:growl id="growl" showDetail="true" sticky="true" />
+            <p:messages id="growl" showDetail="true" />
             <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;">  
                 <h:panelGrid columns="3" cellpadding="5">  
                     <h:outputLabel for="name" value="Nome: *" />  
@@ -50,7 +50,7 @@
                     <p:selectBooleanCheckbox value="" />   
                 </h:panelGrid> 
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl" ajax="true"/>
+                    <p:commandButton value="Cadastrar" id="btnAdd" actionListener="#{classRoomBean.addClassRoom}" update="growl" immediate="true"/>
                 </h:panelGrid>
             </p:panel> 
         </h:form>
