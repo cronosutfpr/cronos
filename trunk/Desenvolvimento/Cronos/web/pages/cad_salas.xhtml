@@ -24,21 +24,17 @@
                     <p:inputText id="building" value="" required="true" label="Predio"/>  
                     <p:message for="building" />
 
-                    <h:outputLabel value="Tipo: " for="type" />  
+<!--                    <h:outputLabel value="Tipo: " for="type" />  
                     <p:autoComplete id="type" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
                         <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}" />  
                     </p:autoComplete>
-                    <p:message for="type" />
+                    <p:message for="type" />-->
 
                     <h:outputLabel value="Dono: " for="owner" />  
-                    <p:autoComplete value="#{autoCompleteBean.selectedPlayer2}" id="customPojo" completeMethod="#{autoCompleteBean.completePlayer}"  
-                                    var="p" itemLabel="#{p.name}" itemValue="#{p}" converter="player" forceSelection="true">  
+                    <p:autoComplete value="#{userBean.user}" id="owner" completeMethod="#{userBean.completeUser}"  
+                                    var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true">  
                         <p:column>  
-                            <p:graphicImage value="/images/barca/#{p.photo}" width="40" height="50"/>  
-                        </p:column>  
-
-                        <p:column>  
-                            #{p.name} - #{p.number}  
+                            #{u.login}
                         </p:column>  
                     </p:autoComplete>
                     <p:message for="owner" />

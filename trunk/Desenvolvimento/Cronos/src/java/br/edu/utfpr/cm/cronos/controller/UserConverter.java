@@ -4,7 +4,9 @@
  */
 package br.edu.utfpr.cm.cronos.controller;
 
+import br.edu.utfpr.cm.cronos.daos.DaoUser;
 import br.edu.utfpr.cm.cronos.model.User;
+import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
@@ -16,6 +18,13 @@ import javax.faces.convert.ConverterException;
  * @author AnaMaciel
  */
 public class UserConverter implements Converter {
+    public static DaoUser daoUser = new DaoUser();
+    
+    public static List<User> users;
+    
+    static {
+        users = daoUser.listar();
+    }
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
@@ -25,11 +34,11 @@ public class UserConverter implements Converter {
             try {
                 int number = Integer.parseInt(value);
 
-                User u = new User();
-
-                if (u.getId() == number) {
-                    return u;
-                }
+                for (User u : users) {  
+                    if (u.getId()== number) {  
+                        return u;  
+                    }  
+                } 
 
             } catch (NumberFormatException exception) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid player"));
