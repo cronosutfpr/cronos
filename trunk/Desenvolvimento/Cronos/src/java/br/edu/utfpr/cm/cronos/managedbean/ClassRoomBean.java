@@ -23,6 +23,7 @@ public class ClassRoomBean {
     ClassRoom classroom;
 
     public ClassRoomBean() {
+        classroom = new ClassRoom();
     }
     
     public ClassRoom getClassroom() {
@@ -33,8 +34,9 @@ public class ClassRoomBean {
         this.classroom = classroom;
     }
 
-    public void addClassRoom() {
+    public String addClassRoom() {
         System.out.println("estou aqui");
+        return "cad_salas";
 //        FacesContext context = FacesContext.getCurrentInstance();
 //
 //        context.addMessage(null, new FacesMessage("Successful", "Hello"));
