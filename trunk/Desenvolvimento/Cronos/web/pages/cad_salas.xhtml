@@ -27,19 +27,21 @@
 
 
                     <h:outputLabel value="Dono: " for="owner" />  
-                    <p:autoComplete value="#{userBean.user.login}" id="owner" completeMethod="#{userBean.completeUser}" converter="userConverter" 
-                                    var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true">  
-                        <p:column>  
-                            #{u.login}
-                        </p:column>  
+                    <p:autoComplete value="#{userBean.user}" id="owner" completeMethod="#{userBean.completeUser}" 
+                                    converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true">  
+                       
                     </p:autoComplete>
                     <p:message for="owner" />
 
+                    <h:outputText value="Tipo Sala: " />  
+                    <p:selectOneMenu value="#{typeBean.type}">  
+                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}"/> 
+                    </p:selectOneMenu>  
+                    
                     <h:outputText value="Status: " />  
                     <p:selectOneMenu value="#{classRoomBean.classroom.status}">  
-                        <f:selectItem itemLabel="Selecione" itemValue="" />  
-                        <f:selectItem itemLabel="Disponível" itemValue="1" />  
-                        <f:selectItem itemLabel="Indisponível" itemValue="2" />  
+                        <f:selectItem itemLabel="Disponível" itemValue="true" />  
+                        <f:selectItem itemLabel="Indisponível" itemValue="false" />  
                     </p:selectOneMenu>  
 
                 </h:panelGrid> 

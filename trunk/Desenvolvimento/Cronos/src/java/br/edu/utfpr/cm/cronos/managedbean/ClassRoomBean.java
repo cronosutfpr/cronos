@@ -4,13 +4,13 @@
  */
 package br.edu.utfpr.cm.cronos.managedbean;
 
+import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
-
 import javax.faces.application.FacesMessage;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import javax.faces.event.ActionEvent;
 
 /**
  *
@@ -36,12 +36,15 @@ public class ClassRoomBean {
 
     public String addClassRoom() {
         System.out.println("estou aqui");
+        System.out.println("USER: " + this.classroom.getOwner());
+        DaoClassRoom dcr = new DaoClassRoom();
+        dcr.persistir(this.classroom);
         
         this.classroom = new ClassRoom();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Gravado"));
         return "cad_salas";
-//        FacesContext context = FacesContext.getCurrentInstance();
-//
-//        context.addMessage(null, new FacesMessage("Successful", "Hello"));
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
 }

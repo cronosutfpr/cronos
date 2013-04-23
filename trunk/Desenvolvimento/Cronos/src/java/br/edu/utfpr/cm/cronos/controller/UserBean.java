@@ -5,6 +5,7 @@
 package br.edu.utfpr.cm.cronos.controller;
 
 import br.edu.utfpr.cm.cronos.model.User;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -16,7 +17,7 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "userBean")
 @SessionScoped
-public class UserBean {
+public class UserBean implements Serializable{
     
     private User user;
     static List<User> users;

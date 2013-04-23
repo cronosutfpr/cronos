@@ -4,11 +4,23 @@
  */
 package br.edu.utfpr.cm.cronos.model;
 
-
 public enum Type {
-    ;
-    public static final String SALA_TEORICA = "SALA_TEORICA";
-    public static final String LABORATORIO = "LABORATORIO";
-    public static final String GINASIO = "GINASIO";
-    public static final String ANFITEATRO = "ANFITEATRO";
+
+    SALA_TEORICA("SALA TEORICA"),
+    LABORATORIO("LABORATORIO"),
+    ANFITEATRO("ANFITEATRO"),
+    GINASIO("GINASIO");
+
+    Type(String nome) {
+        this.nome = nome;
+    }
+    private String nome;
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 }
