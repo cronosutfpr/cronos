@@ -3,11 +3,10 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="sidebar" class="column">
         <h3>Salas</h3>
+        <h:form>
         <ul class="toggle">
             <li class="icn_new_article">
-                <h:commandLink value="Adicionar Salas" action="cad_salas" >
-                    <f:param name="page" value="pages/cad_salas.xhtml" />
-                </h:commandLink>
+                <h:commandLink value="Adicionar Salas" action="#{pageManager.setPg1()}" />
             </li>
             <li class="icn_new_article"><a href="#">Listar Salas</a></li>
             <li class="icn_new_article"><a href="#">Reservar Salas</a></li>
@@ -53,5 +52,6 @@
             <li class="icn_audio"><a href="#">Lista de reservas</a></li>
             <li class="icn_video"><a href="#">Minhas Reservas</a></li>
         </ul>
+        </h:form>
     </div>
 </ui:composition>

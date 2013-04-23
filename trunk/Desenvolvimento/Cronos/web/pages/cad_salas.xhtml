@@ -24,11 +24,7 @@
                     <p:inputText id="building" value="" required="true" label="Predio"/>  
                     <p:message for="building" />
 
-<!--                    <h:outputLabel value="Tipo: " for="type" />  
-                    <p:autoComplete id="type" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
-                        <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}" />  
-                    </p:autoComplete>
-                    <p:message for="type" />-->
+
 
                     <h:outputLabel value="Dono: " for="owner" />  
                     <p:autoComplete value="#{userBean.user}" id="owner" completeMethod="#{userBean.completeUser}"  
