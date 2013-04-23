@@ -23,6 +23,7 @@ public class UserBean {
 
     
     public UserBean() {
+        user = new User();
         users = UserConverter.users;
     }
 

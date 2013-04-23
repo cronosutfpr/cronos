@@ -36,6 +36,8 @@ public class ClassRoomBean {
 
     public String addClassRoom() {
         System.out.println("estou aqui");
+        
+        this.classroom = new ClassRoom();
         return "cad_salas";
 //        FacesContext context = FacesContext.getCurrentInstance();
 //

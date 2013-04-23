@@ -7,27 +7,27 @@
             <p:panel id="panel" header="Cadastro Salas" toggleable="true" closable="true" style="margin:10px;"> 
                 <h:panelGrid columns="3" cellpadding="5">  
                     <h:outputLabel for="name" value="Nome: *" />  
-                    <p:inputText id="name" value="" required="true" label="Nome">  
+                    <p:inputText id="name" value="#{classRoomBean.classroom.name}" required="true" label="Nome">  
                         <f:validateLength minimum="2" />  
                     </p:inputText>  
                     <p:message for="name" /> 
 
                     <h:outputLabel for="short" value="Abreviação: *" />  
-                    <p:inputText id="short" value="" required="true" label="Abreviacao"/>  
+                    <p:inputText id="short" value="#{classRoomBean.classroom.short}" required="true" label="Abreviacao"/>  
                     <p:message for="short" />
 
                     <h:outputLabel for="capacity" value="Capacidade: " />  
-                    <p:inputText id="capacity" value="" required="true" label="Capacidade"/>  
+                    <p:inputText id="capacity" value="#{classRoomBean.classroom.capacity}" required="true" label="Capacidade"/>  
                     <p:message for="capacity" />
 
                     <h:outputLabel for="building" value="Predio: " />  
-                    <p:inputText id="building" value="" required="true" label="Predio"/>  
+                    <p:inputText id="building" value="#{classRoomBean.classroom.building}" required="true" label="Predio"/>  
                     <p:message for="building" />
 
 
 
                     <h:outputLabel value="Dono: " for="owner" />  
-                    <p:autoComplete value="#{userBean.user}" id="owner" completeMethod="#{userBean.completeUser}"  
+                    <p:autoComplete value="#{userBean.user.login}" id="owner" completeMethod="#{userBean.completeUser}" converter="userConverter" 
                                     var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true">  
                         <p:column>  
                             #{u.login}
@@ -45,10 +45,10 @@
                 </h:panelGrid> 
                 <h:panelGrid columns="2" cellpadding="5">  
                     <h:outputText value="Reservável? "/>  
-                    <p:selectBooleanCheckbox value="" />   
+                    <p:selectBooleanCheckbox value="#{classRoomBean.classroom.bookable}" />   
                 </h:panelGrid> 
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                    <h:commandButton value="Cadastrar" action="#{classRoomBean.addClassRoom}" />
+                    <p:commandButton value="Cadastrar" action="#{classRoomBean.addClassRoom}" ajax="false"/>
                 </h:panelGrid>
             </p:panel> 
         </h:form>
