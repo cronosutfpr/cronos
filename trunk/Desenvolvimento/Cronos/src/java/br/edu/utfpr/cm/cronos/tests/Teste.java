@@ -16,8 +16,8 @@ public class Teste {
     
     public static void main(String[] args) {
        CadastroProfessor cadastro = new CadastroProfessor();
-        Teacher teacher = cadastro.setTeacher("quadrado");
-        System.out.println(teacher.getName());
+       // Teacher teacher = cadastro.setTeacher("quadrado");
+        //System.out.println(teacher.getName());
     }
     
 }
