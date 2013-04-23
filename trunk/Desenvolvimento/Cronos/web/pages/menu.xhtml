@@ -6,7 +6,7 @@
         <h:form>
         <ul class="toggle">
             <li class="icn_new_article">
-                <h:commandLink value="Adicionar Salas" action="#{pageManager.setPg1()}" />
+                <h:commandLink value="Adicionar Sala" action="#{pageManager.setPg1()}" />
             </li>
             <li class="icn_new_article"><a href="#">Listar Salas</a></li>
             <li class="icn_new_article"><a href="#">Reservar Salas</a></li>
@@ -18,7 +18,9 @@
         </ul>
         <h3>Disciplinas</h3>
         <ul class="toggle">
-            <li class="icn_new_article"><a href="#">Adicionar Disciplina</a></li>
+            <li class="icn_new_article">
+                <h:commandLink value="Adicionar Disciplina" action="#{pageManager.setPg1()}" />
+            </li>
             <li class="icn_new_article"><a href="#">Listar Disciplinas</a></li>
             <li class="icn_categories"><a href="#">Editar Disciplina</a></li>
         </ul>
@@ -29,10 +31,8 @@
                     <f:param name="page" value="pages/lista_professores.xhtml" />
                 </h:link>
             </li>
-            <li class="icn_categories">
-                <h:link value="Adicionar Professores" outcome="index.xhtml" >
-                    <f:param name="page" value="pages/add_professores.xhtml" />
-                </h:link>
+            <li class="icn_new_article">
+                    <h:commandLink value="Adicionar Professores" action="#{pageManager.setPg4()}" />
             </li>
         </ul>
         <h3>Turmas</h3>

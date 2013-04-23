@@ -20,7 +20,7 @@ public class LoginLDAP {
 
     public Usuario logarNoLDAP(String login, String senha) {
         try {
-            LDAPManager ldapManager = new LDAPManager("192.168.1.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
+            LDAPManager ldapManager = new LDAPManager("172.17.2.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
 
             ldapManager.connect();
             String username = login;

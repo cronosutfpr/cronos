@@ -33,6 +33,11 @@ public class PageManager implements Serializable {
         this.paginaAtiva = "./pages/reserva.xhtml";
     }
     
+    
+    public void setPg4() {
+        this.paginaAtiva = "./pages/add_professores.xhtml";
+    }
+    
        
     public String getPg1() {
         return this.paginaAtiva;
