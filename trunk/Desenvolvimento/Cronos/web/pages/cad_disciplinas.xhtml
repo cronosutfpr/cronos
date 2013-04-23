@@ -1,0 +1,26 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:p="http://primefaces.org/ui">
+    <div id="principal"> 
+        <h:form id="form">  
+            <p:panel id="panel" header="Cadastro de Disciplinas" toggleable="true" closable="true" style="margin:10px;"> 
+                <h:panelGrid columns="3" cellpadding="5">  
+                    <h:outputLabel for="disciplina" value="Disciplina: *" />  
+                    <p:inputText id="disciplina" value="" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="disciplina" /> 
+
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
+
+                </h:panelGrid> 
+                <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                    <h:commandButton value="Cadastrar" action="#{subjectBean.addSubject}" />
+                </h:panelGrid>
+            </p:panel> 
+        </h:form>
+    </div>
+</ui:composition>
