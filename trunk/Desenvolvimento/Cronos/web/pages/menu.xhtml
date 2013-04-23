@@ -29,10 +29,8 @@
                     <f:param name="page" value="pages/lista_professores.xhtml" />
                 </h:link>
             </li>
-            <li class="icn_categories">
-                <h:link value="Adicionar Professores" outcome="index.xhtml" >
-                    <f:param name="page" value="pages/add_professores.xhtml" />
-                </h:link>
+            <li class="icn_new_article">
+                    <h:commandLink value="Adicionar Professores" action="#{pageManager.setPg4()}" />
             </li>
         </ul>
         <h3>Turmas</h3>

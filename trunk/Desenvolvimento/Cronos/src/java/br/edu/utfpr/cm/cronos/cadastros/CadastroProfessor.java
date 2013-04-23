@@ -9,6 +9,7 @@ import br.edu.utfpr.cm.cronos.daos.DaoTeacher;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import br.edu.utfpr.cm.cronos.userLDAP.LDAP;
 import br.edu.utfpr.cm.cronos.userLDAP.UserLDAP;
+import br.edu.utfpr.cm.saa.entidades.Usuario;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 
@@ -24,8 +25,9 @@ public class CadastroProfessor {
     public Teacher setTeacher(String siape){
         if(!siape.isEmpty()){
             try {
-                    UserLDAP userLdap = (UserLDAP) LDAP.buscarUsuario(siape);
+                    Usuario userLdap = (Usuario) LDAP.buscarUsuario(siape);
                     
+                    System.out.println(userLdap.getNome());
                     Teacher teacherInserido = null;
                     if (userLdap == null) {                     
                        
@@ -45,7 +47,7 @@ public class CadastroProfessor {
         return null;    
     }
 
-    private Teacher cadastrarUsuarioPeloLDAP(UserLDAP userLdap) {
+    private Teacher cadastrarUsuarioPeloLDAP(Usuario userLdap) {
         if (!verificarSegundoDigito(userLdap.getLogin().charAt(1))) {
             
             try {

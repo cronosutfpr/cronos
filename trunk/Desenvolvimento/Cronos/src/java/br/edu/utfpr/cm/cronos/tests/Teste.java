@@ -4,7 +4,9 @@
  */
 package br.edu.utfpr.cm.cronos.tests;
 
+import br.edu.utfpr.cm.cronos.cadastros.CadastroProfessor;
 import br.edu.utfpr.cm.cronos.conexao.*;
+import br.edu.utfpr.cm.cronos.model.Teacher;
 
 /**
  *
@@ -13,11 +15,9 @@ import br.edu.utfpr.cm.cronos.conexao.*;
 public class Teste {
     
     public static void main(String[] args) {
-        HibernateConfiguration.setBase("aula");
-        HibernateConfiguration.setHost("127.0.0.1:3306");
-        HibernateConfiguration.setPass("aluno");
-        HibernateConfiguration.setUser("root");
-        HibernateConfiguration.criarSchema();
+       CadastroProfessor cadastro = new CadastroProfessor();
+        Teacher teacher = cadastro.setTeacher("quadrado");
+        System.out.println(teacher.getName());
     }
     
 }
