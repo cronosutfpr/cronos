@@ -22,7 +22,7 @@ public class LDAP {
 
     private static LDAPManager getLDAPManager() {
         if (ldapManager == null) {
-            ldapManager = new br.edu.utfpr.cm.saa.security.LDAPManager("192.168.1.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
+            ldapManager = new br.edu.utfpr.cm.saa.security.LDAPManager("172.17.2.4:389", "ou=todos,dc=utfpr,dc=edu,dc=br");
         }
         return ldapManager;
     }
