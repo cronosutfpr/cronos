@@ -24,6 +24,7 @@ import org.primefaces.component.datatable.feature.DataTableFeature;
 @ManagedBean(name = "cadastroProfessor")
 @SessionScoped
 public class CadastroProfessor implements Serializable {
+    
 
     private String siape;
 
