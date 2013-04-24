@@ -38,6 +38,10 @@ public class PageManager implements Serializable {
         this.paginaAtiva = "./pages/add_professores.xhtml";
     }
     
+    public void setPg5() {
+        this.paginaAtiva = "./pages/cad_disciplinas.xhtml";
+    }
+    
        
     public String getPg1() {
         return this.paginaAtiva;
@@ -51,6 +55,10 @@ public class PageManager implements Serializable {
         return this.paginaAtiva;
     }
     public String getPg4() {
+        return this.paginaAtiva;
+    }
+    
+    public String getPg5() {
         return this.paginaAtiva;
     }
 }
