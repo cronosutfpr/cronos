@@ -10,59 +10,70 @@ import br.edu.utfpr.cm.cronos.model.Teacher;
 import br.edu.utfpr.cm.cronos.userLDAP.LDAP;
 import br.edu.utfpr.cm.cronos.userLDAP.UserLDAP;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
+import java.io.Serializable;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.bean.ViewScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.component.datatable.feature.DataTableFeature;
 
 /**
  *
  * @author a1028367
  */
-@ManagedBean
+@ManagedBean(name = "cadastroProfessor")
 @SessionScoped
-public class CadastroProfessor {
-    private Teacher teacher;
-    
-    public Teacher setTeacher(String siape){
-        if(!siape.isEmpty()){
-            try {
-                    Usuario userLdap = (Usuario) LDAP.buscarUsuario(siape);
-                    
-                    System.out.println(userLdap.getNome());
-                    Teacher teacherInserido = null;
-                    if (userLdap == null) {                     
-                       
-                    } else {
-                        teacherInserido = cadastrarUsuarioPeloLDAP(userLdap);
-                        
-                    }
+public class CadastroProfessor implements Serializable {
 
-                    return teacherInserido;
+    private String siape;
 
-                } catch (Exception e) {
-                    System.out.println("Erro na pesquisa");
-                } finally {
-                    System.out.println("fim.");
-                }
+    public String getSiape() {
+        return siape;
+    }
+
+    public void setSiape(String siape) {
+        this.siape = siape;
+    }
+
+    public void setTeacher() {
+       
+        try {
+            System.out.println(getSiape());
+            Usuario userLdap = (Usuario) LDAP.buscarUsuario(getSiape());
+
+            System.out.println(userLdap.getNome());
+            Teacher teacherInserido = null;
+            if (userLdap == null) {
+            } else {
+                teacherInserido = cadastrarUsuarioPeloLDAP(userLdap);
+            }
+            System.out.println("FOIIIIIIIIIIIIIII");
+
+        } catch (Exception e) {
+            System.out.println("Erro na pesquisa");
+        } finally {
+            System.out.println("fim.");
         }
-        return null;    
+
+
     }
 
     private Teacher cadastrarUsuarioPeloLDAP(Usuario userLdap) {
         if (!verificarSegundoDigito(userLdap.getLogin().charAt(1))) {
-            
+
             try {
                 TransactionManager.beginTransaction();
                 Teacher teacher = new DaoTeacher().obterPorNome(userLdap.getNome());
 
                 if (teacher != null) {
-                    System.out.println("Ja esta na base: "+teacher.getName());
+                    System.out.println("Ja esta na base: " + teacher.getName());
                     return teacher;
                 } else {
                     teacher = new Teacher();
                     teacher.setName(userLdap.getNome());
                     teacher.setEmail(userLdap.getEmail());
-                    
-                    
+
+
                 }
 
 
@@ -77,8 +88,8 @@ public class CadastroProfessor {
                 return null;
             }
         } else {
-             System.out.println("Deu errado 2!");
-             return null;
+            System.out.println("Deu errado 2!");
+            return null;
         }
     }
 
@@ -99,6 +110,4 @@ public class CadastroProfessor {
                 return false;
         }
     }
-    }
-        
-
+}
