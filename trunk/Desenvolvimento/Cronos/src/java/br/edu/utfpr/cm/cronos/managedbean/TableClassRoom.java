@@ -7,6 +7,7 @@ package br.edu.utfpr.cm.cronos.managedbean;
 import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
 import br.edu.utfpr.cm.cronos.daos.DaoGenerics;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
+import br.edu.utfpr.cm.cronos.pagesmanager.PageManager;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
@@ -56,7 +57,6 @@ public class TableClassRoom implements Serializable{
     }
     
     public void onRowSelect(SelectEvent event) {
-        
         FacesMessage msg = new FacesMessage("Sala selecionada", String.valueOf(((ClassRoom) event.getObject()).getId()));
         
         FacesContext.getCurrentInstance().addMessage(null, msg);

@@ -1,0 +1,116 @@
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html">
+    <link href='resources/js/fullcalendar/fullcalendar.css' rel='stylesheet' />
+    <link href='resources/js/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+    <script src="resources/js/jquery-ui-1.10.2.custom.min.js"></script>
+    <script src="resources/js/fullcalendar/fullcalendar.min.js"></script>
+    <script>
+
+        $(document).ready(function() {
+	
+            var date = new Date();
+            var d = date.getDate();
+            var m = date.getMonth();
+            var y = date.getFullYear();
+		
+            var calendar = $('#calendar').fullCalendar({
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'agendaWeek'
+                },
+                selectable: true,
+                selectHelper: true,
+                select: function(start, end) {
+                    var title = prompt('Cadastro de Reserva:');
+                    if (title) {
+                        calendar.fullCalendar('renderEvent',
+                        {
+                            title: title,
+                            start: start,
+                            end: end
+                        },
+                        true // make the event "stick"
+                    );
+                    }
+                    calendar.fullCalendar('unselect');
+                },
+                editable: false,
+                events: [
+                    {  
+                        id:1,
+                        title: 'E102',
+                        start: new Date(y, m, 21,11,0),
+                        end: new Date(y, m, 21,12,30),
+                        allDay:false,
+                        url: 'http://localhost:8080/Cronos/faces/index.xhtml?page=pages%2Freserva.xhtml'
+                    },
+                     {  
+                        id:1,
+                        title: 'E102',
+                        start: new Date(y, m, 22,11,0),
+                        end: new Date(y, m, 22,15,30),
+                        allDay:false,
+                        url: 'http://localhost:8080/Cronos/faces/index.xhtml?page=pages%2Freserva.xhtml'
+                    }
+                ]
+            });
+		
+        });
+
+    </script>
+    <style>
+        #principal {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 12px;
+            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+        }
+
+        #calendar {
+            width: 900px;
+            margin: 0 auto;
+        }
+
+    </style>
+    <div id="principal">
+        <h:form id="horarios">
+            <p:panel id="panel_horario" header="Horário das salas">  
+                <h:panelGrid columns="3" cellpadding="2" >  
+
+                    <h:outputLabel for="id" value="Id: "/>  
+                    <p:inputText id="id" value=""  size="10" style="margin-left:26%"/> 
+                    <p:message for="id" />
+                </h:panelGrid>
+                <h:panelGrid columns="6" cellpadding="2" >  
+                    <h:outputLabel for="name" value="Nome: " />  
+                    <p:inputText id="name" value="" size="61" style="margin-left: 0%"/> 
+                    <p:message for="name" />
+
+                    <h:outputLabel for="short" value="Abreviação: " style="margin-left:5%"/>  
+                    <p:inputText id="short" value="" size="10" style="margin-left: 4%"/> 
+                    <p:message for="short" />
+                </h:panelGrid>
+                <h:panelGrid columns="8" cellpadding="2" >  
+                    <h:outputLabel for="type" value="Tipo: "/>  
+                    <p:inputText id="type" value="" style="margin-left:7%"/> 
+                    <p:message for="type" />
+
+                    <h:outputLabel for="owner" value="Responsável: " style="margin-left:6%"/>  
+                    <p:inputText id="owner" value=""/> 
+                    <p:message for="owner" />
+
+                    <h:outputLabel for="bookable" value="Reservável: " style="margin-left:3%"/>  
+                    <p:inputText id="bookable" value=""/> 
+                    <p:message for="bookable" />
+                </h:panelGrid>
+
+                <p:separator style="margin-bottom:10px"/>  
+
+                <div id='calendar'></div>
+
+            </p:panel> 
+        </h:form>
+    </div>
+</ui:composition>

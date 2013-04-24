@@ -12,13 +12,9 @@
                     <p:message for="classe" />
 
                     <h:outputLabel for="type" value="Tipo:"/>
-                    <p:selectOneMenu id="type" value="">  
-                        <f:selectItem itemLabel="Selecione o tipo" itemValue="" />  
-                        <f:selectItems value="Laboratório" />  
-                        <f:selectItems value="Teórica" /> 
-                        <f:selectItems value="Desenho" /> 
-                        <f:selectItems value="Outros" /> 
-                    </p:selectOneMenu>
+                    <p:selectOneMenu id="type" value="#{typeBean.type}">  
+                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                    </p:selectOneMenu> 
                     <p:message for="type" />
 
                     <h:outputLabel for="short" value="Abreviatura:"/>
@@ -29,11 +25,8 @@
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
 
-                    <h:outputLabel for="bookable" value="Reservável:"/>
-                    <p:selectOneMenu id="bookable" value="">  
-                        <f:selectItem itemLabel="Reservável" itemValue="" />  
-                        <f:selectItems value="Não reservável" />  
-                    </p:selectOneMenu>
+                     <h:outputLabel for="bookable" value="Reservável:"/>
+                    <p:selectBooleanCheckbox id="bookable" value="" />  
                     <p:message for="bookable" />
                     <p:commandButton value="Buscar"/>  
                 </h:panelGrid>
@@ -43,7 +36,7 @@
                 <p:dataTable id="table_classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom"
                              rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
 
-                    <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
+                    <f:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
                             update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
                     <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
 
