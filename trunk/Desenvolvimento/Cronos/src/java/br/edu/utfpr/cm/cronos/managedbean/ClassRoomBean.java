@@ -35,8 +35,6 @@ public class ClassRoomBean {
     }
 
     public String addClassRoom() {
-        System.out.println("estou aqui");
-        System.out.println("USER: " + this.classroom.getOwner());
         DaoClassRoom dcr = new DaoClassRoom();
         dcr.persistir(this.classroom);
         
@@ -46,5 +44,12 @@ public class ClassRoomBean {
         context.addMessage(null, new FacesMessage("Successful", "Gravado"));
         return "cad_salas";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+    }
+      public String getReservavel(){
+         System.out.println("BOKOKOJOJOJ" +this.classroom.isBookable());
+        if(classroom.isBookable()){
+            return "Sim";
+        }
+        return "Não";   
     }
 }

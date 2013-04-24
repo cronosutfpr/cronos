@@ -5,6 +5,7 @@
 package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
@@ -118,5 +119,7 @@ public class ClassRoom implements Serializable {
     public void setBookable(boolean bookable) {
         this.bookable = bookable;
     }
+    
+    
 
 }

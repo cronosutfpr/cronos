@@ -8,12 +8,8 @@
             <li class="icn_new_article">
                 <h:commandLink value="Adicionar Sala" action="#{pageManager.setPg1()}" />
             </li>
-            <li class="icn_new_article"><a href="#">Listar Salas</a></li>
-            <li class="icn_new_article"><a href="#">Reservar Salas</a></li>
             <li class="icn_new_article">
-                <h:link value="Reservar Salas" outcome="index.xhtml" >
-                    <f:param name="page" value="pages/reserva.xhtml" />
-                </h:link>
+                <h:commandLink value="Listar Salas" action="#{pageManager.setPagListaSalas()}" />
             </li>
         </ul>
         <h3>Disciplinas</h3>
