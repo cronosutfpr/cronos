@@ -4,6 +4,8 @@
  */
 package br.edu.utfpr.cm.cronos.controller;
 
+import br.edu.utfpr.cm.cronos.daos.DaoGenerics;
+import br.edu.utfpr.cm.cronos.daos.DaoUser;
 import br.edu.utfpr.cm.cronos.model.User;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -17,12 +19,11 @@ import javax.faces.bean.SessionScoped;
  */
 @ManagedBean(name = "userBean")
 @SessionScoped
-public class UserBean implements Serializable{
-    
+public class UserBean implements Serializable {
+
     private User user;
     static List<User> users;
 
-    
     public UserBean() {
         user = new User();
         users = UserConverter.users;
@@ -43,15 +44,11 @@ public class UserBean implements Serializable{
     public static void setUsers(List<User> users) {
         UserBean.users = users;
     }
-    
-    public List<User> completeUser(String query) {  
-        List<User> suggestions = new ArrayList<User>();  
-          
-        for(User u : users) {  
-            if(u.getLogin().startsWith(query))  
-                suggestions.add(u);  
-        }  
-          
-        return suggestions;  
-    } 
+
+    public List<User> completeUser() {
+        users =  new ArrayList<User>();
+        DaoGenerics<User> daoUser = new DaoUser();
+        users = daoUser.listar();
+        return users;
+    }
 }

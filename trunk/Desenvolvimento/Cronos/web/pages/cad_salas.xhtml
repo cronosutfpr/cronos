@@ -24,20 +24,18 @@
                     <p:inputText id="building" value="#{classRoomBean.classroom.building}" required="true" label="Predio"/>  
                     <p:message for="building" />
 
-
-
                     <h:outputLabel value="Dono: " for="owner" />  
-                    <p:autoComplete value="#{userBean.user}" id="owner" completeMethod="#{userBean.completeUser}" 
-                                    converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true">  
+                    <p:autoComplete value="#{classRoomBean.classroom.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
+                                    converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true" >  
                        
                     </p:autoComplete>
                     <p:message for="owner" />
 
-                    <h:outputText value="Tipo Sala: " />  
-                    <p:selectOneMenu value="#{typeBean.type}">  
-                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}"/> 
+                    <h:outputText value="Tipo Sala: "/>  
+                    <p:selectOneMenu value="#{classRoomBean.classroom.type}">  
+                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                     </p:selectOneMenu>  
-                    
+                    <br></br>
                     <h:outputText value="Status: " />  
                     <p:selectOneMenu value="#{classRoomBean.classroom.status}">  
                         <f:selectItem itemLabel="Disponível" itemValue="true" />  
@@ -45,9 +43,9 @@
                     </p:selectOneMenu>  
 
                 </h:panelGrid> 
-                <h:panelGrid columns="2" cellpadding="5">  
+                <h:panelGrid columns="2" cellpadding="5" >  
                     <h:outputText value="Reservável? "/>  
-                    <p:selectBooleanCheckbox value="#{classRoomBean.classroom.bookable}" />   
+                    <p:selectBooleanCheckbox value="#{classRoomBean.classroom.bookable}" style="margin-left: 25%" />   
                 </h:panelGrid> 
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
                     <p:commandButton value="Cadastrar" action="#{classRoomBean.addClassRoom}" ajax="false"/>
