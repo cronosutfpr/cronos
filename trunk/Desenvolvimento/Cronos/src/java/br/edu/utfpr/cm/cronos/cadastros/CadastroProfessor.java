@@ -8,14 +8,12 @@ import br.edu.utfpr.cm.cronos.conexao.TransactionManager;
 import br.edu.utfpr.cm.cronos.daos.DaoTeacher;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import br.edu.utfpr.cm.cronos.userLDAP.LDAP;
-import br.edu.utfpr.cm.cronos.userLDAP.UserLDAP;
 import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.io.Serializable;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
-import javax.faces.bean.ViewScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.component.datatable.feature.DataTableFeature;
 
 /**
  *
@@ -24,7 +22,6 @@ import org.primefaces.component.datatable.feature.DataTableFeature;
 @ManagedBean(name = "cadastroProfessor")
 @SessionScoped
 public class CadastroProfessor implements Serializable {
-    
 
     private String siape;
 
@@ -37,23 +34,35 @@ public class CadastroProfessor implements Serializable {
     }
 
     public void setTeacher() {
-       
-        try {
-            System.out.println(getSiape());
-            Usuario userLdap = (Usuario) LDAP.buscarUsuario(getSiape());
 
-            System.out.println(userLdap.getNome());
-            Teacher teacherInserido = null;
-            if (userLdap == null) {
-            } else {
-                teacherInserido = cadastrarUsuarioPeloLDAP(userLdap);
+        if (getSiape() != null && !getSiape().equals("")) {
+            try {
+                FacesContext context = FacesContext.getCurrentInstance();
+                Usuario userLdap = (Usuario) LDAP.buscarUsuario(getSiape());
+               
+
+                if (userLdap == null) {
+                    context.addMessage(null, new FacesMessage("Ops!!!", " Aconteceu alguma coisa inesperada =( tente novamente."));
+                } else {
+
+                    DaoTeacher daoTeacher = new DaoTeacher();
+                    
+                    if (daoTeacher.obterPorNome(userLdap.getNome()) == null) {
+                        Teacher cadastrarUsuarioPeloLDAP = cadastrarUsuarioPeloLDAP(userLdap);
+                        context.addMessage(null, new FacesMessage("Sucesso", cadastrarUsuarioPeloLDAP.getName() + " foi inserido com sucesso."));
+                    } else {
+                        context.addMessage(null, new FacesMessage("Falha", userLdap.getNome()+" já está no banco."));
+                    }
+                }
+
+            } catch (Exception e) {
+                System.out.println(e);
+            } finally {
+                System.out.println("fim.");
             }
-            System.out.println("FOIIIIIIIIIIIIIII");
-
-        } catch (Exception e) {
-            System.out.println("Erro na pesquisa");
-        } finally {
-            System.out.println("fim.");
+        } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Ops!!!", " Aconteceu alguma coisa inesperada =( tente novamente."));
         }
 
 
@@ -73,8 +82,6 @@ public class CadastroProfessor implements Serializable {
                     teacher = new Teacher();
                     teacher.setName(userLdap.getNome());
                     teacher.setEmail(userLdap.getEmail());
-
-
                 }
 
 

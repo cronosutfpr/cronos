@@ -4,6 +4,7 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
         <h:form id="form">  
+            <p:growl id="growl" showDetail="true" sticky="true" />  
             <p:panel id="panel" header="Cadastro de Professores" toggleable="false" closable="false" style="margin:10px;">  
                 <h:panelGrid columns="3" cellpadding="5">  
                     <h:outputLabel for="siape" value="Siape: *" />  
@@ -14,7 +15,7 @@
                 </h:panelGrid> 
 
                 <h:panelGrid style="margin-left: 57px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar" action="#{cadastroProfessor.setTeacher}"/>
+                    <p:commandButton value="Cadastrar"  update="growl"   action="#{cadastroProfessor.setTeacher}"/>
                 </h:panelGrid>
             </p:panel> 
         </h:form>
