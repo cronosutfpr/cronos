@@ -6,14 +6,14 @@
         <p:panel id="panel" header="Cadastro de Professores" toggleable="false" closable="false" style="margin:10px;">  
             <h:panelGrid columns="3" cellpadding="5">  
                 <h:outputLabel for="siape" value="Siape: *" />  
-                <p:inputText id="siape" value="#{cadastroProfessor.siape}" style="width: 100%;" required="true" label="Siape">  
+                <p:inputText id="siape" value="#{cadastroProfessor.siape}" required="true" label="Siape">  
                     <f:validateLength minimum="2" />  
-                </p:inputText>
+                </p:inputText>  
                 <p:message for="siape" /> 
             </h:panelGrid> 
 
             <h:panelGrid style="margin-left: 57px;" columns="2" cellpadding="5">
-                <p:commandButton value="Cadastrar" action="#{cadastroProfessor.setTeacher()}"  update="panel"/>
+                <p:commandButton value="Cadastrar" action="#{cadastroProfessor.setTeacher}"/>
             </h:panelGrid>
         </p:panel> 
     </div>
