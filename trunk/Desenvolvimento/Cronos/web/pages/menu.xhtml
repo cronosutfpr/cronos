@@ -22,10 +22,8 @@
         </ul>
         <h3>Professores</h3>
         <ul class="toggle">
-            <li class="icn_new_article">
-                <h:link value="Listar Professores" outcome="index.xhtml" >
-                    <f:param name="page" value="pages/lista_professores.xhtml" />
-                </h:link>
+                <li class="icn_new_article">
+                <h:commandLink value="Listar Professores" action="#{pageManager.setPagListaProfs()}" />
             </li>
             <li class="icn_new_article">
                     <h:commandLink value="Adicionar Professores" action="#{pageManager.setPg4()}" />
