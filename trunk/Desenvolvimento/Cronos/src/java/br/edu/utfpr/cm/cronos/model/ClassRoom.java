@@ -12,6 +12,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotNull;
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlAttribute;
@@ -110,16 +111,16 @@ public class ClassRoom implements Serializable {
 
     public void setStatus(String status) {
         this.status = status;
-    }  
+    }
 
-    public boolean isBookable() {
-        return bookable;
+    public String getBookable() {
+        if(this.bookable == true) {
+            return "Sim";
+        }
+        return "Não";
     }
 
     public void setBookable(boolean bookable) {
         this.bookable = bookable;
     }
-    
-    
-
 }

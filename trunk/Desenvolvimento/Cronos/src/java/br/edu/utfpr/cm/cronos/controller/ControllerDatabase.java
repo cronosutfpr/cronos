@@ -21,8 +21,6 @@ import br.edu.utfpr.cm.cronos.model.Period;
 import br.edu.utfpr.cm.cronos.model.Subject;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import br.edu.utfpr.cm.cronos.readerXML.Timetable;
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  *

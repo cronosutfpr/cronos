@@ -21,52 +21,50 @@ import org.primefaces.event.UnselectEvent;
  *
  * @author junior
  */
-
 @ManagedBean
-public class TableClassRoom implements Serializable{
-    
+public class TableClassRoom implements Serializable {
+
     private List<ClassRoom> classRooms;
     private ClassRoom selectedClassRoom;
     private ClassRoomDataModel classRoomDataModel;
-    
+
     public TableClassRoom() {
         classRooms = new ArrayList<ClassRoom>();
         buscarClassRoom();
         classRoomDataModel = new ClassRoomDataModel(classRooms);
     }
-    
+
     private void buscarClassRoom() {
         DaoGenerics<ClassRoom> daoClassRoom = new DaoClassRoom();
         classRooms = daoClassRoom.listar();
     }
-    
+
     public List<ClassRoom> getClassRooms() {
         return classRooms;
     }
-    
+
     public ClassRoom getSelectedClassRoom() {
         return selectedClassRoom;
     }
-    
+
     public void setSelectedClassRoom(ClassRoom selectedClassRoom) {
         this.selectedClassRoom = selectedClassRoom;
     }
-    
+
     public ClassRoomDataModel getClassRoomDataModel() {
         return classRoomDataModel;
     }
-    
+
     public void onRowSelect(SelectEvent event) {
         FacesMessage msg = new FacesMessage("Sala selecionada", String.valueOf(((ClassRoom) event.getObject()).getId()));
-        
+
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-    
+
     public void onRowUnselect(UnselectEvent event) {
         FacesMessage msg = new FacesMessage("Sala não selecionada", String.valueOf(((ClassRoom) event.getObject()).getId()));
-        
+
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-       
-  
+
 }

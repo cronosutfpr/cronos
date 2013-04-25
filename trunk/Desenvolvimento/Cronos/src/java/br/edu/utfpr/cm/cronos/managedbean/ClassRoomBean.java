@@ -45,11 +45,5 @@ public class ClassRoomBean {
         return "cad_salas";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
-      public String getReservavel(){
-         System.out.println("BOKOKOJOJOJ" +this.classroom.isBookable());
-        if(classroom.isBookable()){
-            return "Sim";
-        }
-        return "Não";   
-    }
+   
 }
