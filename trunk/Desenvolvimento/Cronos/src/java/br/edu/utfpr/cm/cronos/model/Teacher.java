@@ -102,4 +102,11 @@ public class Teacher implements Serializable {
     public void setMobile(String mobile) {
         this.mobile = mobile;
     }
+
+    @Override
+    public String toString() {
+        return "Teacher{" + "id=" + id + ", idxml=" + idxml + ", name=" + name + ", gender=" + gender + ", _short=" + _short + ", color=" + color + ", email=" + email + ", mobile=" + mobile + '}';
+    }
+    
+    
 }

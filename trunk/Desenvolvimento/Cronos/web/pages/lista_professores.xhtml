@@ -4,10 +4,13 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
-        <h:form>  
-            <p:dataTable var="teacher" value="#{listarProfessores.professores}" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
+        <h:form id="form">  
+            
+            <p:growl id="messages" showDetail="true"/>  
+            <p:dataTable var="teacher" value="#{listarProfessores.professores}" editable="true" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
 
-              
+                <p:ajax event="rowEdit" listener="#{listarProfessores.onEdit}" update=":form:messages"/>  
+                <p:ajax event="rowEditCancel" listener="#{listarProfessores.onCancel}" update=":form:messages"/>  
 
                 <p:column headerText="id">  
                     <h:outputText value="#{teacher.id}" />  
@@ -18,15 +21,27 @@
                 </p:column>  
 
                 <p:column headerText="Sexo">  
-                    <h:outputText value="#{teacher.gender}" />  
+
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{teacher.gender}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{teacher.gender}" style="width:100%"/>  
+                        </f:facet>  
+                    </p:cellEditor>   
                 </p:column>  
 
                 <p:column headerText="Color">  
                     <div style="background-color: #{teacher.color}; width: 80px; height: 20px;"></div>
+                </p:column> 
+                <p:column style="width:6%">  
+                    <p:rowEditor />  
                 </p:column>  
+
             </p:dataTable> 
 
-           
+
 
         </h:form> 
     </div>
