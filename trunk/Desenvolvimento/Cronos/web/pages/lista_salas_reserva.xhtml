@@ -13,7 +13,7 @@
 
                     <h:outputLabel for="type" value="Tipo:"/>
                     <p:selectOneMenu id="type" value="#{typeBean.type}">  
-                        <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                     </p:selectOneMenu> 
                     <p:message for="type" />
 
@@ -25,7 +25,7 @@
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
 
-                    <h:outputLabel for="bookable" value="Reservável:"/>
+                     <h:outputLabel for="bookable" value="Reservável:"/>
                     <p:selectBooleanCheckbox id="bookable" value="" />  
                     <p:message for="bookable" />
                     <p:commandButton value="Buscar"/>  
@@ -41,40 +41,25 @@
                     <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
 
                     <p:column headerText="Id">  
-                        <p:cellEditor>  
                         <h:outputText value="#{classRoom.id}" />  
-                        </p:cellEditor>  
                     </p:column>  
-                    <p:column headerText="Nome" resizable="true">  
-                        <p:cellEditor>  
+                    <p:column headerText="Nome">  
                         <h:outputText value="#{classRoom.name}" />  
-                        </p:cellEditor>  
                     </p:column>  
 
                     <p:column headerText="Abreviatura">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.short}" /> 
-                        </p:cellEditor>  
+                        <h:outputText value="#{classRoom.short}" />  
                     </p:column>  
 
                     <p:column headerText="Capacidade">  
-                        <p:cellEditor>  
                         <h:outputText value="#{classRoom.capacity}" />  
-                        </p:cellEditor>  
                     </p:column>  
 
                     <p:column headerText="Tipo">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.type}" /> 
-                        </p:cellEditor>  
+                        <h:outputText value="#{classRoom.type}" />  
                     </p:column>  
                     <p:column headerText="Reservável">  
-                        <p:cellEditor>  
                         <h:outputText value="#{classRoom.bookable}" />  
-                        </p:cellEditor>  
-                    </p:column>  
-                    <p:column style="width:6%">  
-                        <p:rowEditor />  
                     </p:column>  
                 </p:dataTable> 
             </p:panel> 
@@ -89,6 +74,7 @@
 
                 </h:panelGrid>  
             </p:dialog>  
+
 
         </h:form>
     </div>
