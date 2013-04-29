@@ -3,6 +3,11 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
         <h:form id="form">  
             
@@ -17,8 +22,28 @@
                 </p:column>  
 
                 <p:column headerText="Nome">  
-                    <h:outputText value="#{teacher.name}" />  
+
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{teacher.name}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarProfessores.novoNome}" style="width:100%"/>  
+                        </f:facet>  
+                    </p:cellEditor>   
                 </p:column>  
+                
+                <p:column headerText="Email">  
+
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{teacher.email}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarProfessores.novoEmail}" style="width:100%"/>  
+                        </f:facet>  
+                    </p:cellEditor>   
+                </p:column> 
 
                 <p:column headerText="Sexo">  
 
@@ -27,7 +52,7 @@
                             <h:outputText value="#{teacher.gender}" />  
                         </f:facet>  
                         <f:facet name="input">  
-                            <p:inputText value="#{teacher.gender}" style="width:100%"/>  
+                            <p:inputText value="#{listarProfessores.novoSexo}" style="width:100%"/>  
                         </f:facet>  
                     </p:cellEditor>   
                 </p:column>  

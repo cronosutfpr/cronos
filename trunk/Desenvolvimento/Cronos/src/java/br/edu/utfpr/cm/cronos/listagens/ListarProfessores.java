@@ -21,26 +21,68 @@ import org.primefaces.event.RowEditEvent;
 @SessionScoped
 public class ListarProfessores {
     private List<Teacher> listaProfessores;
-    
-    public List<Teacher> getProfessores(){        
+    private String novoSexo;
+    private String novoEmail;
+    private String novoNome;
+
+    public String getNovoNome() {
+        return novoNome;
+    }
+
+    public void setNovoNome(String novoNome) {
+        this.novoNome = novoNome;
+    }
+
+    public String getNovoEmail() {
+        return novoEmail;
+    }
+
+    public void setNovoEmail(String novoEmail) {
+        this.novoEmail = novoEmail;
+    }
+
+    public String getNovoSexo() {
+        return novoSexo;
+    }
+
+    public void setNovoSexo(String novoSexo) {
+        this.novoSexo = novoSexo;
+    }
+
+    public List<Teacher> getProfessores() {
         DaoTeacher dT = new DaoTeacher();
         listaProfessores = dT.listar();
-        return listaProfessores;        
+        return listaProfessores;
     }
-    
-    public void onEdit(RowEditEvent event) {  
+
+    public void onEdit(RowEditEvent event) {
         //(Teacher) event.getObject()).getGender()
-        System.out.println(event.getObject());
-        FacesMessage msg = new FacesMessage("Professor editado", String.valueOf(((Teacher) event.getObject()).getGender()));  
+        Teacher teacher = (Teacher) event.getObject();
+        if (!novoSexo.isEmpty()) {
+            teacher.setGender(novoSexo);
+            this.novoSexo = "";
+        }
+        if (!novoEmail.isEmpty()) {
+            teacher.setEmail(novoEmail);
+            this.novoEmail = "";
+        }
+        if (!novoNome.isEmpty()) {
+            teacher.setEmail(novoNome);
+            this.novoNome= "";
+        }
+        new DaoTeacher().persistir(teacher);
         
         
-  
-        FacesContext.getCurrentInstance().addMessage(null, msg);  
-    }  
-      
-    public void onCancel(RowEditEvent event) {  
-        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Teacher) event.getObject()).getGender());  
-  
-        FacesContext.getCurrentInstance().addMessage(null, msg);  
-    }  
+        FacesMessage msg = new FacesMessage("Professor editado", teacher.getGender());
+
+
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Teacher) event.getObject()).getGender());
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
 }
