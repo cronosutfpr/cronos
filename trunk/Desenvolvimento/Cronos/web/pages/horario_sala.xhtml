@@ -80,29 +80,29 @@
                 <h:panelGrid columns="3" cellpadding="2" >  
 
                     <h:outputLabel for="id" value="Id: "/>  
-                    <p:inputText id="id" value=""  size="10" style="margin-left:26%"/> 
+                    <p:inputText id="id" value="#{tableClassRoom.selectedClassRoom.id}"  size="10" style="margin-left:26%"/> 
                     <p:message for="id" />
                 </h:panelGrid>
                 <h:panelGrid columns="6" cellpadding="2" >  
                     <h:outputLabel for="name" value="Nome: " />  
-                    <p:inputText id="name" value="" size="61" style="margin-left: 0%"/> 
+                    <p:inputText id="name" value="#{tableClassRoom.selectedClassRoom.name}" size="61" style="margin-left: 0%"/> 
                     <p:message for="name" />
 
                     <h:outputLabel for="short" value="Abreviação: " style="margin-left:5%"/>  
-                    <p:inputText id="short" value="" size="10" style="margin-left: 4%"/> 
+                    <p:inputText id="short" value="#{tableClassRoom.selectedClassRoom.short}" size="10" style="margin-left: 4%"/> 
                     <p:message for="short" />
                 </h:panelGrid>
                 <h:panelGrid columns="8" cellpadding="2" >  
                     <h:outputLabel for="type" value="Tipo: "/>  
-                    <p:inputText id="type" value="" style="margin-left:7%"/> 
+                    <p:inputText id="type" value="#{tableClassRoom.selectedClassRoom.type}" style="margin-left:7%"/> 
                     <p:message for="type" />
 
                     <h:outputLabel for="owner" value="Responsável: " style="margin-left:6%"/>  
-                    <p:inputText id="owner" value=""/> 
+                    <p:inputText id="owner" value="#{tableClassRoom.selectedClassRoom.owner.login}"/> 
                     <p:message for="owner" />
 
                     <h:outputLabel for="bookable" value="Reservável: " style="margin-left:3%"/>  
-                    <p:inputText id="bookable" value=""/> 
+                    <p:inputText id="bookable" value="#{tableClassRoom.selectedClassRoom.bookable}"/> 
                     <p:message for="bookable" />
                 </h:panelGrid>
 

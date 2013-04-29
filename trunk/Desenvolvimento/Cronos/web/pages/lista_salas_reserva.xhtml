@@ -13,7 +13,7 @@
 
                     <h:outputLabel for="type" value="Tipo:"/>
                     <p:selectOneMenu id="type" value="#{typeBean.type}">  
-                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                        <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                     </p:selectOneMenu> 
                     <p:message for="type" />
 
@@ -25,7 +25,7 @@
                     <p:inputText id="capacity" size="5" value=""/> 
                     <p:message for="capacity" />
 
-                     <h:outputLabel for="bookable" value="Reservável:"/>
+                    <h:outputLabel for="bookable" value="Reservável:"/>
                     <p:selectBooleanCheckbox id="bookable" value="" />  
                     <p:message for="bookable" />
                     <p:commandButton value="Buscar"/>  
@@ -37,7 +37,7 @@
                              rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
 
                     <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
-                            update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
+                            update=":form_reserva :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
                     <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
 
                     <p:column headerText="Id">  
@@ -66,13 +66,42 @@
 
             <p:dialog id="dialog" header="Detalhes da Sala" widgetVar="classRoomDialog" resizable="false"  
                       showEffect="fade" hideEffect="explode">  
+                <h:form id="horarios">
+                    <p:panel id="panel_horario" header="Horário das salas">  
+                        <h:panelGrid columns="3" cellpadding="2" >  
 
-                <h:panelGrid id="display" columns="2" cellpadding="4">  
+                            <h:outputLabel for="id" value="Id: "/>  
+                            <p:inputText id="id" value="#{tableClassRoom.selectedClassRoom.id}"  size="10" style="margin-left:26%"/> 
+                            <p:message for="id" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="6" cellpadding="2" >  
+                            <h:outputLabel for="name" value="Nome: " />  
+                            <p:inputText id="name" value="#{tableClassRoom.selectedClassRoom.name}" size="61" style="margin-left: 0%"/> 
+                            <p:message for="name" />
 
-                    <h:outputText value="Name:" />  
-                    <h:outputText value="#{tableClassRoom.selectedClassRoom.name}" />  
+                            <h:outputLabel for="short" value="Abreviação: " style="margin-left:5%"/>  
+                            <p:inputText id="short" value="#{tableClassRoom.selectedClassRoom.short}" size="10" style="margin-left: 4%"/> 
+                            <p:message for="short" />
+                        </h:panelGrid>
+                        <h:panelGrid columns="8" cellpadding="2" >  
+                            <h:outputLabel for="type" value="Tipo: "/>  
+                            <p:inputText id="type" value="#{tableClassRoom.selectedClassRoom.type}" style="margin-left:7%"/> 
+                            <p:message for="type" />
 
-                </h:panelGrid>  
+                            <h:outputLabel for="owner" value="Responsável: " style="margin-left:6%"/>  
+                            <p:inputText id="owner" value="#{tableClassRoom.selectedClassRoom.owner.login}"/> 
+                            <p:message for="owner" />
+
+                            <h:outputLabel for="bookable" value="Reservável: " style="margin-left:3%"/>  
+                            <p:inputText id="bookable" value="#{tableClassRoom.selectedClassRoom.bookable}"/> 
+                            <p:message for="bookable" />
+                        </h:panelGrid>
+
+                        <p:separator style="margin-bottom:10px"/>  
+
+                        <div id='calendar'></div>
+                    </p:panel> 
+                </h:form>
             </p:dialog>  
 
 
