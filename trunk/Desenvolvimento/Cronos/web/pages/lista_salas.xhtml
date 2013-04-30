@@ -22,7 +22,7 @@
                             <h:outputText value="#{classRoom.name}" />  
                         </f:facet>
                         <f:facet name="input">  
-                            <p:inputText value="#{classRoom.name}" style="width:100%"/>  
+                            <p:inputText value="#{listarSalas.name}" style="width:100%"/>  
                         </f:facet> 
                     </p:cellEditor>
                 </p:column>  
@@ -33,7 +33,7 @@
                             <h:outputText value="#{classRoom.short}" />
                         </f:facet>
                         <f:facet name="input">  
-                            <p:inputText value="#{classRoom.short}" style="width:100%"/>  
+                            <p:inputText value="#{listarSalas.short}" style="width:100%"/>  
                         </f:facet> 
                     </p:cellEditor>
                 </p:column>  
@@ -44,7 +44,7 @@
                             <h:outputText value="#{classRoom.capacity}" /> 
                         </f:facet>
                         <f:facet name="input">  
-                            <p:inputText value="#{classRoom.capacity}" style="width:100%"/>  
+                            <p:inputText value="#{listarSalas.capacity}" style="width:100%"/>  
                         </f:facet> 
                     </p:cellEditor>
                 </p:column> 
@@ -55,7 +55,7 @@
                             <h:outputText value="#{classRoom.building}" /> 
                         </f:facet>
                         <f:facet name="input">  
-                            <p:inputText id="building" value="#{classRoomBean.classroom.building}" style="width:100%"/> 
+                            <p:inputText id="building" value="#{listarSalas.building}" style="width:100%"/> 
                         </f:facet> 
                     </p:cellEditor>
                 </p:column> 
@@ -67,7 +67,7 @@
                         </f:facet>
                         <f:facet name="input">  
                             <h:outputLabel value="Dono: " for="owner" />  
-                            <p:autoComplete value="#{classRoomBean.classroom.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
+                            <p:autoComplete value="#{listarSalas.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
                                             converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true" >  
 
                             </p:autoComplete>
@@ -81,7 +81,7 @@
                             <h:outputText value="#{classRoom.status}" />
                         </f:facet>
                         <f:facet name="input"> 
-                            <p:selectOneMenu value="#{classRoomBean.classroom.type}">  
+                            <p:selectOneMenu value="#{listarSalas.type}">  
                                 <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                             </p:selectOneMenu>
                         </f:facet> 
@@ -94,7 +94,7 @@
                             <h:outputText value="#{classRoom.bookable}" />
                         </f:facet>
                         <f:facet name="input"> 
-                            <p:selectBooleanCheckbox value="#{classRoomBean.classroom.bookable}" style="margin-left: 25%" /> 
+                            <p:selectBooleanCheckbox value="#{listarSalas.bookable}" style="margin-left: 25%" /> 
                         </f:facet> 
                     </p:cellEditor>
                 </p:column> 
