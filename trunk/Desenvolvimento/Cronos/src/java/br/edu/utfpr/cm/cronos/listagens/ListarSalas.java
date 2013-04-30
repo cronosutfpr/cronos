@@ -21,13 +21,14 @@ import org.primefaces.event.RowEditEvent;
 @ManagedBean(name = "listarSalas")
 @SessionScoped
 public class ListarSalas {
+
     private List<ClassRoom> listaSalas;
     private String name;
     private String _short;
     private String capacity;
     private String type;
     private String building;
-    private User owner;
+    private Teacher owner;
     private String status;
     private boolean bookable;
 
@@ -63,11 +64,11 @@ public class ListarSalas {
         this.building = building;
     }
 
-    public User getOwner() {
+    public Teacher getOwner() {
         return owner;
     }
 
-    public void setOwner(User owner) {
+    public void setOwner(Teacher owner) {
         this.owner = owner;
     }
 
@@ -85,7 +86,7 @@ public class ListarSalas {
 
     public void setBookable(boolean bookable) {
         this.bookable = bookable;
-    }   
+    }
 
     public List<ClassRoom> getListaSalas() {
         return listaSalas;
@@ -103,40 +104,90 @@ public class ListarSalas {
         this.name = name;
     }
 
-    
-    public List<ClassRoom> getSalas(){        
+    public List<ClassRoom> getSalas() {
         DaoClassRoom dC = new DaoClassRoom();
         listaSalas = dC.listar();
         //System.out.println(listaSalas);
-        return listaSalas;        
+        return listaSalas;
     }
-    
-    public void onEdit(RowEditEvent event) {  
+
+    public void onEdit(RowEditEvent event) {
         ClassRoom classroom = (ClassRoom) event.getObject();
+        if (!name.isEmpty()) {
+            classroom.setName(name);
+            this.name = "";
+        }
+        if (!_short.isEmpty()) {
+            classroom.setShort(_short);
+            this._short = "";
+        }
+        if (!capacity.isEmpty()) {
+            classroom.setCapacity(capacity);
+            this.capacity = "";
+        }
+
+        if (!type.isEmpty()) {
+            classroom.setType(type);
+            this.type = "";
+        }
+        
+        if (!building.isEmpty()) {
+            classroom.setBuilding(building);
+            this.building = "";
+        }
+        
+//        if (!owner.getName().isEmpty()) {
+//            classroom.setOwner(owner);
+//            this.building = "";
+//        }
+        
+        
+            classroom.setBuilding(building);
+            this.building = "";
+        
+        
+        classroom.setBookable(bookable);
+
+
+        new DaoClassRoom().persistir(classroom);
+
+
+        FacesMessage msg = new FacesMessage("Professor editado", "teste");
+
+
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+
+        //System.out.println("oi!");
+    }
+
+    public void onCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edição cancelada!", ((ClassRoom) event.getObject()).getName());
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+
+//        ClassRoom classroom = (ClassRoom) event.getObject();
+//        
 //        if (!name.isEmpty()) {
 //            classroom.setName(name);
 //            this.name = "";
 //        }
 //        
 //        new DaoClassRoom().persistir(classroom);
+    }
+//    public void onCellEdit(CellEditEvent event) {  
+//        Object oldValue = event.getOldValue();  
+//        Object newValue = event.getNewValue();  
+//        
+//        newValue.getClass().getDeclaredField(newValue);
 //        
 //        
-        FacesMessage msg = new FacesMessage("Professor editado", "teste");
-
-
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-        
-        //System.out.println("oi!");
-    }  
-      
-    public void onCancel(RowEditEvent event) {  
-//        FacesMessage msg = new FacesMessage("Edição cancelada!", ((ClassRoom) event.getObject()).getName());  
-//  
-//        FacesContext.getCurrentInstance().addMessage(null, msg);  
-        
-        ClassRoom classroom = (ClassRoom) event.getObject();
-        
-        new DaoClassRoom().persistir(classroom);
-    }  
+//          
+//        //if(newValue != null && !newValue.equals(oldValue)) {  
+//            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_INFO, "Cell Changed", "Old: " + oldValue + ", New:" + newValue);  
+//            FacesContext.getCurrentInstance().addMessage(null, msg);  
+//        //}  
+//         oldValue = "";
+//            newValue = "";
+//    }  
 }
