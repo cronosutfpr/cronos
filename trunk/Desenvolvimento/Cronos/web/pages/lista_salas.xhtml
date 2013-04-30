@@ -3,92 +3,109 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <h:form id="form_reserva"> 
-            <p:panel id="panel_reserva" header="Listagem de Salas"> 
+        <h:form id="form">  
 
-                <h:panelGrid columns="14"  cellpadding="2">  
-                    <h:outputLabel for="classe" value="Descrição:"/>
-                    <p:inputText id="classe" size="35" value=""/> 
-                    <p:message for="classe" />
+            <p:growl id="messages" showDetail="true"/> 
 
-                    <h:outputLabel for="type" value="Tipo:"/>
-                    <p:selectOneMenu id="type" value="#{typeBean.type}">  
-                        <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
-                    </p:selectOneMenu> 
-                    <p:message for="type" />
+            <p:dataTable var="classRoom" value="#{listarSalas.salas}" editable="true" rowKey="#{classRoom.name}" paginator="true" rows="10"  selectionMode="single" id="classRoomTable">  
 
-                    <h:outputLabel for="short" value="Abreviatura:"/>
-                    <p:inputText id="short" size="5" value=""/> 
-                    <p:message for="short" />
+                <p:ajax event="rowEdit" listener="#{listarSalas.onEdit}" update=":form:messages"/>  
+                <p:ajax event="rowEditCancel" listener="#{listarSalas.onCancel}" update=":form:messages"/>  
 
-                    <h:outputLabel for="capacity" value="Capacidade:"/>
-                    <p:inputText id="capacity" size="5" value=""/> 
-                    <p:message for="capacity" />
+                <p:column headerText="Id">  
+                    <h:outputText value="#{classRoom.id}" />  
+                </p:column>  
 
-                    <h:outputLabel for="bookable" value="Reservável:"/>
-                    <p:selectBooleanCheckbox id="bookable" value="" />  
-                    <p:message for="bookable" />
-                    <p:commandButton value="Buscar"/>  
-                </h:panelGrid>
+                <p:column headerText="Nome" resizable="true">  
+                    <p:cellEditor>  
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.name}" />  
+                        </f:facet>
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarSalas.name}" style="width:100%"/>  
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column>  
 
-                <p:growl id="growl" showDetail="true"/>  
+                <p:column headerText="Abreviatura">  
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.short}" />
+                        </f:facet>
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarSalas.short}" style="width:100%"/>  
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column>  
 
-                <p:dataTable id="table_classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom"
-                             rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
+                <p:column headerText="Capacidade"> 
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.capacity}" /> 
+                        </f:facet>
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarSalas.capacity}" style="width:100%"/>  
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column> 
 
-                    <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
-                            update=":form_reserva:display :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
-                    <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
+                <p:column headerText="Prédio">  
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.building}" /> 
+                        </f:facet>
+                        <f:facet name="input">  
+                            <p:inputText id="building" value="#{listarSalas.building}" style="width:100%"/> 
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column> 
 
-                    <p:column headerText="Id">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.id}" />  
-                        </p:cellEditor>  
-                    </p:column>  
-                    <p:column headerText="Nome" resizable="true">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.name}" />  
-                        </p:cellEditor>  
-                    </p:column>  
+                <p:column headerText="Dono">  
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.owner.login}" /> 
+                        </f:facet>
+                        <f:facet name="input">  
+                            <h:outputLabel value="Dono: " for="owner" />  
+                            <p:autoComplete value="#{listarSalas.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
+                                            converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true" >  
 
-                    <p:column headerText="Abreviatura">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.short}" /> 
-                        </p:cellEditor>  
-                    </p:column>  
+                            </p:autoComplete>
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column>
 
-                    <p:column headerText="Capacidade">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.capacity}" />  
-                        </p:cellEditor>  
-                    </p:column>  
+                <p:column headerText="Status">  
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.status}" />
+                        </f:facet>
+                        <f:facet name="input"> 
+                            <p:selectOneMenu value="#{listarSalas.type}">  
+                                <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                            </p:selectOneMenu>
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column> 
 
-                    <p:column headerText="Tipo">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.type}" /> 
-                        </p:cellEditor>  
-                    </p:column>  
-                    <p:column headerText="Reservável">  
-                        <p:cellEditor>  
-                        <h:outputText value="#{classRoom.bookable}" />  
-                        </p:cellEditor>  
-                    </p:column>  
-                    <p:column style="width:6%">  
-                        <p:rowEditor />  
-                    </p:column>  
-                </p:dataTable> 
-            </p:panel> 
+                <p:column headerText="Reservável">  
+                    <p:cellEditor>
+                        <f:facet name="output">
+                            <h:outputText value="#{classRoom.bookable}" />
+                        </f:facet>
+                        <f:facet name="input"> 
+                            <p:selectBooleanCheckbox value="#{listarSalas.bookable}" style="margin-left: 25%" /> 
+                        </f:facet> 
+                    </p:cellEditor>
+                </p:column> 
 
-            <p:dialog id="dialog" header="Detalhes da Sala" widgetVar="classRoomDialog" resizable="false"  
-                      showEffect="fade" hideEffect="explode">  
+                <p:column style="width:6%">  
+                    <p:rowEditor />  
+                </p:column>  
 
-                <h:panelGrid id="display" columns="2" cellpadding="4">  
 
-                    <h:outputText value="Name:" />  
-                    <h:outputText value="#{tableClassRoom.selectedClassRoom.name}" />  
-                    
-                </h:panelGrid>  
-            </p:dialog>  
+            </p:dataTable> 
+
 
         </h:form>
     </div>

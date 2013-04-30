@@ -123,4 +123,11 @@ public class ClassRoom implements Serializable {
     public void setBookable(boolean bookable) {
         this.bookable = bookable;
     }
+
+    @Override
+    public String toString() {
+        return "ClassRoom{" + "name=" + name + ", type=" + type + '}';
+    }
+    
+    
 }

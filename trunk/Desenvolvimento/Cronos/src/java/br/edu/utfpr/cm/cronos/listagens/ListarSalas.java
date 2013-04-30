@@ -6,89 +6,142 @@ package br.edu.utfpr.cm.cronos.listagens;
 
 import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
+import br.edu.utfpr.cm.cronos.model.User;
 import java.util.List;
-import javax.servlet.ServletException;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
+import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
+import org.primefaces.event.RowEditEvent;
 
 /**
  *
- * @author willyan
+ * @author AnaMaciel
  */
-public class ListarSalas extends HttpServlet {
+@ManagedBean(name = "listarSalas")
+@SessionScoped
+public class ListarSalas {
+    private List<ClassRoom> listaSalas;
+    private String name;
+    private String _short;
+    private String capacity;
+    private String type;
+    private String building;
+    private User owner;
+    private String status;
+    private boolean bookable;
 
-    /**
-     * Processes requests for both HTTP
-     * <code>GET</code> and
-     * <code>POST</code> methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        try {
-            out.println("{ \"ClassRoom\" : [ { \"name\": \"E100 - Laboratório de Informática\", \"_short\": E100  }, { \"name\": \"E103 - Laboratório de Hardware\", \"_short\": E103 }, { \"name\": \"D102 - Sala teórica\", \"_short\": D102 } ] }");
-        } finally {            
-            out.close();
+    public String getShort() {
+        return _short;
+    }
+
+    public void setShort(String _short) {
+        this._short = _short;
+    }
+
+    public String getCapacity() {
+        return capacity;
+    }
+
+    public void setCapacity(String capacity) {
+        this.capacity = capacity;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public String getBuilding() {
+        return building;
+    }
+
+    public void setBuilding(String building) {
+        this.building = building;
+    }
+
+    public User getOwner() {
+        return owner;
+    }
+
+    public void setOwner(User owner) {
+        this.owner = owner;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    public boolean isBookable() {
+        return bookable;
+    }
+
+    public void setBookable(boolean bookable) {
+        this.bookable = bookable;
+    }   
+
+    public List<ClassRoom> getListaSalas() {
+        return listaSalas;
+    }
+
+    public void setListaSalas(List<ClassRoom> listaSalas) {
+        this.listaSalas = listaSalas;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    
+    public List<ClassRoom> getSalas(){        
+        DaoClassRoom dC = new DaoClassRoom();
+        listaSalas = dC.listar();
+        //System.out.println(listaSalas);
+        return listaSalas;        
+    }
+    
+    public void onEdit(RowEditEvent event) {  
+        ClassRoom classroom = (ClassRoom) event.getObject();
+//        if (!name.isEmpty()) {
+//            classroom.setName(name);
+//            this.name = "";
+//        }
+//        
+//        new DaoClassRoom().persistir(classroom);
+//        
+//        
+        FacesMessage msg = new FacesMessage("Professor editado", "teste");
+
+
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+        
+        //System.out.println("oi!");
+    }  
+      
+    public void onCancel(RowEditEvent event) {  
+//        FacesMessage msg = new FacesMessage("Edição cancelada!", ((ClassRoom) event.getObject()).getName());  
+//  
+//        FacesContext.getCurrentInstance().addMessage(null, msg);  
+        
+        ClassRoom classroom = (ClassRoom) event.getObject();
+        
+        if (!name.isEmpty()) {
+            classroom.setName(name);
+            this.name = "";
         }
-    }
-
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP
-     * <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
         
-        List<ClassRoom> classRoomList = new ArrayList<ClassRoom>();
-        DaoClassRoom dc = new DaoClassRoom();
-        
-        classRoomList = dc.listar();
-        
-        for (ClassRoom c : classRoomList) {
-            c.getName();
-        }
-    }
-
-    /**
-     * Handles the HTTP
-     * <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        processRequest(request, response);
-    }
-
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
-    }// </editor-fold>
+        new DaoClassRoom().persistir(classroom);
+    }  
 }
