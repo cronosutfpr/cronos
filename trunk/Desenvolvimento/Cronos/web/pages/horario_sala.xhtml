@@ -1,81 +1,9 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
                 xmlns:p="http://primefaces.org/ui"
-                xmlns:h="http://java.sun.com/jsf/html">
-    <link href='resources/js/fullcalendar/fullcalendar.css' rel='stylesheet' />
-    <link href='resources/js/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
-    <script src="resources/js/jquery-ui-1.10.2.custom.min.js"></script>
-    <script src="resources/js/fullcalendar/fullcalendar.min.js"></script>
-    <script>
-
-        $(document).ready(function() {
-	
-            var date = new Date();
-            var d = date.getDate();
-            var m = date.getMonth();
-            var y = date.getFullYear();
-		
-            var calendar = $('#calendar').fullCalendar({
-                header: {
-                    left: 'prev,next today',
-                    center: 'title',
-                    right: 'agendaWeek'
-                },
-                selectable: true,
-                selectHelper: true,
-                select: function(start, end) {
-                    var title = prompt('Cadastro de Reserva:');
-                    if (title) {
-                        calendar.fullCalendar('renderEvent',
-                        {
-                            title: title,
-                            start: start,
-                            end: end
-                        },
-                        true // make the event "stick"
-                    );
-                    }
-                    calendar.fullCalendar('unselect');
-                },
-                editable: false,
-                events: [
-                    {  
-                        id:1,
-                        title: 'E102',
-                        start: new Date(y, m, 21,11,0),
-                        end: new Date(y, m, 21,12,30),
-                        allDay:false,
-                        url: 'http://localhost:8080/Cronos/faces/index.xhtml?page=pages%2Freserva.xhtml'
-                    },
-                     {  
-                        id:1,
-                        title: 'E102',
-                        start: new Date(y, m, 22,11,0),
-                        end: new Date(y, m, 22,15,30),
-                        allDay:false,
-                        url: 'http://localhost:8080/Cronos/faces/index.xhtml?page=pages%2Freserva.xhtml'
-                    }
-                ]
-            });
-		
-        });
-
-    </script>
-    <style>
-        #principal {
-            margin-top: 40px;
-            text-align: center;
-            font-size: 12px;
-            font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
-        }
-
-        #calendar {
-            width: 900px;
-            margin: 0 auto;
-        }
-
-    </style>
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <h:form id="horarios">
+        <h:form id="dados_sala">
             <p:panel id="panel_horario" header="Horário das salas">  
                 <h:panelGrid columns="3" cellpadding="2" >  
 
@@ -108,9 +36,42 @@
 
                 <p:separator style="margin-bottom:10px"/>  
 
-                <div id='calendar'></div>
+                <p:growl id="messages" showDetail="true" />
 
-            </p:panel> 
+                <p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule">
+
+                    <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
+                    <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="eventDetails" oncomplete="eventDialog.show()" />
+                    <p:ajax event="eventMove" listener="#{scheduleController.onEventMove}" update="messages" />
+                    <p:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />
+
+                </p:schedule>
+
+                <p:dialog widgetVar="eventDialog" header="Event Details" showEffect="clip" hideEffect="clip">
+                    <h:panelGrid id="eventDetails" columns="2">
+                        <h:outputLabel for="title" value="Title:" />
+                        <p:inputText id="title" value="#{scheduleController.event.title}" required="true"/>
+
+                        <h:outputLabel for="from" value="From:" />
+                        <p:inputMask id="from" value="#{scheduleController.event.startDate}" mask="99/99/9999">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:inputMask>
+
+                        <h:outputLabel for="to" value="To:" />
+                        <p:inputMask id="to" value="#{scheduleController.event.endDate}" mask="99/99/9999">
+                            <f:convertDateTime pattern="dd/MM/yyyy" />
+                        </p:inputMask>
+
+                        <h:outputLabel for="allDay" value="All Day:" />
+                        <h:selectBooleanCheckbox id="allDay" value="#{scheduleController.event.allDay}" />
+
+                        <p:commandButton type="reset" value="Reset" />
+                        <p:commandButton id="addButton" value="Save" actionListener="#{scheduleController.addEvent}" oncomplete="myschedule.update();eventDialog.hide();"/>
+                    </h:panelGrid>
+                </p:dialog>
+
+
+        </p:panel> 
         </h:form>
     </div>
 </ui:composition>
