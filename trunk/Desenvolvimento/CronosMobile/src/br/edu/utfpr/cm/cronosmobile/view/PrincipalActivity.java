@@ -27,11 +27,13 @@ public class PrincipalActivity extends ListActivity {
 	super.onCreate(savedInstanceState);
 	// setContentView(R.layout.menu);
 
-	String[] opcoes = new String[] { "Listar Salas", "Listar Professores",
-		"Listar Disciplinas" };
+	String[] opcoes = new String[] { 
+			"Listar Salas", 
+			"Listar Professores",
+			"Listar Disciplinas" 
+			};
 
-	setListAdapter(new ArrayAdapter<String>(this,
-		android.R.layout.simple_list_item_1, opcoes));
+	setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, opcoes));
 
 	ListView listView = getListView();
 	listView.setTextFilterEnabled(true);

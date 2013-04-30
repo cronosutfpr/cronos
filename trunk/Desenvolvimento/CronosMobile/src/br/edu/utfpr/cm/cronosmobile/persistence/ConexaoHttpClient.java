@@ -17,6 +17,8 @@ import org.apache.http.impl.client.DefaultHttpClient;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import android.util.Log;
+
 /**
  * 
  * @author Willyan Schultz Dworak
@@ -71,7 +73,7 @@ public class ConexaoHttpClient {
 		try {
 		    bufferedReader.close();
 		} catch (IOException e) {
-		    e.printStackTrace();
+			Log.e("IOException", e.toString());
 		}
 	    }
 
@@ -108,7 +110,7 @@ public class ConexaoHttpClient {
 		try {
 		    bufferedReader.close();
 		} catch (IOException e) {
-		    e.printStackTrace();
+			Log.e("IOException", e.toString());
 		}
 	    }
 

@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteDatabase;
  * 
  */
 public class Sqlite {
-	public static final String NOME_BANCO = "cronos_mobile_db";
+    public static final String NOME_BANCO = "cronos_mobile_db";
     private static final int VERSAO_BANCO = 1;
     private static SqliteOpenHelper dbHelper;
     private static SQLiteDatabase db;
