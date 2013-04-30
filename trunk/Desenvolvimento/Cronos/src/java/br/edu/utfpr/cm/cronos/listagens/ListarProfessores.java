@@ -58,6 +58,27 @@ public class ListarProfessores {
     public void onEdit(RowEditEvent event) {
         //(Teacher) event.getObject()).getGender()
         Teacher teacher = (Teacher) event.getObject();
+        
+        preencherComDadosAtualizados(teacher);
+        
+        new DaoTeacher().persistir(teacher);
+        
+        
+        FacesMessage msg = new FacesMessage("Professor editado", "Nome: "+teacher.getName() + " \nEmail: " + teacher.getEmail() +" \nSexo: " +teacher.getGender());
+
+
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+
+    public void onCancel(RowEditEvent event) {
+        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Teacher) event.getObject()).getGender());
+
+        FacesContext.getCurrentInstance().addMessage(null, msg);
+    }
+    
+    
+    private void preencherComDadosAtualizados(Teacher teacher) {
         if (!novoSexo.isEmpty()) {
             teacher.setGender(novoSexo);
             this.novoSexo = "";
@@ -70,19 +91,5 @@ public class ListarProfessores {
             teacher.setEmail(novoNome);
             this.novoNome= "";
         }
-        new DaoTeacher().persistir(teacher);
-        
-        
-        FacesMessage msg = new FacesMessage("Professor editado", teacher.getGender());
-
-
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-
-    public void onCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Teacher) event.getObject()).getGender());
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
     }
 }
