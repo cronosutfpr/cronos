@@ -137,11 +137,6 @@ public class ListarSalas {
         
         ClassRoom classroom = (ClassRoom) event.getObject();
         
-        if (!name.isEmpty()) {
-            classroom.setName(name);
-            this.name = "";
-        }
-        
         new DaoClassRoom().persistir(classroom);
     }  
 }
