@@ -8,7 +8,7 @@
 
                 <h:panelGrid columns="14"  cellpadding="2">  
                     <h:outputLabel for="classe" value="Descrição:"/>
-                    <p:inputText id="classe" size="35" value=""/> 
+                    <p:inputText id="classe" size="45" value="" style="margin-left: 11px"/> 
                     <p:message for="classe" />
 
                     <h:outputLabel for="type" value="Tipo:"/>
@@ -20,15 +20,18 @@
                     <h:outputLabel for="short" value="Abreviatura:"/>
                     <p:inputText id="short" size="5" value=""/> 
                     <p:message for="short" />
+                </h:panelGrid>
+                <h:panelGrid columns="14"  cellpadding="2">  
 
                     <h:outputLabel for="capacity" value="Capacidade:"/>
-                    <p:inputText id="capacity" size="5" value=""/> 
+                    <p:inputText id="capacity" size="7" value=""/> 
                     <p:message for="capacity" />
 
-                    <h:outputLabel for="bookable" value="Reservável:"/>
+                    <h:outputLabel for="bookable" value="Reservável:" style="margin-left:19px" />
                     <p:selectBooleanCheckbox id="bookable" value="" />  
                     <p:message for="bookable" />
-                    <p:commandButton value="Buscar"/>  
+                    
+                    <p:commandButton value="Buscar" style="margin-left: 53px;"/>  
                 </h:panelGrid>
 
                 <p:growl id="growl" showDetail="true"/>  
@@ -36,7 +39,7 @@
                 <p:dataTable id="table_classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom"
                              rowKey="#{classRoom.id}" selection="#{tableClassRoom.selectedClassRoom}" selectionMode="single">  
 
-                    <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}" 
+                    <p:ajax event="rowSelect" listener="#{tableClassRoom.onRowSelect}"  
                             update=":form_reserva :form_reserva:growl" oncomplete="classRoomDialog.show()" />  
                     <p:ajax event="rowUnselect" listener="#{tableClassRoom.onRowUnselect}" update=":form_reserva:growl"/>  
 
@@ -64,7 +67,7 @@
                 </p:dataTable> 
             </p:panel> 
 
-            <p:dialog id="dialog" header="Horários das salas" widgetVar="classRoomDialog" resizable="false"  
+            <p:dialog id="dialog" header="Horários das salas" widgetVar="classRoomDialog" resizable="false" modal="true"
                       showEffect="fade" hideEffect="explode">  
                 <h:panelGrid columns="3" cellpadding="2" >  
 
@@ -77,8 +80,8 @@
                     <p:inputText id="name" value="#{tableClassRoom.selectedClassRoom.name}" size="61" style="margin-left: 0%"/> 
                     <p:message for="name" />
 
-                    <h:outputLabel for="short1" value="Abreviação: " style="margin-left:5%"/>  
-                    <p:inputText id="short1" value="#{tableClassRoom.selectedClassRoom.short}" size="10" style="margin-left: 4%"/> 
+                    <h:outputLabel for="short1" value="Abreviação: " style="margin-left:5%" />  
+                    <p:inputText id="short1" value="#{tableClassRoom.selectedClassRoom.short}" size="3" style="margin-left: 4%"/> 
                     <p:message for="short1" />
                 </h:panelGrid>
                 <h:panelGrid columns="8" cellpadding="2" >  
@@ -90,8 +93,8 @@
                     <p:inputText id="owner" value="#{tableClassRoom.selectedClassRoom.owner.login}"/> 
                     <p:message for="owner" />
 
-                    <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%"/>  
-                    <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}"/> 
+                    <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%" />  
+                    <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}" size="3"  /> 
                     <p:message for="bookable1" />
                 </h:panelGrid>
 
@@ -99,7 +102,7 @@
 
                 <p:growl id="messages" showDetail="true" />
 
-                <p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule">
+                <p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
 
                     <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="dados_reserva" oncomplete="eventDialog.show()" />
                     <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="dados_reserva" oncomplete="eventDialog.show()" />
@@ -108,7 +111,7 @@
 
                 </p:schedule>
 
-                <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip">
+                <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
                     <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  
 
                         <h:outputLabel for="id1" value="Id: "/>  
