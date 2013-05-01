@@ -36,6 +36,20 @@ public class Book implements Serializable {
     private BookStatus status;
     private String note;
 
+    public Book(Long id, ClassRoom classroom, User requestor, List<Period> periods, Calendar startdate, Calendar endDate, BookStatus status, String note) {
+        this.id = id;
+        this.classroom = classroom;
+        this.requestor = requestor;
+        this.periods = periods;
+        this.startdate = startdate;
+        this.endDate = endDate;
+        this.status = status;
+        this.note = note;
+    }
+
+    public Book() {
+    }
+
     public Long getId() {
         return id;
     }
