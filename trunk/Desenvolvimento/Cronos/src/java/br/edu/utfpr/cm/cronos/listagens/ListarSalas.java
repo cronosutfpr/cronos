@@ -6,6 +6,7 @@ package br.edu.utfpr.cm.cronos.listagens;
 
 import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
+import br.edu.utfpr.cm.cronos.model.Teacher;
 import br.edu.utfpr.cm.cronos.model.User;
 import java.util.List;
 import javax.faces.application.FacesMessage;

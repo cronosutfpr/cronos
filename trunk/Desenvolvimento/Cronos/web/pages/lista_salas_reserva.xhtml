@@ -102,7 +102,7 @@
 
                 <p:growl id="messages" showDetail="true" />
 
-                <p:schedule id="schedule" value="#{scheduleController.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
+                <p:schedule id="schedule" locale="pt-BR" value="#{scheduleController.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
 
                     <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}" update="dados_reserva" oncomplete="eventDialog.show()" />
                     <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}" update="dados_reserva" oncomplete="eventDialog.show()" />
