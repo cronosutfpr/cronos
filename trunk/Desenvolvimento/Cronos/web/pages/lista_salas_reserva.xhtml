@@ -110,8 +110,8 @@
                     <p:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />
 
                 </p:schedule>
-
-                <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
+            </p:dialog>  
+                      <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
                     <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  
 
                         <h:outputLabel for="id1" value="Id: "/>  
@@ -149,7 +149,6 @@
 
                     </h:panelGrid>
                 </p:dialog>  
-            </p:dialog>  
         </h:form>
     </div>
 </ui:composition>
