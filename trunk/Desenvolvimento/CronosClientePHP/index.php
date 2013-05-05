@@ -19,9 +19,20 @@ $query_lista = $geral->sql_select($sql);
         <!--jdatatable-->
         <link href="css/demo_table_jui.css" rel="stylesheet" type="text/css" media="screen" />
         <link href="css/themes/smoothness/jquery-ui-1.8.4.custom.css" rel="stylesheet" type="text/css" media="screen" />
-
+        <link href="js/alert_query.css" rel="stylesheet" type="text/css" media="screen" />        
+        <link href='css/fullcalendar/fullcalendar.css' rel='stylesheet' />
+        <link href='css/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
+        <link type='text/css' href='css/modal.css' rel='stylesheet' media='screen' />
+        <link type='text/css' href='css/osx.css' rel='stylesheet' media='screen' />
+        
+        
         <script language="JavaScript" src="js/jquery-1.8.2.js" type="text/javascript"></script>
+        <script type="text/javascript" src='js/fullcalendar/fullcalendar.min.js'></script>
+        <script type="text/javascript" src='js/jquery/jquery-ui-1.10.2.custom.min.js'></script>
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
+        <script type="text/javascript" language="javascript" src="js/jquery-impromptu.4.0.min.js"></script>
+        <script type='text/javascript' src='js/modal/jquery.simplemodal.js'></script>
+        <script type='text/javascript' src='js/modal/osx.js'></script>
         <script type="text/javascript" charset="utf-8">
             var oTable;
 
@@ -53,10 +64,10 @@ $query_lista = $geral->sql_select($sql);
         </div>
         <div id="bar_navegacao">
             <div class="user">
-                <p>ehrickwilliam </p>
+                <p>usuario </p>
                 <a class="logout_user" href="#" title="Logout">Sair</a> </div>
             <div class="breadcrumbs_container">
-                <div class="breadcrumbs"><a href="index.html">Adminstração</a>
+                <div class="breadcrumbs"><a href="index.html">Administração</a>
                     <div class="breadcrumb_divider"></div>
                     <a href="index.html">Inicial</a> </div>
             </div>
@@ -71,43 +82,9 @@ $query_lista = $geral->sql_select($sql);
             <div id="principal">
 
                 <div class="conteudo">
-                    <form id="form_listagem" action="" method="post">
-                        <table cellpadding="0" cellspacing="0" border="0" class="display" id="listagem">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Prédio</th>
-                                    <th>Capacidade</th>
-                                    <th>E-Tipo</th>
-                                    <th>Status</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                while ($linha = mysql_fetch_object($query_lista)) {
-                                    echo "<tr>
-                                            <td>" . $linha->name2_ . "</td>
-                                            <td>" . $linha->building2_ . "</td>
-                                            <td>" . $linha->capacity2_ . "</td>
-                                            <td>" . $linha->type2_ . "</td>
-                                            <td>" . $linha->status2_ . "</td>
-                                      </tr>";
-                                }
-                                ?>
-
-                            </tbody>
-                            <tfoot>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Prédio</th>
-                                    <th>Capacidade</th>
-                                    <th>E-Tipo</th>
-                                    <th>Status</th>
-
-                                </tr>
-                            </tfoot>
-                        </table>
-                    </form>
+                    <?php
+                    include 'pages/reservaSalas.php';
+                    ?>
                 </div>
 
             </div>

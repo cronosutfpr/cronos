@@ -18,7 +18,7 @@ class geral {
 	public $bd; 
 
     function __construct() {
-       $this->conexao = mysql_connect("127.0.0.1", "root", "root");
+       $this->conexao = mysql_connect("127.0.0.1", "root", "123456");
 	   $this->bd = mysql_select_db("cronos"); 
     }
 
