@@ -48,8 +48,18 @@ public class ClasseBean {
         this.classe = classes;
     }
 
-    public void cadastrarClasse(){
-        new DaoClasse().persistir(classe);
+    public void cadastrarClasse() {
+        try {
+            new DaoClasse().persistir(classe);
+            
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Sucesso", classe.getName() + " foi inserido com sucesso."));
+            classe = new Classe();
+        } catch (Exception e) {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Erro", classe.getName() + " Erro no cadastro"));
+  
+        }
     }  
     
     public List<Teacher> completeTeacher(String value) {
