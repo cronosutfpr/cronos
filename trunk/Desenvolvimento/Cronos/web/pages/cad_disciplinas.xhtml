@@ -4,6 +4,7 @@
                 xmlns:p="http://primefaces.org/ui">
     <div id="principal">
         <h:form id="form">
+            <p:growl id="growl" showDetail="true" sticky="true" />  
             <p:panel id="panel" header="Cadastro de Disciplinas" toggleable="true" closable="true" style="margin:10px;"> 
                 <h:panelGrid columns="3" cellpadding="5">
                     <h:outputLabel for="name" value="Nome: *" />
@@ -18,7 +19,7 @@
 
                 </h:panelGrid>
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar" action="#{subjectBean.addSubject}" />
+                    <p:commandButton value="Cadastrar" update="growl"  action="#{subjectBean.addSubject}" />
                 </h:panelGrid>
             </p:panel>
         </h:form>
