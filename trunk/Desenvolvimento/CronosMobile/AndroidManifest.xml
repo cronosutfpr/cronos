@@ -65,7 +65,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.BookView"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.BookView"
             android:label="@string/title_activity_book_view" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

@@ -9,6 +9,7 @@
     tools:context=".BookView" >
 
     <LinearLayout
+        android:id="@+id/linearLayout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
@@ -19,16 +20,15 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/btnChangeDate"
+                android:id="@+id/btStartDate"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Data Início" />
 
             <TextView
-                android:id="@+id/tvDisplayDate"
+                android:id="@+id/txtStartDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
 
@@ -38,18 +38,32 @@
             android:orientation="horizontal" >
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/btEndDate"
                 android:layout_width="120dp"
                 android:layout_height="wrap_content"
                 android:text="Data Fim" />
 
             <TextView
-                android:id="@+id/textView4"
+                android:id="@+id/txtEndDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="12"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
     </LinearLayout>
+
+    <Spinner
+        android:id="@+id/sp_period"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/linearLayout1"
+        android:layout_below="@+id/linearLayout1" />
+
+    <Button
+        android:id="@+id/btBook"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/sp_period"
+        android:layout_below="@+id/sp_period"
+        android:text="Reservar Sala" />
 
 </RelativeLayout>
