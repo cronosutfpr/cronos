@@ -2,6 +2,7 @@ package br.edu.utfpr.cm.cronos.managedbean;
 
 import br.edu.utfpr.cm.cronos.daos.DaoSubject;
 import br.edu.utfpr.cm.cronos.model.Subject;
+import javax.faces.application.FacesMessage;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -28,13 +29,13 @@ public class SubjectBean {
     public void setSubject(Subject subject) {
         this.subject = subject;
     }
-    
-    public String addSubject() {
-        FacesContext context = FacesContext.getCurrentInstance();
+
+    public void addSubject() {
         DaoSubject ds = new DaoSubject();
         ds.persistir(this.subject);
-        
-        System.out.println("Adicionou a disciplina");
-        return "cad_disciplinas";
+
+        FacesContext context = FacesContext.getCurrentInstance();
+        context.addMessage(null, new FacesMessage("Sucesso", subject.getName() + " foi inserido com sucesso."));
+
     }
 }
