@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.http.NameValuePair;
-import org.apache.http.message.BasicNameValuePair;
 
 import android.app.AlertDialog;
 import android.app.ListActivity;
@@ -33,7 +32,10 @@ import com.google.gson.reflect.TypeToken;
  */
 public class ClassRoomActivity extends ListActivity {
 
-    @Override
+    private ArrayList<NameValuePair> parametrosPost;
+	private MenuItem menuItemHome;
+
+	@Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 	// Removi essa linha porque estou usando o layout do proprio Android
@@ -57,8 +59,7 @@ public class ClassRoomActivity extends ListActivity {
 	// Strig com a url do webservice
 	String urlGet = "http://192.168.1.10/CronosPHP/services/classroom/"+service;
 	
-	// ArrayList do tipo "chave valor"
-	ArrayList<NameValuePair> parametrosPost = new ArrayList<NameValuePair>();
+	setParametrosPost(new ArrayList<NameValuePair>());
 	
 	// Onde passamos o nome do parametro e o valor neste caso, "task" é a tarefa que o webservice deve executar e "listar" é o valor esperado para listar as salas
 	// parametrosPost.add(new BasicNameValuePair("task", "listar"));
@@ -159,7 +160,7 @@ public class ClassRoomActivity extends ListActivity {
 
     	MenuItem pesquisar = menu.add(0, 0, 0, "Pesquisar");
     	pesquisar.setIcon(R.drawable.search);
-    	MenuItem home = menu.add(0, 1, 0, "Início");
+    	setHome(menu.add(0, 1, 0, "Início"));
     	
 		return true;
     }
@@ -195,5 +196,21 @@ public class ClassRoomActivity extends ListActivity {
 	alerta.setNeutralButton("OK", null);
 	alerta.show();
     }
+
+	public ArrayList<NameValuePair> getParametrosPost() {
+		return parametrosPost;
+	}
+
+	public void setParametrosPost(ArrayList<NameValuePair> parametrosPost) {
+		this.parametrosPost = parametrosPost;
+	}
+
+	public MenuItem getHome() {
+		return menuItemHome;
+	}
+
+	public void setHome(MenuItem home) {
+		this.menuItemHome = home;
+	}
 
 }

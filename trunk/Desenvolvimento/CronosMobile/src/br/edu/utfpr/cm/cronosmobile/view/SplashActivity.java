@@ -22,27 +22,26 @@ import br.edu.utfpr.cm.cronosmobile.persistence.SqliteController;
  * criando as tabelas e fazendo as inserções necessárias.
  *
  */
-public class SlpahActivity extends Activity implements Runnable {
+public class SplashActivity extends Activity implements Runnable {
 
 	private SqliteController sqliteController;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		setContentView(R.layout.slpah);
+		setContentView(R.layout.splash);
 
-		this.sqliteController = new SqliteController(getApplicationContext());
+		this.setSqliteController(new SqliteController(getApplicationContext()));
 
 		
-		Administrador a = new Administrador();
-		AdministradorDAO ad = new AdministradorDAO(getApplicationContext());
+		AdministradorDAO administradorDAO = new AdministradorDAO(getApplicationContext());
 		
-		ArrayList<Administrador> adm = new ArrayList<Administrador>();
-		adm = ad.listarTodos();
+		ArrayList<Administrador> arrayListAdm = new ArrayList<Administrador>();
+		arrayListAdm = administradorDAO.listarTodos();
 		
 		// Caso não tenha um administrador, o sistema cria um para poder testar
-		if (adm.size() > 0) {
-		    Log.i("Administradores: ", adm.size() + "");
+		if (arrayListAdm.size() > 0) {
+		    Log.i("Administradores: ", arrayListAdm.size() + "");
 		} else {
 			// Cria um administrador para testes quando inicia o sistema.
 			criaAdministrador("wyworak", "wyworak@gmail.com", "123");
@@ -82,6 +81,16 @@ public class SlpahActivity extends Activity implements Runnable {
 
 		ad.salvar(a);
 
+	}
+
+
+	public SqliteController getSqliteController() {
+		return sqliteController;
+	}
+
+
+	public void setSqliteController(SqliteController sqliteController) {
+		this.sqliteController = sqliteController;
 	}
 
 }

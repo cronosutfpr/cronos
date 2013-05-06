@@ -20,7 +20,7 @@ import br.edu.utfpr.cm.cronosmobile.persistence.Sqlite;
  */
 public class PrincipalActivity extends ListActivity {
 
-    private Button btSair;
+    private Button buttonSair;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,4 +78,12 @@ public class PrincipalActivity extends ListActivity {
 	Sqlite.fechar();
 	finish();
     }
+
+	public Button getBtSair() {
+		return buttonSair;
+	}
+
+	public void setBtSair(Button btSair) {
+		this.buttonSair = btSair;
+	}
 }

@@ -2,13 +2,12 @@ package br.edu.utfpr.cm.cronosmobile.persistence;
 
 import java.util.ArrayList;
 
-import br.edu.utfpr.cm.cronosmobile.model.Administrador;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.util.Log;
+import br.edu.utfpr.cm.cronosmobile.model.Administrador;
 
 /**
  * 
