@@ -8,57 +8,42 @@
         <h:form id="form">  
             
             <p:growl id="messages" showDetail="true"/>  
-            <p:dataTable var="teacher" value="#{listarProfessores.professores}" editable="true" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
+            <p:dataTable var="subject" value="#{listarDisciplinas.disciplinas}" editable="true" rowKey="#{subject.name}" paginator="true" rows="10"  selectionMode="single" id="subjectTable">  
 
-                <p:ajax event="rowEdit" listener="#{listarProfessores.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarProfessores.onCancel}" update=":form:messages"/>  
+                <p:ajax event="rowEdit" listener="#{listarDisciplinas.onEdit}" update=":form:messages"/>  
+                <p:ajax event="rowEditCancel" listener="#{listarDisciplinas.onCancel}" update=":form:messages"/>  
 
                 <p:column headerText="id">  
-                    <h:outputText value="#{teacher.id}" />  
+                    <h:outputText value="#{subject.id}" />  
                 </p:column>  
 
                 <p:column headerText="Nome">  
 
                     <p:cellEditor>  
                         <f:facet name="output">  
-                            <h:outputText value="#{teacher.name}" />  
+                            <h:outputText value="#{subject.name}" />  
                         </f:facet>  
                         <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoNome}" style="width:100%"/>  
+                            <p:inputText value="#{listarDisciplinas.novoNome}" style="width:100%"/>  
                         </f:facet>  
                     </p:cellEditor>   
                 </p:column>  
                 
-                <p:column headerText="Email">  
+                <p:column headerText="Sigla">  
 
                     <p:cellEditor>  
                         <f:facet name="output">  
-                            <h:outputText value="#{teacher.email}" />  
+                            <h:outputText value="#{subject.short}" />  
                         </f:facet>  
                         <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoEmail}" style="width:100%"/>  
+                            <p:inputText value="#{listarDisciplinas.novoShort}" style="width:100%"/>  
                         </f:facet>  
                     </p:cellEditor>   
                 </p:column> 
 
-                <p:column headerText="Sexo">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{teacher.gender}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoSexo}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
-                </p:column>  
-
-                <p:column headerText="Color">  
-                    <div style="background-color: #{teacher.color}; width: 80px; height: 20px;"></div>
-                </p:column> 
-                <p:column style="width:6%">  
+               <p:column style="width:6%">  
                     <p:rowEditor />  
-                </p:column>  
+               </p:column>  
 
             </p:dataTable> 
 
