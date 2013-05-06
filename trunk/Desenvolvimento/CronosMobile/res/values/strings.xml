@@ -13,5 +13,6 @@
     <string name="sign_in">Entrar</string>
     <string name="title_activity_lista_salas">Cronos - Salas</string>
     <string name="title_activity_search_classroom_view">Cronos - Pesquisar Salas</string>
+    <string name="title_activity_book_view">Cronos - Reservas</string>
 
 </resources>
