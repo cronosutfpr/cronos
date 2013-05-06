@@ -40,6 +40,17 @@
     });
 </script>
 
+<?php
+require_once "classes/geral.php";
+$geral = new geral();
+
+$sql = "select classroom0_.id as id2_, classroom0_._short as column2_2_, classroom0_.bookable as bookable2_,
+	 classroom0_.building as building2_, classroom0_.capacity as capacity2_, classroom0_.idxml as idxml2_, classroom0_.name as name2_, 
+	 classroom0_.owner_id as owner10_2_, classroom0_.status as status2_, classroom0_.type as type2_ from ClassRoom classroom0_";
+
+$query_lista = $geral->sql_select($sql);
+?>
+
 <form id="form_listagem" action="" method="post">
     <table cellpadding="0" cellspacing="0" border="0" class="display" id="listagem">
         <thead>
@@ -63,8 +74,7 @@
                                             <td>" . $linha->status2_ . "</td>"
                 ?>
             <td class="center">
-                <a href="#dialog" name="modal"><img src="images/icn_edit.png" title="Editar"/></a>
-                <a href="javascript:void(0);" onclick="removeUser();"><img src="images/icn_trash.png" title="Excluir"/></a>
+                <a href="#dialog" name="modal"><img src="images/icn_new_article.png" title="Reservar"/></a>
             </td>
             <?php
             echo "</tr>";
@@ -98,7 +108,9 @@
     <div id="boxes">
         <div id="dialog" class="window">
             <a href="#" class="close">Fechar [X]</a><br />
-                <?php include 'calendarView.php' ?>
+                <?php include 'calendarView.php';
+                        include 'json-events.php';
+                ?>
         </div>
     </div>
 
