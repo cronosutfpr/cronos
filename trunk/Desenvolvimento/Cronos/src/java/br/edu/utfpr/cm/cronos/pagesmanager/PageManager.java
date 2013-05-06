@@ -31,6 +31,10 @@ public class PageManager implements Serializable {
     public void setPagListaSalas() {
         this.paginaAtiva = "./pages/lista_salas.xhtml";
     }
+    
+    public void setPagListaDisciplinas() {
+        this.paginaAtiva = "./pages/lista_disciplinas.xhtml";
+    }
 
     public void setPagListaProfs() {
         this.paginaAtiva = "./pages/lista_professores.xhtml";
