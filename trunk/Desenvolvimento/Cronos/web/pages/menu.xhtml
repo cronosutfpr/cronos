@@ -4,47 +4,47 @@
     <div id="sidebar" class="column">
         <h3>Salas</h3>
         <h:form>
-        <ul class="toggle">
-            <li class="icn_new_article">
-                <h:commandLink value="Adicionar Sala" action="#{pageManager.setPg1()}" />
-            </li>
-            <li class="icn_new_article">
-                <h:commandLink value="Listar Salas" action="#{pageManager.setPagListaSalas()}" />
-            </li>
-        </ul>
-        <h3>Disciplinas</h3>
-        <ul class="toggle">
-            <li class="icn_new_article">
-                <h:commandLink value="Adicionar Disciplina" action="#{pageManager.setPg5()}" />
-            </li>
-            <li class="icn_new_article">
-                <h:commandLink value="Listar Disciplina" action="#{pageManager.setPagListaDisciplinas()}" />
-            </li>
-        </ul>
-        <h3>Professores</h3>
-        <ul class="toggle">
+            <ul class="toggle">
                 <li class="icn_new_article">
-                <h:commandLink value="Listar Professores" action="#{pageManager.setPagListaProfs()}" />
-            </li>
-            <li class="icn_new_article">
+                    <h:commandLink value="Adicionar Sala" action="#{pageManager.setPg1()}" />
+                </li>
+                <li class="icn_new_article">
+                    <h:commandLink value="Listar Salas" action="#{pageManager.setPagListaSalas()}" />
+                </li>
+            </ul>
+            <h3>Disciplinas</h3>
+            <ul class="toggle">
+                <li class="icn_new_article">
+                    <h:commandLink value="Adicionar Disciplina" action="#{pageManager.setPg5()}" />
+                </li>
+                <li class="icn_new_article">
+                    <h:commandLink value="Listar Disciplina" action="#{pageManager.setPagListaDisciplinas()}" />
+                </li>
+            </ul>
+            <h3>Professores</h3>
+            <ul class="toggle">
+                <li class="icn_new_article">
+                    <h:commandLink value="Listar Professores" action="#{pageManager.setPagListaProfs()}" />
+                </li>
+                <li class="icn_new_article">
                     <h:commandLink value="Adicionar Professores" action="#{pageManager.setPg4()}" />
-            </li>
-        </ul>
-        <h3>Turmas</h3>
-        <ul class="toggle">
-            <li class="icn_new_article">
-                <h:link value="Adicionar Turma" outcome="index.xhtml" >
-                    <f:param name="page" value="pages/cad_turmas.xhtml" />
-                </h:link></li>
-            <li class="icn_new_article"><a href="#">Listar Turmas</a></li>
-            <li class="icn_categories"><a href="#">Editar Turma</a></li>
-        </ul>
-        <h3>Reservas</h3>
-        <ul class="toggle">
-            <li class="icn_photo"> <h:commandLink value="Nova Reserva" action="#{pageManager.setPagListaSalasReserva()}" /></li>
-            <li class="icn_audio"> <h:commandLink value="Listar Reservas" action="#{pageManager.setPagHorarioSalas()}" /></li>
-            <li class="icn_video"> <h:commandLink value="Minhas Reservas" action="#{pageManager.setPagListaReservasUsuario()}" /></li>
-        </ul>
+                </li>
+            </ul>
+            <h3>Turmas</h3>
+            <ul class="toggle">
+                <li class="icn_new_article">
+                    <h:commandLink value="Adicionar Turma" action="#{pageManager.setPagCadTurmas()}" />
+                </li>
+                <li class="icn_new_article">
+                    <h:commandLink value="Listar Turmas" action="#{pageManager.setPagListaTurmas()}" />
+                </li>
+            </ul>
+            <h3>Reservas</h3>
+            <ul class="toggle">
+                <li class="icn_photo"> <h:commandLink value="Nova Reserva" action="#{pageManager.setPagListaSalasReserva()}" /></li>
+                <li class="icn_audio"> <h:commandLink value="Listar Reservas" action="#{pageManager.setPagHorarioSalas()}" /></li>
+                <li class="icn_video"> <h:commandLink value="Minhas Reservas" action="#{pageManager.setPagListaReservasUsuario()}" /></li>
+            </ul>
         </h:form>
     </div>
 </ui:composition>

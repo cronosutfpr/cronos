@@ -1,0 +1,55 @@
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:uri="http://primefaces.prime.com.tr/ui">
+    <div id="principal">
+        <h:form id="form">  
+            
+            <p:growl id="messages" showDetail="true"/>  
+            <p:dataTable var="classe" value="#{listarTurmas.turmas}" editable="true" rowKey="#{classe.name}" paginator="true" rows="10"  selectionMode="single" id="classeTable">  
+
+                <p:ajax event="rowEdit" listener="#{listarTurmas.onEdit}" update=":form:messages"/>  
+                <p:ajax event="rowEditCancel" listener="#{listarTurmas.onCancel}" update=":form:messages"/>  
+
+                <p:column headerText="id">  
+                    <h:outputText value="#{classe.id}" />  
+                </p:column>  
+
+                <p:column headerText="Nome">  
+
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{classe.name}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarTurmas.novoNome}" style="width:100%"/>  
+                        </f:facet>  
+                    </p:cellEditor>   
+                </p:column>  
+                
+                <p:column headerText="Sigla">  
+
+                    <p:cellEditor>  
+                        <f:facet name="output">  
+                            <h:outputText value="#{classe.short}" />  
+                        </f:facet>  
+                        <f:facet name="input">  
+                            <p:inputText value="#{listarTurmas.novoShort}" style="width:100%"/>  
+                        </f:facet>  
+                    </p:cellEditor>   
+                </p:column> 
+
+               <p:column style="width:6%">  
+                    <p:rowEditor />  
+               </p:column>  
+
+            </p:dataTable> 
+
+
+
+        </h:form> 
+    </div>
+</ui:composition>
+
