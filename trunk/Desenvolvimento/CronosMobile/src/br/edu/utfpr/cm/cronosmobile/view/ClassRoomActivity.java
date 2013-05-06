@@ -13,9 +13,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 import br.edu.utfpr.cm.cronosmobile.R;
@@ -39,22 +39,34 @@ public class ClassRoomActivity extends ListActivity {
 	// Removi essa linha porque estou usando o layout do proprio Android
 	// setContentView(R.layout.class_room_list);
 
+	Intent iService = getIntent();
+	String service = "";
+	if (iService != null) {
+		Bundle parametrosRecebidos = iService.getExtras();  
+		if (parametrosRecebidos != null) {
+			service = parametrosRecebidos.getString("service"); 
+		}
+	}
+	 
+	Log.i("service", service);
+	
 	String retorno = "";
 	String resposta = "";
 
+	
 	// Strig com a url do webservice
-	String urlPost = "http://192.168.1.3/cronos/";
+	String urlGet = "http://192.168.1.10/CronosPHP/services/classroom/"+service;
 	
 	// ArrayList do tipo "chave valor"
 	ArrayList<NameValuePair> parametrosPost = new ArrayList<NameValuePair>();
 	
 	// Onde passamos o nome do parametro e o valor neste caso, "task" é a tarefa que o webservice deve executar e "listar" é o valor esperado para listar as salas
-	parametrosPost.add(new BasicNameValuePair("task", "listar"));
+	// parametrosPost.add(new BasicNameValuePair("task", "listar"));
 
 	try {
 	    
 	    // Tenta a conexão com o servidor
-	    resposta = ConexaoHttpClient.httpPost(urlPost, parametrosPost);
+	    resposta = ConexaoHttpClient.httpGet(urlGet);
 	    Log.e("Logs", "Postou");
 	    resposta = resposta.toString();
 	    Log.e("Logs", "Recebeu" + resposta);
@@ -130,22 +142,43 @@ public class ClassRoomActivity extends ListActivity {
 	// String selectedValue = (String) getListAdapter().getItem(position);
 	// Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
 
-	switch (position) {
-	case 0:
-	    Toast.makeText(this, "Fazer alguma coisa", Toast.LENGTH_SHORT).show();
-	    break;
+		switch (position) {
+		case 0:
+			Toast.makeText(this, "Fazer alguma coisa", Toast.LENGTH_SHORT)
+					.show();
+			break;
 
-	default:
-	    Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
-	    break;
+		default:
+			Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
+			break;
+		}
 	}
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-	// Inflate the menu; this adds items to the action bar if it is present.
-	getMenuInflater().inflate(R.menu.lista_salas, menu);
-	return true;
+
+    	MenuItem pesquisar = menu.add(0, 0, 0, "Pesquisar");
+    	pesquisar.setIcon(R.drawable.search);
+    	MenuItem home = menu.add(0, 1, 0, "Início");
+    	
+		return true;
+    }
+    
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+    	switch (item.getItemId()) {
+		case 0:
+			Intent intentSearch = new Intent(ClassRoomActivity.this, SearchClassroomView.class);
+			startActivity(intentSearch);
+			break;
+		case 1:
+			finish();
+			break;
+
+		default:
+			break;
+		}
+    	return super.onOptionsItemSelected(item);
     }
 
     /**

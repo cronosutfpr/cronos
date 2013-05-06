@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">CronosMobile</string>
+    <string name="app_name">Cronos - Sistema de Reservas</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
-    <string name="title_activity_slpah">Cronos</string>
-    <string name="title_activity_login">Login</string>
+    <string name="title_activity_slpah">Cronos - Carregando</string>
+    <string name="title_activity_login">Cronos - Login</string>
     <string name="exit">Sair</string>
     <string name="wait">Aguarde</string>
     <string name="user">Usuário</string>
     <string name="password">Senha</string>
     <string name="sign_in">Entrar</string>
-    <string name="title_activity_lista_salas">ListaSalasActivity</string>
+    <string name="title_activity_lista_salas">Cronos - Salas</string>
+    <string name="title_activity_search_classroom_view">Cronos - Pesquisar Salas</string>
 
 </resources>

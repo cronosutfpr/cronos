@@ -28,9 +28,9 @@ public class PrincipalActivity extends ListActivity {
 	// setContentView(R.layout.menu);
 
 	String[] opcoes = new String[] { 
-			"Listar Salas", 
-			"Listar Professores",
-			"Listar Disciplinas" 
+			"Salas", 
+			"Reservas",
+			"Sair"
 			};
 
 	setListAdapter(new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, opcoes));
@@ -38,13 +38,6 @@ public class PrincipalActivity extends ListActivity {
 	ListView listView = getListView();
 	listView.setTextFilterEnabled(true);
 
-	// this.btSair = (Button) findViewById(R.id.btSair);
-	//
-	// btSair.setOnClickListener(new View.OnClickListener() {
-	// public void onClick(View v) {
-	// onDestroy();
-	// }
-	// });
     }
 
     @Override
@@ -56,9 +49,16 @@ public class PrincipalActivity extends ListActivity {
 
 	switch (position) {
 	case 0:
-	    Intent intent = new Intent(PrincipalActivity.this, ClassRoomActivity.class);
-	    startActivity(intent);
+	    Intent intentClassroom = new Intent(PrincipalActivity.this, ClassRoomActivity.class);
+	    startActivity(intentClassroom);
 	    break;
+	case 1:
+		Intent intentBook = new Intent(PrincipalActivity.this, ClassRoomActivity.class);
+		startActivity(intentBook);
+		break;
+	case 2:
+		onDestroy();
+		break;
 
 	default:
 	    Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
