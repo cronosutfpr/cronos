@@ -3,7 +3,28 @@
 	$(document).ready(function() {
 	
 		$('#calendar').fullCalendar({
-		
+                        header: {
+				left: 'prev,next today',
+				center: 'title',
+				right: 'month,agendaWeek,agendaDay'
+			},
+			selectable: true,
+			selectHelper: true,
+			select: function(start, end, allDay) {
+				var title = prompt('Event Title:');
+				if (title) {
+					calendar.fullCalendar('renderEvent',
+						{
+							title: title,
+							start: start,
+							end: end,
+							allDay: allDay
+						},
+						true // make the event "stick"
+					);
+				}
+				calendar.fullCalendar('unselect');
+			},		
 			editable: true,
 			
 			events: "json-events.php",
@@ -33,7 +54,7 @@
 		}
 
 	#calendar {
-		width: 900px;
+		width: 790px;
 		margin: 0 auto;
 		}
 
@@ -41,5 +62,4 @@
 
 <div id='loading' style='display:none'>loading...</div>
 <div id='calendar'></div>
-<p>json-events.php needs to be running in the same directory.</p>
 
