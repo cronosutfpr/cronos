@@ -19,7 +19,7 @@ jQuery(function ($) {
 					overlayId: 'osx-overlay',
 					containerId: 'osx-container',
 					closeHTML: null,
-					minHeight: 80,
+					minHeight: 400,
 					opacity: 65, 
 					position: ['0',],
 					overlayClose: true,
@@ -39,10 +39,10 @@ jQuery(function ($) {
 					setTimeout(function () {
 						var h = $("#osx-modal-data", self.container).height()
 							+ title.height()
-							+ 20; // padding
+							+ 540; // padding
 						d.container.animate(
 							{height: h}, 
-							200,
+							600,
 							function () {
 								$("div.close", self.container).show();
 								$("#osx-modal-data", self.container).show();

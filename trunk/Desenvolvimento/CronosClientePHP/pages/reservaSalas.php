@@ -18,8 +18,8 @@
             var winH = $(window).height();
             var winW = $(window).width();
 
-            $(id).css('top', winH / 2 - $(id).height() / 2);
-            $(id).css('left', winW / 2 - $(id).width() / 2);
+            $(id).css('top', 10);
+            $(id).css('left', 200);
 
             $(id).fadeIn(2000);
 
@@ -63,7 +63,7 @@
                                             <td>" . $linha->status2_ . "</td>"
                 ?>
             <td class="center">
-                <a href='#' class='osx'><img src="images/icn_edit.png" title="Editar"/></a>
+                <a href="#dialog" name="modal"><img src="images/icn_edit.png" title="Editar"/></a>
                 <a href="javascript:void(0);" onclick="removeUser();"><img src="images/icn_trash.png" title="Excluir"/></a>
             </td>
             <?php
@@ -88,11 +88,19 @@
             </tr>
         </tfoot>
     </table>
-    <div id="osx-modal-content">
-        <div id="osx-modal-title">OSX Style Modal Dialog</div>
-        <div class="close"><a href="#" class="simplemodal-close">x</a></div>
-        <div id="osx-modal-data">
-            <?php include 'calendarView.php' ?>
+    <!--    <div id="osx-modal-content">
+            <div id="osx-modal-title">OSX Style Modal Dialog</div>
+            <div class="close"><a href="#" class="simplemodal-close">x</a></div>
+            <div id="osx-modal-data">
+    <?php // include 'calendarView.php' ?>
+            </div>
+        </div>-->
+    <div id="boxes">
+        <div id="dialog" class="window">
+            <a href="#" class="close">Fechar [X]</a><br />
+                <?php include 'calendarView.php' ?>
         </div>
     </div>
+
+    <div id="mask"></div>
 </form>
