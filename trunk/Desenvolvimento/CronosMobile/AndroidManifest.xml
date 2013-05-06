@@ -20,7 +20,7 @@
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.view.PrincipalActivity"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.PrincipalView"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -29,7 +29,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.view.SlpahActivity"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.SplashView"
             android:label="@string/title_activity_slpah" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -38,7 +38,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.view.LoginActivity"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.LoginView"
             android:label="@string/title_activity_login" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -47,7 +47,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.view.ClassRoomActivity"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.ClassRoomView"
             android:label="@string/title_activity_lista_salas" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

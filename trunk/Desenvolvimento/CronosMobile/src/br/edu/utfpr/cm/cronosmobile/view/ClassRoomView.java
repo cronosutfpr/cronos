@@ -30,7 +30,7 @@ import com.google.gson.reflect.TypeToken;
  * @author Willyan Schultz Dworak
  * 
  */
-public class ClassRoomActivity extends ListActivity {
+public class ClassRoomView extends ListActivity {
 
     private ArrayList<NameValuePair> parametrosPost;
 	private MenuItem menuItemHome;
@@ -169,7 +169,7 @@ public class ClassRoomActivity extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
 		case 0:
-			Intent intentSearch = new Intent(ClassRoomActivity.this, SearchClassroomView.class);
+			Intent intentSearch = new Intent(ClassRoomView.this, SearchClassroomView.class);
 			startActivity(intentSearch);
 			break;
 		case 1:
@@ -190,7 +190,7 @@ public class ClassRoomActivity extends ListActivity {
      * 
      */
     public void mensagens(String title, String msg) {
-	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomActivity.this);
+	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomView.this);
 	alerta.setTitle(title);
 	alerta.setMessage(msg);
 	alerta.setNeutralButton("OK", null);

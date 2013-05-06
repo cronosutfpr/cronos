@@ -22,7 +22,7 @@ import br.edu.utfpr.cm.cronosmobile.persistence.SqliteController;
  * criando as tabelas e fazendo as inserções necessárias.
  *
  */
-public class SplashActivity extends Activity implements Runnable {
+public class SplashView extends Activity implements Runnable {
 
 	private SqliteController sqliteController;
 
@@ -66,7 +66,7 @@ public class SplashActivity extends Activity implements Runnable {
 	 */
 	@Override
 	public void run() {
-		startActivity(new Intent(this, LoginActivity.class));
+		startActivity(new Intent(this, LoginView.class));
 		finish();
 	}
 

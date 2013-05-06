@@ -18,7 +18,7 @@ import br.edu.utfpr.cm.cronosmobile.model.Administrador;
  * @author Willyan Schultz Dworak
  * 
  */
-public class LoginActivity extends Activity {
+public class LoginView extends Activity {
 
 	private Button btEntrar;
 	private EditText edUser;
@@ -40,8 +40,8 @@ public class LoginActivity extends Activity {
 				a.setSenha(edSenha.getText().toString());
 
 				if (AdministradorController.validarUsuario(getApplicationContext(), a)) {
-					Intent intent = new Intent(LoginActivity.this,
-					PrincipalActivity.class);
+					Intent intent = new Intent(LoginView.this,
+					PrincipalView.class);
 					startActivity(intent);
 					finish();
 				} else {

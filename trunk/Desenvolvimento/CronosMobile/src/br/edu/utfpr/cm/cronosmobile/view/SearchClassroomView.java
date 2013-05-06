@@ -26,7 +26,7 @@ public class SearchClassroomView extends Activity {
 
 		this.btBuscar.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
-				Intent intentSearch = new Intent(SearchClassroomView.this, ClassRoomActivity.class);
+				Intent intentSearch = new Intent(SearchClassroomView.this, ClassRoomView.class);
 				
 				Bundle b = new Bundle();  
 				b.putString("service", "list/classroom/" + edSearchClassroom.getText().toString());  

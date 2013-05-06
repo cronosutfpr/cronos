@@ -18,7 +18,7 @@ import br.edu.utfpr.cm.cronosmobile.persistence.Sqlite;
  * @author Willyan Schultz Dworak
  * 
  */
-public class PrincipalActivity extends ListActivity {
+public class PrincipalView extends ListActivity {
 
     private Button buttonSair;
 
@@ -49,11 +49,11 @@ public class PrincipalActivity extends ListActivity {
 
 	switch (position) {
 	case 0:
-	    Intent intentClassroom = new Intent(PrincipalActivity.this, ClassRoomActivity.class);
+	    Intent intentClassroom = new Intent(PrincipalView.this, ClassRoomView.class);
 	    startActivity(intentClassroom);
 	    break;
 	case 1:
-		Intent intentBook = new Intent(PrincipalActivity.this, ClassRoomActivity.class);
+		Intent intentBook = new Intent(PrincipalView.this, BookView.class);
 		startActivity(intentBook);
 		break;
 	case 2:
