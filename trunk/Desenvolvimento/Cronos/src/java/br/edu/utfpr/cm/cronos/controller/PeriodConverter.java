@@ -26,9 +26,6 @@ public class PeriodConverter implements Converter {
     public static DaoPeriod daoPeriod = new DaoPeriod();
     public static List<Period> periods;
 
-    static {
-        periods = daoPeriod.listar();
-    }
 
     @Override
     public Object getAsObject(FacesContext context, UIComponent component, String value) {
@@ -37,19 +34,11 @@ public class PeriodConverter implements Converter {
         } else {
             try {
                 int number = Integer.parseInt(value);
-
-                for (Period p : periods) {
-                    if (p.getId() == number) {
-                        return p;
-                    }
-                }
-
+                return daoPeriod.obterPorId(number);
             } catch (NumberFormatException exception) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid player"));
             }
         }
-
-        return null;
     }
 
     @Override
@@ -57,8 +46,7 @@ public class PeriodConverter implements Converter {
         if (value == null || value.equals("")) {
             return "";
         } else {
-            String as = String.valueOf(((Period) value).getId());
-            return as;
+            return String.valueOf(((Period) value).getId());
         }
     }
 }

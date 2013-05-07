@@ -132,10 +132,10 @@
 
                         <h:outputLabel for="period" value="Período: "/>  
                         <p:selectOneMenu value="#{bookBean.book.period}" converter="periodConverter">
-                            <f:selectItems  id="period" var="p" value="#{bookBean.periods}" itemLabel="#{p.name}"/> 
+                            <f:selectItems  id="period" var="p" value="#{bookBean.periods}" itemLabel="#{p.name}" itemValue="#{p}"/> 
                         </p:selectOneMenu>
                         <p:message for="period" />
-
+                        
                         <h:outputLabel for="note" value="Observação:"/>  
                         <p:inputTextarea id="note" value="#{bookBean.book.note}" rows="8" cols="50" />
                         <p:message for="note" />
