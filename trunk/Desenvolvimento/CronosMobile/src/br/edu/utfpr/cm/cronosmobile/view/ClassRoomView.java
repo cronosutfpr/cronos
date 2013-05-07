@@ -38,11 +38,10 @@ public class ClassRoomView extends ListActivity {
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
-	// Removi essa linha porque estou usando o layout do proprio Android
-	// setContentView(R.layout.class_room_list);
 
 	Intent iService = getIntent();
 	String service = "";
+	
 	if (iService != null) {
 		Bundle parametrosRecebidos = iService.getExtras();  
 		if (parametrosRecebidos != null) {
@@ -50,8 +49,6 @@ public class ClassRoomView extends ListActivity {
 		}
 	}
 	 
-	Log.i("service", service);
-	
 	String retorno = "";
 	String resposta = "";
 
@@ -129,7 +126,7 @@ public class ClassRoomView extends ListActivity {
 	}
 
 	// Adaper que pega a lista de String e coloca na ListView
-	setListAdapter(new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1, salas));
+	setListAdapter(new ArrayAdapter<ClassRoom>(this,android.R.layout.simple_list_item_1, jsonObjectList));
 
 	ListView listView = getListView();
 	listView.setTextFilterEnabled(true);
@@ -173,7 +170,8 @@ public class ClassRoomView extends ListActivity {
 			startActivity(intentSearch);
 			break;
 		case 1:
-			finish();
+			Intent intentHome = new Intent(ClassRoomView.this, PrincipalView.class);
+			startActivity(intentHome);
 			break;
 
 		default:
@@ -190,11 +188,11 @@ public class ClassRoomView extends ListActivity {
      * 
      */
     public void mensagens(String title, String msg) {
-	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomView.this);
-	alerta.setTitle(title);
-	alerta.setMessage(msg);
-	alerta.setNeutralButton("OK", null);
-	alerta.show();
+    	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomView.this);
+    	alerta.setTitle(title);
+    	alerta.setMessage(msg);
+    	alerta.setNeutralButton("OK", null);
+    	alerta.show();
     }
 
 	public ArrayList<NameValuePair> getParametrosPost() {

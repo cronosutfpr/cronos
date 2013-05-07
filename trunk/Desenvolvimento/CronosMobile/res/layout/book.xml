@@ -49,6 +49,17 @@
                 android:layout_height="wrap_content"
                 android:textAppearance="?android:attr/textAppearanceLarge" />
         </LinearLayout>
+
+        <TextView
+            android:id="@+id/txtPeriod"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="3dp"
+            android:layout_marginTop="20dp"
+            android:text="Escolha o Período"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="20dp" />
+
     </LinearLayout>
 
     <Spinner
@@ -56,7 +67,8 @@
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/linearLayout1"
-        android:layout_below="@+id/linearLayout1" />
+        android:layout_below="@+id/linearLayout1"
+        android:layout_marginBottom="20dp" />
 
     <Button
         android:id="@+id/btBook"
@@ -65,5 +77,14 @@
         android:layout_alignLeft="@+id/sp_period"
         android:layout_below="@+id/sp_period"
         android:text="Reservar Sala" />
+
+    <Button
+        android:id="@+id/btBookBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/btBook"
+        android:layout_below="@+id/btBook"
+        android:layout_marginTop="10dp"
+        android:text="Voltar ao Início" />
 
 </RelativeLayout>

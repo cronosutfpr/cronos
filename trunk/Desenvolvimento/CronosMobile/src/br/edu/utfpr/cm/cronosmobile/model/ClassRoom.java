@@ -17,10 +17,10 @@ public class ClassRoom {
 
     // Isso é usado para a criação de banco de dados (Facilita nos comandos)
     public static String[] colunas = new String[] { 
-	ClassRoom.ID, 
-	ClassRoom.IDXML, 
-	ClassRoom.NAME, 
-	ClassRoom._SHORT 
+		ClassRoom.ID, 
+		ClassRoom.IDXML, 
+		ClassRoom.NAME, 
+		ClassRoom._SHORT 
     };
 	
     private String id;
@@ -28,36 +28,42 @@ public class ClassRoom {
     private String name;
     private String _short;
     
-    public String getId() {
-	return id;
-    }
+	public String getId() {
+		return id;
+	}
 
-    public void setId(String id) {
-	this.id = id;
-    }
+	public void setId(String id) {
+		this.id = id;
+	}
 
-    public String getIdxml() {
-	return idxml;
-    }
+	public String getIdxml() {
+		return idxml;
+	}
 
-    public void setIdxml(String idxml) {
-	this.idxml = idxml;
-    }
+	public void setIdxml(String idxml) {
+		this.idxml = idxml;
+	}
 
-    public String getName() {
-	return name;
-    }
+	public String getName() {
+		return name;
+	}
 
-    public void setName(String name) {
-	this.name = name;
-    }
+	public void setName(String name) {
+		this.name = name;
+	}
 
-    public String get_short() {
-	return _short;
-    }
+	public String get_short() {
+		return _short;
+	}
 
-    public void set_short(String _short) {
-	this._short = _short;
-    }
+	public void set_short(String _short) {
+		this._short = _short;
+	}
 
+	@Override
+	public String toString() {
+		return this.name;
+	}
+
+	
 }

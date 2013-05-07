@@ -9,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
+import br.edu.utfpr.cm.cronosmobile.BookSearchView;
 import br.edu.utfpr.cm.cronosmobile.R;
 import br.edu.utfpr.cm.cronosmobile.persistence.Sqlite;
 
@@ -28,8 +29,9 @@ public class PrincipalView extends ListActivity {
 	// setContentView(R.layout.menu);
 
 	String[] opcoes = new String[] { 
-			"Salas", 
-			"Reservas",
+			"Pesquisar Salas", 
+			"Reservar Salas",
+			"Pesquisar Reservas",
 			"Sair"
 			};
 
@@ -48,35 +50,39 @@ public class PrincipalView extends ListActivity {
 	// Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
 
 	switch (position) {
-	case 0:
-	    Intent intentClassroom = new Intent(PrincipalView.this, ClassRoomView.class);
-	    startActivity(intentClassroom);
-	    break;
-	case 1:
-		Intent intentBook = new Intent(PrincipalView.this, BookView.class);
-		startActivity(intentBook);
-		break;
-	case 2:
-		onDestroy();
-		break;
-
-	default:
-	    Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
-	    break;
-	}
+		case 0:
+		    Intent intentClassroom = new Intent(PrincipalView.this, ClassRoomView.class);
+		    startActivity(intentClassroom);
+		    break;
+		case 1:
+			Intent intentBook = new Intent(PrincipalView.this, BookView.class);
+			startActivity(intentBook);
+			break;
+		case 2:
+			Intent intentBookSearch = new Intent(PrincipalView.this, BookSearchView.class);
+			startActivity(intentBookSearch);
+			break;
+		case 3:
+			onDestroy();
+			break;
+	
+		default:
+		    Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
+		    break;
+		}
     }
 
     @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-	getMenuInflater().inflate(R.menu.menu, menu);
-	return true;
+	    public boolean onCreateOptionsMenu(Menu menu) {
+		getMenuInflater().inflate(R.menu.menu, menu);
+		return true;
     }
 
     @Override
     public void onDestroy() {
-	super.onDestroy();
-	Sqlite.fechar();
-	finish();
+		super.onDestroy();
+		Sqlite.fechar();
+		finish();
     }
 
 	public Button getBtSair() {
