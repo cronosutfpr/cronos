@@ -1,4 +1,7 @@
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^site/(.*)$ index.php?pg=$1
+RewriteRule ^services/classroom/(.*)$ services_pages/classroom.php?task=$1
+RewriteRule ^services/period/(.*)$ services_pages/period.php?task=$1
+RewriteRule ^services/book/(.*)$ services_pages/book.php?task=$1
+RewriteRule ^test/classroom/(.*)$ test/classroom_test.php

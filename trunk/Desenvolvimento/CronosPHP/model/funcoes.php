@@ -238,4 +238,20 @@ function enviaEmail($to, $subject, $from, $emailRementente, $message) {
     }
 }
 
+/**
+ * Função que codifica uma string para UTF8
+ * @param $dat - Uma String ou um Array de String
+ * @return O valor inserido codificado para UTF8 
+ */
+function utf8_encode_all($dat) {
+    if (is_string($dat))
+        return utf8_encode($dat);
+    if (!is_array($dat))
+        return $dat;
+    $ret = array();
+    foreach ($dat as $i => $d)
+        $ret[$i] = utf8_encode_all($d);
+    return $ret;
+}
+
 ?>
