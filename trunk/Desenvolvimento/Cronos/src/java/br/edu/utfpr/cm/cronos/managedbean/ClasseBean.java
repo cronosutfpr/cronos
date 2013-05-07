@@ -9,10 +9,11 @@ import br.edu.utfpr.cm.cronos.daos.DaoClasse;
 import br.edu.utfpr.cm.cronos.daos.DaoTeacher;
 import br.edu.utfpr.cm.cronos.model.Classe;
 import br.edu.utfpr.cm.cronos.model.Teacher;
-import java.util.ArrayList;
 import java.util.List;
+import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.context.FacesContext;
 
 /**
  *
