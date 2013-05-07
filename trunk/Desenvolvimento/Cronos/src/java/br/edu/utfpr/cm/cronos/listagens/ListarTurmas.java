@@ -23,6 +23,17 @@ public class ListarTurmas {
     private List<Classe> turmas;
     private String novoNome;
     private String novoShort;
+    
+    
+    private Teacher teacher;
+
+    public Teacher getTeacher() {
+        return teacher;
+    }
+
+    public void setTeacher(Teacher teacher) {
+        this.teacher = teacher;
+    }
 
     public String getNovoNome() {
         return novoNome;
@@ -78,6 +89,9 @@ public class ListarTurmas {
         }
         if(!novoShort.isEmpty()){
             classe.setShort(novoShort);
+        }
+        if(teacher!=null){
+            classe.setTeacher(teacher);
         }
     }
 }

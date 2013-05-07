@@ -3,28 +3,32 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <p:panel id="panel" header="Cadastro Turmas" toggleable="true" closable="true" style="margin:10px;">  
-            <h:panelGrid columns="3" cellpadding="5">  
-                <h:outputLabel for="name" value="Nome: *" />  
-                <p:inputText id="name" value="" required="true" label="Nome">  
-                    <f:validateLength minimum="2" />  
-                </p:inputText>  
-                <p:message for="name" /> 
+        <h:form id="form">
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <p:panel id="panel" header="Cadastro de Turmas" toggleable="true" closable="true" style="margin:10px;"> 
+                <h:panelGrid columns="3" cellpadding="5">
+                    <h:outputLabel for="name" value="Nome: *" />
+                    <p:inputText id="name" value="#{classeBean.classe.name}" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
 
-                <h:outputLabel for="short" value="Abreviação: *" />  
-                <p:inputText id="short" value="" required="true" label="Abreviacao"/>  
-                <p:message for="short" />
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="#{classeBean.classe.short}" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
 
-                <h:outputLabel value="Tipo: " for="Professor Responsável: " />  
-                <p:autoComplete id="teacherid" value="#{autoCompleteBean.txt1}" completeMethod="#{autoCompleteBean.complete}">  
-                    <p:ajax event="itemSelect" listener="#{autoCompleteBean.handleSelect}" />  
-                </p:autoComplete>
-                <p:message for="teacherid" />
-                
-            </h:panelGrid>
-            <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                <p:commandButton value="Cadastrar" update="panel"/>
-            </h:panelGrid>                
-        </p:panel> 
+                    <h:outputLabel for="teacherid" value="Professor: *" />  
+                    <p:autoComplete value="#{classeBean.classe.teacher}" id="teacherid" completeMethod="#{classeBean.completeTeacher}" 
+                                    converter="teacherConverter" var="t" itemLabel="#{t.name}" itemValue="#{t}" forceSelection="true" >  
+                       
+                    </p:autoComplete>
+                    <p:message for="teacherid" />
+
+                </h:panelGrid>
+                <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" update="growl"  action="#{classeBean.cadastrarClasse}" />
+                </h:panelGrid>
+            </p:panel>
+        </h:form>
     </div>
 </ui:composition>
