@@ -122,10 +122,6 @@
                 <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
                     <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  
 
-                        <h:outputLabel for="classe1" value="Sala: " />  
-                        <p:inputText id="classe1" value="#{tableClassRoom.selectedClassRoom.name}" size="50"/> 
-                        <p:message for="classe1" />
-
                         <h:outputLabel for="ptCal" value="Data inicial: "/>  
                         <p:calendar locale="pt" value="#{bookBean.book.startdate}" showButtonPanel="true" navigator="true" id="ptCal"/>
                         <p:message for="ptCal" />
