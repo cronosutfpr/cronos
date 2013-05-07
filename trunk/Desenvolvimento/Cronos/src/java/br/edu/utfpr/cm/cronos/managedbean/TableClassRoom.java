@@ -25,7 +25,7 @@ import org.primefaces.event.UnselectEvent;
 public class TableClassRoom implements Serializable {
 
     private List<ClassRoom> classRooms;
-    private ClassRoom selectedClassRoom;
+    public static ClassRoom selectedClassRoom;
     private ClassRoomDataModel classRoomDataModel;
 
     public TableClassRoom() {

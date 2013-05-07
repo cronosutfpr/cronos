@@ -6,6 +6,7 @@ package br.edu.utfpr.cm.cronos.model;
 
 import java.io.Serializable;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -27,20 +28,20 @@ public class Book implements Serializable {
     private ClassRoom classroom;
     @ManyToOne(fetch = FetchType.EAGER)
     private User requestor;
-    @OneToMany(fetch = FetchType.EAGER)
-    private List<Period> periods;
+    @ManyToOne(fetch = FetchType.EAGER)
+    private Period period;
     @Temporal(TemporalType.DATE)
-    private Calendar startdate;
+    private Date startdate;
     @Temporal(TemporalType.DATE)
-    private Calendar endDate;
+    private Date endDate;
     private BookStatus status;
     private String note;
 
-    public Book(Long id, ClassRoom classroom, User requestor, List<Period> periods, Calendar startdate, Calendar endDate, BookStatus status, String note) {
+    public Book(Long id, ClassRoom classroom, User requestor,Period period, Date startdate, Date endDate, BookStatus status, String note) {
         this.id = id;
         this.classroom = classroom;
         this.requestor = requestor;
-        this.periods = periods;
+        this.period = period;
         this.startdate = startdate;
         this.endDate = endDate;
         this.status = status;
@@ -74,27 +75,27 @@ public class Book implements Serializable {
         this.requestor = requestor;
     }
 
-    public List<Period> getPeriods() {
-        return periods;
+    public Period getPeriod() {
+        return period;
     }
 
-    public void setPeriods(List<Period> periods) {
-        this.periods = periods;
+    public void setPeriod(Period period) {
+        this.period = period;
     }
 
-    public Calendar getStartdate() {
+    public Date getStartdate() {
         return startdate;
     }
 
-    public void setStartdate(Calendar startdate) {
+    public void setStartdate(Date startdate) {
         this.startdate = startdate;
     }
 
-    public Calendar getEndDate() {
+    public Date getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Calendar endDate) {
+    public void setEndDate(Date endDate) {
         this.endDate = endDate;
     }
 

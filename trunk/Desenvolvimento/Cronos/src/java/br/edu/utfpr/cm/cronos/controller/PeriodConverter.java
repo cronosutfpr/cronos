@@ -4,7 +4,9 @@
  */
 package br.edu.utfpr.cm.cronos.controller;
 
+import br.edu.utfpr.cm.cronos.daos.DaoPeriod;
 import br.edu.utfpr.cm.cronos.daos.DaoUser;
+import br.edu.utfpr.cm.cronos.model.Period;
 import br.edu.utfpr.cm.cronos.model.User;
 import java.util.List;
 import javax.faces.application.FacesMessage;
@@ -16,16 +18,16 @@ import javax.faces.convert.FacesConverter;
 
 /**
  *
- * @author AnaMaciel
+ * @author junior
  */
-@FacesConverter(value="userConverter", forClass=UserBean.class)
-public class UserConverter implements Converter {
-    public static DaoUser daoUser = new DaoUser();
-    
-    public static List<User> users;
-    
+@FacesConverter(value = "periodConverter")
+public class PeriodConverter implements Converter {
+
+    public static DaoPeriod daoPeriod = new DaoPeriod();
+    public static List<Period> periods;
+
     static {
-        users = daoUser.listar();
+        periods = daoPeriod.listar();
     }
 
     @Override
@@ -36,11 +38,11 @@ public class UserConverter implements Converter {
             try {
                 int number = Integer.parseInt(value);
 
-                for (User u : users) {  
-                    if (u.getId()== number) {  
-                        return u;  
-                    }  
-                } 
+                for (Period p : periods) {
+                    if (p.getId() == number) {
+                        return p;
+                    }
+                }
 
             } catch (NumberFormatException exception) {
                 throw new ConverterException(new FacesMessage(FacesMessage.SEVERITY_ERROR, "Conversion Error", "Not a valid player"));
@@ -52,10 +54,11 @@ public class UserConverter implements Converter {
 
     @Override
     public String getAsString(FacesContext context, UIComponent component, Object value) {
-        if (value == null || value.equals("")) {  
-            return "";  
-        } else {  
-            return String.valueOf(((User) value).getId());  
-        } 
+        if (value == null || value.equals("")) {
+            return "";
+        } else {
+            String as = String.valueOf(((Period) value).getId());
+            return as;
+        }
     }
 }
