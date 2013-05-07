@@ -13,11 +13,11 @@ if (!isset($_SESSION)) {
     session_start();
 }
 
-// Variavel que recebe os parametros para definir qual ação deverá ser executada.
+/** Variavel que recebe os parametros para definir qual ação deverá ser executada.*/
 $task = $_POST['task'];
 
-// Inicializada para poder simular o resultado.
-//$task = 'listar_salas';
+/** Inicializada para poder simular o resultado.*/
+/** $task = 'listar_salas';*/
 $read = $_GET['task'];
 
 if (substr_count($read, '/') > 0) {
