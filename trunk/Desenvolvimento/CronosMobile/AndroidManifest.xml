@@ -89,6 +89,26 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="br.edu.utfpr.cm.cronosmobile.ClassroomDetailView"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_classroom_detail" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="br.edu.utfpr.cm.cronosmobile.BookListView"
+            android:configChanges="orientation|keyboardHidden"
+            android:label="@string/title_activity_book_list_view" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

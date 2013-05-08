@@ -9,7 +9,6 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
-import br.edu.utfpr.cm.cronosmobile.BookSearchView;
 import br.edu.utfpr.cm.cronosmobile.R;
 import br.edu.utfpr.cm.cronosmobile.persistence.Sqlite;
 
@@ -59,7 +58,7 @@ public class PrincipalView extends ListActivity {
 			startActivity(intentBook);
 			break;
 		case 2:
-			Intent intentBookSearch = new Intent(PrincipalView.this, BookSearchView.class);
+			Intent intentBookSearch = new Intent(PrincipalView.this, SearchBookView.class);
 			startActivity(intentBookSearch);
 			break;
 		case 3:

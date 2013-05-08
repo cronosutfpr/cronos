@@ -23,6 +23,7 @@ import android.widget.Spinner;
 import android.widget.TextView;
 import br.edu.utfpr.cm.cronosmobile.R;
 import br.edu.utfpr.cm.cronosmobile.controller.PeriodAdapter;
+import br.edu.utfpr.cm.cronosmobile.model.Host;
 import br.edu.utfpr.cm.cronosmobile.model.Period;
 import br.edu.utfpr.cm.cronosmobile.persistence.ConexaoHttpClient;
 
@@ -179,7 +180,7 @@ public class BookView extends Activity {
     	String service = "";
     	
     	// Strig com a url do webservice
-    	String urlGet = "http://192.168.1.10/CronosPHP/services/period/"+service;
+    	String urlGet = Host.DOMAIN + "services/period/"+service;
     	
     	try {
     	    

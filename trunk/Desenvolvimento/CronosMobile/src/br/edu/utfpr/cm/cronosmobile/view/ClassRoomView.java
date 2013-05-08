@@ -19,6 +19,7 @@ import android.widget.ListView;
 import android.widget.Toast;
 import br.edu.utfpr.cm.cronosmobile.R;
 import br.edu.utfpr.cm.cronosmobile.model.ClassRoom;
+import br.edu.utfpr.cm.cronosmobile.model.Host;
 import br.edu.utfpr.cm.cronosmobile.persistence.ConexaoHttpClient;
 
 import com.google.gson.Gson;
@@ -54,7 +55,7 @@ public class ClassRoomView extends ListActivity {
 
 	
 	// Strig com a url do webservice
-	String urlGet = "http://192.168.1.10/CronosPHP/services/classroom/"+service;
+	String urlGet = Host.DOMAIN + "services/classroom/"+service;
 	
 	setParametrosPost(new ArrayList<NameValuePair>());
 	

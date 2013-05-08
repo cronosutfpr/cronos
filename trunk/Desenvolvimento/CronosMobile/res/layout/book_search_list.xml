@@ -6,11 +6,39 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context=".BookSearchView" >
+    tools:context=".ClassRoomView" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignLeft="@+id/listView1"
+        android:layout_below="@+id/btBack"
+        android:orientation="vertical" >
+
+        <EditText
+            android:id="@+id/edSearchBook"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Sala" >
+
+            <requestFocus />
+        </EditText>
+
+        <Button
+            android:id="@+id/btBuscar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btBack"
+            android:layout_alignParentTop="true"
+            android:text="Buscar" />
+
+        <Button
+            android:id="@+id/btBack"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:text="Voltar" />
+    </LinearLayout>
 
 </RelativeLayout>
