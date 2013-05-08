@@ -4,8 +4,10 @@
  */
 package br.edu.utfpr.cm.cronos.managedbean;
 
+import br.edu.utfpr.cm.cronos.daos.DaoBook;
 import br.edu.utfpr.cm.cronos.daos.DaoClassRoom;
 import br.edu.utfpr.cm.cronos.daos.DaoGenerics;
+import br.edu.utfpr.cm.cronos.model.Book;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
 import br.edu.utfpr.cm.cronos.pagesmanager.PageManager;
 import java.io.Serializable;
@@ -16,6 +18,8 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
+import org.primefaces.model.DefaultScheduleEvent;
+import org.primefaces.model.DefaultScheduleModel;
 
 /**
  *
@@ -59,6 +63,13 @@ public class TableClassRoom implements Serializable {
         FacesMessage msg = new FacesMessage("Sala selecionada", String.valueOf(((ClassRoom) event.getObject()).getId()));
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
+        
+        selectedClassRoom = (ClassRoom) event.getObject();
+        BookBean.eventModel = new DefaultScheduleModel();
+        List<Book> books = new DaoBook().obterPorClassRoom(TableClassRoom.selectedClassRoom.getId());
+        for (Book b : books) {            
+            BookBean.eventModel.addEvent(new DefaultScheduleEvent(b.getNote(), b.getStartdate(), b.getEndDate()));
+        }
     }
 
     public void onRowUnselect(UnselectEvent event) {

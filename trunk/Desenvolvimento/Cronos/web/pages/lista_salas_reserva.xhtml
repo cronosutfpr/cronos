@@ -101,6 +101,7 @@
                     <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%" />  
                     <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}" size="3"  /> 
                     <p:message for="bookable1" />
+                    
                 </h:panelGrid>
 
                 <p:separator style="margin-bottom:10px"/>  
@@ -108,7 +109,7 @@
                 <p:growl id="messages" showDetail="true" />
 
                 <p:schedule id="schedule" locale="pt"  
-                            timeZone="America/Sao_Paulo" value="#{scheduleController.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
+                            timeZone="America/Sao_Paulo" value="#{bookBean.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
 
                     <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}"  oncomplete="eventDialog.show()" />
                     <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}"  oncomplete="eventDialog.show()" />
