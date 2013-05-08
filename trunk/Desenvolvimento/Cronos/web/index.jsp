@@ -3,8 +3,8 @@
         <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <title>Gerenciamento de Salas Cronos</title>
-        <link href="css/style.login.css" rel="stylesheet" type="text/css" media="screen" />
-        <script language="JavaScript" src="js/jquery-1.8.2.js" type="text/javascript"></script>
+        <link href="login/css/style.login.css" rel="stylesheet" type="text/css" media="screen" />
+        <script language="JavaScript" src="login/js/jquery-1.8.2.js" type="text/javascript"></script>
         <script type="text/javascript">
 
             function carregando() {
