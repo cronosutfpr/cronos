@@ -4,10 +4,10 @@ error_reporting(false);
 
 header('content-type: application/json; charset=utf-8');
 
-require_once('../model/funcoes.php');
-require_once('../model/pdo.class.php');
-require_once('../model/mysql.class.php');
-require_once('../model/book.class.php');
+require_once('../classes/funcoes.php');
+require_once('../classes/pdo.class.php');
+require_once('../classes/mysql.class.php');
+require_once('../classes/book.class.php');
 
 // Inicia a sessão caso não esteja inicada.
 if (!isset($_SESSION)) {

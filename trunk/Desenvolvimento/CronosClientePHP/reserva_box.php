@@ -5,9 +5,6 @@ foreach ($_GET as $nome => $valor) {
     $$nome = $valor;
 }
 
-echo $id;
-
-
 require_once('classes/funcoes.php');
 require_once('classes/pdo.class.php');
 require_once('classes/mysql.class.php');
@@ -60,25 +57,25 @@ foreach ($banco->query($sql) as $value) {
                     },
                     editable: true,
                     events:
-                            <?php
-                            echo '[';
-                            for ($x = 0; $x < count($teste); $x++) {
-                                if ($x < count($teste) - 1) {
-                                    echo $teste[$x];
-                                } else {
-                                    echo substr($teste[$x], 0, -1) . ']';
-                                }
-                            }
-                            ?>
-                                });
-                                //Evento de click	
-                                //		$('#calendar').fullCalendar({
-                                //    dayClick: function() {
-                                //        alert('a day has been clicked!');
-                                //    }
-                                //});
+<?php
+echo '[';
+for ($x = 0; $x < count($teste); $x++) {
+    if ($x < count($teste) - 1) {
+        echo $teste[$x];
+    } else {
+        echo substr($teste[$x], 0, -1) . ']';
+    }
+}
+?>
+        });
+        //Evento de click	
+        //		$('#calendar').fullCalendar({
+        //    dayClick: function() {
+        //        alert('a day has been clicked!');
+        //    }
+        //});
 		
-                            });
+    });
 
         </script>
         <style>
@@ -95,9 +92,35 @@ foreach ($banco->query($sql) as $value) {
                 margin: 0 auto;
             }
 
+            #reservar {
+                width: 900px;
+                height: 20px;
+                margin: 0 auto;
+                padding-bottom: 20px;
+            }
+
+            #reservar a {
+                color: #2694e8;
+                font-weight: bold;
+                text-decoration: none;
+            }
+            #reservar #button {
+                width: 125px;
+                margin: 0 auto;
+            }
+
+            #button img {
+                float: left;
+            }
+
         </style>
     </head>
     <body>
+        <div id='reservar'>
+            <div id='button'>
+                <a href="reserva.php?id=<?php echo $id; ?>&iframe=true&amp;" rel="prettyPhoto[mixed]"><img src="images/icn_new_article.png" title="Reservar"/> Reservar Sala</a>
+            </div>
+        </div>
         <div id='calendar'></div>
     </body>
 </html>
