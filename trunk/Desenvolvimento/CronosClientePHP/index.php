@@ -89,6 +89,7 @@ $query_lista = $geral->sql_select($sql);
 								social_tools: false
 							});
 						});
+                                                function __url(a){location.href=a};
 					</script>
     </head>
 
@@ -136,12 +137,12 @@ $query_lista = $geral->sql_select($sql);
                             <tbody>
                                 <?php
                                 while ($linha = mysql_fetch_object($query_lista)) {
-                                    echo "<tr>
-                                            <td>" . $linha->name2_ . "</td>
-                                            <td>" . $linha->building2_ . "</td>
-                                            <td>" . $linha->capacity2_ . "</td>
-                                            <td>" . $linha->type2_ . "</td>
-                                            <td>" . $linha->status2_ . "</td>"
+                                echo "<tr>
+                                            <td>" . utf8_encode($linha->name2_) . "</td>
+                                            <td>" . utf8_encode($linha->building2_) . "</td>
+                                            <td>" . utf8_encode($linha->capacity2_) . "</td>
+                                            <td>" . utf8_encode($linha->type2_) . "</td>
+                                            <td>" . utf8_encode($linha->status2_) . "</td>"
                                     ?>
                                     <td class="center">
                                     

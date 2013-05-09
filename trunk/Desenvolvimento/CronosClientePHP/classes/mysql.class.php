@@ -20,7 +20,7 @@ class mysql {
         $this->host = "localhost";
         $this->db = "cronos";
         $this->user = "root";
-        $this->password = "root";
+        $this->password = "";
     } 
 
     function connect() {
