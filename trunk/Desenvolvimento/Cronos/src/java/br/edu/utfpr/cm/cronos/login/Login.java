@@ -40,18 +40,18 @@ public class Login {
         this.siape = siape;
     }
     
-    public UserLDAP validarUsuario(){
+    public Usuario validarUsuario() {
         LoginLDAP login = new LoginLDAP();
-        UserLDAP user = (UserLDAP) login.logarNoLDAP(siape, senha);
-        if(user!=null){
-            try {  
-                FacesContext.getCurrentInstance().getExternalContext().redirect("/home.xhtml");
+        Usuario user = (Usuario) login.logarNoLDAP(siape, senha);
+        if (user != null) {
+            try {
+                FacesContext.getCurrentInstance().getExternalContext().redirect("./home.xhtml");
             } catch (IOException ex) {
                 Logger.getLogger(Login.class.getName()).log(Level.SEVERE, null, ex);
             }
-        }else{
-             FacesContext context = FacesContext.getCurrentInstance();
-        context.addMessage(null, new FacesMessage("Erro", "Dados inválidos!!!"));
+        } else {
+            FacesContext context = FacesContext.getCurrentInstance();
+            context.addMessage(null, new FacesMessage("Erro", "Dados inválidos!!!"));
         }
         return user;
     }
