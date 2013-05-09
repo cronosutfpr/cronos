@@ -5,7 +5,7 @@
 package br.edu.utfpr.cm.cronos.login;
 
 import br.edu.utfpr.cm.cronos.userLDAP.LoginLDAP;
-import br.edu.utfpr.cm.cronos.userLDAP.UserLDAP;
+import br.edu.utfpr.cm.saa.entidades.Usuario;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
