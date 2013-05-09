@@ -108,10 +108,10 @@ class book extends mysql {
                 $requestor_id = ", requestor_id = '$this->requestor_id'";
             }
 
-            $sql = "UPDATE classroom SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
+            $sql = "UPDATE book SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
         } else {
-            $sql = "INSERT INTO classroom (id, endDate, note, startdate, status, classroom_id, requestor_id) 
-                    VALUES (''," . $this->verificaNull(utf8_decode($this->endDate)) . ", " . $this->verificaNull(utf8_decode($this->note)) . ", " . $this->verificaNull(utf8_decode($this->startdate)) . ", " . $this->verificaNull(utf8_decode($this->status)) . ", " . $this->verificaNull(utf8_decode($this->classroom_id)) . ", " . $this->verificaNull(utf8_decode($this->requestor_id)) . ");";
+            $sql = "INSERT INTO book (endDate, note, startdate, status, period_id, classroom_id, requestor_id) 
+                    VALUES (" . $this->verificaNull(utf8_decode($this->endDate)) . ", " . $this->verificaNull(utf8_decode($this->note)) . ", " . $this->verificaNull(utf8_decode($this->startdate)) . ", " . $this->verificaNull(utf8_decode($this->status)) .", " . $this->verificaNull(utf8_decode($this->period_id)) . ", " . $this->verificaNull(utf8_decode($this->classroom_id)) . ", " . $this->verificaNull(utf8_decode($this->requestor_id)) . ");";
         }
         return $sql;
     }

@@ -202,16 +202,18 @@ function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status
 
     // Gera o comando SQL
     $sql = $book->insertOrUpdate();
+    
+    echo $sql;
 
     // Instancia uma base de dados via PDO (padrão do PHP)
     $banco = new cPDO();
 
     // Tenta executar o SQL, se conseguir retorna id que Inseriu ou atualizou senão retorna 0
-    if (!$banco->query($sql)) {
-        echo '0';
-    } else {
-        echo '1';
-    }
+//    if (!$banco->query($sql)) {
+//        echo '0';
+//    } else {
+//        echo '1';
+//    }
 }
 
 function delete($id) {

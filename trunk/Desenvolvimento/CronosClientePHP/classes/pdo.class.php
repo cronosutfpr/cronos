@@ -14,7 +14,7 @@ class cPDO {
         $this->host = "localhost";
         $this->db = "cronos";
         $this->user = "root";
-        $this->password = "";
+        $this->password = "123456";
         $this->link = new PDO("mysql:host=$this->host;dbname=$this->db", "$this->user", "$this->password");
     }
 

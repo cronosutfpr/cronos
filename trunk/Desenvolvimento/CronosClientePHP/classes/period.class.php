@@ -5,6 +5,7 @@
  *
  * @author Willyan
  */
+require_once 'mysql.class.php';
 class period extends mysql {
 
     public $id;
@@ -57,8 +58,7 @@ class period extends mysql {
         }
 
         $sql = "SELECT p.* FROM period p
-                WHERE p.id > 0 $id $name $_short $period $starttime $endtime
-                ORDER BY p.starttime ASC";
+                WHERE p.id > 0 ORDER BY p.id ASC";
 
         if ($this->start != '' && $this->limit != '') {
             $start = $this->start;

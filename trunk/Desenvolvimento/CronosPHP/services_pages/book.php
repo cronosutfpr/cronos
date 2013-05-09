@@ -38,6 +38,7 @@ if ($task != "") {
     $note           = htmlspecialchars(strip_tags($_POST['note']));
     $startdate      = htmlspecialchars(strip_tags($_POST['startdate']));
     $status         = htmlspecialchars(strip_tags($_POST['status']));
+    $period_id      = htmlspecialchars(strip_tags($_POST['period_id']));
     $classroom_id   = htmlspecialchars(strip_tags($_POST['classroom_id']));
     $requestor_id   = htmlspecialchars(strip_tags($_POST['requestor_id']));
 }
@@ -53,7 +54,7 @@ switch ($task) {
 
     // Insere uma sala de acordo com os parametros passados pelo usuário via POST ou PUT
     case 'insert';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id);
         break;
 
     // Caso o usuário envie uma requisição via GET com o parametro 'list' serão listadas as reservas de acordo com os paramtros que ele passar na URL
@@ -63,7 +64,7 @@ switch ($task) {
 
     // Atualiza uma sala de acordo com os parametros passados pelo usuário via POST ou UPDATE
     case 'update';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id);
         break;
 
     // Deleta uma sala de acordo com os parametros passados pelo usuário via POST ou DELETE.
@@ -155,16 +156,17 @@ function listBook($id, $pg) {
  * @param type $id
  * @return ID inserida no banco ou 0 em caso de erro.
  */
-function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id) {
+function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id) {
 
     // Instancia um objeto do tipo book.
     $book = new book();
     $book->set(id, $id);
     $book->set(classroom_id, $classroom_id);
-    $book->set(endDate, $endDate);
+    $book->set(endDate, converte_data($endDate));
     $book->set(note, $note);
-    $book->set(startdate, $startdate);
+    $book->set(startdate, converte_data($startdate));
     $book->set(status, $status);
+    $book->set(period_id, $period_id);
     $book->set(classroom_id, $classroom_id);
     $book->set(requestor_id, $requestor_id);
 
@@ -173,12 +175,18 @@ function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status
 
     // Instancia uma base de dados via PDO (padrão do PHP)
     $banco = new cPDO();
+    
+    //echo $sql;
 
     // Tenta executar o SQL, se conseguir retorna id que Inseriu ou atualizou senão retorna 0
-    if (!$banco->query($sql)) {
-        echo '0';
+    if(valida_data($startdate) == false){
+        echo "Data de inicio inválida.";
+    }else if(valida_data($endDate) == false){
+        echo "Data de fim inválida.";
+    }else if (!$banco->query($sql)) {
+        echo 'Erro no cadastro.';
     } else {
-        echo '1';
+        echo 'Cadastro realizado com sucesso.';
     }
 }
 
