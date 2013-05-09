@@ -79,6 +79,12 @@
 				}
 			]
 		});
+	//Evento de click	
+//		$('#calendar').fullCalendar({
+//    dayClick: function() {
+//        alert('a day has been clicked!');
+//    }
+//});
 		
 	});
 
