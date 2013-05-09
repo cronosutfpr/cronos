@@ -23,14 +23,14 @@ $query_lista = $geral->sql_select($sql);
         <link href='css/fullcalendar/fullcalendar.print.css' rel='stylesheet' media='print' />
 
 
-		
+
 
         <script language="JavaScript" src="js/jquery-1.8.2.js" type="text/javascript"></script>
-        
+
         <link rel="stylesheet" href="js/prettyPhoto/css/prettyPhoto.css" type="text/css" media="screen" title="prettyPhoto main stylesheet" charset="utf-8" />
-		<script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
-        
-		<script type="text/javascript" src='js/fullcalendar/fullcalendar.min.js'></script>
+        <script src="js/prettyPhoto/js/jquery.prettyPhoto.js" type="text/javascript" charset="utf-8"></script>
+
+        <script type="text/javascript" src='js/fullcalendar/fullcalendar.min.js'></script>
         <script type="text/javascript" src='js/jquery/jquery-ui-1.10.2.custom.min.js'></script>
         <script type="text/javascript" language="javascript" src="js/jquery.dataTables.js"></script>
 
@@ -54,43 +54,43 @@ $query_lista = $geral->sql_select($sql);
             });
 
         </script>
-        
+
         <style type="text/css">
-			.pp_nav{
-				display: none !important;
-			}
+            .pp_nav{
+                display: none !important;
+            }
         </style>
-        
-                    <script type="text/javascript" charset="utf-8">
+
+        <script type="text/javascript" charset="utf-8">
 	
-						$(document).ready(function(){
-							$("a[rel^='prettyPhoto']").prettyPhoto({
-								animation_speed: 'fast', /* fast/slow/normal */
-								slideshow: 5000, /* false OR interval time in ms */
-								autoplay_slideshow: false, /* true/false */
-								opacity: 0.80, /* Value between 0 and 1 */
-								show_title: false, /* true/false */
-								allow_resize: true, /* Resize the photos bigger than viewport. true/false */
-								default_width: 960,
-								default_height: 600,
-								counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
-								theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
-								horizontal_padding: 20, /* The padding on each side of the picture */
-								hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
-								wmode: 'opaque', /* Set the flash wmode attribute */
-								autoplay: false, /* Automatically start videos: True/False */
-								modal: false, /* If set to true, only the close button will close the window */
-								deeplinking: true, /* Allow prettyPhoto to update the url to enable deeplinking. */
-								overlay_gallery: false, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
-								keyboard_shortcuts: true, /* Set to false if you open forms inside prettyPhoto */
-								changepicturecallback: function(){}, /* Called everytime an item is shown/changed */
-								callback: function(){}, /* Called when prettyPhoto is closed */
-								ie6_fallback: true,
-								social_tools: false
-							});
-						});
-                                                function __url(a){location.href=a};
-					</script>
+            $(document).ready(function(){
+                $("a[rel^='prettyPhoto']").prettyPhoto({
+                    animation_speed: 'fast', /* fast/slow/normal */
+                    slideshow: 5000, /* false OR interval time in ms */
+                    autoplay_slideshow: false, /* true/false */
+                    opacity: 0.80, /* Value between 0 and 1 */
+                    show_title: false, /* true/false */
+                    allow_resize: true, /* Resize the photos bigger than viewport. true/false */
+                    default_width: 960,
+                    default_height: 600,
+                    counter_separator_label: '/', /* The separator for the gallery counter 1 "of" 2 */
+                    theme: 'pp_default', /* light_rounded / dark_rounded / light_square / dark_square / facebook */
+                    horizontal_padding: 20, /* The padding on each side of the picture */
+                    hideflash: false, /* Hides all the flash object on a page, set to TRUE if flash appears over prettyPhoto */
+                    wmode: 'opaque', /* Set the flash wmode attribute */
+                    autoplay: false, /* Automatically start videos: True/False */
+                    modal: false, /* If set to true, only the close button will close the window */
+                    deeplinking: true, /* Allow prettyPhoto to update the url to enable deeplinking. */
+                    overlay_gallery: false, /* If set to true, a gallery will overlay the fullscreen image on mouse over */
+                    keyboard_shortcuts: true, /* Set to false if you open forms inside prettyPhoto */
+                    changepicturecallback: function(){}, /* Called everytime an item is shown/changed */
+                    callback: function(){}, /* Called when prettyPhoto is closed */
+                    ie6_fallback: true,
+                    social_tools: false
+                });
+            });
+            function __url(a){location.href=a};
+        </script>
     </head>
 
     <body>
@@ -120,9 +120,9 @@ $query_lista = $geral->sql_select($sql);
             <div id="principal">
 
                 <div class="conteudo">
-                
+
                     <form id="form_listagem" action="" method="post">
-                    
+
                         <table cellpadding="0" cellspacing="0" border="0" class="display" id="listagem">
                             <thead>
                                 <tr>
@@ -137,7 +137,7 @@ $query_lista = $geral->sql_select($sql);
                             <tbody>
                                 <?php
                                 while ($linha = mysql_fetch_object($query_lista)) {
-                                echo "<tr>
+                                    echo "<tr>
                                             <td>" . utf8_encode($linha->name2_) . "</td>
                                             <td>" . utf8_encode($linha->building2_) . "</td>
                                             <td>" . utf8_encode($linha->capacity2_) . "</td>
@@ -145,10 +145,10 @@ $query_lista = $geral->sql_select($sql);
                                             <td>" . utf8_encode($linha->status2_) . "</td>"
                                     ?>
                                     <td class="center">
-                                    
-                                    <a href="reserva_box.php?id=<?php if(isset($linha->id2_)) echo $linha->id2_; ?>&iframe=true&amp;" rel="prettyPhoto[mixed]"><img src="images/icn_new_article.png" title="Reservar"/></a>
-										
-                                    
+
+                                        <a href="reserva_box.php?id=<?php if (isset($linha->id2_)) echo $linha->id2_; ?>&name=<?php echo utf8_encode($linha->column2_2_); ?>&iframe=true&amp;" rel="prettyPhoto[mixed]"><img src="images/icn_new_article.png" title="Reservar"/></a>
+
+
                                     </td>
                                     <?php
                                     echo "</tr>";
@@ -172,10 +172,10 @@ $query_lista = $geral->sql_select($sql);
                                 </tr>
                             </tfoot>
                         </table>
-                      
+
                     </form>
-                    
-                    
+
+
                 </div>
             </div>
     </body>

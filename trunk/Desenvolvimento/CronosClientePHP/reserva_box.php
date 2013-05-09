@@ -47,7 +47,6 @@ foreach ($banco->query($sql) as $value) {
 		
                 $('#calendar').fullCalendar({
                     dayClick: function(a) {
-                        alert(a);
                     },
                     
                     header: {
@@ -105,20 +104,19 @@ for ($x = 0; $x < count($teste); $x++) {
                 text-decoration: none;
             }
             #reservar #button {
-                width: 125px;
+                width: 170px;
                 margin: 0 auto;
             }
 
             #button img {
                 float: left;
             }
-
         </style>
     </head>
     <body>
         <div id='reservar'>
             <div id='button'>
-                <a href="reserva.php?id=<?php echo $id; ?>&iframe=true&amp;" rel="prettyPhoto[mixed]"><img src="images/icn_new_article.png" title="Reservar"/> Reservar Sala</a>
+                <a href="reserva.php?id=<?php echo $id; ?>&name=<?php echo $name; ?>&iframe=true&amp;" rel="prettyPhoto[mixed]"><img src="images/icn_new_article.png" title="Reservar"/> Reservar Sala - <?php echo $name; ?></a>
             </div>
         </div>
         <div id='calendar'></div>
