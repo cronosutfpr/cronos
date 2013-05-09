@@ -4,7 +4,18 @@
 	<classpathentry exported="true" kind="con" path="com.android.ide.eclipse.adt.LIBRARIES"/>
 	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.2-javadoc.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/gson-2.2.2.jar"/>
-	<classpathentry kind="src" path="src"/>
-	<classpathentry kind="src" path="gen"/>
+	<classpathentry kind="src" path="src">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Gui e Jenni/Documents/GitHub/cronos/trunk/Desenvolvimento/CronosMobile/src"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry including="br/|br/edu/|br/edu/utfpr/|br/edu/utfpr/cm/|br/edu/utfpr/cm/cronosmobile/|br/edu/utfpr/cm/cronosmobile/BuildConfig.java|br/edu/utfpr/cm/cronosmobile/R.java" kind="src" path="gen">
+		<attributes>
+			<attribute name="org.eclipse.jdt.launching.CLASSPATH_ATTR_LIBRARY_PATH_ENTRY" value="C:/Users/Gui e Jenni/Documents/GitHub/cronos/trunk/Desenvolvimento/CronosMobile/libs"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry exported="true" kind="lib" path="libs/ldap.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/saalib.jar"/>
+	<classpathentry exported="true" kind="lib" path="libs/shiro-core-1.1.0.jar"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>
