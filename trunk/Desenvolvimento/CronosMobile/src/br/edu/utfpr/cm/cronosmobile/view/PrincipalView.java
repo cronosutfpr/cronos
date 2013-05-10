@@ -58,7 +58,7 @@ public class PrincipalView extends ListActivity {
 			startActivity(intentBook);
 			break;
 		case 2:
-			Intent intentBookSearch = new Intent(PrincipalView.this, SearchBookView.class);
+			Intent intentBookSearch = new Intent(PrincipalView.this, BookListView.class);
 			startActivity(intentBookSearch);
 			break;
 		case 3:

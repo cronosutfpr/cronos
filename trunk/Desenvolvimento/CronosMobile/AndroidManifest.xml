@@ -80,7 +80,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.BookSearchView"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.SearchBookView"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_book_search_view" >
             <intent-filter>
@@ -100,7 +100,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.BookListView"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.BookListView"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_book_list_view" >
             <intent-filter>

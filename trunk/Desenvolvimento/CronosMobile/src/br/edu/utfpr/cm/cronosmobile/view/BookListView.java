@@ -1,7 +1,10 @@
 package br.edu.utfpr.cm.cronosmobile.view;
 
 import java.lang.reflect.Type;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 import android.app.AlertDialog;
@@ -50,9 +53,7 @@ public class BookListView extends ListActivity {
 	    
 	    // Tenta a conexão com o servidor
 	    resposta = ConexaoHttpClient.httpGet(urlGet);
-	    Log.e("Logs", "Postou");
 	    resposta = resposta.toString();
-	    Log.e("Logs", "Recebeu" + resposta);
 
 	    // Retira todos os espaços em Branco
 	    //resposta = resposta.replaceAll("\\s+", "");
@@ -137,5 +138,20 @@ public class BookListView extends ListActivity {
 
 	public void setHome(MenuItem home) {
 		this.menuItemHome = home;
-	}	
+	}
+	
+    public static Date StringToCalendar(String data) {
+
+        Calendar c = null;
+
+        try {
+
+            SimpleDateFormat formatoData = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
+            c = Calendar.getInstance();
+            c.setTime(formatoData.parse(data));
+
+        } catch (Exception e) {
+        }
+        return c.getTime();
+    }
 }
