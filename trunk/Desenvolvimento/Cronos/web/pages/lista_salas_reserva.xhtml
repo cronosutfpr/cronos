@@ -12,27 +12,27 @@
         <h:form id="form_reserva">
             <h:panelGrid columns="14"  cellpadding="2">  
                 <h:outputLabel for="classe" value="Descrição:"/>
-                <p:inputText id="classe" size="45" value="" style="margin-left: 11px"/> 
+                <p:inputText id="classe" size="45" value="#{tableClassRoom.descricao}" style="margin-left: 11px"/> 
                 <p:message for="classe" />
 
                 <h:outputLabel for="type" value="Tipo:"/>
-                <p:selectOneMenu id="type" value="#{typeBean.type}">  
+                <p:selectOneMenu id="type" value="#{tableClassRoom.tipo}">  
                     <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                 </p:selectOneMenu> 
                 <p:message for="type" />
 
                 <h:outputLabel for="short" value="Abreviatura:"/>
-                <p:inputText id="short" size="5" value=""/> 
+                <p:inputText id="short" size="5" value="#{tableClassRoom.abreviatura}"/> 
                 <p:message for="short" />
             </h:panelGrid>
             <h:panelGrid columns="14"  cellpadding="2">  
 
-                <h:outputLabel for="capacity" value="Capacidade:"/>
-                <p:inputText id="capacity" size="7" value=""/> 
+                <h:outputLabel for="capacity" value="Capacidade:" />
+                <p:inputText id="capacity" size="7" value="#{tableClassRoom.capacidade}"/> 
                 <p:message for="capacity" />
 
                 <h:outputLabel for="bookable" value="Reservável:" style="margin-left:19px" />
-                <p:selectBooleanCheckbox id="bookable" value="" />  
+                <p:selectBooleanCheckbox id="bookable" value="#{tableClassRoom.reservavel}" />  
                 <p:message for="bookable" />
 
                 <p:commandButton value="Buscar" update=":form_reserva:table_classRoom" immediate="true" actionListener="#{tableClassRoom.searchBooks()}" style="margin-left: 53px;"/>  

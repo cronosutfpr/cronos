@@ -31,6 +31,12 @@ public class TableClassRoom implements Serializable {
     private List<ClassRoom> classRooms;
     public static ClassRoom selectedClassRoom;
     private ClassRoomDataModel classRoomDataModel;
+    private String descricao;
+    private String tipo;
+    private String abreviatura;
+    private String capacidade;
+    private String reservavel;
+    private DaoClassRoom daoClassRoom;
 
     public TableClassRoom() {
         classRooms = new ArrayList<ClassRoom>();
@@ -39,7 +45,7 @@ public class TableClassRoom implements Serializable {
     }
 
     private void buscarClassRoom() {
-        DaoGenerics<ClassRoom> daoClassRoom = new DaoClassRoom();
+         daoClassRoom = new DaoClassRoom();
         classRooms = daoClassRoom.listar();
     }
 
@@ -79,8 +85,49 @@ public class TableClassRoom implements Serializable {
     }
     
    public void searchBooks(){
-      classRooms.clear();
-       System.out.println("PASSOU" );
+     classRooms.clear();
+     classRooms =daoClassRoom.ObterPorFiltro(descricao, tipo, abreviatura, capacidade, reservavel);
    }
 
+    public String getDescricao() {
+        return descricao;
+    }
+
+    public void setDescricao(String descricao) {
+        this.descricao = descricao;
+    }
+
+    public String getTipo() {
+        return tipo;
+    }
+
+    public void setTipo(String tipo) {
+        this.tipo = tipo;
+    }
+
+    public String getAbreviatura() {
+        return abreviatura;
+    }
+
+    public void setAbreviatura(String abreviatura) {
+        this.abreviatura = abreviatura;
+    }
+
+    public String getCapacidade() {
+        return capacidade;
+    }
+
+    public void setCapacidade(String capacidade) {
+        this.capacidade = capacidade;
+    }
+
+    public String getReservavel() {
+        return reservavel;
+    }
+
+    public void setReservavel(String reservavel) {
+        this.reservavel = reservavel;
+    }
+
+   
 }
