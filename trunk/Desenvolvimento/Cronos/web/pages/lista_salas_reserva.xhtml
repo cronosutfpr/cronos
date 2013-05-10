@@ -4,41 +4,43 @@
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
         <script type="text/javascript"> PrimeFaces.locales['pt'] = {
-
-            closeText: 'Fechar', prevText: 'Anterior', nextText: 'Próximo', currentText: 'Hoje', monthNames: ['Janeiro','Fevereiro','Março','Abril','Maio','Junho','Julho','Agosto','Setembro','Outubro','Novembro','Dezembro'], monthNamesShort: ['Jan','Fev','Mar','Abr','Mai','Jun', 'Jul','Ago','Set','Out','Nov','Dez'], dayNames: ['Domingo','Segunda','Terça','Quarta','Quinta','Sexta','Sábado'], dayNamesShort: ['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'], dayNamesMin: ['D','S','T','Q','Q','S','S'], weekHeader: 'Semana', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix: '', timeOnlyTitle: 'Apenas Horas', timeText: 'Tempo', hourText: 'Hora', minuteText: 'Minuto', secondText: 'Segundo', currentText: 'Data Atual', ampm: false, month: 'Mês', week: 'Semana', day: 'Dia', allDayText : 'Todo o Dia'
-        };
+                closeText: 'Fechar', prevText: 'Anterior', nextText: 'Próximo', currentText: 'Hoje', monthNames: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho', 'Agosto', 'Setembro', 'Outubro', 'Novembro', 'Dezembro'], monthNamesShort: ['Jan', 'Fev', 'Mar', 'Abr', 'Mai', 'Jun', 'Jul', 'Ago', 'Set', 'Out', 'Nov', 'Dez'], dayNames: ['Domingo', 'Segunda', 'Terça', 'Quarta', 'Quinta', 'Sexta', 'Sábado'], dayNamesShort: ['Dom', 'Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb'], dayNamesMin: ['D', 'S', 'T', 'Q', 'Q', 'S', 'S'], weekHeader: 'Semana', firstDay: 1, isRTL: false, showMonthAfterYear: false, yearSuffix: '', timeOnlyTitle: 'Apenas Horas', timeText: 'Tempo', hourText: 'Hora', minuteText: 'Minuto', secondText: 'Segundo', currentText: 'Data Atual', ampm: false, month: 'Mês', week: 'Semana', day: 'Dia', allDayText: 'Todo o Dia'
+            };
         </script>
-        <h:form id="form_reserva"> 
-            <p:panel id="panel_reserva" header="Listagem de Salas"> 
 
-                <h:panelGrid columns="14"  cellpadding="2">  
-                    <h:outputLabel for="classe" value="Descrição:"/>
-                    <p:inputText id="classe" size="45" value="" style="margin-left: 11px"/> 
-                    <p:message for="classe" />
+<p:panel id="panel_reserva" header="Listagem de Salas"> 
+        <h:form id="form_reserva">
+            <h:panelGrid columns="14"  cellpadding="2">  
+                <h:outputLabel for="classe" value="Descrição:"/>
+                <p:inputText id="classe" size="45" value="" style="margin-left: 11px"/> 
+                <p:message for="classe" />
 
-                    <h:outputLabel for="type" value="Tipo:"/>
-                    <p:selectOneMenu id="type" value="#{typeBean.type}">  
-                        <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
-                    </p:selectOneMenu> 
-                    <p:message for="type" />
+                <h:outputLabel for="type" value="Tipo:"/>
+                <p:selectOneMenu id="type" value="#{typeBean.type}">  
+                    <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                </p:selectOneMenu> 
+                <p:message for="type" />
 
-                    <h:outputLabel for="short" value="Abreviatura:"/>
-                    <p:inputText id="short" size="5" value=""/> 
-                    <p:message for="short" />
-                </h:panelGrid>
-                <h:panelGrid columns="14"  cellpadding="2">  
+                <h:outputLabel for="short" value="Abreviatura:"/>
+                <p:inputText id="short" size="5" value=""/> 
+                <p:message for="short" />
+            </h:panelGrid>
+            <h:panelGrid columns="14"  cellpadding="2">  
 
-                    <h:outputLabel for="capacity" value="Capacidade:"/>
-                    <p:inputText id="capacity" size="7" value=""/> 
-                    <p:message for="capacity" />
+                <h:outputLabel for="capacity" value="Capacidade:"/>
+                <p:inputText id="capacity" size="7" value=""/> 
+                <p:message for="capacity" />
 
-                    <h:outputLabel for="bookable" value="Reservável:" style="margin-left:19px" />
-                    <p:selectBooleanCheckbox id="bookable" value="" />  
-                    <p:message for="bookable" />
+                <h:outputLabel for="bookable" value="Reservável:" style="margin-left:19px" />
+                <p:selectBooleanCheckbox id="bookable" value="" />  
+                <p:message for="bookable" />
 
-                    <p:commandButton value="Buscar" style="margin-left: 53px;"/>  
-                </h:panelGrid>
-
+                <p:commandButton value="Buscar" update=":form_reserva:table_classRoom" immediate="true" actionListener="#{tableClassRoom.searchBooks()}" style="margin-left: 53px;"/>  
+                
+            </h:panelGrid>
+  
+        
+       
                 <p:growl id="growl" showDetail="true"/>  
 
                 <p:dataTable id="table_classRoom" var="classRoom" value="#{tableClassRoom.classRooms}" paginator="true" rows="15" paginatorPosition="bottom"
@@ -70,53 +72,54 @@
                         <h:outputText value="#{classRoom.bookable}" />  
                     </p:column>  
                 </p:dataTable> 
-            </p:panel> 
+       
 
-            <p:dialog id="dialog" header="Horários das salas" widgetVar="classRoomDialog" resizable="false" modal="true"
-                      showEffect="fade" hideEffect="explode">  
-                <h:panelGrid columns="3" cellpadding="2" >  
+        <p:dialog id="dialog" header="Horários das salas" widgetVar="classRoomDialog" resizable="false" modal="true"
+                  showEffect="fade" hideEffect="explode">  
+            <h:panelGrid columns="3" cellpadding="2" >  
 
-                    <h:outputLabel for="id" value="Id: "/>  
-                    <p:inputText id="id" value="#{tableClassRoom.selectedClassRoom.id}" disabled="true" size="10" style="margin-left:26%"/> 
-                    <p:message for="id" />
-                </h:panelGrid>
-                <h:panelGrid columns="6" cellpadding="2" >  
-                    <h:outputLabel for="name" value="Nome: " />  
-                    <p:inputText id="name" value="#{tableClassRoom.selectedClassRoom.name}" disabled="true" size="61" style="margin-left: 0%"/> 
-                    <p:message for="name" />
+                <h:outputLabel for="id" value="Id: "/>  
+                <p:inputText id="id" value="#{tableClassRoom.selectedClassRoom.id}" disabled="true" size="10" style="margin-left:26%"/> 
+                <p:message for="id" />
+            </h:panelGrid>
+            <h:panelGrid columns="6" cellpadding="2" >  
+                <h:outputLabel for="name" value="Nome: " />  
+                <p:inputText id="name" value="#{tableClassRoom.selectedClassRoom.name}" disabled="true" size="61" style="margin-left: 0%"/> 
+                <p:message for="name" />
 
-                    <h:outputLabel for="short1" value="Abreviação: " style="margin-left:5%" />  
-                    <p:inputText id="short1" value="#{tableClassRoom.selectedClassRoom.short}" disabled="true" size="3" style="margin-left: 4%"/> 
-                    <p:message for="short1" />
-                </h:panelGrid>
-                <h:panelGrid columns="8" cellpadding="2" >  
-                    <h:outputLabel for="type1" value="Tipo: "/>  
-                    <p:inputText id="type1" value="#{tableClassRoom.selectedClassRoom.type}" disabled="true" style="margin-left:7%"/> 
-                    <p:message for="type1" />
+                <h:outputLabel for="short1" value="Abreviação: " style="margin-left:5%" />  
+                <p:inputText id="short1" value="#{tableClassRoom.selectedClassRoom.short}" disabled="true" size="3" style="margin-left: 4%"/> 
+                <p:message for="short1" />
+            </h:panelGrid>
+            <h:panelGrid columns="8" cellpadding="2" >  
+                <h:outputLabel for="type1" value="Tipo: "/>  
+                <p:inputText id="type1" value="#{tableClassRoom.selectedClassRoom.type}" disabled="true" style="margin-left:7%"/> 
+                <p:message for="type1" />
 
-                    <h:outputLabel for="owner" value="Responsável: " style="margin-left:6%"/>  
-                    <p:inputText id="owner" value="#{tableClassRoom.selectedClassRoom.owner.login}" disabled="true"/> 
-                    <p:message for="owner" />
+                <h:outputLabel for="owner" value="Responsável: " style="margin-left:6%"/>  
+                <p:inputText id="owner" value="#{tableClassRoom.selectedClassRoom.owner.login}" disabled="true"/> 
+                <p:message for="owner" />
 
-                    <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%" />  
-                    <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}" disabled="true" size="3"  /> 
-                    <p:message for="bookable1" />
+                <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%" />  
+                <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}" disabled="true" size="3"  /> 
+                <p:message for="bookable1" />
 
-                </h:panelGrid>
+            </h:panelGrid>
 
-                <p:separator style="margin-bottom:10px"/>  
+            <p:separator style="margin-bottom:10px"/>  
 
-                <p:growl id="messages" showDetail="true" />
+            <p:growl id="messages" showDetail="true" />
 
-                <p:schedule id="schedule" locale="pt"
-                            timeZone="America/Sao_Paulo" value="#{bookBean.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px" firstHour="7">
+            <p:schedule id="schedule" locale="pt"
+                        timeZone="America/Sao_Paulo" value="#{bookBean.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px" firstHour="7">
 
-                    <p:ajax event="dateSelect" oncomplete="eventDialog.show()" />
+                <p:ajax event="dateSelect" oncomplete="eventDialog.show()" />
 
 
-                </p:schedule>
-            </p:dialog>  
+            </p:schedule>
+        </p:dialog>  
         </h:form>
+         </p:panel> 
         <h:form id="reserva_nova"> 
             <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
                 <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  

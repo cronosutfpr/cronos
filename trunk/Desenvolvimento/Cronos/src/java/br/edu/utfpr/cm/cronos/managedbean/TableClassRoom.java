@@ -77,5 +77,10 @@ public class TableClassRoom implements Serializable {
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
+    
+   public void searchBooks(){
+      classRooms.clear();
+       System.out.println("PASSOU" );
+   }
 
 }
