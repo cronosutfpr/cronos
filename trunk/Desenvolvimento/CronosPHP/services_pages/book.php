@@ -136,7 +136,7 @@ function listBook($id, $pg) {
     }
 
     // Gera o comando SQL
-    echo $sql = $book->ListBook();
+    $sql = $book->ListBook();
 
     // Instancia uma base de dados via PDO (padrão do PHP)
     $banco = new cPDO();
@@ -180,13 +180,13 @@ function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status
 
     // Tenta executar o SQL, se conseguir retorna id que Inseriu ou atualizou senão retorna 0
     if(valida_data($startdate) == false){
-        echo "Data de inicio inválida.";
+        echo '0';
     }else if(valida_data($endDate) == false){
-        echo "Data de fim inválida.";
+        echo '0';
     }else if (!$banco->query($sql)) {
-        echo 'Erro no cadastro.';
+        echo '0';
     } else {
-        echo 'Cadastro realizado com sucesso.';
+        echo '1';
     }
 }
 

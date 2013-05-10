@@ -138,7 +138,7 @@ $query_lista = $geral->sql_select($sql);
                                 <?php
                                 while ($linha = mysql_fetch_object($query_lista)) {
                                     echo "<tr>
-                                            <td>" . utf8_encode($linha->name2_) . "</td>
+                                            <td>" . $linha->name2_ . "</td>
                                             <td>" . utf8_encode($linha->building2_) . "</td>
                                             <td>" . utf8_encode($linha->capacity2_) . "</td>
                                             <td>" . utf8_encode($linha->type2_) . "</td>
