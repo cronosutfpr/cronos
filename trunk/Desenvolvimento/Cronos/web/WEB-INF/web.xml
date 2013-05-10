@@ -7,25 +7,19 @@
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <load-on-startup>1</load-on-startup>
     </servlet>
-    <servlet>
-        <servlet-name>ListarSalas</servlet-name>
-        <servlet-class>br.edu.utfpr.cm.cronos.listagens.ListarSalas</servlet-class>
-    </servlet>
+
     <servlet-mapping>
         <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
-    <servlet-mapping>
-        <servlet-name>ListarSalas</servlet-name>
-        <url-pattern>/ListarSalas</url-pattern>
-    </servlet-mapping>
+   
     <session-config>
         <session-timeout>
             30
         </session-timeout>
     </session-config>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>faces/index.jsp</welcome-file>
     </welcome-file-list>
     <context-param>   
         <param-name>com.sun.faces.writeStateAtFormEnd</param-name>   

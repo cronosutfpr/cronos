@@ -42,21 +42,28 @@ public class LoginCerto extends HttpServlet {
 
             //Usuario usuario = validarUsuario(siape, senha);
             
-            try{ 
-            Usuario user = (Usuario) new LoginLDAP().logarNoLDAP(siape, senha);
-       
+            //USER EM CASA
+              String url = request.getRequestURL().toString();
+              String[] split = url.split("/");
+              response.sendRedirect(split[0]+"/"+split[1]+"/"+split[2]+"/"+split[3]+"/faces/home.xhtml");
             
-            if (user != null) {               
-                   FacesContext.getCurrentInstance().getExternalContext().redirect("./index.xhtml");
-                
-            } else {
-                request.getSession().setAttribute("erroLogin", "erro");
-                response.sendRedirect("./index.jsp");
-            }
-            }catch(Exception e){
-                request.getSession().setAttribute("erroLogin", "erro");
-                response.sendRedirect("./index.jsp");
-            }
+              //USER NA UTFPR COM LDAP
+//            try{ 
+//            Usuario user = (Usuario) new LoginLDAP().logarNoLDAP(siape, senha);
+//       
+//            
+//            if (user != null) {
+//                    String url = request.getRequestURL().toString();
+//                    String[] split = url.split("/");
+//                   response.sendRedirect(split[0]+"/"+split[1]+"/"+split[2]+"/"+split[3]+"/faces/home.xhtml");
+//            } else {
+//                request.getSession().setAttribute("erroLogin", "erro");
+//                response.sendRedirect("./index.jsp");
+//            }
+//            }catch(Exception e){
+//                request.getSession().setAttribute("erroLogin", "erro");
+//                response.sendRedirect("./index.jsp");
+//            }
         } finally {            
             out.close();
         }

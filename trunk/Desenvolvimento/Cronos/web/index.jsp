@@ -36,12 +36,13 @@
               <div class="texto"> carregando</div>
             </div>
             
-            <!--  Erro	-->
+            <c:if test="${erroLogin == 'erro'}">	
             <div class="error">
               <div class="icon_erro"></div>
               <div class="msg_erro">Usuario ou senha incorretos</div>
             </div>
-            
+              <c:remove var="erroLogin"  scope="session"/>
+             </c:if> 
             
           </div>
         </div>
