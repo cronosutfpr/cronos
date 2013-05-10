@@ -4,23 +4,22 @@
  */
 package br.edu.utfpr.cm.cronos.managedbean;
 
-import br.edu.utfpr.cm.cronos.controller.ScheduleController;
 import br.edu.utfpr.cm.cronos.daos.DaoBook;
-import br.edu.utfpr.cm.cronos.daos.DaoGenerics;
 import br.edu.utfpr.cm.cronos.daos.DaoPeriod;
 import br.edu.utfpr.cm.cronos.model.Book;
 import br.edu.utfpr.cm.cronos.model.Period;
+import br.edu.utfpr.cm.cronos.util.Utils;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-import java.util.logging.SimpleFormatter;
-import javax.annotation.PostConstruct;
+import java.util.Locale;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import org.primefaces.event.SelectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
 import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
@@ -42,7 +41,7 @@ public class BookBean {
         book = new Book();
         book.setClassroom(TableClassRoom.selectedClassRoom);
         eventModel = new DefaultScheduleModel();
-        //eventModel.addEvent(new DefaultScheduleEvent("Champions League Match", previousDay8Pm(), previousDay11Pm()));  
+
     }
 
     public Book getBook() {
@@ -72,38 +71,31 @@ public class BookBean {
     public String addBook() {
         DaoBook daoBook = new DaoBook();
         this.book.setClassroom(TableClassRoom.selectedClassRoom);
+        if (this.book != null) {
+            if (daoBook.validarReserva(this.book)) {
+                daoBook.persistir(this.book);
+                this.book = new Book();
+                FacesContext context = FacesContext.getCurrentInstance();
 
-        if (validaReserva(this.book)) {
-            daoBook.persistir(this.book);
-            this.book = new Book();
+                context.addMessage(null, new FacesMessage("A reserva foi efetuada com sucesso!", ""));
+                buildScheduleModel();
+                book = new Book();
+                return "lista_reserva_salas";
+            }
             FacesContext context = FacesContext.getCurrentInstance();
 
-            context.addMessage(null, new FacesMessage("A reserva foi efetuada com sucesso!", ""));
-//        if (event.getId() == null) {
-//            eventModel.addEvent(event);
-//        } else {
-//            eventModel.updateEvent(event);
-//        }
-//
-//        //event = new DefaultScheduleEvent();
-//        eventModel.addEvent(new DefaultScheduleEvent(this.book.getNote(), this.book.getStartdate(), this.book.getEndDate()));
-            ScheduleController sc = new ScheduleController();
-            sc.preencheSchedule();
-            book = new Book();
-            return "lista_reserva_salas";
+            context.addMessage(null, new FacesMessage("Não foi possível efetuar a reserva, pois a sala já está reservada nesse período!", ""));
         }
-        FacesContext context = FacesContext.getCurrentInstance();
-
-        context.addMessage(null, new FacesMessage("Não foi possível efetuar a reserva neste horário!", ""));
         return "";
 
     }
 
     public void buildScheduleModel() {
         List<Book> books = new DaoBook().obterPorClassRoom(TableClassRoom.selectedClassRoom.getId());
-        for (Book b : books) {
-            eventModel.addEvent(new DefaultScheduleEvent(b.getNote(), b.getStartdate(), b.getEndDate()));
+        for (Book book : books) {
+            eventModel.addEvent(new DefaultScheduleEvent(book.getPeriod().getStarttime() + " - " + book.getPeriod().getEndtime(), book.getStartdate(), book.getEndDate()));
         }
+
     }
 
     public List<Period> getPeriods() {
@@ -111,9 +103,16 @@ public class BookBean {
         return daoP.listar();
     }
 
-    private boolean validaReserva(Book book) {
-        DaoBook daoBook = new DaoBook();
-        DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
-        return daoBook.obterPorFiltro("FROM Book b where b.classroom.id = " + book.getClassroom().getId() + " and b.startdate = '" + df.format(book.getStartdate()) + "' and  b.endDate = '" + df.format(book.getEndDate()) + "' and  b.period.id=" + book.getPeriod().getId()).isEmpty();
+    public void onDateSelect(SelectEvent selectEvent) {
+        book.setStartdate((Date) selectEvent.getObject());
+    }
+
+    public String today() {
+        return Utils.formatDatePtBR(new Date());
+    }
+
+    public String thisYear() {
+        Calendar cal = Calendar.getInstance();  
+        return "31-12-"+cal.get(Calendar.YEAR);
     }
 }

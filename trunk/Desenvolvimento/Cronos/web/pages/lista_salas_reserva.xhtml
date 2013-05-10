@@ -101,51 +101,49 @@
                     <h:outputLabel for="bookable1" value="Reservável: " style="margin-left:3%" />  
                     <p:inputText id="bookable1" value="#{tableClassRoom.selectedClassRoom.bookable}" disabled="true" size="3"  /> 
                     <p:message for="bookable1" />
-                    
+
                 </h:panelGrid>
 
                 <p:separator style="margin-bottom:10px"/>  
 
                 <p:growl id="messages" showDetail="true" />
 
-                <p:schedule id="schedule" locale="pt"  
-                            timeZone="America/Sao_Paulo" value="#{bookBean.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px">
+                <p:schedule id="schedule" locale="pt"
+                            timeZone="America/Sao_Paulo" value="#{bookBean.eventModel}" widgetVar="myschedule"   style="height: 90%;width: 95%;margin-left: 5px" firstHour="7">
 
-                    <p:ajax event="dateSelect" listener="#{scheduleController.onDateSelect}"  oncomplete="eventDialog.show()" />
-                    <p:ajax event="eventSelect" listener="#{scheduleController.onEventSelect}"  oncomplete="eventDialog.show()" />
-                    <p:ajax event="eventMove" listener="#{scheduleController.onEventMove}" update="messages" />
-                    <p:ajax event="eventResize" listener="#{scheduleController.onEventResize}" update="messages" />
+                    <p:ajax event="dateSelect" oncomplete="eventDialog.show()" />
+
 
                 </p:schedule>
             </p:dialog>  
-            </h:form>
-            <h:form id="reserva_nova"> 
-                <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
-                    <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  
+        </h:form>
+        <h:form id="reserva_nova"> 
+            <p:dialog widgetVar="eventDialog" header="Cadastro de Reserva" showEffect="clip" hideEffect="clip" modal="true">
+                <h:panelGrid id="dados_reserva" columns="3" cellpadding="4">  
 
-                        <h:outputLabel for="ptCal" value="Data inicial: "/>  
-                        <p:calendar locale="pt" value="#{bookBean.book.startdate}" showButtonPanel="true" navigator="true" id="ptCal"/>
-                        <p:message for="ptCal" />
+                    <h:outputLabel for="ptCal" value="Data inicial: "/>  
+                    <p:calendar locale="pt" value="#{bookBean.book.startdate}" mindate="#{bookBean.today()}" maxdate="#{bookBean.thisYear()}" onselect="#{bookBean.book.startdate}" showButtonPanel="true" navigator="true" id="ptCal" required="true"/>
+                    <p:message for="ptCal" />
 
-                        <h:outputLabel for="ptCal2" value="Data final:" />
-                        <p:calendar locale="pt" value="#{bookBean.book.endDate}" showButtonPanel="true" navigator="true" id="ptCal2"/>
-                        <p:message for="ptCal2" />
+                    <h:outputLabel for="ptCal2" value="Data final:" />
+                    <p:calendar locale="pt" value="#{bookBean.book.endDate}" mindate="#{bookBean.today()}" maxdate="#{bookBean.thisYear()}"  showButtonPanel="true" navigator="true" id="ptCal2"  required="true"/>
+                    <p:message for="ptCal2" />
 
-                        <h:outputLabel for="period" value="Período: "/>  
-                        <p:selectOneMenu value="#{bookBean.book.period}" converter="periodConverter">
-                            <f:selectItems  id="period" var="p" value="#{bookBean.periods}" itemLabel="#{p.name}" itemValue="#{p}"/> 
-                        </p:selectOneMenu>
-                        <p:message for="period" />
-                        
-                        <h:outputLabel for="note" value="Observação:"/>  
-                        <p:inputTextarea id="note" value="#{bookBean.book.note}" rows="8" cols="50" />
-                        <p:message for="note" />
+                    <h:outputLabel for="period" value="Período: "/>  
+                    <p:selectOneMenu value="#{bookBean.book.period}" converter="periodConverter">
+                        <f:selectItems  id="period" var="p" value="#{bookBean.periods}" itemLabel="#{p.name}" itemValue="#{p}"  /> 
+                    </p:selectOneMenu>
+                    <p:message for="period" />
 
-                    </h:panelGrid>
-                    <h:panelGrid style="margin-left: 300px;" columns="2" cellpadding="5">
-                        <p:commandButton value="Cadastrar" action="#{bookBean.addBook}" ajax="false"/>
-                    </h:panelGrid>
-                </p:dialog>  
-            </h:form>
+                    <h:outputLabel for="note" value="Observação:"/>  
+                    <p:inputTextarea id="note" value="#{bookBean.book.note}" rows="8" cols="50"/>
+                    <p:message for="note" />
+
+                </h:panelGrid>
+                <h:panelGrid style="margin-left: 300px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" action="#{bookBean.addBook}" ajax="false"/>
+                </h:panelGrid>
+            </p:dialog>  
+        </h:form>
     </div>
 </ui:composition>

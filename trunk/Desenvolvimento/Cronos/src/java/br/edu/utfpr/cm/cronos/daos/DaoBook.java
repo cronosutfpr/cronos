@@ -7,6 +7,9 @@ package br.edu.utfpr.cm.cronos.daos;
 import br.edu.utfpr.cm.cronos.conexao.TransactionManager;
 import br.edu.utfpr.cm.cronos.model.Book;
 import br.edu.utfpr.cm.cronos.model.ClassRoom;
+import br.edu.utfpr.cm.cronos.util.Utils;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import org.hibernate.Query;
 import org.hibernate.Session;
@@ -31,9 +34,8 @@ public class DaoBook extends DaoGenerics<Book> {
         return books;
     }
 
-    public List<Book> obterPorFiltro(String filtro) {
-        Query query = session.createQuery(filtro);
-
-        return query.list();
+    public boolean validarReserva(Book book) {
+        Query query = session.createQuery("FROM Book b where b.classroom.id = " + book.getClassroom().getId() + " and b.startdate = '" + Utils.formatDatePtBR(book.getStartdate()) + "' and  b.endDate = '" + Utils.formatDatePtBR(book.getEndDate()) + "' and  b.period.id=" + book.getPeriod().getId());
+        return query.list().isEmpty();
     }
 }
