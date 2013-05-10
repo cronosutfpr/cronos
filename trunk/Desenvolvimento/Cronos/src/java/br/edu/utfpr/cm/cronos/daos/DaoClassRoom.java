@@ -19,7 +19,7 @@ public class DaoClassRoom extends DaoGenerics<ClassRoom> {
     }
 
      public List<ClassRoom> ObterPorFiltro(String descricao, String tipo, String abreviatura, String capacidade, String reservavel ) {
-        Query query = session.createQuery("FROM ClassRoom c where classroom.name like '%"+descricao+"%' or classroom.type like '%"+tipo+"%' or classroom._short like '%"+tipo+"%'  or classroom.capacity like '"+capacidade+"' or classroom.bookable = "+reservavel+" ");
+        Query query = session.createQuery("FROM ClassRoom c where c.name like '%"+descricao+"%' or c.type like '%"+tipo+"%' or c._short like '%"+tipo+"%'  or c.capacity like '"+capacidade+"' or c.bookable = "+reservavel+" ");
         return query.list();
     }
 }

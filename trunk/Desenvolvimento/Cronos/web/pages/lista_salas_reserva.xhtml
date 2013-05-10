@@ -35,7 +35,7 @@
                 <p:selectBooleanCheckbox id="bookable" value="#{tableClassRoom.reservavel}" />  
                 <p:message for="bookable" />
 
-                <p:commandButton value="Buscar" update=":form_reserva:table_classRoom" immediate="true" actionListener="#{tableClassRoom.searchBooks()}" style="margin-left: 53px;"/>  
+                <p:commandButton value="Buscar" update=":form_reserva:table_classRoom" immediate="true" ajax="false" actionListener="#{tableClassRoom.searchBooks()}" style="margin-left: 53px;"/>  
                 
             </h:panelGrid>
   

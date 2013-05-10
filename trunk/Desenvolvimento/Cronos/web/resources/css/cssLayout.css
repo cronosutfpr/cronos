@@ -141,6 +141,7 @@ div.breadcrumbs {
 }
 div#sidebar {
 	width: 23%;
+        height: auto;
 	float: left;
 	margin-top: -4px;
 	min-height:600px;

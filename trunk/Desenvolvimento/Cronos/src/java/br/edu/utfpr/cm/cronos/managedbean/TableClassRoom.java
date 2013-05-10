@@ -15,7 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
+import javax.inject.Scope;
 import org.primefaces.event.SelectEvent;
 import org.primefaces.event.UnselectEvent;
 import org.primefaces.model.DefaultScheduleEvent;
@@ -26,16 +28,17 @@ import org.primefaces.model.DefaultScheduleModel;
  * @author junior
  */
 @ManagedBean
+@SessionScoped
 public class TableClassRoom implements Serializable {
 
     private List<ClassRoom> classRooms;
     public static ClassRoom selectedClassRoom;
     private ClassRoomDataModel classRoomDataModel;
-    private String descricao;
-    private String tipo;
-    private String abreviatura;
-    private String capacidade;
-    private String reservavel;
+    private String descricao = "";
+    private String tipo = "";
+    private String abreviatura = "";
+    private String capacidade = "";
+    private String reservavel = "0";
     private DaoClassRoom daoClassRoom;
 
     public TableClassRoom() {
@@ -45,7 +48,7 @@ public class TableClassRoom implements Serializable {
     }
 
     private void buscarClassRoom() {
-         daoClassRoom = new DaoClassRoom();
+        daoClassRoom = new DaoClassRoom();
         classRooms = daoClassRoom.listar();
     }
 
@@ -69,12 +72,13 @@ public class TableClassRoom implements Serializable {
         FacesMessage msg = new FacesMessage("Sala selecionada", String.valueOf(((ClassRoom) event.getObject()).getId()));
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
-        
+
         selectedClassRoom = (ClassRoom) event.getObject();
         BookBean.eventModel = new DefaultScheduleModel();
         List<Book> books = new DaoBook().obterPorClassRoom(TableClassRoom.selectedClassRoom.getId());
-        for (Book book : books) {            book.getStartdate().setTime(10000);
-             BookBean.eventModel.addEvent(new DefaultScheduleEvent(book.getPeriod().getStarttime()+" - "+ book.getPeriod().getEndtime(), book.getStartdate(), book.getEndDate()));
+        for (Book book : books) {
+            book.getStartdate().setTime(10000);
+            BookBean.eventModel.addEvent(new DefaultScheduleEvent(book.getPeriod().getStarttime() + " - " + book.getPeriod().getEndtime(), book.getStartdate(), book.getEndDate()));
         }
     }
 
@@ -83,11 +87,14 @@ public class TableClassRoom implements Serializable {
 
         FacesContext.getCurrentInstance().addMessage(null, msg);
     }
-    
-   public void searchBooks(){
-     classRooms.clear();
-     classRooms =daoClassRoom.ObterPorFiltro(descricao, tipo, abreviatura, capacidade, reservavel);
-   }
+
+    public void searchBooks() {
+        classRooms.clear();
+
+        System.out.println("DADOS: " + descricao + "-" + tipo + "-" + abreviatura + "-" + capacidade + "-" + reservavel);
+        classRooms = daoClassRoom.ObterPorFiltro(descricao, tipo, abreviatura, capacidade, reservavel);
+        clearParam();
+    }
 
     public String getDescricao() {
         return descricao;
@@ -129,5 +136,11 @@ public class TableClassRoom implements Serializable {
         this.reservavel = reservavel;
     }
 
-   
+    private void clearParam() {
+        descricao = "";
+        abreviatura = "";
+        capacidade = "";
+        reservavel = "0";
+        tipo = "";
+    }
 }
