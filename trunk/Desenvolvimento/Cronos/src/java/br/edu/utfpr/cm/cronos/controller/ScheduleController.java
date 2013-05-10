@@ -4,11 +4,16 @@
  */
 package br.edu.utfpr.cm.cronos.controller;
 
+import br.edu.utfpr.cm.cronos.daos.DaoBook;
+import br.edu.utfpr.cm.cronos.model.Book;
 import java.awt.event.ActionEvent;
 import java.io.Serializable;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import javax.faces.application.FacesMessage;
+import javax.faces.bean.ManagedBean;
+import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
 import org.primefaces.event.ScheduleEntryMoveEvent;
 import org.primefaces.event.ScheduleEntryResizeEvent;
@@ -18,6 +23,8 @@ import org.primefaces.model.DefaultScheduleModel;
 import org.primefaces.model.ScheduleEvent;
 import org.primefaces.model.ScheduleModel;
 
+@ManagedBean
+@SessionScoped
 public class ScheduleController implements Serializable {
 
     private ScheduleModel eventModel;
@@ -25,10 +32,7 @@ public class ScheduleController implements Serializable {
 
     public ScheduleController() {
         eventModel = new DefaultScheduleModel();
-        eventModel.addEvent(new DefaultScheduleEvent("teste", previousDay8Pm(), previousDay11Pm()));
-        eventModel.addEvent(new DefaultScheduleEvent("Birthday Party", today1Pm(), today6Pm()));
-        eventModel.addEvent(new DefaultScheduleEvent("Breakfast at Tiffanys", nextDay9Am(), nextDay11Am()));
-        eventModel.addEvent(new DefaultScheduleEvent("Plant the new garden stuff", theDayAfter3Pm(), fourDaysLater3pm()));
+        preencheSchedule();
     }
 
     public Date getRandomDate(Date base) {
@@ -168,4 +172,16 @@ public class ScheduleController implements Serializable {
     private void addMessage(FacesMessage message) {
         FacesContext.getCurrentInstance().addMessage(null, message);
     }
+
+    public List<Book> getBooks() {
+        DaoBook daoBooks = new DaoBook();
+        return daoBooks.listar();
+    }
+
+    public void preencheSchedule() {
+        for (Book book : getBooks()) {
+            eventModel.addEvent(new DefaultScheduleEvent(book.getNote(), book.getStartdate(), book.getEndDate()));
+        }
+    }
+
 }

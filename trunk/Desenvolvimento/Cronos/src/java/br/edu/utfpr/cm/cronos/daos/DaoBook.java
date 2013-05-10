@@ -16,19 +16,24 @@ import org.hibernate.Session;
  * @author Erick
  */
 public class DaoBook extends DaoGenerics<Book> {
+
     protected Session session = TransactionManager.getCurrentSession();
 
     public DaoBook() {
         super.alvo = Book.class;
     }
-    
+
     public List<Book> obterPorClassRoom(Long id) {
-       List<Book> books;
-       Query query = session.createQuery("FROM Book b WHERE b.classroom.id =" + id);
-       books = query.list();
-        
+        List<Book> books;
+        Query query = session.createQuery("FROM Book b WHERE b.classroom.id =" + id);
+        books = query.list();
+
         return books;
     }
 
-    
+    public List<Book> obterPorFiltro(String filtro) {
+        Query query = session.createQuery(filtro);
+
+        return query.list();
+    }
 }
