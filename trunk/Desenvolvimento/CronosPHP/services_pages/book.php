@@ -119,11 +119,25 @@ function listBook($id, $pg) {
 
         // Caso o usário queira uma pesquisa para saber as reservas de uma sala em especifico (passarid da sala).
         case 'classroom':
-            if ($pg > 0) {
-                $classroom = new classroom();
+            $classroom = new classroom();
+            if (is_numeric($id)) {
                 $classroom->set(id, $pg);
+                $book->set(classroom_id, $pg);
+            } else {
+                $classroom->set(_short, $pg);
+                // Gera o comando SQL
+                $sql = $classroom->ListClassRoom();
+
+                // Instancia uma base de dados via PDO (padrão do PHP)
+                $banco = new cPDO();
+                // Executa o SQL
+                $banco->query($sql);
+                // Trasforma o retorno do banco em um array
+                foreach ($banco->query($sql) as $rowClass) {
+                    $w = $rowClass['id'];
+                }
+                $book->set(classroom_id, $w);
             }
-            $book->set(classroom_id, $pg);
             break;
 
         // Caso o usário queira uma pesquisa para saber as reservas de uma pessoa em especifico (passarid da pessoa que requisitou).
@@ -156,9 +170,9 @@ function listBook($id, $pg) {
         // Encontra a sala
         $classroom = new classroom();
         // Seta ID da sala
-        $classroom->set(id, $row['id']);
+        $classroom->set(id, $row['classroom_id']);
 
-        $sql = $classroom->ListClassRoom();
+        $classroom->ListClassRoom();
         // Instancia uma base de dados via PDO (padrão do PHP)
         $banco = new cPDO();
         // Executa o SQL
@@ -181,7 +195,7 @@ function listBook($id, $pg) {
         foreach ($banco->query($sql) as $rowPeriod) {
             $periodArray = '{"id":"' . $rowPeriod['id'] . '","name":"' . $rowPeriod['name'] . '","_short":"' . $rowPeriod['_short'] . '","period":"' . $rowPeriod['period'] . '","starttime":"' . $rowPeriod['starttime'] . '","endtime":"' . $rowPeriod['endtime'] . '"';
         }
-        
+
         $bookArray[] = '{"id":"' . $row['id'] . '","endDate":"' . $row['endDate'] . '","note":"' . $row['note'] . '","startdate":"' . $row['startdate'] . '","status":"' . $row['status'] . '","classroom_id":"' . $row['classroom_id'] . '","requestor_id":"' . $row['requestor_id'] . '","classroom":' . $classroomArray . '},"period":' . $periodArray . '}},';
     }
 

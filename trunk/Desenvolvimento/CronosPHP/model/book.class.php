@@ -71,7 +71,7 @@ class book extends mysql {
         }
 
         $sql = "SELECT b.*, bp.periods_id FROM book b, book_period bp
-                WHERE b.id = bp.book_id $id $classroom_id $endDate $note $startdate $status $classroom_id $requestor_id $period_id
+                WHERE b.id = bp.book_id $id $classroom_id $endDate $note $startdate $status $requestor_id $period_id
                 ORDER BY b.startdate, bp.periods_id ASC";
 
         if ($this->start != '' && $this->limit != '') {
