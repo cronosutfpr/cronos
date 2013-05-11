@@ -1,12 +1,14 @@
 package br.edu.utfpr.cm.cronosmobile.view;
 
 import java.lang.reflect.Type;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.ListActivity;
 import android.content.Intent;
@@ -24,6 +26,7 @@ import br.edu.utfpr.cm.cronosmobile.persistence.ConexaoHttpClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+@SuppressLint("SimpleDateFormat")
 public class BookListView extends ListActivity {
 
 	private MenuItem menuItemHome;
@@ -48,7 +51,7 @@ public class BookListView extends ListActivity {
 	
 	// Strig com a url do webservice
 	String urlGet = Host.DOMAIN + "services/book/"+service;
-	
+	Log.i("Servico", urlGet);
 	try {
 	    
 	    // Tenta a conexão com o servidor
@@ -73,12 +76,14 @@ public class BookListView extends ListActivity {
 	List<Book> jsonObjectList = new Gson().fromJson(retorno, type);
 
 	// Lista que será usada para exibir as salas
-	List<String> salas = new ArrayList<String>();
+	List<Book> salas = new ArrayList<Book>();
 
 	// Gera lista com objetos vindos do Json
 	for (int i = 0; i < jsonObjectList.size(); i++) {
-	    Book x = jsonObjectList.get(i);
-	    salas.add(x.toString());
+	    
+		Book x = jsonObjectList.get(i);
+		
+	    salas.add(x);
 	}
 
 	// Adaper que pega a lista de String e coloca na ListView

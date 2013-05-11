@@ -1,15 +1,22 @@
 package br.edu.utfpr.cm.cronosmobile.model;
 
+import android.annotation.SuppressLint;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * 
  * @author Ana Claudia Maciel
  * @author Willyan Schultz Dworak
  * 
  */
+@SuppressLint("SimpleDateFormat")
 public class Book {
 
 	private String id;
 	private ClassRoom classroom;
+	private Period period;
 	private String requestor;
 	private String String;
 	private String startdate;
@@ -35,6 +42,14 @@ public class Book {
 
 	public void setClassroom(ClassRoom classroom) {
 		this.classroom = classroom;
+	}
+
+	public Period getPeriod() {
+		return period;
+	}
+
+	public void setPeriod(Period period) {
+		this.period = period;
 	}
 
 	public String getRequestor() {
@@ -87,7 +102,30 @@ public class Book {
 
 	@Override
 	public String toString() {
-		return startdate + " - " + this.endDate;
+		
+		SimpleDateFormat sdf1 = new SimpleDateFormat("yyyy-MM-dd");
+		SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
+	    
+	    String startdate = this.startdate;
+	    String enddate = this.endDate;
+	    
+	    try {
+	    	Date d1 = sdf1.parse(startdate);
+	    	sdf1.applyPattern("dd/MM/yyyy");
+			startdate = sdf1.format(d1);
+
+			Date d2 = sdf2.parse(enddate);
+			sdf2.applyPattern("dd/MM/yyyy");
+			enddate = sdf2.format(d2);
+			
+		} catch (ParseException e) {
+		}
+	    
+	    String sala = this.classroom.get_short();
+	    String periodo = this.period.getName();
+	    
+		return sala.trim() + "-" + periodo.trim() + "  " + startdate + "-"+ enddate;
+		
 	}
 
 }

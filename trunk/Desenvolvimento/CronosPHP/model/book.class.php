@@ -14,6 +14,8 @@ class book extends mysql {
     public $status;
     public $classroom_id;
     public $requestor_id;
+    public $period_id;
+    public $classroom;
     public $start;
     public $limit;    
     
@@ -64,10 +66,13 @@ class book extends mysql {
         if ($this->requestor_id != '') {
             $requestor_id = "AND b.requestor_id = '$this->requestor_id'";
         }
+        if ($this->period_id != '') {
+            $period_id = "AND bp.periods_id = '$this->period_id'";
+        }
 
-        $sql = "SELECT b.* FROM book b
-                WHERE b.id > 0 $id $classroom_id $endDate $note $startdate $status $classroom_id $requestor_id
-                ORDER BY b.startdate ASC";
+        $sql = "SELECT b.*, bp.periods_id FROM book b, book_period bp
+                WHERE b.id = bp.book_id $id $classroom_id $endDate $note $startdate $status $classroom_id $requestor_id $period_id
+                ORDER BY b.startdate, bp.periods_id ASC";
 
         if ($this->start != '' && $this->limit != '') {
             $start = $this->start;
@@ -108,10 +113,10 @@ class book extends mysql {
                 $requestor_id = ", requestor_id = '$this->requestor_id'";
             }
 
-            $sql = "UPDATE book SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
+            $sql = "UPDATE classroom SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
         } else {
-            $sql = "INSERT INTO book (endDate, note, startdate, status, period_id, classroom_id, requestor_id) 
-                    VALUES (" . $this->verificaNull(utf8_decode($this->endDate)) . ", " . $this->verificaNull(utf8_decode($this->note)) . ", " . $this->verificaNull(utf8_decode($this->startdate)) . ", " . $this->verificaNull(utf8_decode($this->status)) .", " . $this->verificaNull(utf8_decode($this->period_id)) . ", " . $this->verificaNull(utf8_decode($this->classroom_id)) . ", " . $this->verificaNull(utf8_decode($this->requestor_id)) . ");";
+            $sql = "INSERT INTO classroom (id, endDate, note, startdate, status, classroom_id, requestor_id) 
+                    VALUES (''," . $this->verificaNull(utf8_decode($this->endDate)) . ", " . $this->verificaNull(utf8_decode($this->note)) . ", " . $this->verificaNull(utf8_decode($this->startdate)) . ", " . $this->verificaNull(utf8_decode($this->status)) . ", " . $this->verificaNull(utf8_decode($this->classroom_id)) . ", " . $this->verificaNull(utf8_decode($this->requestor_id)) . ");";
         }
         return $sql;
     }

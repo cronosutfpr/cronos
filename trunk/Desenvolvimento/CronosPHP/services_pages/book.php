@@ -7,7 +7,9 @@ header('content-type: application/json; charset=utf-8');
 require_once('../model/funcoes.php');
 require_once('../model/pdo.class.php');
 require_once('../model/mysql.class.php');
+require_once('../model/classroom.class.php');
 require_once('../model/book.class.php');
+require_once('../model/period.class.php');
 
 // Inicia a sessão caso não esteja inicada.
 if (!isset($_SESSION)) {
@@ -32,15 +34,13 @@ if (substr_count($read, '/') > 0) {
 
 // Caso venha alguma tarefa via POST setar os valores aqui.
 if ($task != "") {
-    $id             = htmlspecialchars(strip_tags($_POST['id']));
-    $classroom_id   = htmlspecialchars(strip_tags($_POST['classroom_id']));
-    $endDate        = htmlspecialchars(strip_tags($_POST['endDate']));
-    $note           = htmlspecialchars(strip_tags($_POST['note']));
-    $startdate      = htmlspecialchars(strip_tags($_POST['startdate']));
-    $status         = htmlspecialchars(strip_tags($_POST['status']));
-    $period_id      = htmlspecialchars(strip_tags($_POST['period_id']));
-    $classroom_id   = htmlspecialchars(strip_tags($_POST['classroom_id']));
-    $requestor_id   = htmlspecialchars(strip_tags($_POST['requestor_id']));
+    $id = htmlspecialchars(strip_tags($_POST['id']));
+    $endDate = htmlspecialchars(strip_tags($_POST['endDate']));
+    $note = htmlspecialchars(strip_tags($_POST['note']));
+    $startdate = htmlspecialchars(strip_tags($_POST['startdate']));
+    $status = htmlspecialchars(strip_tags($_POST['status']));
+    $classroom_id = htmlspecialchars(strip_tags($_POST['classroom_id']));
+    $requestor_id = htmlspecialchars(strip_tags($_POST['requestor_id']));
 }
 
 // Caso o parametro venha via GET ele é setado na variavel 'task'.
@@ -54,7 +54,7 @@ switch ($task) {
 
     // Insere uma sala de acordo com os parametros passados pelo usuário via POST ou PUT
     case 'insert';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
         break;
 
     // Caso o usuário envie uma requisição via GET com o parametro 'list' serão listadas as reservas de acordo com os paramtros que ele passar na URL
@@ -64,7 +64,7 @@ switch ($task) {
 
     // Atualiza uma sala de acordo com os parametros passados pelo usuário via POST ou UPDATE
     case 'update';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
         break;
 
     // Deleta uma sala de acordo com os parametros passados pelo usuário via POST ou DELETE.
@@ -101,27 +101,31 @@ function listBook($id, $pg) {
             // Define quantos registro o banco irá retornar na consulta.
             $book->set(limit, $limit);
             break;
-        
+
         // Caso o usário queira uma pesquisa para saber as reservas que finalizam em uma data.
         case 'endDate':
             $book->set(endDate, $pg);
             break;
-        
+
         // Caso o usário queira uma pesquisa para saber as reservas que iniciam em uma data.
         case 'startdate':
             $book->set(startdate, $pg);
             break;
-        
+
         // Caso o usário queira uma pesquisa para saber as reservas que possuem um status especifico (passar satus).
         case 'status':
             $book->set(status, $pg);
             break;
-        
+
         // Caso o usário queira uma pesquisa para saber as reservas de uma sala em especifico (passarid da sala).
         case 'classroom':
+            if ($pg > 0) {
+                $classroom = new classroom();
+                $classroom->set(id, $pg);
+            }
             $book->set(classroom_id, $pg);
             break;
-        
+
         // Caso o usário queira uma pesquisa para saber as reservas de uma pessoa em especifico (passarid da pessoa que requisitou).
         case 'requestor':
             $book->set(requestor_id, $pg);
@@ -142,13 +146,61 @@ function listBook($id, $pg) {
     $banco = new cPDO();
     // Executa o SQL
     $banco->query($sql);
-    // Trasforma o retorno do banco em um array
-    $row = $banco->query($sql)->fetchAll();
-    // Conta quantos registros tem no banco
-    $total = $banco->query($sql)->rowCount();
 
+    $bookArray = array();
+    $periodArray = array();
+
+    // $row = $banco->query($sql)->fetchAll();
+    foreach ($banco->query($sql) as $row) {
+
+        // Encontra a sala
+        $classroom = new classroom();
+        // Seta ID da sala
+        $classroom->set(id, $row['id']);
+
+        $sql = $classroom->ListClassRoom();
+        // Instancia uma base de dados via PDO (padrão do PHP)
+        $banco = new cPDO();
+        // Executa o SQL
+        $banco->query($sql);
+        // Trasforma o retorno do banco em um array
+        foreach ($banco->query($sql) as $rowClassroom) {
+            $classroomArray = '{"id":"' . $rowClassroom['id'] . '","idxml":"' . $rowClassroom['idxml'] . '","name":"' . utf8_encode_all($rowClassroom['name']) . '","_short":"' . $rowClassroom['_short'] . '","capacity":"' . $rowClassroom['capacity'] . '","type":"' . $rowClassroom['type'] . '","building":"' . $rowClassroom['building'] . '","owner":"' . $rowClassroom['owner'] . '","bookable":"' . $rowClassroom['bookable'] . '"';
+        }
+
+        // Encontra o periodo
+        // Instancia um objeto do tipo period.
+        $period = new period();
+        $period->set(id, $row['periods_id']);
+        // Gera o comando SQL
+        $sql = $period->ListPeriod();
+
+        // Executa o SQL
+        $banco->query($sql);
+
+        foreach ($banco->query($sql) as $rowPeriod) {
+            $periodArray = '{"id":"' . $rowPeriod['id'] . '","name":"' . $rowPeriod['name'] . '","_short":"' . $rowPeriod['_short'] . '","period":"' . $rowPeriod['period'] . '","starttime":"' . $rowPeriod['starttime'] . '","endtime":"' . $rowPeriod['endtime'] . '"';
+        }
+        
+        $bookArray[] = '{"id":"' . $row['id'] . '","endDate":"' . $row['endDate'] . '","note":"' . $row['note'] . '","startdate":"' . $row['startdate'] . '","status":"' . $row['status'] . '","classroom_id":"' . $row['classroom_id'] . '","requestor_id":"' . $row['requestor_id'] . '","classroom":' . $classroomArray . '},"period":' . $periodArray . '}},';
+    }
+
+// Fazer o mesmo com esse cara;
+//    $bookArray['requestor'] = $row;
+//    $bookArray['requestor'] = $classroomArray;
+//    echo json_encode(utf8_encode_all($book['requestor']));
     // Gera o JSON do objeto e imprime na página
-    echo json_encode(utf8_encode_all($row));
+    echo '[';
+    for ($x = 0; $x < count($bookArray); $x++) {
+        if ($x < count($bookArray) - 1) {
+            echo $bookArray[$x];
+        } else {
+            echo substr($bookArray[$x], 0, -2);
+        }
+    }
+    echo '}]';
+//    echo "[" . $json_classroom . "]";
+//    echo json_encode(utf8_encode_all($row));
 }
 
 /**
@@ -156,17 +208,16 @@ function listBook($id, $pg) {
  * @param type $id
  * @return ID inserida no banco ou 0 em caso de erro.
  */
-function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $period_id) {
+function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id) {
 
     // Instancia um objeto do tipo book.
     $book = new book();
     $book->set(id, $id);
     $book->set(classroom_id, $classroom_id);
-    $book->set(endDate, converte_data($endDate));
+    $book->set(endDate, $endDate);
     $book->set(note, $note);
-    $book->set(startdate, converte_data($startdate));
+    $book->set(startdate, $startdate);
     $book->set(status, $status);
-    $book->set(period_id, $period_id);
     $book->set(classroom_id, $classroom_id);
     $book->set(requestor_id, $requestor_id);
 
@@ -175,15 +226,9 @@ function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status
 
     // Instancia uma base de dados via PDO (padrão do PHP)
     $banco = new cPDO();
-    
-    //echo $sql;
 
     // Tenta executar o SQL, se conseguir retorna id que Inseriu ou atualizou senão retorna 0
-    if(valida_data($startdate) == false){
-        echo '0';
-    }else if(valida_data($endDate) == false){
-        echo '0';
-    }else if (!$banco->query($sql)) {
+    if (!$banco->query($sql)) {
         echo '0';
     } else {
         echo '1';
@@ -195,15 +240,15 @@ function delete($id) {
     // Instancia um objeto do tipo book.
     $book = new book();
     $book->set(id, $id);
-    
+
     // Gera o comando SQL
     $sql = $book->delete();
 
     // Instancia uma base de dados via PDO (padrão do PHP)
     $banco = new cPDO();
-    
+
     $banco->query($sql);
-    
+
     // Tenta executar o SQL, se conseguir retorna id que excluiu senão retorna 0
     if (!$banco->query($sql)) {
         echo '0';
