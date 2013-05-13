@@ -17,4 +17,8 @@ public class Utils {
          DateFormat df = new SimpleDateFormat("dd-MM-yyyy");
          return df.format(date);
     }
+     public static String formatDate(Date date){
+         DateFormat df = new SimpleDateFormat("yyyy-MM-dd");
+         return df.format(date);
+    }
 }

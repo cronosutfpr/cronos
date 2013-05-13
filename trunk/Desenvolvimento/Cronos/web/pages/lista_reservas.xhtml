@@ -5,52 +5,60 @@
                 xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
-        <h:form id="form">  
-            
-            <p:growl id="messages" showDetail="true"/>  
-            <p:dataTable var="subject" paginatorPosition="bottom" value="#{listarDisciplinas.disciplinas}" editable="true" rowKey="#{subject.name}" paginator="true" rows="10"  selectionMode="single" id="subjectTable">  
+        <h:form>
+            <p:panel id="panel_reserva" header="Listagem de Reservas"> 
+                <p:dataTable id="dataTable" var="book" value="#{listarReservas.books}" widgetVar="booksTable" 
+                             emptyMessage="Pesquisar" filteredValue="#{listarReservas.filteredBooks}" paginator="true" rows="10">
 
-                <p:ajax event="rowEdit" listener="#{listarDisciplinas.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarDisciplinas.onCancel}" update=":form:messages"/>  
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Pesquisar: " style="margin-left: 80%" />
+                            <p:inputText id="globalFilter" onkeyup="booksTable.filter()" immediate="true"/>
+                        </p:outputPanel>
+                    </f:facet>
 
-                <p:column headerText="id">  
-                    <h:outputText value="#{subject.id}" />  
-                </p:column>  
+                    <p:column id="id_book" filterBy="#{book.id}" 
+                              headerText="Id"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.id}" />
+                    </p:column>
 
-                <p:column headerText="Nome">  
+                    <p:column id="classRoom" filterBy="#{book.classroom.short}"
+                              headerText="Sala"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.classroom.short}" />
+                    </p:column>
 
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{subject.name}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarDisciplinas.novoNome}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
-                </p:column>  
-                
-                <p:column headerText="Sigla">  
+                    <p:column id="requestor" filterBy="#{book.requestor.login}"
+                              headerText="Solicitante"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.requestor.login}" />
+                    </p:column>
 
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{subject.short}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarDisciplinas.novoShort}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
-                </p:column> 
+                    <p:column id="status" filterBy="#{book.status}"
+                              headerText="Status" 
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.status}" />
+                    </p:column>
+                    <p:column id="period" filterBy="#{book.period.name}"
+                              headerText="Periodo" filterMatchMode="contains">
+                        <h:outputText value="#{book.period.name}" />
+                    </p:column>
 
-               <p:column style="width:6%">  
-                    <p:rowEditor />  
-               </p:column>  
+                    <p:column id="startDate" filterBy="#{book.startdate}"
+                              headerText="Data Inicial" filterMatchMode="contains">
+                        <h:outputText value="#{book.startdate}" />
+                    </p:column>
 
-            </p:dataTable> 
+                    <p:column id="endDate" filterBy="#{book.endDate}"
+                              headerText="Data Final" filterMatchMode="contains">
+                        <h:outputText value="#{book.endDate}" />
+                    </p:column>
 
+                </p:dataTable>
 
-
-        </h:form> 
+            </p:panel>
+        </h:form>
     </div>
 </ui:composition>
-
 

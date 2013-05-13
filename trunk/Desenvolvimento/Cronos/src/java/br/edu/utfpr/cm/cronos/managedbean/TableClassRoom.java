@@ -77,7 +77,6 @@ public class TableClassRoom implements Serializable {
         BookBean.eventModel = new DefaultScheduleModel();
         List<Book> books = new DaoBook().obterPorClassRoom(TableClassRoom.selectedClassRoom.getId());
         for (Book book : books) {
-            book.getStartdate().setTime(10000);
             BookBean.eventModel.addEvent(new DefaultScheduleEvent(book.getPeriod().getStarttime() + " - " + book.getPeriod().getEndtime(), book.getStartdate(), book.getEndDate()));
         }
     }

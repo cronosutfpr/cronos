@@ -72,21 +72,25 @@ public class BookBean {
         DaoBook daoBook = new DaoBook();
         this.book.setClassroom(TableClassRoom.selectedClassRoom);
         if (this.book != null) {
-            if (daoBook.validarReserva(this.book)) {
-                daoBook.persistir(this.book);
-                this.book = new Book();
+            if (!this.book.getStartdate().after(this.book.getEndDate())) {
+                if (daoBook.validarReserva(this.book)) {
+                    daoBook.persistir(this.book);
+                    this.book = new Book();
+                    FacesContext context = FacesContext.getCurrentInstance();
+
+                    context.addMessage(null, new FacesMessage("A reserva foi efetuada com sucesso!", ""));
+                    buildScheduleModel();
+                    book = new Book();
+                    return "lista_reserva_salas";
+                }
                 FacesContext context = FacesContext.getCurrentInstance();
 
-                context.addMessage(null, new FacesMessage("A reserva foi efetuada com sucesso!", ""));
-                buildScheduleModel();
-                book = new Book();
-                return "lista_reserva_salas";
+                context.addMessage(null, new FacesMessage("Não foi possível efetuar a reserva, pois a sala já está reservada nesse período!", ""));
             }
             FacesContext context = FacesContext.getCurrentInstance();
-
-            context.addMessage(null, new FacesMessage("Não foi possível efetuar a reserva, pois a sala já está reservada nesse período!", ""));
+            context.addMessage(null, new FacesMessage("A data inicial não pode ser maior que a data final.", ""));
         }
-        return "";
+        return "lista_reserva_salas";
 
     }
 
@@ -95,7 +99,6 @@ public class BookBean {
         for (Book book : books) {
             eventModel.addEvent(new DefaultScheduleEvent(book.getPeriod().getStarttime() + " - " + book.getPeriod().getEndtime(), book.getStartdate(), book.getEndDate()));
         }
-
     }
 
     public List<Period> getPeriods() {
@@ -112,7 +115,7 @@ public class BookBean {
     }
 
     public String thisYear() {
-        Calendar cal = Calendar.getInstance();  
-        return "31-12-"+cal.get(Calendar.YEAR);
+        Calendar cal = Calendar.getInstance();
+        return "31-12-" + cal.get(Calendar.YEAR);
     }
 }
