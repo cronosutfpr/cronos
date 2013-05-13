@@ -9,6 +9,22 @@ package br.edu.utfpr.cm.cronosmobile;
 
 public final class R {
     public static final class attr {
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int cancelLabel=0x7f010001;
+        /** <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+         */
+        public static final int okLabel=0x7f010000;
     }
     public static final class dimen {
         /**  Default screen margins, per the Android Design guidelines. 
@@ -26,7 +42,7 @@ public final class R {
         public static final int search=0x7f020002;
     }
     public static final class id {
-        public static final int action_settings=0x7f08002d;
+        public static final int action_settings=0x7f080030;
         public static final int btBack=0x7f080010;
         public static final int btBook=0x7f08000c;
         public static final int btBookBack=0x7f08000e;
@@ -34,7 +50,7 @@ public final class R {
         public static final int btEndDate=0x7f080006;
         public static final int btEntrar=0x7f080027;
         public static final int btInfo=0x7f08000d;
-        public static final int btSair=0x7f080028;
+        public static final int btSair=0x7f080029;
         public static final int btStartDate=0x7f080004;
         public static final int classroomBookBookable=0x7f080016;
         public static final int classroomBookBuilding=0x7f080018;
@@ -46,18 +62,19 @@ public final class R {
         public static final int classroomBookType=0x7f08001e;
         public static final int edNote=0x7f08000b;
         public static final int edSearchBook=0x7f080011;
-        public static final int edSearchClassroom=0x7f080029;
+        public static final int edSearchClassroom=0x7f08002a;
         public static final int edSenha=0x7f080025;
         public static final int edUser=0x7f080024;
-        public static final int imageView1=0x7f08002a;
+        public static final int imageView1=0x7f08002b;
         public static final int linearLayout1=0x7f080000;
         public static final int listView1=0x7f08000f;
         public static final int login=0x7f080026;
         public static final int login_form=0x7f080023;
         public static final int login_status=0x7f080021;
         public static final int login_status_message=0x7f080022;
-        public static final int menu_settings=0x7f08002c;
-        public static final int progressBar1=0x7f08002b;
+        public static final int menu_settings=0x7f08002f;
+        public static final int okCancelBar=0x7f080028;
+        public static final int progressBar1=0x7f08002c;
         public static final int sp_period=0x7f080009;
         public static final int textView1=0x7f080001;
         public static final int textView2=0x7f08000a;
@@ -72,6 +89,8 @@ public final class R {
         public static final int txtStartDate=0x7f080005;
         public static final int txtStatus=0x7f08001b;
         public static final int txtTipo=0x7f08001d;
+        public static final int widget_okcancelbar_cancel=0x7f08002d;
+        public static final int widget_okcancelbar_ok=0x7f08002e;
     }
     public static final class layout {
         public static final int book=0x7f030000;
@@ -83,6 +102,7 @@ public final class R {
         public static final int menu=0x7f030006;
         public static final int search_classroom=0x7f030007;
         public static final int splash=0x7f030008;
+        public static final int widget_ok_cancel_bar=0x7f030009;
     }
     public static final class menu {
         public static final int book_list_view=0x7f070000;
@@ -99,6 +119,8 @@ public final class R {
         public static final int action_settings=0x7f050001;
         public static final int app_name=0x7f050000;
         public static final int exit=0x7f050005;
+        public static final int global_accept=0x7f050011;
+        public static final int global_cancel=0x7f050012;
         public static final int hello_world=0x7f050002;
         public static final int menu_settings=0x7f05000e;
         public static final int password=0x7f050008;
@@ -112,6 +134,13 @@ public final class R {
         public static final int title_activity_search_classroom_view=0x7f05000b;
         public static final int title_activity_slpah=0x7f050003;
         public static final int user=0x7f050007;
+        public static final int validator_alnum=0x7f050017;
+        public static final int validator_confirm=0x7f050016;
+        public static final int validator_email=0x7f050013;
+        public static final int validator_empty=0x7f050014;
+        public static final int validator_hex=0x7f050018;
+        public static final int validator_regexp=0x7f050019;
+        public static final int validator_url=0x7f050015;
         public static final int wait=0x7f050006;
     }
     public static final class style {
@@ -145,4 +174,49 @@ public final class R {
         public static final int AppTheme=0x7f060001;
         public static final int LoginFormContainer=0x7f060002;
     }
+    public static final class styleable {
+        /** Attributes that can be used with a OkCancelBar.
+           <p>Includes the following attributes:</p>
+           <table>
+           <colgroup align="left" />
+           <colgroup align="left" />
+           <tr><th>Attribute</th><th>Description</th></tr>
+           <tr><td><code>{@link #OkCancelBar_cancelLabel br.edu.utfpr.cm.cronosmobile:cancelLabel}</code></td><td></td></tr>
+           <tr><td><code>{@link #OkCancelBar_okLabel br.edu.utfpr.cm.cronosmobile:okLabel}</code></td><td></td></tr>
+           </table>
+           @see #OkCancelBar_cancelLabel
+           @see #OkCancelBar_okLabel
+         */
+        public static final int[] OkCancelBar = {
+            0x7f010000, 0x7f010001
+        };
+        /**
+          <p>This symbol is the offset where the {@link br.edu.utfpr.cm.cronosmobile.R.attr#cancelLabel}
+          attribute's value can be found in the {@link #OkCancelBar} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:cancelLabel
+        */
+        public static final int OkCancelBar_cancelLabel = 1;
+        /**
+          <p>This symbol is the offset where the {@link br.edu.utfpr.cm.cronosmobile.R.attr#okLabel}
+          attribute's value can be found in the {@link #OkCancelBar} array.
+
+
+          <p>Must be a string value, using '\\;' to escape characters such as '\\n' or '\\uxxxx' for a unicode character.
+<p>This may also be a reference to a resource (in the form
+"<code>@[<i>package</i>:]<i>type</i>:<i>name</i></code>") or
+theme attribute (in the form
+"<code>?[<i>package</i>:][<i>type</i>:]<i>name</i></code>")
+containing a value of this type.
+          @attr name android:okLabel
+        */
+        public static final int OkCancelBar_okLabel = 0;
+    };
 }

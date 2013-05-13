@@ -74,4 +74,15 @@
         </LinearLayout>
     </ScrollView>
 
+    <LinearLayout>
+
+        <br.edu.utfpr.cm.cronosmobile.validate.OkCancelBar
+            android:id="@+id/okCancelBar"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:gravity="center_horizontal"
+            android:paddingTop="8dip" />
+    </LinearLayout>
+
 </merge>
