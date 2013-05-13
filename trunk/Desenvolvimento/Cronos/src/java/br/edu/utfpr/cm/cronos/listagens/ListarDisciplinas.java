@@ -5,43 +5,31 @@
 package br.edu.utfpr.cm.cronos.listagens;
 
 import br.edu.utfpr.cm.cronos.daos.DaoSubject;
-import br.edu.utfpr.cm.cronos.daos.DaoTeacher;
 import br.edu.utfpr.cm.cronos.model.Subject;
-import br.edu.utfpr.cm.cronos.model.Teacher;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import javax.faces.context.FacesContext;
-import org.primefaces.event.RowEditEvent;
 
 /**
  *
  * @author paulo
  */
-@ManagedBean
+@ManagedBean(name = "listarDisciplinas")
 @SessionScoped
 public class ListarDisciplinas {
     private List<Subject> disciplinas;
-    private String novoNome;
-    private String novoShort;
+    private Subject selectedSubject;
 
-    public String getNovoNome() {
-        return novoNome;
+    public Subject getSelectedSubject() {
+        return selectedSubject;
     }
 
-    public void setNovoNome(String novoNome) {
-        this.novoNome = novoNome;
-    }
-
-    public String getNovoShort() {
-        return novoShort;
-    }
-
-    public void setNovoShort(String novoShort) {
-        this.novoShort = novoShort;
-    }
-    
+    public void setSelectedSubject(Subject selectedSubject) {
+        this.selectedSubject = selectedSubject;
+    }    
     
     public List<Subject> getDisciplinas() {
         disciplinas = new DaoSubject().listar();
@@ -51,36 +39,22 @@ public class ListarDisciplinas {
     public void setDisciplinas(List<Subject> disciplinas) {
         this.disciplinas = disciplinas;
     }
-
-    public void onEdit(RowEditEvent event) {
-        //(Teacher) event.getObject()).getGender()
-        Subject subject = (Subject) event.getObject();
-        
-        preencherComDadosAtualizados(subject);
-        
-        new DaoSubject().persistir(subject);
-        
-        
-        FacesMessage msg = new FacesMessage("Disciplina editado", "Nome: "+subject.getName());
-
-
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-
-    public void onCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Subject) event.getObject()).getName());
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+    
+    @PostConstruct
+    public void construct() {
+        setSelectedSubject(new Subject());
     }
     
-    private void preencherComDadosAtualizados(Subject subject) {
-        if(!novoNome.isEmpty()){
-            subject.setName(novoNome);
-        }
-        if(!novoShort.isEmpty()){
-            subject.setShort(novoShort);
-        }
+    public String editSubject() {
+        DaoSubject dcr = new DaoSubject();
+        dcr.persistir(this.selectedSubject);
+        
+        this.selectedSubject = new Subject();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Disciplina Editada!"));
+        return "edit_subject";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
     
     

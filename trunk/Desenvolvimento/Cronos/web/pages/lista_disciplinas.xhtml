@@ -6,46 +6,52 @@
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
         <h:form id="form">  
-            
-            <p:growl id="messages" showDetail="true"/>  
-            <p:dataTable var="subject" value="#{listarDisciplinas.disciplinas}" editable="true" rowKey="#{subject.name}" paginator="true" rows="10"  selectionMode="single" id="subjectTable">  
 
-                <p:ajax event="rowEdit" listener="#{listarDisciplinas.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarDisciplinas.onCancel}" update=":form:messages"/>  
+            <p:growl id="messages" showDetail="true"/>  
+            <p:dataTable var="subject" value="#{listarDisciplinas.disciplinas}" selection="#{listarDisciplinas.selectedSubject}" editable="true" rowKey="#{subject.name}" paginator="true" rows="10"  selectionMode="single" id="subjectTable">  
+                <p:ajax event="rowSelect" update=":form" /> 
+
 
                 <p:column headerText="id">  
                     <h:outputText value="#{subject.id}" />  
                 </p:column>  
 
                 <p:column headerText="Nome">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{subject.name}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarDisciplinas.novoNome}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                    <h:outputText value="#{subject.name}" />  
                 </p:column>  
-                
-                <p:column headerText="Sigla">  
 
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{subject.short}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarDisciplinas.novoShort}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                <p:column headerText="Sigla">  
+                    <h:outputText value="#{subject.short}" />   
                 </p:column> 
 
-               <p:column style="width:6%">  
-                    <p:rowEditor />  
-               </p:column>  
+                <p:column style="width:6%">  
+                    <p:commandButton id="viewButton" icon="icn_edit_article"  
+                                     update=":form" oncomplete="subjectEdit.show()"/> 
+
+                </p:column>  
 
             </p:dataTable> 
+
+            <p:dialog id="dialog" header="Editar Disciplina" widgetVar="subjectEdit" resizable="false"  
+                      width="400" showEffect="clip" hideEffect="fold"> 
+                    <h:panelGrid columns="3" cellpadding="5">
+                        <h:outputLabel for="name" value="Nome: *" />
+                        <p:inputText id="name" value="#{listarDisciplinas.selectedSubject.name}" required="true" label="Nome">  
+                            <f:validateLength minimum="2" />  
+                        </p:inputText>  
+                        <p:message for="name" /> 
+
+                        <h:outputLabel for="short" value="Abreviação: *" />  
+                        <p:inputText id="short" value="#{listarDisciplinas.selectedSubject.short}" required="true" label="Abreviacao"/>  
+                        <p:message for="short" />
+
+                    </h:panelGrid>
+                    <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                        <p:commandButton value="Cadastrar" update="messages"  action="#{listarDisciplinas.editSubject}" />
+                    </h:panelGrid>
+
+
+            </p:dialog>
 
 
 

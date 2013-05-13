@@ -60,7 +60,7 @@ public class ListarSalas {
         this.selectedClassRoom = new ClassRoom();
         FacesContext context = FacesContext.getCurrentInstance();
 
-        context.addMessage(null, new FacesMessage("Successful", "Sala Editada!s"));
+        context.addMessage(null, new FacesMessage("Successful", "Sala Editada!"));
         return "cad_salas";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }

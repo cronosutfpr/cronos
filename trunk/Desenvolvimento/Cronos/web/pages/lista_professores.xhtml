@@ -6,61 +6,50 @@
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
         <h:form id="form">  
-            
-            <p:growl id="messages" showDetail="true"/>  
-            <p:dataTable var="teacher" value="#{listarProfessores.professores}" editable="true" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
 
-                <p:ajax event="rowEdit" listener="#{listarProfessores.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarProfessores.onCancel}" update=":form:messages"/>  
+            <p:growl id="messages" showDetail="true"/>  
+            <p:dataTable var="teacher" value="#{listarProfessores.professores}" selection="#{listarProfessores.selectedTeacher}" editable="true" rowKey="#{teacher.name}" paginator="true" rows="10"  selectionMode="single" id="teacherTable">  
+                <p:ajax event="rowSelect" update=":form" /> 
+
 
                 <p:column headerText="id">  
                     <h:outputText value="#{teacher.id}" />  
                 </p:column>  
 
                 <p:column headerText="Nome">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{teacher.name}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoNome}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                        <h:outputText value="#{teacher.name}" />  
                 </p:column>  
-                
-                <p:column headerText="Email">  
 
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{teacher.email}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoEmail}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                <p:column headerText="Email">  
+                        <h:outputText value="#{teacher.email}" />  
                 </p:column> 
 
                 <p:column headerText="Sexo">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{teacher.gender}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarProfessores.novoSexo}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                        <h:outputText value="#{teacher.gender}" />  
                 </p:column>  
 
                 <p:column headerText="Color">  
                     <div style="background-color: #{teacher.color}; width: 80px; height: 20px;"></div>
                 </p:column> 
-                <p:column style="width:6%">  
-                    <p:rowEditor />  
-                </p:column>  
 
-            </p:dataTable> 
+ 
+
+            </p:dataTable>
+
+            <p:dialog id="dialog" header="Editar Professor" widgetVar="teacherEdit" resizable="false"  
+                      width="400" showEffect="clip" hideEffect="fold">
+                <h:panelGrid columns="3" cellpadding="5">  
+                    <h:outputLabel for="siape" value="Siape: *" />  
+                    <p:inputText id="siape" value="#{listarProfessores.selectedTeacher.siape}" required="true" label="Siape">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="siape" /> 
+                </h:panelGrid> 
+
+                <h:panelGrid style="margin-left: 57px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar"  update="messages"   action="#{listarProfessores.setTeacher}"/>
+                </h:panelGrid>
+            </p:dialog>
 
 
 
