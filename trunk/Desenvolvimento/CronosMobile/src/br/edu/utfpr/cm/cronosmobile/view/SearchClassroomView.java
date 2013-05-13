@@ -36,8 +36,8 @@ public class SearchClassroomView extends Activity {
 				Bundle b = new Bundle();  
 				b.putString("service", "list/classroom/" + edSearchClassroom.getText().toString());  
 				intentSearch.putExtras(b);
-				startActivity(intentSearch);
 				finish();
+				startActivity(intentSearch);
 			}
 		});
 

@@ -55,8 +55,8 @@ public class LoginView extends Activity {
 				
 				if (AdministradorController.validarUsuario(getApplicationContext(), a)) {
 					Intent intent = new Intent(LoginView.this, PrincipalView.class);
-					startActivity(intent);
 					finish();
+					startActivity(intent);
 				} else {
 					Toast.makeText(getApplicationContext(), "Usuário ou senha invalidos", Toast.LENGTH_SHORT).show();
 				}
