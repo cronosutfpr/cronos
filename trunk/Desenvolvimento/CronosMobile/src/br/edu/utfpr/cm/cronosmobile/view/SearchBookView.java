@@ -8,7 +8,12 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import br.edu.utfpr.cm.cronosmobile.R;
-
+/**
+ * 
+ * @author Ana Claudia Maciel
+ * @author Willyan Schultz Dworak
+ * 
+ */
 public class SearchBookView extends Activity {
 
 	private Button btBuscar;
@@ -32,6 +37,7 @@ public class SearchBookView extends Activity {
 				b.putString("service", "list/classroom/" + edSearchBook.getText().toString());  
 				intentSearch.putExtras(b);
 				startActivity(intentSearch);
+				finish();
 			}
 		});
 

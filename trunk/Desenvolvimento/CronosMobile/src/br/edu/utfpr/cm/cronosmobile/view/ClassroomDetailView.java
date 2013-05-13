@@ -9,7 +9,12 @@ import android.widget.Button;
 import android.widget.TextView;
 import br.edu.utfpr.cm.cronosmobile.R;
 import br.edu.utfpr.cm.cronosmobile.model.ClassRoom;
-
+/**
+ * 
+ * @author Ana Claudia Maciel
+ * @author Willyan Schultz Dworak
+ * 
+ */
 public class ClassroomDetailView extends Activity {
 
 	private ClassRoom classroom;
@@ -69,6 +74,7 @@ public class ClassroomDetailView extends Activity {
 			public void onClick(View v) {
 				Intent intentBook = new Intent(ClassroomDetailView.this, BookView.class);
 				intentBook.putExtra("classroom", classroom);
+				finish();
 			    startActivity(intentBook);
 			}
 		});
@@ -76,6 +82,7 @@ public class ClassroomDetailView extends Activity {
 		this.btBookBack.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				Intent intentHome = new Intent(ClassroomDetailView.this, PrincipalView.class);
+				finish();
 			    startActivity(intentHome);
 			}
 		});

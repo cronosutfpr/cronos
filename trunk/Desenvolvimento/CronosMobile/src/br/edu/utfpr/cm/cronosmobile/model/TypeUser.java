@@ -1,7 +1,11 @@
 package br.edu.utfpr.cm.cronosmobile.model;
 
 import java.io.Serializable;
-
+/**
+ * 
+ * @author Willyan Schultz Dworak
+ * 
+ */
 public class TypeUser implements Serializable {
 	
 	/**

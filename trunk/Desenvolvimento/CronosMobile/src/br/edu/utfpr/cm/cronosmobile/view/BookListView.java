@@ -26,6 +26,12 @@ import br.edu.utfpr.cm.cronosmobile.persistence.ConexaoHttpClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * 
+ * @author Ana Claudia Maciel
+ * @author Willyan Schultz Dworak
+ * 
+ */
 @SuppressLint("SimpleDateFormat")
 public class BookListView extends ListActivity {
 
@@ -112,10 +118,12 @@ public class BookListView extends ListActivity {
     	switch (item.getItemId()) {
 		case 0:
 			Intent intentSearch = new Intent(BookListView.this, SearchBookView.class);
+			finish();
 			startActivity(intentSearch);
 			break;
 		case 1:
 			Intent intentHome = new Intent(BookListView.this, PrincipalView.class);
+			finish();
 			startActivity(intentHome);
 			break;
 

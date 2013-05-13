@@ -40,6 +40,12 @@ import br.edu.utfpr.cm.cronosmobile.persistence.ConexaoHttpClient;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
+/**
+ * 
+ * @author Ana Claudia Maciel
+ * @author Willyan Schultz Dworak
+ * 
+ */
 public class BookView extends Activity {
 
 	private ArrayList<NameValuePair> parametrosPost;
@@ -114,15 +120,15 @@ public class BookView extends Activity {
 				Intent intentBook = new Intent(BookView.this, ClassroomDetailView.class);
 				intentBook.putExtra("classroom", classroom);
 				finish();
-			    startActivity(intentBook);
+				startActivity(intentBook);
 			}
 		});
 		
 		this.btBook.setOnClickListener(new View.OnClickListener() {
 			public void onClick(View v) {
 				book.setNote(edNote.getText().toString());
-				bookClassroom(book);
 				finish();
+				bookClassroom(book);
 			}
 		});
 	}

@@ -67,7 +67,6 @@ public class SplashView extends Activity implements Runnable {
 	@Override
 	public void run() {
 		startActivity(new Intent(this, LoginView.class));
-		finish();
 	}
 
 	private void criaAdministrador(String login, String email, String senha) {

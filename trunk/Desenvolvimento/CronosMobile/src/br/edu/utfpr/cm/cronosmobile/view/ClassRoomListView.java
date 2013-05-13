@@ -154,17 +154,20 @@ public class ClassRoomListView extends ListActivity {
 				// Log.i("Clicou para", task  + "");
 				Intent intentClassroom = new Intent(ClassRoomListView.this, ClassroomDetailView.class);
 				intentClassroom.putExtra("classroom", classroom);
+				finish();
 			    startActivity(intentClassroom);
 				
 			} else if (task == 2) {
 				// Log.i("Clicou para", task  + "");
 				Intent intentBook = new Intent(ClassRoomListView.this, BookView.class);
 				intentBook.putExtra("classroom", classroom);
+				finish();
 			    startActivity(intentBook);
 			} else {
 				// Log.i("Nada Acontece", task  + "");
 				Intent intentClassroom = new Intent(ClassRoomListView.this, ClassroomDetailView.class);
 				intentClassroom.putExtra("classroom", classroom);
+				finish();
 			    startActivity(intentClassroom);
 			}
 			

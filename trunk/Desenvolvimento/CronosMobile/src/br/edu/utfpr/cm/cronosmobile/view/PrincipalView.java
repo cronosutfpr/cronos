@@ -76,6 +76,7 @@ public class PrincipalView extends ListActivity {
 			break;
 		case 3:
 			onDestroy();
+			
 			break;
 	
 		default:

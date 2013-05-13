@@ -3,7 +3,11 @@ package br.edu.utfpr.cm.cronosmobile.controller;
 import android.content.Context;
 import br.edu.utfpr.cm.cronosmobile.model.Administrador;
 import br.edu.utfpr.cm.cronosmobile.persistence.AdministradorDAO;
-
+/**
+ * 
+ * @author Willyan Schultz Dworak
+ * 
+ */
 public class AdministradorController {
 
 	private Context context;
