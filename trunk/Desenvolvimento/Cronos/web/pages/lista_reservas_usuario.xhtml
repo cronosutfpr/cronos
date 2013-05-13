@@ -1,12 +1,65 @@
-<?xml version='1.0' encoding='UTF-8' ?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://java.sun.com/jsf/html">
-    <h:head>
-        <title>Facelet Title</title>
-    </h:head>
-    <h:body>
-        Hello from Facelets
-    </h:body>
-</html>
+
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:f="http://java.sun.com/jsf/core"
+                xmlns:uri="http://primefaces.prime.com.tr/ui">
+    <div id="principal">
+        <h:form>
+            <p:panel id="panel_reserva" header="Listagem de Reservas"> 
+                <p:dataTable id="dataTable" var="book" value="#{listarReservas.books}" widgetVar="booksTable" 
+                             emptyMessage="Pesquisar" filteredValue="#{listarReservas.filteredBooks}" paginator="true" rows="10">
+
+                    <f:facet name="header">
+                        <p:outputPanel>
+                            <h:outputText value="Pesquisar: "/>
+                            <p:inputText id="globalFilter" onkeyup="booksTable.filter()" immediate="true"/>
+                        </p:outputPanel>
+                    </f:facet>
+
+                    <p:column id="id_book" filterBy="#{book.id}" 
+                              headerText="Id"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.id}" />
+                    </p:column>
+
+                    <p:column id="classRoom" filterBy="#{book.classroom.short}"
+                              headerText="Sala"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.classroom.short}" />
+                    </p:column>
+
+                    <p:column id="requestor" filterBy="#{book.requestor.login}"
+                              headerText="Solicitante"
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.requestor.login}" />
+                    </p:column>
+
+                    <p:column id="status" filterBy="#{book.status}"
+                              headerText="Status" 
+                              filterMatchMode="contains">
+                        <h:outputText value="#{book.status}" />
+                    </p:column>
+                    <p:column id="period" filterBy="#{book.period.name}"
+                              headerText="Periodo" filterMatchMode="contains">
+                        <h:outputText value="#{book.period.name}" />
+                    </p:column>
+
+                    <p:column id="startDate" filterBy="#{book.startdate}"
+                              headerText="Data Inicial" filterMatchMode="contains">
+                        <h:outputText value="#{book.startdate}" />
+                    </p:column>
+
+                    <p:column id="endDate" filterBy="#{book.endDate}"
+                              headerText="Data Final" filterMatchMode="contains">
+                        <h:outputText value="#{book.endDate}" />
+                    </p:column>
+
+                </p:dataTable>
+
+            </p:panel>
+        </h:form>
+    </div>
+</ui:composition>
+
 
