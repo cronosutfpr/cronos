@@ -1,6 +1,8 @@
 package br.edu.utfpr.cm.cronosmobile.model;
 
 import android.annotation.SuppressLint;
+
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -12,8 +14,12 @@ import java.util.Date;
  * 
  */
 @SuppressLint("SimpleDateFormat")
-public class Book {
+public class Book implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private String id;
 	private ClassRoom classroom;
 	private Period period;
@@ -124,7 +130,7 @@ public class Book {
 	    String sala = this.classroom.get_short();
 	    String periodo = this.period.getName();
 	    
-		return sala.trim() + "-" + periodo.trim() + "  " + startdate + "-"+ enddate;
+		return sala.trim() + "-" + periodo.trim() + " - " + startdate + "-"+ enddate;
 		
 	}
 

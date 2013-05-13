@@ -1,13 +1,20 @@
 package br.edu.utfpr.cm.cronosmobile.model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Ana Claudia Maciel
  * @author Willyan Schultz Dworak
  * 
  */
-public class Administrador {
+public class Administrador implements Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	public static String ID 	= "_id";
 	public static String LOGIN 	= "login";
 	public static String EMAIL 	= "email";

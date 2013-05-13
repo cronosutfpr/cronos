@@ -34,13 +34,14 @@ if (substr_count($read, '/') > 0) {
 
 // Caso venha alguma tarefa via POST setar os valores aqui.
 if ($task != "") {
-    $id = htmlspecialchars(strip_tags($_POST['id']));
-    $endDate = htmlspecialchars(strip_tags($_POST['endDate']));
-    $note = htmlspecialchars(strip_tags($_POST['note']));
-    $startdate = htmlspecialchars(strip_tags($_POST['startdate']));
-    $status = htmlspecialchars(strip_tags($_POST['status']));
-    $classroom_id = htmlspecialchars(strip_tags($_POST['classroom_id']));
-    $requestor_id = htmlspecialchars(strip_tags($_POST['requestor_id']));
+    $id             = htmlspecialchars(strip_tags($_POST['id']));
+    $endDate        = htmlspecialchars(strip_tags($_POST['endDate']));
+    $note           = htmlspecialchars(strip_tags($_POST['note']));
+    $startdate      = htmlspecialchars(strip_tags($_POST['startdate']));
+    $status         = htmlspecialchars(strip_tags($_POST['status']));
+    $classroom_id   = htmlspecialchars(strip_tags($_POST['classroom_id']));
+    $requestor_id   = htmlspecialchars(strip_tags($_POST['requestor_id']));
+    $periods_id     = htmlspecialchars(strip_tags($_POST['periods_id']));
 }
 
 // Caso o parametro venha via GET ele é setado na variavel 'task'.
@@ -48,13 +49,12 @@ if ($read != "") {
     $task = $read[0];
 }
 
-
 // De acordo com a tarefa definida no 'task' será executada uma ação dentro do switch.
 switch ($task) {
 
     // Insere uma sala de acordo com os parametros passados pelo usuário via POST ou PUT
     case 'insert';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $periods_id);
         break;
 
     // Caso o usuário envie uma requisição via GET com o parametro 'list' serão listadas as reservas de acordo com os paramtros que ele passar na URL
@@ -64,7 +64,7 @@ switch ($task) {
 
     // Atualiza uma sala de acordo com os parametros passados pelo usuário via POST ou UPDATE
     case 'update';
-        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id);
+        insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $periods_id);
         break;
 
     // Deleta uma sala de acordo com os parametros passados pelo usuário via POST ou DELETE.
@@ -170,15 +170,18 @@ function listBook($id, $pg) {
         // Encontra a sala
         $classroom = new classroom();
         // Seta ID da sala
-        $classroom->set(id, $row['classroom_id']);
-
-        $classroom->ListClassRoom();
+        if ($id == "classroom") {
+            $classroom->set(id, $w);
+        } else {
+            $classroom->set(id, $row['classroom_id']);
+        }
+        $sqlClass = $classroom->ListClassRoom();
         // Instancia uma base de dados via PDO (padrão do PHP)
         $banco = new cPDO();
         // Executa o SQL
-        $banco->query($sql);
+        $banco->query($sqlClass);
         // Trasforma o retorno do banco em um array
-        foreach ($banco->query($sql) as $rowClassroom) {
+        foreach ($banco->query($sqlClass) as $rowClassroom) {
             $classroomArray = '{"id":"' . $rowClassroom['id'] . '","idxml":"' . $rowClassroom['idxml'] . '","name":"' . utf8_encode_all($rowClassroom['name']) . '","_short":"' . $rowClassroom['_short'] . '","capacity":"' . $rowClassroom['capacity'] . '","type":"' . $rowClassroom['type'] . '","building":"' . $rowClassroom['building'] . '","owner":"' . $rowClassroom['owner'] . '","bookable":"' . $rowClassroom['bookable'] . '"';
         }
 
@@ -217,12 +220,29 @@ function listBook($id, $pg) {
 //    echo json_encode(utf8_encode_all($row));
 }
 
+function insertBookPeriod($Book_id, $periods_id) {
+    // Instancia um objeto do tipo book.
+    $book = new book();
+    // Gera o comando SQL
+    $sql = $book->insertBookPeriod($Book_id, $periods_id);
+
+    // Instancia uma base de dados via PDO (padrão do PHP)
+    $banco = new cPDO();
+
+    // Tenta executar o SQL, se conseguir retorna id que Inseriu ou atualizou senão retorna 0
+    if (!$banco->query($sql)) {
+        echo 'Erro ao cadastrar reserva';
+    } else {
+        echo 'Reserva cadastrada com sucesso';
+    }
+}
+
 /**
  * Função que insere ou atualiza uma resarva
  * @param type $id
  * @return ID inserida no banco ou 0 em caso de erro.
  */
-function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id) {
+function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status, $classroom_id, $requestor_id, $periods_id) {
 
     // Instancia um objeto do tipo book.
     $book = new book();
@@ -245,7 +265,15 @@ function insertOrUpdate($id, $classroom_id, $endDate, $note, $startdate, $status
     if (!$banco->query($sql)) {
         echo '0';
     } else {
-        echo '1';
+        if ($id > 0) {
+            echo $id;
+        } else {
+            $sql = $book->lastId();
+            foreach ($banco->query($sql) as $rowLastId) {
+                $lastId = $rowLastId['id'];
+            }
+            insertBookPeriod($lastId, $periods_id);
+        }
     }
 }
 
@@ -270,4 +298,5 @@ function delete($id) {
         echo $id;
     }
 }
+
 ?>

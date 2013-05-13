@@ -50,7 +50,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.view.ClassRoomView"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.ClassRoomListView"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_lista_salas" >
             <intent-filter>
@@ -90,7 +90,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="br.edu.utfpr.cm.cronosmobile.ClassroomDetailView"
+            android:name="br.edu.utfpr.cm.cronosmobile.view.ClassroomDetailView"
             android:configChanges="orientation|keyboardHidden"
             android:label="@string/title_activity_classroom_detail" >
             <intent-filter>

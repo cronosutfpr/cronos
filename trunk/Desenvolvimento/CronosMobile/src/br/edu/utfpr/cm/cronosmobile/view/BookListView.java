@@ -48,6 +48,9 @@ public class BookListView extends ListActivity {
 	String retorno = "";
 	String resposta = "";
 
+	if (service == "") {
+		service = "list/";
+	}
 	
 	// Strig com a url do webservice
 	String urlGet = Host.DOMAIN + "services/book/"+service;
@@ -82,7 +85,7 @@ public class BookListView extends ListActivity {
 	for (int i = 0; i < jsonObjectList.size(); i++) {
 	    
 		Book x = jsonObjectList.get(i);
-		
+		Log.i("sala", x.getClassroom().getName());
 	    salas.add(x);
 	}
 

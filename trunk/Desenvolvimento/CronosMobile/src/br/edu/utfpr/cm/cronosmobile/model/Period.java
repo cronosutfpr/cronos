@@ -1,12 +1,19 @@
 package br.edu.utfpr.cm.cronosmobile.model;
 
+import java.io.Serializable;
+
 /**
  * 
  * @author Willyan Schultz Dworak
  * 
  */
-public class Period {
+public class Period implements Serializable{
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
 	// Usado para pegar o nome dos atributos da classe
     public static String ID 		= "id";
     public static String NAME 		= "name";

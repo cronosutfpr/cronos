@@ -14,6 +14,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -31,26 +33,33 @@ import com.google.gson.reflect.TypeToken;
  * @author Willyan Schultz Dworak
  * 
  */
-public class ClassRoomView extends ListActivity {
+public class ClassRoomListView extends ListActivity {
 
     private ArrayList<NameValuePair> parametrosPost;
 	private MenuItem menuItemHome;
-
+	private int task = 0;
+	private String service = "";
+	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
 	super.onCreate(savedInstanceState);
 
 	Intent iService = getIntent();
-	String service = "";
 	
 	if (iService != null) {
 		Bundle parametrosRecebidos = iService.getExtras();  
 		if (parametrosRecebidos != null) {
-			service = parametrosRecebidos.getString("service"); 
-		}
+			this.task    = parametrosRecebidos.getInt("task"); 
+			this.service = parametrosRecebidos.getString("service"); 
+		} 
+	} else {
+		this.task 	 = 0;
+		this.service = "";
 	}
 	 
-	String retorno = "";
+	Log.i("Task", this.task  + "");
+	
+	String retorno  = "";
 	String resposta = "";
 
 	
@@ -129,29 +138,59 @@ public class ClassRoomView extends ListActivity {
 	// Adaper que pega a lista de String e coloca na ListView
 	setListAdapter(new ArrayAdapter<ClassRoom>(this,android.R.layout.simple_list_item_1, jsonObjectList));
 
-	ListView listView = getListView();
+	final ListView listView = getListView();
 	listView.setTextFilterEnabled(true);
 
-    }
     
-    @Override
-    protected void onListItemClick(ListView l, View v, int position, long id) {
-
-	// //Mostrar item selecionado
-	// String selectedValue = (String) getListAdapter().getItem(position);
-	// Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
-
-		switch (position) {
-		case 0:
-			Toast.makeText(this, "Fazer alguma coisa", Toast.LENGTH_SHORT)
-					.show();
-			break;
-
-		default:
-			Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
-			break;
+	listView.setOnItemClickListener(new OnItemClickListener() {
+		
+		@Override
+		public void onItemClick(AdapterView<?> arg0, View view, int position, long id) {
+			
+			ClassRoom classroom = (ClassRoom) listView.getItemAtPosition(position);
+			
+			// Log.i("Task", task  + "");
+			if (task == 1) {
+				// Log.i("Clicou para", task  + "");
+				Intent intentClassroom = new Intent(ClassRoomListView.this, ClassroomDetailView.class);
+				intentClassroom.putExtra("classroom", classroom);
+			    startActivity(intentClassroom);
+				
+			} else if (task == 2) {
+				// Log.i("Clicou para", task  + "");
+				Intent intentBook = new Intent(ClassRoomListView.this, BookView.class);
+				intentBook.putExtra("classroom", classroom);
+			    startActivity(intentBook);
+			} else {
+				// Log.i("Nada Acontece", task  + "");
+				Intent intentClassroom = new Intent(ClassRoomListView.this, ClassroomDetailView.class);
+				intentClassroom.putExtra("classroom", classroom);
+			    startActivity(intentClassroom);
+			}
+			
 		}
-	}
+	});
+
+}
+    
+//    @Override
+//    protected void onListItemClick(ListView l, View v, int position, long id) {
+//
+//	// //Mostrar item selecionado
+//	// String selectedValue = (String) getListAdapter().getItem(position);
+//	// Toast.makeText(this, selectedValue, Toast.LENGTH_SHORT).show();
+//
+//		switch (position) {
+//		case 0:
+//			Toast.makeText(this, "Fazer alguma coisa", Toast.LENGTH_SHORT)
+//					.show();
+//			break;
+//
+//		default:
+//			Toast.makeText(this, "Não implementado", Toast.LENGTH_SHORT).show();
+//			break;
+//		}
+//	}
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -167,11 +206,11 @@ public class ClassRoomView extends ListActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
     	switch (item.getItemId()) {
 		case 0:
-			Intent intentSearch = new Intent(ClassRoomView.this, SearchClassroomView.class);
+			Intent intentSearch = new Intent(ClassRoomListView.this, SearchClassroomView.class);
 			startActivity(intentSearch);
 			break;
 		case 1:
-			Intent intentHome = new Intent(ClassRoomView.this, PrincipalView.class);
+			Intent intentHome = new Intent(ClassRoomListView.this, PrincipalView.class);
 			startActivity(intentHome);
 			break;
 
@@ -189,7 +228,7 @@ public class ClassRoomView extends ListActivity {
      * 
      */
     public void mensagens(String title, String msg) {
-    	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomView.this);
+    	AlertDialog.Builder alerta = new AlertDialog.Builder(ClassRoomListView.this);
     	alerta.setTitle(title);
     	alerta.setMessage(msg);
     	alerta.setNeutralButton("OK", null);

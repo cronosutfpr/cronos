@@ -50,12 +50,25 @@ public class PrincipalView extends ListActivity {
 
 	switch (position) {
 		case 0:
-		    Intent intentClassroom = new Intent(PrincipalView.this, ClassRoomView.class);
-		    startActivity(intentClassroom);
+			// Cria a Intent
+		    Intent intentClassroomList = new Intent(PrincipalView.this, ClassRoomListView.class);
+		    // Instancia um Bundle
+		    Bundle b1 = new Bundle();
+		    // Define que a tarefa que será enviada para a outra Activity será Listar as Salas
+			b1.putInt("task", 1);  
+			// Seta na Intent o Bundle
+			intentClassroomList.putExtras(b1);
+			// Inicia a nova Tela
+			startActivity(intentClassroomList);
+		    
 		    break;
 		case 1:
-			Intent intentBook = new Intent(PrincipalView.this, BookView.class);
-			startActivity(intentBook);
+			Intent intentClassroomBook = new Intent(PrincipalView.this, ClassRoomListView.class);
+		    Bundle b2 = new Bundle();  
+			b2.putInt("task", 2);  
+			intentClassroomBook.putExtras(b2);
+			startActivity(intentClassroomBook);
+			
 			break;
 		case 2:
 			Intent intentBookSearch = new Intent(PrincipalView.this, BookListView.class);

@@ -4,11 +4,223 @@
     android:layout_height="match_parent"
     tools:context=".ClassroomDetail" >
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:text="@string/hello_world" />
+    <LinearLayout
+        android:id="@+id/linearLayout1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="15dp"
+        android:orientation="vertical" >
+
+        <TextView
+            android:id="@+id/txtDetalhes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:gravity="center_horizontal"
+            android:text="Detalhes da Sala"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:textSize="24dp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="15dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/classroomBookName"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtAbrev"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Abreviação:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookShort"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtReservavel"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Reservavel:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookBookable"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtPredio"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Prédio:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookBuilding"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtCap"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Capacidade:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookCapacity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtStatus"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Status:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="5dp"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtTipo"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Tipo:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+
+            <TextView
+                android:id="@+id/txtResp"
+                android:layout_width="140dp"
+                android:layout_height="wrap_content"
+                android:text="Responsavel:"
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+
+            <TextView
+                android:id="@+id/classroomBookOwner"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="0dp"
+                android:text=""
+                android:textAppearance="?android:attr/textAppearanceLarge"
+                android:textSize="22dp" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btBook"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/sp_period"
+            android:layout_below="@+id/sp_period"
+            android:layout_marginTop="15dp"
+            android:text="Reservar Sala" />
+
+        <Button
+            android:id="@+id/btBookBack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignLeft="@+id/btBook"
+            android:layout_below="@+id/btBook"
+            android:layout_marginTop="10dp"
+            android:text="Voltar ao Início" />
+    </LinearLayout>
 
 </RelativeLayout>

@@ -17,8 +17,8 @@ class book extends mysql {
     public $period_id;
     public $classroom;
     public $start;
-    public $limit;    
-    
+    public $limit;
+
     //Método para atribuir valores às propriedades da classe.
     function set($prop, $value) {
         $this->$prop = $value;
@@ -42,7 +42,7 @@ class book extends mysql {
         if ($this->endDate != '') {
             $endDate = "AND b.endDate = '$this->endDate'";
         }
-        
+
         if ($this->classroom_id != '') {
             $classroom_id = "AND b.classroom_id = '$this->classroom_id'";
         }
@@ -113,11 +113,26 @@ class book extends mysql {
                 $requestor_id = ", requestor_id = '$this->requestor_id'";
             }
 
-            $sql = "UPDATE classroom SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
+            $sql = "UPDATE book SET $id $endDate $note $startdate $status $classroom_id $requestor_id  WHERE id='$this->id' LIMIT 1";
         } else {
-            $sql = "INSERT INTO classroom (id, endDate, note, startdate, status, classroom_id, requestor_id) 
+            $sql = "INSERT INTO book (id, endDate, note, startdate, status, classroom_id, requestor_id) 
                     VALUES (''," . $this->verificaNull(utf8_decode($this->endDate)) . ", " . $this->verificaNull(utf8_decode($this->note)) . ", " . $this->verificaNull(utf8_decode($this->startdate)) . ", " . $this->verificaNull(utf8_decode($this->status)) . ", " . $this->verificaNull(utf8_decode($this->classroom_id)) . ", " . $this->verificaNull(utf8_decode($this->requestor_id)) . ");";
         }
+        return $sql;
+    }
+
+    /**
+     * 
+     * @param type $Book_id
+     * @param type $periods_id
+     */
+    function insertBookPeriod($Book_id, $periods_id) {
+        $sql = "INSERT INTO book_period (Book_id, periods_id) VALUES ('$Book_id' , '$periods_id')";
+        return $sql;
+    }
+
+    function lastId() {
+        $sql = "SELECT b.id FROM book b ORDER BY id DESC LIMIT 1;";
         return $sql;
     }
 
