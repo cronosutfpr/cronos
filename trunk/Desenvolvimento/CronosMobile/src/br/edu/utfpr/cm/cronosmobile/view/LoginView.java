@@ -41,10 +41,17 @@ public class LoginView extends Activity {
 				a.setLogin(edUser.getText().toString());
 				a.setSenha(edSenha.getText().toString());
 				//Cria um usuario da biblioteca ldap
-				Usuario user = (Usuario) new LoginLDAP().logarNoLDAP(a.getLogin(), a.getSenha());
+				//Usuario user = (Usuario) new LoginLDAP().logarNoLDAP(a.getLogin(), a.getSenha());
+				
+				//Testar em casa
+				Administrador usuarioSemAutenticar = new Administrador();
+				usuarioSemAutenticar.setEmail("admin@email.com.br");
+				usuarioSemAutenticar.setLogin("Admin");
+				a = usuarioSemAutenticar;
+				
 				//Injeta os valores adquiridos do ldap no Administrador
-				a.setLogin(user.getLogin());
-				a.setSenha(user.getSenha());
+				//a.setLogin(user.getLogin());
+				//a.setSenha(user.getSenha());
 				
 				if (AdministradorController.validarUsuario(getApplicationContext(), a)) {
 					Intent intent = new Intent(LoginView.this, PrincipalView.class);
