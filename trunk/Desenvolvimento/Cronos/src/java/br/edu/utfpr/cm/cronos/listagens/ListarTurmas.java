@@ -5,9 +5,11 @@
 package br.edu.utfpr.cm.cronos.listagens;
 
 import br.edu.utfpr.cm.cronos.daos.DaoClasse;
+import br.edu.utfpr.cm.cronos.model.ClassRoom;
 import br.edu.utfpr.cm.cronos.model.Classe;
 import br.edu.utfpr.cm.cronos.model.Teacher;
 import java.util.List;
+import javax.annotation.PostConstruct;
 import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
@@ -18,15 +20,34 @@ import org.primefaces.event.RowEditEvent;
  *
  * @author paulo
  */
-@ManagedBean
+@ManagedBean(name = "listarTurmas")
 @SessionScoped
 public class ListarTurmas {
     private List<Classe> turmas;
-    private String novoNome;
-    private String novoShort;
     
     
     private Teacher teacher;
+    private Classe selectedClasse;
+
+    public ListarTurmas() {
+        turmas = new DaoClasse().listar();
+    }   
+
+    public List<Classe> getTurmas() {
+        return turmas;
+    }
+
+    public void setTurmas(List<Classe> turmas) {
+        this.turmas = turmas;
+    }
+
+    public Classe getSelectedClasse() {
+        return selectedClasse;
+    }
+
+    public void setSelectedClasse(Classe selectedClasse) {
+        this.selectedClasse = selectedClasse;
+    }
 
     public Teacher getTeacher() {
         return teacher;
@@ -35,64 +56,22 @@ public class ListarTurmas {
     public void setTeacher(Teacher teacher) {
         this.teacher = teacher;
     }
-
-    public String getNovoNome() {
-        return novoNome;
-    }
-
-    public void setNovoNome(String novoNome) {
-        this.novoNome = novoNome;
-    }
-
-    public String getNovoShort() {
-        return novoShort;
-    }
-
-    public void setNovoShort(String novoShort) {
-        this.novoShort = novoShort;
+    
+    @PostConstruct
+    public void construct() {
+        setSelectedClasse(new Classe());
     }
     
-    
-    public List<Classe> getTurmas() {
-        turmas = new DaoClasse().listar();
-        return turmas;
-    }
-
-    public void setTurma(List<Classe> turmas) {
-        this.turmas = turmas;
-    }
-
-    public void onEdit(RowEditEvent event) {
-        //(Teacher) event.getObject()).getGender()
-        Classe classe = (Classe) event.getObject();
+    public String editClasse() {
+        DaoClasse dcr = new DaoClasse();
+        dcr.persistir(this.selectedClasse);
         
-        preencherComDadosAtualizados(classe);
-        
-        new DaoClasse().persistir(classe);
-        
-        
-        FacesMessage msg = new FacesMessage("Disciplina editado", "Nome: "+classe.getName());
+        this.selectedClasse = new Classe();
+        FacesContext context = FacesContext.getCurrentInstance();
 
-
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
+        context.addMessage(null, new FacesMessage("Successful", "Turma Editada!"));
+        return "edit_classe";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
 
-    public void onCancel(RowEditEvent event) {
-        FacesMessage msg = new FacesMessage("Edição cancelada!", ((Classe) event.getObject()).getName());
-
-        FacesContext.getCurrentInstance().addMessage(null, msg);
-    }
-    
-    private void preencherComDadosAtualizados(Classe classe) {
-        if(!novoNome.isEmpty()){
-            classe.setName(novoNome);
-        }
-        if(!novoShort.isEmpty()){
-            classe.setShort(novoShort);
-        }
-        if(teacher!=null){
-            classe.setTeacher(teacher);
-        }
-    }
 }

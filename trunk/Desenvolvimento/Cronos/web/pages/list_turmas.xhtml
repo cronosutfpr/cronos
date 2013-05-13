@@ -5,60 +5,61 @@
                 xmlns:uri="http://primefaces.prime.com.tr/ui">
     <div id="principal">
         <h:form id="form">  
-            
-            <p:growl id="messages" showDetail="true"/>  
-            <p:dataTable var="classe" value="#{listarTurmas.turmas}" editable="true" rowKey="#{classe.name}" paginator="true" rows="10"  selectionMode="single" id="classeTable">  
 
-                <p:ajax event="rowEdit" listener="#{listarTurmas.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarTurmas.onCancel}" update=":form:messages"/>  
+            <p:growl id="messages" showDetail="true"/>  
+            <p:dataTable var="classe" value="#{listarTurmas.turmas}" selection="#{listarTurmas.selectedClasse}" editable="true" rowKey="#{classe.id}" paginator="true" rows="10"  selectionMode="single" id="classeTable">  
+                <p:ajax event="rowSelect" update=":form" />  
 
                 <p:column headerText="id">  
                     <h:outputText value="#{classe.id}" />  
                 </p:column>  
 
                 <p:column headerText="Nome">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{classe.name}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarTurmas.novoNome}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                    <h:outputText value="#{classe.name}" id="name"/>  
                 </p:column>  
-                
-                <p:column headerText="Sigla">  
 
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{classe.short}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarTurmas.novoShort}" style="width:100%"/>  
-                        </f:facet>  
-                    </p:cellEditor>   
+                <p:column headerText="Sigla">  
+                    <h:outputText value="#{classe.short}" />  
                 </p:column> 
                 <p:column headerText="Professor">  
-
-                    <p:cellEditor>  
-                        <f:facet name="output">  
-                            <h:outputText value="#{classe.teacher.name}" />  
-                        </f:facet>  
-                        <f:facet name="input">  
-                            <p:autoComplete value="#{listarTurmas.teacher}" id="teacherid" completeMethod="#{classeBean.completeTeacher}" 
-                                            converter="teacherConverter" var="t" itemLabel="#{t.name}" itemValue="#{t}" forceSelection="true" >  
-
-                            </p:autoComplete>
-                        </f:facet>  
-                    </p:cellEditor>   
+                    <h:outputText value="#{classe.teacher.name}" />
                 </p:column> 
 
-               <p:column style="width:6%">  
-                    <p:rowEditor />  
-               </p:column>  
+                <p:column style="width:6%">  
+                    <p:commandButton id="viewButton" icon="icn_edit_article"  
+                                     update=":form" oncomplete="classeEdit.show()"/> 
+                </p:column>  
 
             </p:dataTable> 
+
+            <p:dialog id="dialog" header="Editar Turma" widgetVar="classeEdit" resizable="false"  
+                      width="400" showEffect="clip" hideEffect="fold">  
+                <h:panelGrid columns="3" cellpadding="5">
+                    <h:outputLabel for="name" value="Nome: *" />
+                    <p:inputText id="name" value="#{listarTurmas.selectedClasse.name}" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
+
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="#{listarTurmas.selectedClasse.short}" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
+
+                    <h:outputLabel for="teacherid" value="Professor: *" />  
+                    <p:autoComplete value="#{listarTurmas.selectedClasse.teacher}" id="teacherid" completeMethod="#{classeBean.completeTeacher}" 
+                                    converter="teacherConverter" var="t" itemLabel="#{t.name}" itemValue="#{t}" forceSelection="true" >  
+
+                    </p:autoComplete>
+                    <p:message for="teacherid" />
+
+                    <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                        <p:commandButton value="Cadastrar" action="#{listarTurmas.editClasse}" ajax="false"/>
+                    </h:panelGrid>
+
+                </h:panelGrid>
+
+
+            </p:dialog>
 
 
 
