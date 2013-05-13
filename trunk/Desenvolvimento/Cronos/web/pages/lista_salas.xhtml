@@ -7,105 +7,95 @@
 
             <p:growl id="messages" showDetail="true"/> 
 
-            <p:dataTable var="classRoom" value="#{listarSalas.salas}" editable="true" rowKey="#{classRoom.name}" paginator="true" rows="10"  selectionMode="single" id="classRoomTable">  
+            <p:dataTable var="classRoom" value="#{listarSalas.salas}" selection="#{listarSalas.selectedClassRoom}" rowKey="#{classRoom.id}" paginator="true" rows="10"  selectionMode="single" id="classRoomTable">  
+                <p:ajax event="rowSelect" update=":form" />   
 
-                <p:ajax event="rowEdit" listener="#{listarSalas.onEdit}" update=":form:messages"/>  
-                <p:ajax event="rowEditCancel" listener="#{listarSalas.onCancel}" update=":form:messages"/>  
 
                 <p:column headerText="Id">  
                     <h:outputText value="#{classRoom.id}" />  
                 </p:column>  
 
-                <p:column headerText="Nome" resizable="true">  
-                    <p:cellEditor>  
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.name}" />  
-                        </f:facet>
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarSalas.name}" style="width:100%"/>  
-                        </f:facet> 
-                    </p:cellEditor>
+                <p:column headerText="Nome" resizable="true"> 
+                    <h:outputText value="#{classRoom.name}" style="width:100%"/> 
                 </p:column>  
 
                 <p:column headerText="Abreviatura">  
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.short}" />
-                        </f:facet>
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarSalas.short}" style="width:100%"/>  
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText value="#{classRoom.short}" style="width:100%"/> 
                 </p:column>  
 
                 <p:column headerText="Capacidade"> 
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.capacity}" /> 
-                        </f:facet>
-                        <f:facet name="input">  
-                            <p:inputText value="#{listarSalas.capacity}" style="width:100%"/>  
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText value="#{classRoom.capacity}" style="width:100%"/>  
                 </p:column> 
 
                 <p:column headerText="Prédio">  
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.building}" /> 
-                        </f:facet>
-                        <f:facet name="input">  
-                            <p:inputText id="building" value="#{listarSalas.building}" style="width:100%"/> 
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText id="building" value="#{classRoom.building}" style="width:100%"/> 
                 </p:column> 
 
                 <p:column headerText="Dono">  
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.owner.login}" /> 
-                        </f:facet>
-                        <f:facet name="input">  
-                            <h:outputLabel value="Dono: " for="owner" />  
-                            <p:autoComplete value="#{listarSalas.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
-                                            converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true" >  
-
-                            </p:autoComplete>
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText id="owner" value="#{classRoom.owner.login}" />  
                 </p:column>
 
                 <p:column headerText="Status">  
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.status}" />
-                        </f:facet>
-                        <f:facet name="input"> 
-                            <p:selectOneMenu value="#{listarSalas.type}">  
-                                <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
-                            </p:selectOneMenu>
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText id="type" value="#{classRoom.type.toString}" />  
                 </p:column> 
 
                 <p:column headerText="Reservável">  
-                    <p:cellEditor>
-                        <f:facet name="output">
-                            <h:outputText value="#{classRoom.bookable}" />
-                        </f:facet>
-                        <f:facet name="input"> 
-                            <p:selectBooleanCheckbox value="#{listarSalas.bookable}" style="margin-left: 25%" /> 
-                        </f:facet> 
-                    </p:cellEditor>
+                    <h:outputText id="bookable" value="#{classRoom.bookable}" style="margin-left: 25%" /> 
                 </p:column> 
 
-                <p:column style="width:6%">  
-                    <p:rowEditor />  
+                <p:column style="width:6%"> 
+                    <p:commandButton id="viewButton" icon="icn_edit_article"  
+                                     update=":form:display" oncomplete="classRoomEdit.show()"/> 
                 </p:column>  
 
 
             </p:dataTable> 
+            <p:dialog id="dialog" header="Editar Sala" widgetVar="classRoomEdit" resizable="false"  
+                      width="400" showEffect="clip" hideEffect="fold">  
 
+                <h:panelGrid id="display" columns="3" cellpadding="4"> 
+                    <h:inputHidden value="#{listarSalas.selectedClassRoom.id}" id="id" /> 
+                    
+                    <h:outputLabel for="name" value="Nome: *" />  
+                    <p:inputText id="name" value="#{listarSalas.selectedClassRoom.name}" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
+
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="#{listarSalas.selectedClassRoom.short}" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
+
+                    <h:outputLabel for="capacity" value="Capacidade: " />  
+                    <p:inputText id="capacity" value="#{listarSalas.selectedClassRoom.capacity}" required="true" label="Capacidade"/>  
+                    <p:message for="capacity" />
+
+                    <h:outputLabel for="building" value="Predio: " />  
+                    <p:inputText id="building" value="#{listarSalas.selectedClassRoom.building}" required="false" label="Predio"/>  
+                    <p:message for="building" />
+
+                    <h:outputLabel value="Dono: " for="owner" />  
+                    <p:autoComplete value="#{listarSalas.selectedClassRoom.owner}" id="owner" completeMethod="#{userBean.completeUser()}" 
+                                    converter="userConverter" var="u" itemLabel="#{u.login}" itemValue="#{u}" forceSelection="true" >  
+
+                    </p:autoComplete>
+                    <p:message for="owner" />
+                    <h:outputText value="Tipo Sala: "/>  
+                    <p:selectOneMenu value="#{classRoomBean.classroom.type}">  
+                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                    </p:selectOneMenu>
+
+                    <br></br>
+                    <h:outputText value="Status: " />  
+                    <p:selectOneMenu value="#{listarSalas.selectedClassRoom.status}">  
+                        <f:selectItem itemLabel="Disponível" itemValue="true" />  
+                        <f:selectItem itemLabel="Indisponível" itemValue="false" />  
+                    </p:selectOneMenu>  
+                </h:panelGrid> 
+                <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" action="#{listarSalas.editClassRoom}" ajax="false"/>
+                </h:panelGrid>
+            </p:dialog>
 
         </h:form>
     </div>
