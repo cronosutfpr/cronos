@@ -24,34 +24,44 @@
                     <h:outputText value="#{subject.short}" />   
                 </p:column> 
 
-                <p:column style="width:6%">  
+                <p:column headerText="Editar" style="width:6%">  
                     <p:commandButton id="viewButton" icon="icn_edit_article"  
                                      update=":form" oncomplete="subjectEdit.show()"/> 
 
                 </p:column>  
+                
+                <p:column headerText="Excluir" style="width:4%"> 
+                    <p:commandButton id="viewButton2" icon="icn_trash" oncomplete="subjectDelete.show()"/> 
+                </p:column> 
 
             </p:dataTable> 
 
-            <p:dialog id="dialog" header="Editar Disciplina" widgetVar="subjectEdit" resizable="false"  
+            <p:dialog id="dialog1" header="Editar Disciplina" widgetVar="subjectEdit" resizable="false"  
                       width="400" showEffect="clip" hideEffect="fold"> 
-                    <h:panelGrid columns="3" cellpadding="5">
-                        <h:outputLabel for="name" value="Nome: *" />
-                        <p:inputText id="name" value="#{listarDisciplinas.selectedSubject.name}" required="true" label="Nome">  
-                            <f:validateLength minimum="2" />  
-                        </p:inputText>  
-                        <p:message for="name" /> 
+                <h:panelGrid columns="3" cellpadding="5">
+                    <h:outputLabel for="name" value="Nome: *" />
+                    <p:inputText id="name" value="#{listarDisciplinas.selectedSubject.name}" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
 
-                        <h:outputLabel for="short" value="Abreviação: *" />  
-                        <p:inputText id="short" value="#{listarDisciplinas.selectedSubject.short}" required="true" label="Abreviacao"/>  
-                        <p:message for="short" />
+                    <h:outputLabel for="short" value="Abreviação: *" />  
+                    <p:inputText id="short" value="#{listarDisciplinas.selectedSubject.short}" required="true" label="Abreviacao"/>  
+                    <p:message for="short" />
 
-                    </h:panelGrid>
-                    <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                        <p:commandButton value="Cadastrar" update="messages"  action="#{listarDisciplinas.editSubject}" />
-                    </h:panelGrid>
+                </h:panelGrid>
+                <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
+                    <p:commandButton value="Cadastrar" update="messages"  action="#{listarDisciplinas.editSubject}" />
+                </h:panelGrid>
 
 
             </p:dialog>
+
+            <p:confirmDialog id="dialog" message="Deseja excluir este registro?"  
+                             header="Deletar registro" severity="alert" widgetVar="subjectDelete"> 
+                <p:commandButton value="Sim" style="margin-left: 25px;" actionListener="#{listarDisciplinas.deleteSubject}" oncomplete="subjectDelete.hide(); #{listarDisciplinas.disciplinas}"/>
+                <p:commandButton value="Não" onclick="subjectDelete.hide()" style="margin-left: 40px;"/>
+            </p:confirmDialog>
 
 
 

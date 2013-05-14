@@ -73,5 +73,18 @@ public class ListarTurmas {
         return "edit_classe";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
+    
+    public String deleteClasse() {
+            System.out.println("deletando");
+        DaoClasse dcr = new DaoClasse();
+        dcr.remover(selectedClasse);
+        
+        this.selectedClasse = new Classe();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Turma Excluida!"));
+        return "del_turmas";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+    }
 
 }

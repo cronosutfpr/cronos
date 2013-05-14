@@ -25,14 +25,18 @@
                     <h:outputText value="#{classe.teacher.name}" />
                 </p:column> 
 
-                <p:column style="width:6%">  
+                <p:column headerText="Editar" style="width:6%">  
                     <p:commandButton id="viewButton" icon="icn_edit_article"  
                                      update=":form" oncomplete="classeEdit.show()"/> 
+                </p:column>  
+                
+                <p:column headerText="Excluir" style="width:4%"> 
+                    <p:commandButton id="viewButton2" icon="icn_trash" oncomplete="classeDelete.show()"/> 
                 </p:column>  
 
             </p:dataTable> 
 
-            <p:dialog id="dialog" header="Editar Turma" widgetVar="classeEdit" resizable="false"  
+            <p:dialog id="dialog1" header="Editar Turma" widgetVar="classeEdit" resizable="false"  
                       width="400" showEffect="clip" hideEffect="fold">  
                 <h:panelGrid columns="3" cellpadding="5">
                     <h:outputLabel for="name" value="Nome: *" />
@@ -53,13 +57,19 @@
                     <p:message for="teacherid" />
 
                     <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                        <p:commandButton value="Cadastrar" action="#{listarTurmas.editClasse}" ajax="false"/>
+                        <p:commandButton value="Cadastrar" oncomplete="classeEdit.hide()" action="#{listarTurmas.editClasse}" ajax="false"/>
                     </h:panelGrid>
 
                 </h:panelGrid>
 
 
             </p:dialog>
+            
+            <p:confirmDialog id="dialog" message="Deseja excluir este registro?"  
+                header="Deletar registro" severity="alert" widgetVar="classeDelete"> 
+                <p:commandButton value="Sim" style="margin-left: 25px;" actionListener="#{listarTurmas.deleteClasse}" oncomplete="classeDelete.hide(); #{listarTurmas.turmas}"/>
+                 <p:commandButton value="Não" onclick="classeDelete.hide()" style="margin-left: 40px;"/>
+             </p:confirmDialog>
 
 
 

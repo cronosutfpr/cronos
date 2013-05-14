@@ -20,6 +20,7 @@ import javax.faces.context.FacesContext;
 @ManagedBean(name = "listarDisciplinas")
 @SessionScoped
 public class ListarDisciplinas {
+
     private List<Subject> disciplinas;
     private Subject selectedSubject;
 
@@ -29,8 +30,8 @@ public class ListarDisciplinas {
 
     public void setSelectedSubject(Subject selectedSubject) {
         this.selectedSubject = selectedSubject;
-    }    
-    
+    }
+
     public List<Subject> getDisciplinas() {
         disciplinas = new DaoSubject().listar();
         return disciplinas;
@@ -39,16 +40,16 @@ public class ListarDisciplinas {
     public void setDisciplinas(List<Subject> disciplinas) {
         this.disciplinas = disciplinas;
     }
-    
+
     @PostConstruct
     public void construct() {
         setSelectedSubject(new Subject());
     }
-    
+
     public String editSubject() {
         DaoSubject dcr = new DaoSubject();
         dcr.persistir(this.selectedSubject);
-        
+
         this.selectedSubject = new Subject();
         FacesContext context = FacesContext.getCurrentInstance();
 
@@ -56,6 +57,18 @@ public class ListarDisciplinas {
         return "edit_subject";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
-    
-    
+
+    public String deleteSubject() {
+        System.out.println("deletando");
+        System.out.println("id: "+this.selectedSubject.getId());
+        DaoSubject dcr = new DaoSubject();
+        dcr.remover(this.selectedSubject);
+
+        this.selectedSubject = new Subject();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Disciplina Excluida!"));
+        return "del_subject";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+    }
 }
