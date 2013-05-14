@@ -64,4 +64,16 @@ public class ListarSalas {
         return "cad_salas";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
+    
+    public String deleteClassRoom() {
+        DaoClassRoom dcr = new DaoClassRoom();
+        dcr.remover(selectedClassRoom);
+        
+        this.selectedClassRoom = new ClassRoom();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Sala Excluida!"));
+        return "cad_salas";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+    }
 }
