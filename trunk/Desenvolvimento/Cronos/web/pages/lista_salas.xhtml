@@ -40,17 +40,17 @@
                 </p:column> 
 
                 <p:column headerText="Reservável">  
-                    <h:outputText id="bookable" value="#{classRoom.bookable}" style="margin-left: 25%" /> 
+                    <h:outputText id="bookable" value="#{classRoom.bookableConverter}" style="margin-left: 25%" /> 
                 </p:column> 
 
                 <p:column style="width:6%"> 
                     <p:commandButton id="viewButton" icon="icn_edit_article"  
-                                     update=":form:display" oncomplete="classRoomEdit.show()"/> 
-                </p:column>  
+                                     update=":form" oncomplete="classRoomEdit.show()"/> 
+                </p:column>   
 
 
             </p:dataTable> 
-            <p:dialog id="dialog" header="Editar Sala" widgetVar="classRoomEdit" resizable="false"  
+            <p:dialog id="dialog1" header="Editar Sala" widgetVar="classRoomEdit" resizable="false"  
                       width="400" showEffect="clip" hideEffect="fold">  
 
                 <h:panelGrid id="display" columns="3" cellpadding="4"> 
@@ -96,6 +96,14 @@
                     <p:commandButton value="Cadastrar" action="#{listarSalas.editClassRoom}" ajax="false"/>
                 </h:panelGrid>
             </p:dialog>
+            
+             <p:dialog id="dialog" header="Editar Sala" widgetVar="classRoomDelete" resizable="false"  
+                      width="400" showEffect="clip" hideEffect="fold"> 
+                 <h:outputLabel value="Deseja excluir este registro?" />
+                 <p:commandButton value="Sim" action="#{listarSalas.deleteClassRoom}" update="messages" ajax="true"/>
+                 <p:commandButton value="Nao" update=":display" ajax="false"/>
+                 
+             </p:dialog>
 
         </h:form>
     </div>

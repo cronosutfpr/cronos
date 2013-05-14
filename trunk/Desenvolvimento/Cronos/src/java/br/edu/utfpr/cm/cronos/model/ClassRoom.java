@@ -112,8 +112,12 @@ public class ClassRoom implements Serializable {
     public void setStatus(String status) {
         this.status = status;
     }
+    
+    public boolean getBookable() {
+        return this.bookable;
+    }
 
-    public String getBookable() {
+    public String getBookableConverter() {
         if(this.bookable == true) {
             return "Sim";
         }
