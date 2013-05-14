@@ -57,5 +57,18 @@ public class ListarProfessores {
         return "edit_teacher";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
+    
+    public String deleteTeacher() {
+            System.out.println("deletando");
+        DaoTeacher dcr = new DaoTeacher();
+        dcr.remover(this.selectedTeacher);
+        
+        this.selectedTeacher = new Teacher();
+        FacesContext context = FacesContext.getCurrentInstance();
+
+        context.addMessage(null, new FacesMessage("Successful", "Professor Excluido!"));
+        return "del_teacher";
+//        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
+    }
 
 }
