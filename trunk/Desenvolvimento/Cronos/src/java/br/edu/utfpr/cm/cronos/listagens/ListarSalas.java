@@ -23,6 +23,16 @@ public class ListarSalas {
 
     private List<ClassRoom> listaSalas;
     private ClassRoom selectedClassRoom;
+    private List<ClassRoom> filteredClassRoom;
+
+    public List<ClassRoom> getFilteredClassRoom() {
+        return filteredClassRoom;
+    }
+
+    public void setFilteredClassRoom(List<ClassRoom> filteredClassRoom) {
+        this.filteredClassRoom = filteredClassRoom;
+    }   
+    
 
     public List<ClassRoom> getListaSalas() {
         return listaSalas;

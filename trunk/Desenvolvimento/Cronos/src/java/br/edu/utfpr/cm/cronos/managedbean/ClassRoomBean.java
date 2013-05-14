@@ -36,6 +36,7 @@ public class ClassRoomBean {
 
     public String addClassRoom() {
         DaoClassRoom dcr = new DaoClassRoom();
+        //System.out.println(this.classroom.getBookable());
         dcr.persistir(this.classroom);
         
         this.classroom = new ClassRoom();

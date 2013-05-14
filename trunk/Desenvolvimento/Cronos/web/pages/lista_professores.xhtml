@@ -51,8 +51,28 @@
                     
                 </h:panelGrid> 
 
-                <h:panelGrid style="margin-left: 57px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar"  update="messages"   action="#{listarProfessores.editTeacher}"/>
+                <h:panelGrid style="margin-left: 57px;" columns="3" cellpadding="5">
+                    <h:outputLabel for="name" value="Nome: *" />
+                    <p:inputText id="name" value="#{listarProfessores.selectedTeacher.name}" required="true" label="Nome">  
+                        <f:validateLength minimum="2" />  
+                    </p:inputText>  
+                    <p:message for="name" /> 
+
+                    <h:outputLabel for="email" value="Email *" />  
+                    <p:inputText id="email" value="#{listarProfessores.selectedTeacher.email}" label="Email"/>  
+                    <p:message for="email" />
+                    
+                    <h:outputLabel for="color" value="Cor *" />  
+                    <p:inputText id="color" value="#{listarProfessores.selectedTeacher.color}" required="true" label="Cor"/>  
+                    <p:message for="color" />
+                    
+                    <h:outputText value="Sexo: " />  
+                    <p:selectOneMenu value="#{listarProfessores.selectedTeacher.gender}">  
+                        <f:selectItem itemLabel="Feminino" itemValue="F" />  
+                        <f:selectItem itemLabel="Masculino" itemValue="M" />  
+                    </p:selectOneMenu>  
+                    
+                    <p:commandButton value="Cadastrar"  update="messages" ajax="false" action="#{listarProfessores.editTeacher}"/>
                 </h:panelGrid>
             </p:dialog>
             

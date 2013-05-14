@@ -9,35 +9,29 @@
             <p:growl id="growl" showDetail="true"/> 
 
             <p:dataTable var="classRoom" value="#{listarSalas.salas}" selection="#{listarSalas.selectedClassRoom}" rowKey="#{classRoom.id}" paginator="true" rows="10"  selectionMode="single" id="classRoomTable">  
-                <p:ajax event="rowSelect" update=":form" />    
+                <p:ajax event="rowSelect" update=":form" />  
 
-                <p:column headerText="Nome" resizable="true"> 
-                    <h:outputText value="#{classRoom.name}" style="width:100%"/> 
+                <p:column headerText="Id">  
+                    <h:outputText value="#{classRoom.id}" />  
+                </p:column>  
+                <p:column headerText="Nome">  
+                    <h:outputText value="#{classRoom.name}" />  
                 </p:column>  
 
                 <p:column headerText="Abreviatura">  
-                    <h:outputText value="#{classRoom.short}" style="width:100%"/> 
+                    <h:outputText value="#{classRoom.short}" />  
                 </p:column>  
 
-                <p:column headerText="Capacidade" width="40"> 
-                    <h:outputText value="#{classRoom.capacity}" style="width:100%"/>  
-                </p:column> 
+                <p:column headerText="Capacidade">  
+                    <h:outputText value="#{classRoom.capacity}" />  
+                </p:column>  
 
-                <p:column headerText="Prédio">  
-                    <h:outputText id="building" value="#{classRoom.building}" style="width:100%"/> 
-                </p:column> 
-
-                <p:column headerText="Dono">  
-                    <h:outputText id="owner" value="#{classRoom.owner.login}" />  
-                </p:column>
-
-                <p:column headerText="Status">  
-                    <h:outputText id="type" value="#{classRoom.type.toString}" />  
-                </p:column> 
-
-                <p:column headerText="Reservável" width="40">  
-                    <h:outputText id="bookable" value="#{classRoom.bookableConverter}" style="margin-left: 25%" /> 
-                </p:column> 
+                <p:column headerText="Tipo">  
+                    <h:outputText value="#{classRoom.type}" />  
+                </p:column>  
+                <p:column headerText="Reservável">  
+                    <h:outputText value="#{classRoom.bookableConverter}" />  
+                </p:column>  
 
                 <p:column headerText="Editar" style="width:6%"> 
                     <p:commandButton id="viewButton" icon="icn_edit_article"  
@@ -45,9 +39,7 @@
                 </p:column>  
                 <p:column headerText="Excluir" style="width:4%"> 
                     <p:commandButton id="viewButton2" icon="icn_trash" oncomplete="classRoomDelete.show()"/> 
-                </p:column>  
-
-
+                </p:column> 
             </p:dataTable> 
             <p:dialog id="dialog1" header="Editar Sala" widgetVar="classRoomEdit" resizable="false"  
                       width="400" showEffect="clip" hideEffect="fold">  
@@ -95,12 +87,12 @@
                     <p:commandButton id="editar" value="Cadastrar" action="#{listarSalas.editClassRoom}" ajax="false"/>
                 </h:panelGrid>
             </p:dialog>
-            
-             <p:confirmDialog id="dialog" message="Deseja excluir este registro?"  
-                header="Deletar registro" severity="alert" widgetVar="classRoomDelete"> 
-                 <p:commandButton value="Sim" style="margin-left: 25px;" actionListener="#{listarSalas.deleteClassRoom}" oncomplete="classRoomDelete.hide(); #{listarSalas.salas}"/>
-                 <p:commandButton value="Não" onclick="classRoomDelete.hide()" style="margin-left: 40px;"/>
-             </p:confirmDialog>
+
+            <p:confirmDialog id="dialog" message="Deseja excluir este registro?"  
+                             header="Deletar registro" severity="alert" widgetVar="classRoomDelete"> 
+                <p:commandButton value="Sim" style="margin-left: 25px;" actionListener="#{listarSalas.deleteClassRoom}" oncomplete="classRoomDelete.hide(); #{listarSalas.salas}"/>
+                <p:commandButton value="Não" onclick="classRoomDelete.hide()" style="margin-left: 40px;"/>
+            </p:confirmDialog>
 
         </h:form>
     </div>
