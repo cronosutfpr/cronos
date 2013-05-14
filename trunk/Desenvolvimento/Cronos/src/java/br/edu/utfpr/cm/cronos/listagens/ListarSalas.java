@@ -66,6 +66,7 @@ public class ListarSalas {
     }
     
     public String deleteClassRoom() {
+            System.out.println("deletando");
         DaoClassRoom dcr = new DaoClassRoom();
         dcr.remover(selectedClassRoom);
         
@@ -73,7 +74,7 @@ public class ListarSalas {
         FacesContext context = FacesContext.getCurrentInstance();
 
         context.addMessage(null, new FacesMessage("Successful", "Sala Excluida!"));
-        return "cad_salas";
+        return "del_salas";
 //        context.addMessage(null, new FacesMessage("Second Message", "Additional Info Here..."));
     }
 }

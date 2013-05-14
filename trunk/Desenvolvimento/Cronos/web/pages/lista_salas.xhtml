@@ -3,17 +3,13 @@
                 xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:f="http://java.sun.com/jsf/core">
     <div id="principal">
-        <h:form id="form">  
+        <h:form id="form" prependId="false">  
 
             <p:growl id="messages" showDetail="true"/> 
+            <p:growl id="growl" showDetail="true"/> 
 
             <p:dataTable var="classRoom" value="#{listarSalas.salas}" selection="#{listarSalas.selectedClassRoom}" rowKey="#{classRoom.id}" paginator="true" rows="10"  selectionMode="single" id="classRoomTable">  
-                <p:ajax event="rowSelect" update=":form" />   
-
-
-                <p:column headerText="Id">  
-                    <h:outputText value="#{classRoom.id}" />  
-                </p:column>  
+                <p:ajax event="rowSelect" update=":form" />    
 
                 <p:column headerText="Nome" resizable="true"> 
                     <h:outputText value="#{classRoom.name}" style="width:100%"/> 
@@ -23,7 +19,7 @@
                     <h:outputText value="#{classRoom.short}" style="width:100%"/> 
                 </p:column>  
 
-                <p:column headerText="Capacidade"> 
+                <p:column headerText="Capacidade" width="40"> 
                     <h:outputText value="#{classRoom.capacity}" style="width:100%"/>  
                 </p:column> 
 
@@ -39,14 +35,17 @@
                     <h:outputText id="type" value="#{classRoom.type.toString}" />  
                 </p:column> 
 
-                <p:column headerText="Reservável">  
+                <p:column headerText="Reservável" width="40">  
                     <h:outputText id="bookable" value="#{classRoom.bookableConverter}" style="margin-left: 25%" /> 
                 </p:column> 
 
-                <p:column style="width:6%"> 
+                <p:column headerText="Editar" style="width:6%"> 
                     <p:commandButton id="viewButton" icon="icn_edit_article"  
                                      update=":form" oncomplete="classRoomEdit.show()"/> 
-                </p:column>   
+                </p:column>  
+                <p:column headerText="Excluir" style="width:4%"> 
+                    <p:commandButton id="viewButton2" icon="icn_trash" oncomplete="classRoomDelete.show()"/> 
+                </p:column>  
 
 
             </p:dataTable> 
@@ -55,7 +54,7 @@
 
                 <h:panelGrid id="display" columns="3" cellpadding="4"> 
                     <h:inputHidden value="#{listarSalas.selectedClassRoom.id}" id="id" /> 
-                    
+
                     <h:outputLabel for="name" value="Nome: *" />  
                     <p:inputText id="name" value="#{listarSalas.selectedClassRoom.name}" required="true" label="Nome">  
                         <f:validateLength minimum="2" />  
@@ -82,7 +81,7 @@
                     <p:message for="owner" />
                     <h:outputText value="Tipo Sala: "/>  
                     <p:selectOneMenu value="#{classRoomBean.classroom.type}">  
-                         <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
+                        <f:selectItems value="#{typeBean.tiposSala}" var="t" itemLabel="#{t.nome}" itemValue="#{t}" /> 
                     </p:selectOneMenu>
 
                     <br></br>
@@ -93,17 +92,15 @@
                     </p:selectOneMenu>  
                 </h:panelGrid> 
                 <h:panelGrid style="margin-left: 100px;" columns="2" cellpadding="5">
-                    <p:commandButton value="Cadastrar" action="#{listarSalas.editClassRoom}" ajax="false"/>
+                    <p:commandButton id="editar" value="Cadastrar" action="#{listarSalas.editClassRoom}" ajax="false"/>
                 </h:panelGrid>
             </p:dialog>
             
-             <p:dialog id="dialog" header="Editar Sala" widgetVar="classRoomDelete" resizable="false"  
-                      width="400" showEffect="clip" hideEffect="fold"> 
-                 <h:outputLabel value="Deseja excluir este registro?" />
-                 <p:commandButton value="Sim" action="#{listarSalas.deleteClassRoom}" update="messages" ajax="true"/>
-                 <p:commandButton value="Nao" update=":display" ajax="false"/>
-                 
-             </p:dialog>
+             <p:confirmDialog id="dialog" message="Deseja excluir este registro?"  
+                header="Deletar registro" severity="alert" widgetVar="classRoomDelete"> 
+                 <p:commandButton value="Sim" style="margin-left: 25px;" actionListener="#{listarSalas.deleteClassRoom}" oncomplete="classRoomDelete.hide(); #{listarSalas.salas}"/>
+                 <p:commandButton value="Não" onclick="classRoomDelete.hide()" style="margin-left: 40px;"/>
+             </p:confirmDialog>
 
         </h:form>
     </div>
